@@ -155,7 +155,7 @@ export const psicometricsPagina = {
         precio: 'Desde [$49 USD]',
         detalle: 'Paquetes de 10, 20 o 50 informes',
         incluye: [
-          'Los créditos no caducan',
+          'Vigencia de 12 meses, que se renueva con cada compra',
           'Acceso a los seis módulos',
           'Descarga en formato editable',
           'Baremos, transferencias y acumulación normativa',
@@ -177,7 +177,7 @@ export const psicometricsPagina = {
         destacado: false,
       },
     ],
-    nota: 'Los precios están en dólares estadounidenses. La facturación en México se emite en pesos al tipo de cambio del día.',
+    nota: 'Los precios están en dólares estadounidenses. La facturación en México se emite en pesos al tipo de cambio del día. Los créditos tienen vigencia de 12 meses y cualquier compra nueva reactiva el saldo completo y reinicia el plazo.',
   },
 
   preguntas: {
@@ -208,6 +208,16 @@ export const psicometricsPagina = {
         pregunta: '¿Qué pasa si dejo de pagar?',
         respuesta:
           'Conservas el acceso para consultar y exportar tus expedientes. Los datos son tuyos y puedes llevártelos completos en cualquier momento.',
+      },
+      {
+        pregunta: '¿Los créditos caducan?',
+        respuesta:
+          'Tienen vigencia de 12 meses, y cualquier compra nueva reactiva el saldo completo y reinicia el plazo. Avisamos por correo 60 y 15 días antes del vencimiento, y la fecha está siempre visible en tu panel.',
+      },
+      {
+        pregunta: '¿Cómo se verifica que un informe es auténtico?',
+        respuesta:
+          'Cada informe firmado lleva un folio y un código de verificación. Cualquiera puede comprobar en línea quién lo emitió, con qué cédula y en qué fecha, sin acceder al contenido clínico. Un documento alterado deja de coincidir con su registro.',
       },
     ],
   },

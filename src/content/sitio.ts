@@ -16,9 +16,9 @@ export const sitio = {
    * orientación: una familia con un hijo que va rezagado también tiene que
    * reconocerse en esta línea.
    */
-  descriptor: 'Evaluación, formación y acompañamiento del desarrollo y el aprendizaje infantil',
+  descriptor: 'Evaluación y acompañamiento del aprendizaje infantil',
   /** Versión corta, para espacios estrechos. */
-  descriptorCorto: 'Desarrollo y aprendizaje infantil',
+  descriptorCorto: 'Aprendizaje infantil',
   operadora: 'Gebenz Consultoría y Negocios, S.A. de C.V.',
   dominio: 'https://trayectoliceo.com',
   descripcionMeta:
