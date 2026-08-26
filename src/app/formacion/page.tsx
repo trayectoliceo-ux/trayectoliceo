@@ -50,7 +50,7 @@ export default function PaginaFormacion() {
                 <div>
                   <p className="etiqueta text-institucional">{programa.tipo}</p>
                   <h2 className="mt-4 max-w-[20ch] text-t2 sm:text-t1">{programa.titulo}</h2>
-                  <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+                  <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
                     {programa.resumen}
                   </p>
                 </div>

@@ -74,7 +74,7 @@ export default async function PaginaArticulo({ params }: Props) {
               <h1 className="mt-4 max-w-[22ch] text-t1 sm:text-[3rem] sm:leading-[1.1]">
                 {articulo.titulo}
               </h1>
-              <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+              <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
                 {articulo.entradilla}
               </p>
               <p className="mt-8 font-mono text-etiqueta uppercase text-gris">

@@ -53,6 +53,25 @@
 }
 
 @layer components {
+  /*
+    Texto justificado.
+
+    En web, justificar sin partición de palabras abre «ríos» de espacio
+    blanco entre palabras, sobre todo en columnas estrechas y en español,
+    que tiene palabras largas. La combinación con `hyphens: auto` lo
+    resuelve: el navegador parte las palabras con las reglas del idioma
+    declarado en <html lang="es-MX">.
+
+    Se aplica solo a párrafos de lectura. Nunca a titulares, botones,
+    etiquetas ni listas cortas, donde el justificado deforma el ritmo.
+  */
+  .justificado {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    text-wrap: pretty;
+  }
+
   /* Etiqueta de metadato: la voz del expediente. */
   .etiqueta {
     @apply font-sans text-etiqueta font-semibold uppercase tracking-[0.1em] text-institucional;

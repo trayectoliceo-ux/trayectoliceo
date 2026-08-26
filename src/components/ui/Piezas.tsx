@@ -30,7 +30,7 @@ export function EncabezadoSeccion({
         {titulo}
       </h2>
       {entrada ? (
-        <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">{entrada}</p>
+        <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">{entrada}</p>
       ) : null}
     </Revelar>
   );

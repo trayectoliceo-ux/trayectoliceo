@@ -72,7 +72,7 @@ export function PortadaPsicoMetrics() {
             initial={{ opacity: 0, y: reducido ? 0 : 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: duracion.base, delay: 0.4, ease: curva.salidaSuave }}
-            className="mt-8 max-w-lectura text-cuerpo-lg text-tinta-suave"
+            className="mt-8 max-w-lectura text-cuerpo-lg text-tinta-suave justificado"
           >
             {pm.portada.entrada}
           </motion.p>

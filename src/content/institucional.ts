@@ -151,7 +151,7 @@ export const nosotros = {
   etiqueta: 'Nosotros',
   titulo: 'Un método declarado es un método que se puede discutir.',
   entrada:
-    'Trayecto Liceo es la marca de formación y acompañamiento en detección y desarrollo del talento infantil, operada por Gebenz Consultoría y Negocios, S.A. de C.V.',
+    'Trayecto Liceo es la marca de evaluación, formación y acompañamiento del desarrollo y el aprendizaje infantil, operada por Gebenz Consultoría y Negocios, S.A. de C.V. Trabajamos tanto con el niño que va muy por delante como con el que se está quedando atrás: en ambos casos el punto de partida es el mismo, identificar qué está pasando.',
 
   enfoque: [
     {

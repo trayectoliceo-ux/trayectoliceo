@@ -10,12 +10,19 @@ export const sitio = {
   /**
    * El descriptor acompaña al logotipo en cabecera y pie sin excepción.
    * Sin él, «Liceo» se lee como colegio.
+   *
+   * Habla de «desarrollo y aprendizaje» y no solo de «talento» porque el
+   * trabajo cubre altas capacidades, dificultades de aprendizaje y
+   * orientación: una familia con un hijo que va rezagado también tiene que
+   * reconocerse en esta línea.
    */
-  descriptor: 'Detección, formación y acompañamiento del talento infantil',
+  descriptor: 'Evaluación, formación y acompañamiento del desarrollo y el aprendizaje infantil',
+  /** Versión corta, para espacios estrechos. */
+  descriptorCorto: 'Desarrollo y aprendizaje infantil',
   operadora: 'Gebenz Consultoría y Negocios, S.A. de C.V.',
   dominio: 'https://trayectoliceo.com',
   descripcionMeta:
-    'Detección y desarrollo de altas capacidades en Puebla: talleres STEAM para niños, diplomados para psicólogos y orientadores, y certificación de colegios que identifican talento.',
+    'Evaluación psicopedagógica en Puebla: altas capacidades, dificultades de aprendizaje y orientación. Talleres STEAM, formación para profesionales y la plataforma PsicoMetrics.',
   /**
    * Palabras clave de referencia para redactar títulos y descripciones.
    * Next.js ya no usa la etiqueta meta keywords: esto es una guía editorial,

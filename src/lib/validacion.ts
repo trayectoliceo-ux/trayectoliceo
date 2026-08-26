@@ -51,8 +51,14 @@ export function validarCampo(
       return undefined;
 
     case 'cargo':
-      if (perfil !== 'colegio') return undefined;
-      if (!texto) return 'Indica tu cargo en la institución.';
+      if (perfil === 'colegio') {
+        if (!texto) return 'Indica tu cargo en la institución.';
+        return undefined;
+      }
+      if (perfil === 'profesional') {
+        if (!texto) return 'Indica tu especialidad.';
+        return undefined;
+      }
       return undefined;
 
     case 'numeroEspecialistas':
@@ -98,7 +104,7 @@ export function camposDelPerfil(perfil: Perfil): (keyof DatosContacto)[] {
   if (perfil === 'familia') return [...comunes, 'edadMenor', 'gradoEscolar'];
   if (perfil === 'colegio')
     return [...comunes, 'cargo', 'institucion', 'numeroAlumnos', 'numeroEspecialistas'];
-  return [...comunes, 'cedula'];
+  return [...comunes, 'cedula', 'cargo'];
 }
 
 export function validarFormulario(

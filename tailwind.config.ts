@@ -59,13 +59,13 @@ const config: Config = {
       fontSize: {
         // Escala editorial: los saltos grandes solo existen en titulares.
         etiqueta: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.1em' }],
-        menudo: ['0.8125rem', { lineHeight: '1.4rem' }],
-        cuerpo: ['1rem', { lineHeight: '1.7rem' }],
-        'cuerpo-lg': ['1.125rem', { lineHeight: '1.85rem' }],
-        entrada: ['clamp(1.375rem, 2vw, 1.625rem)', { lineHeight: '1.35' }],
-        t3: ['clamp(1.5rem, 2.2vw, 1.875rem)', { lineHeight: '1.25', letterSpacing: '-0.015em' }],
-        t2: ['clamp(2rem, 4vw, 2.875rem)', { lineHeight: '1.12', letterSpacing: '-0.022em' }],
-        t1: ['clamp(2.5rem, 5.5vw, 4rem)', { lineHeight: '1.06', letterSpacing: '-0.028em' }],
+        menudo: ['0.9375rem', { lineHeight: '1.6rem' }],
+        cuerpo: ['1.0625rem', { lineHeight: '1.75rem' }],
+        'cuerpo-lg': ['1.25rem', { lineHeight: '1.9rem' }],
+        entrada: ['clamp(1.5rem, 2.3vw, 1.875rem)', { lineHeight: '1.3' }],
+        t3: ['clamp(1.75rem, 2.6vw, 2.125rem)', { lineHeight: '1.22', letterSpacing: '-0.018em' }],
+        t2: ['clamp(2.25rem, 4.5vw, 3.25rem)', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
+        t1: ['clamp(2.75rem, 6vw, 4.5rem)', { lineHeight: '1.04', letterSpacing: '-0.03em' }],
         /** Titular de portada. Deliberadamente grande: es el gancho. */
         portada: ['clamp(3rem, 8.5vw, 6.25rem)', { lineHeight: '0.98', letterSpacing: '-0.035em' }],
       },

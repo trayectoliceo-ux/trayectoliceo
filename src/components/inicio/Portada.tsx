@@ -89,7 +89,7 @@ export function Portada() {
                 delay: finDelTitular - 0.4,
                 ease: curva.salidaSuave,
               }}
-              className="max-w-lectura text-cuerpo-lg text-tinta-suave sm:text-entrada sm:leading-[1.5]"
+              className="max-w-lectura text-cuerpo-lg text-tinta-suave justificado sm:text-entrada sm:leading-[1.5]"
             >
               {portada.subtitulo}
             </motion.p>

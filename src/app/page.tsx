@@ -89,7 +89,7 @@ export default function PaginaInicio() {
               <div className="flex flex-1 flex-col p-7">
                 <p className="etiqueta">{bloque.indice}</p>
                 <h3 className="mt-3 text-t3">{bloque.titulo}</h3>
-                <p className="mt-3 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+                <p className="mt-3 flex-1 text-menudo leading-[1.7] text-tinta-suave justificado">
                   {bloque.resumen}
                 </p>
                 <div className="mt-5">

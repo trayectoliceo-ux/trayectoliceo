@@ -76,7 +76,7 @@ export default function PaginaAvisoDePrivacidad() {
           {apartados.map((apartado) => (
             <Revelar key={apartado.titulo} desplazamiento={8} className="mb-10">
               <h2 className="text-t3">{apartado.titulo}</h2>
-              <p className="mt-3 text-cuerpo leading-[1.75] text-tinta-suave">
+              <p className="mt-3 text-cuerpo leading-[1.75] text-tinta-suave justificado">
                 {apartado.cuerpo}
               </p>
             </Revelar>

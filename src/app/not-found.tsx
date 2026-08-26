@@ -7,7 +7,7 @@ export default function NoEncontrado() {
     <section className="contenedor flex min-h-[60vh] flex-col justify-center py-seccion">
       <p className="etiqueta">Error 404</p>
       <h1 className="mt-5 max-w-[18ch] text-t1">Esta página no existe o cambió de dirección.</h1>
-      <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+      <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
         Puedes volver al inicio o ir directamente a la sección que buscabas.
       </p>
 

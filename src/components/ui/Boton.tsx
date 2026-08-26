@@ -9,7 +9,7 @@ type Tono = 'solido' | 'contorno' | 'claro';
 
 const tonos: Record<Tono, string> = {
   solido:
-    'bg-institucional text-papel border border-institucional hover:bg-tinta hover:border-tinta',
+    'bg-institucional text-papel border border-institucional hover:bg-institucional-hondo hover:border-institucional-hondo',
   contorno:
     'bg-transparent text-institucional border border-institucional/40 hover:border-institucional hover:bg-institucional/[0.04]',
   claro:
@@ -17,7 +17,7 @@ const tonos: Record<Tono, string> = {
 };
 
 const base =
-  'inline-flex min-h-[44px] items-center justify-center gap-2 rounded px-6 py-3 font-sans text-menudo font-medium tracking-[0.01em] transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50';
+  'inline-flex min-h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded px-7 py-3.5 font-sans text-cuerpo font-semibold transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50';
 
 type PropsComunes = {
   children: ReactNode;

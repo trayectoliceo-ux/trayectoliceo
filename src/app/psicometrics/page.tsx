@@ -37,7 +37,7 @@ export default function PaginaPsicoMetrics() {
           </Revelar>
           <Revelar retraso={0.06} className="space-y-6 lg:pt-4">
             {pm.origen.parrafos.map((parrafo) => (
-              <p key={parrafo} className="max-w-lectura text-cuerpo-lg text-tinta-suave">
+              <p key={parrafo} className="max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
                 {parrafo}
               </p>
             ))}
@@ -50,7 +50,7 @@ export default function PaginaPsicoMetrics() {
         <Revelar>
           <p className="etiqueta">{pm.comparativa.etiqueta}</p>
           <h2 className="mt-5 max-w-[16ch] text-t1">{pm.comparativa.titulo}</h2>
-          <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+          <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
             {pm.comparativa.entrada}
           </p>
         </Revelar>
@@ -121,7 +121,7 @@ export default function PaginaPsicoMetrics() {
                 {modulo.indice}
               </span>
               <h3 className="mt-5 max-w-[22ch] text-entrada">{modulo.titulo}</h3>
-              <p className="mt-3 max-w-[52ch] text-menudo leading-[1.7] text-tinta-suave">
+              <p className="mt-3 max-w-[52ch] text-menudo leading-[1.7] text-tinta-suave justificado">
                 {modulo.descripcion}
               </p>
             </ElementoRevelar>
@@ -144,7 +144,7 @@ export default function PaginaPsicoMetrics() {
               className="border-t border-linea-oscura pt-7"
             >
               <h3 className="max-w-[22ch] text-t3 text-papel">{bloque.titulo}</h3>
-              <p className="mt-4 max-w-lectura text-cuerpo leading-[1.75] text-papel/80">
+              <p className="mt-4 max-w-lectura text-cuerpo leading-[1.75] text-papel/80 justificado">
                 {bloque.descripcion}
               </p>
             </ElementoRevelar>
@@ -157,7 +157,7 @@ export default function PaginaPsicoMetrics() {
         <Revelar>
           <p className="etiqueta">{pm.precios.etiqueta}</p>
           <h2 className="mt-5 text-t1">{pm.precios.titulo}</h2>
-          <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+          <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
             {pm.precios.entrada}
           </p>
         </Revelar>

@@ -50,7 +50,7 @@ export default function PaginaNosotros() {
               className="border-t border-linea pt-6"
             >
               <h3 className="max-w-[20ch] text-entrada leading-[1.3]">{punto.titulo}</h3>
-              <p className="mt-3 text-menudo leading-[1.65] text-tinta-suave">
+              <p className="mt-3 text-menudo leading-[1.65] text-tinta-suave justificado">
                 {punto.descripcion}
               </p>
             </ElementoRevelar>
@@ -66,7 +66,7 @@ export default function PaginaNosotros() {
             <h2 className="mt-5 max-w-[18ch] text-t2">
               Lo que enseñamos, y de dónde viene.
             </h2>
-            <p className="mt-6 max-w-lectura text-cuerpo text-tinta-suave">
+            <p className="mt-6 max-w-lectura text-cuerpo text-tinta-suave justificado justificado">
               Declaramos los modelos que sostienen nuestros programas para que puedan
               contrastarse. Un método que no cita sus fuentes no se puede discutir.
             </p>

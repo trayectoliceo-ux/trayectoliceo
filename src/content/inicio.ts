@@ -16,13 +16,13 @@ export const portada = {
    * Cada palabra completa la frase con una lectura distinta del mismo
    * comportamiento. Es el argumento entero del negocio en cuatro palabras.
    */
-  rotativas: ['desmotivado.', 'distraído.', 'mal portado.', 'identificado.'],
+  rotativas: ['desmotivado.', 'distraído.', 'mal portado.', 'evaluado.'],
   subtitulo:
     'Detectar altas capacidades o barreras de aprendizaje no es intuición: es un procedimiento reglado. Acompañamos a familias con evaluación psicopedagógica y damos a las escuelas la infraestructura para hacerlo a escala.',
   /** Segmentar aquí ahorra al visitante recorrer la página entera. */
   acciones: [
-    { titulo: 'Soy familia · Quiero un diagnóstico', href: '/contacto', tono: 'solido' as const },
-    { titulo: 'Soy institución · Ver PsicoMetrics', href: '/psicometrics', tono: 'contorno' as const },
+    { titulo: 'Quiero una evaluación', href: '/contacto', tono: 'solido' as const },
+    { titulo: 'Conocer PsicoMetrics', href: '/psicometrics', tono: 'contorno' as const },
   ],
   /** Marcas de la línea de trayecto en la portada. Son etapas, no adornos. */
   hitos: ['Detección', 'Evaluación', 'Enriquecimiento', 'Trayectoria'],

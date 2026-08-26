@@ -45,13 +45,13 @@ export function Logotipo({
 
       <span className="flex flex-col">
         <span
-          className={`font-display text-[1.3125rem] leading-[1.15] tracking-[-0.015em] sm:text-[1.4375rem] ${colorNombre}`}
+          className={`font-display text-[1.375rem] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[1.5rem] ${colorNombre}`}
         >
           {sitio.nombre}
         </span>
         {conDescriptor ? (
           <span
-            className={`mt-1 max-w-[26ch] font-sans text-[0.6875rem] leading-[1.35] tracking-[0.01em] ${colorDescriptor}`}
+            className={`mt-1 hidden max-w-[34ch] font-sans text-[0.75rem] leading-[1.3] tracking-[0.005em] sm:block ${colorDescriptor}`}
           >
             {sitio.descriptor}
           </span>

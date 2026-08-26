@@ -33,7 +33,7 @@ export function CabeceraPagina({
         <div className="lg:pt-16">
           {entrada ? (
             <Revelar retraso={0.06} desplazamiento={8}>
-              <p className="max-w-lectura text-cuerpo-lg text-tinta-suave">{entrada}</p>
+              <p className="max-w-lectura text-cuerpo-lg text-tinta-suave justificado">{entrada}</p>
             </Revelar>
           ) : null}
 

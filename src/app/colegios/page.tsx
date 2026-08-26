@@ -35,7 +35,7 @@ export default function PaginaColegios() {
       <Seccion>
         <Revelar>
           <h2 className="text-t2">Dos alcances distintos</h2>
-          <p className="mt-4 max-w-lectura text-cuerpo text-tinta-suave">
+          <p className="mt-4 max-w-lectura text-cuerpo text-tinta-suave justificado justificado">
             Una capacitación forma al equipo. Una certificación cambia lo que el centro hace
             cuando aparece un caso, y se revisa cada ciclo escolar.
           </p>
@@ -48,7 +48,7 @@ export default function PaginaColegios() {
           >
             <p className="etiqueta">{capacitacion.etiqueta}</p>
             <h3 className="mt-4 text-t3">{capacitacion.titulo}</h3>
-            <p className="mt-3 text-menudo leading-[1.65] text-tinta-suave">
+            <p className="mt-3 text-menudo leading-[1.65] text-tinta-suave justificado">
               {capacitacion.resumen}
             </p>
             <ul className="mt-7 flex-1 border-t border-linea">
@@ -131,7 +131,7 @@ export default function PaginaColegios() {
             <h2 className="mt-5 max-w-[18ch] text-t2">
               Documentos, formación y un sello que se revisa.
             </h2>
-            <p className="mt-6 max-w-lectura text-cuerpo text-tinta-suave">
+            <p className="mt-6 max-w-lectura text-cuerpo text-tinta-suave justificado justificado">
               El sello tiene vigencia de un ciclo escolar. La renovación exige evidencia de
               que el protocolo se aplicó, no solo la contratación del año siguiente.
             </p>

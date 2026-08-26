@@ -39,12 +39,27 @@ const perfiles: {
     accion: 'Solicitar diagnóstico familiar',
   },
   {
+    valor: 'profesional',
+    titulo: 'Soy profesional',
+    pie: 'Psicología, psicopedagogía u orientación',
+    icono: '◈',
+    accion: 'Solicitar acceso profesional',
+  },
+  {
     valor: 'colegio',
     titulo: 'Represento una institución',
     pie: 'Colegio, clínica o gabinete',
     icono: '▤',
     accion: 'Solicitar demostración',
   },
+];
+
+/** Intereses del profesional independiente. Define a qué área se deriva. */
+const interesesProfesionales = [
+  'Usar PsicoMetrics en mi consulta',
+  'Formación en detección y evaluación de altas capacidades',
+  'Recibir derivaciones de casos',
+  'Convenio de colaboración',
 ];
 
 /** Motivos de consulta. Es el dato que más ordena la agenda del equipo. */
@@ -135,7 +150,7 @@ export function FormularioInteligente() {
           ✓
         </span>
         <h3 className="mt-6 text-t3">Solicitud recibida.</h3>
-        <p className="mt-4 max-w-lectura text-cuerpo text-tinta-suave">
+        <p className="mt-4 max-w-lectura text-cuerpo text-tinta-suave justificado justificado">
           {datos.perfil === 'familia'
             ? 'Te escribimos en un plazo de dos días hábiles para agendar la primera conversación, que es sin costo.'
             : 'Un miembro del equipo te contacta en dos días hábiles para coordinar la demostración con tu departamento de orientación.'}
@@ -169,7 +184,7 @@ export function FormularioInteligente() {
       {/* Selector de perfil: decide todo lo que viene después. */}
       <fieldset>
         <legend className="sr-only">Selecciona tu perfil</legend>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-3">
           {perfiles.map((opcion) => {
             const activo = datos.perfil === opcion.valor;
             return (
@@ -271,7 +286,61 @@ export function FormularioInteligente() {
             transition={{ duration: duracion.base, ease: curva.salidaSuave }}
             className="grid gap-x-5 gap-y-6 sm:col-span-2 sm:grid-cols-2"
           >
-            {datos.perfil === 'familia' ? (
+            {datos.perfil === 'profesional' ? (
+              <>
+                <Campo
+                  id={`${idBase}-cedula`}
+                  etiqueta="Cédula profesional"
+                  inputMode="numeric"
+                  ayuda="Se verifica antes de dar acceso a expedientes"
+                  valor={datos.cedula ?? ''}
+                  error={errores.cedula}
+                  onChange={(v) => actualizar('cedula', v)}
+                  onBlur={() => alSalir('cedula')}
+                />
+                <Campo
+                  id={`${idBase}-especialidad`}
+                  etiqueta="Especialidad"
+                  ayuda="Por ejemplo: psicología educativa"
+                  valor={datos.cargo ?? ''}
+                  error={errores.cargo}
+                  onChange={(v) => actualizar('cargo', v)}
+                  onBlur={() => alSalir('cargo')}
+                />
+
+                <fieldset className="sm:col-span-2">
+                  <legend className="text-menudo font-semibold text-tinta">
+                    ¿Qué te interesa?
+                  </legend>
+                  <p className="mt-1 text-menudo text-gris">
+                    Puedes marcar más de una opción.
+                  </p>
+                  <div className="mt-3 grid gap-2">
+                    {interesesProfesionales.map((interes) => {
+                      const marcado = (datos.motivos ?? []).includes(interes);
+                      return (
+                        <label
+                          key={interes}
+                          className={`flex min-h-[44px] cursor-pointer items-center gap-3 rounded border px-4 py-3 text-menudo transition-colors duration-150 ${
+                            marcado
+                              ? 'border-institucional bg-institucional/[0.05] text-tinta'
+                              : 'border-linea text-tinta-suave hover:border-institucional/40'
+                          }`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={marcado}
+                            onChange={() => alternarMotivo(interes)}
+                            className="h-4 w-4 shrink-0 accent-institucional"
+                          />
+                          <span>{interes}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </fieldset>
+              </>
+            ) : datos.perfil === 'familia' ? (
               <>
                 <Campo
                   id={`${idBase}-edad`}

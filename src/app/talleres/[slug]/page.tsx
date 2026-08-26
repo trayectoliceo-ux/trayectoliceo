@@ -69,7 +69,7 @@ export default async function PaginaTaller({ params }: Props) {
                 <h1 className="mt-4 max-w-[18ch] text-t1 sm:text-[3.25rem] sm:leading-[1.08]">
                   {taller.titulo}
                 </h1>
-                <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+                <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
                   {taller.resumen}
                 </p>
               </div>
@@ -110,7 +110,7 @@ export default async function PaginaTaller({ params }: Props) {
               <h2 className="text-t3">Cómo se trabaja</h2>
               <div className="mt-5 space-y-5">
                 {taller.descripcion.map((parrafo) => (
-                  <p key={parrafo} className="max-w-lectura text-cuerpo text-tinta-suave">
+                  <p key={parrafo} className="max-w-lectura text-cuerpo text-tinta-suave justificado">
                     {parrafo}
                   </p>
                 ))}
