@@ -18,10 +18,11 @@ export const portada = {
    */
   rotativas: ['desmotivado.', 'distraído.', 'mal portado.', 'identificado.'],
   subtitulo:
-    'A veces está sin identificar. Detectarlo no es intuición: es un procedimiento, y alguien tiene que saber aplicarlo.',
+    'Detectar altas capacidades o barreras de aprendizaje no es intuición: es un procedimiento reglado. Acompañamos a familias con evaluación psicopedagógica y damos a las escuelas la infraestructura para hacerlo a escala.',
+  /** Segmentar aquí ahorra al visitante recorrer la página entera. */
   acciones: [
-    { titulo: 'Programas para familias', href: '/talleres', tono: 'solido' as const },
-    { titulo: 'Programas para colegios', href: '/colegios', tono: 'contorno' as const },
+    { titulo: 'Soy familia · Quiero un diagnóstico', href: '/contacto', tono: 'solido' as const },
+    { titulo: 'Soy institución · Ver PsicoMetrics', href: '/psicometrics', tono: 'contorno' as const },
   ],
   /** Marcas de la línea de trayecto en la portada. Son etapas, no adornos. */
   hitos: ['Detección', 'Evaluación', 'Enriquecimiento', 'Trayectoria'],
@@ -71,36 +72,36 @@ export const problema = {
 };
 
 export const queHacemos = {
-  etiqueta: 'Qué hacemos',
-  titulo: 'Tres frentes, un mismo método.',
+  etiqueta: 'Para familias',
+  titulo: 'Acompañamiento completo, del diagnóstico al aula.',
   entrada:
-    'Formamos al docente que lo detecta y al profesional que lo evalúa. Y mientras tanto, trabajamos con el niño.',
+    'Un proceso con principio y final, no una consulta suelta. Cada fase decide si tiene sentido pasar a la siguiente.',
   bloques: [
     {
-      indice: 'I',
-      titulo: 'Talleres STEAM',
+      indice: '01',
+      titulo: 'Evaluación y diagnóstico',
       resumen:
-        'Enriquecimiento por proyectos para niños y jóvenes, sin techo de dificultad. El alumno avanza hasta donde llega, no hasta donde marca el grupo.',
-      href: '/talleres',
-      accion: 'Ver talleres',
+        'Identificamos altas capacidades, aptitudes sobresalientes o dificultades de aprendizaje con instrumentos estandarizados y baremos vigentes. Siempre con profesional acreditado.',
+      href: '/contacto',
+      accion: 'Agendar valoración',
       imagen: { src: undefined as string | undefined, descripcion: 'Mesa de trabajo con materiales de prototipado, vista cenital' },
     },
     {
-      indice: 'II',
-      titulo: 'Formación profesional',
+      indice: '02',
+      titulo: 'Talleres y enriquecimiento',
       resumen:
-        'Diplomados y cursos para psicólogos, psicopedagogos y orientadores que quieren especializarse en detección y evaluación de altas capacidades.',
-      href: '/formacion',
-      accion: 'Ver programas',
+        'Programas por proyectos sin techo de dificultad, para que el alumno encuentre por fin resistencia real en vez de aburrimiento y frustración en el aula.',
+      href: '/talleres',
+      accion: 'Ver talleres',
       imagen: { src: undefined as string | undefined, descripcion: 'Protocolo de evaluación anotado a mano sobre escritorio' },
     },
     {
-      indice: 'III',
-      titulo: 'Programas para colegios',
+      indice: '03',
+      titulo: 'Orientación familiar',
       resumen:
-        'Capacitación del claustro en el propio centro y certificación anual como Escuela que identifica talento, con protocolo de derivación incluido.',
-      href: '/colegios',
-      accion: 'Ver programas',
+        'Informe detallado con pautas concretas para aplicar en casa y para plantear al colegio. Por escrito, con responsables y plazos, no con recomendaciones vagas.',
+      href: '/trayectoria',
+      accion: 'Conocer el servicio',
       imagen: { src: undefined as string | undefined, descripcion: 'Aula vacía con luz lateral, pupitres alineados' },
     },
   ],
@@ -215,6 +216,16 @@ export const preguntas = {
       pregunta: '¿Qué pasa si el colegio no quiere colaborar?',
       respuesta:
         'Es frecuente y se puede trabajar igual. El acompañamiento avanza con la familia y el alumno, y preparamos la documentación para plantear el caso al centro cuando exista disposición. También ofrecemos capacitación al claustro si el colegio decide abrirse al tema.',
+    },
+    {
+      pregunta: '¿Cómo protegen los datos de mi hijo?',
+      respuesta:
+        'El expediente de trabajo opera bajo identificador, separado de los datos de identificación, que viajan y se almacenan cifrados. Los accesos quedan registrados y nada se usa fuera de lo que autorices por escrito.',
+    },
+    {
+      pregunta: '¿Qué validez tiene el informe que entregan?',
+      respuesta:
+        'Lo firma un profesional con cédula, que responde por su contenido. Sirve para plantear el caso ante el colegio y para orientar decisiones académicas. No es un documento oficial de la autoridad educativa, y nadie serio te dirá lo contrario.',
     },
     {
       pregunta: '¿Atienden fuera de Puebla?',

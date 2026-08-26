@@ -1,7 +1,7 @@
 import { CabeceraPagina } from '@/components/ui/CabeceraPagina';
 import { Seccion } from '@/components/ui/Piezas';
 import { Revelar } from '@/components/ui/Revelar';
-import { FormularioContacto } from '@/components/contacto/FormularioContacto';
+import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { enlaceWhatsApp, sitio } from '@/content/sitio';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
@@ -86,7 +86,7 @@ export default function PaginaContacto() {
           </Revelar>
 
           <Revelar retraso={0.06}>
-            <FormularioContacto />
+            <FormularioInteligente />
           </Revelar>
         </div>
       </Seccion>

@@ -3,51 +3,62 @@ import type { Config } from 'tailwindcss';
 /**
  * Sistema visual de Trayecto Liceo.
  *
- * La paleta se deriva del logotipo. Analizado por matiz, el logotipo es en
- * un 63 % azul, índigo y turquesa, y solo un 18 % cálido: no es realmente
- * un arcoíris, es una familia fría con un acento ámbar. El sitio adopta esa
- * misma proporción —índigo institucional, turquesa secundario, ámbar
- * reservado a acreditación y llamadas— para que la marca y la página se
- * reconozcan como una sola cosa sin trasladar la saturación del logotipo a
- * superficies grandes.
+ * Dirección tecnológica corporativa: fondos casi blancos, azul profundo
+ * como texto, azul eléctrico institucional y menta reservada a
+ * confirmación. Geometría limpia y radios generosos (estilo bento).
+ *
+ * Los nombres de los tokens no cambian aunque cambien los valores: así el
+ * rediseño se propaga a todo el sitio sin tocar componente por componente.
+ * Todos los pares cumplen contraste AA sobre los dos fondos.
  */
 const config: Config = {
   content: ['./src/**/*.{ts,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
-        /** Papel neutro frío, con el mismo sesgo azul del logotipo. */
+        /** Gris ultraclaro, no blanco puro: descansa la vista en textos largos. */
         papel: {
-          DEFAULT: '#F1F2F5',
-          hondo: '#E5E7EE',
+          DEFAULT: '#F8FAFC',
+          hondo: '#F1F5F9',
+          puro: '#FFFFFF',
         },
-        /** Azul de noche: el índigo del logotipo llevado casi al negro. */
+        /** Azul corporativo oscuro en lugar de negro. */
         tinta: {
-          DEFAULT: '#151827',
-          suave: '#3B3F52',
+          DEFAULT: '#0F172A',
+          suave: '#475569',
         },
-        /** Índigo del hemisferio, el color de mayor superficie de la marca. */
+        /** Azul eléctrico: acción, enlaces, elementos activos. */
         institucional: {
-          DEFAULT: '#363C8E',
-          claro: '#166F84',
+          DEFAULT: '#1D4ED8',
+          claro: '#2563EB',
+          hondo: '#1E3A8A',
         },
-        /** Ámbar del anillo, oscurecido hasta cumplir contraste de texto. */
+        /** Menta: confirmación, verificación, seguridad. Nunca decorativa. */
+        menta: {
+          DEFAULT: '#047857',
+          claro: '#10B981',
+          brillo: '#6EE7B7',
+        },
+        /** Reservado a errores de formulario y avisos legales. */
         sello: {
-          DEFAULT: '#8C5809',
-          claro: '#E4A63C',
+          DEFAULT: '#B91C1C',
+          claro: '#F59E0B',
         },
-        gris: '#5F6478',
-        linea: '#D6D9E3',
-        'linea-oscura': '#2E3560',
+        gris: '#64748B',
+        linea: '#E2E8F0',
+        'linea-oscura': '#1E293B',
       },
       fontFamily: {
-        display: ['var(--fuente-display)', 'Georgia', 'serif'],
+        /** Plus Jakarta Sans: geométrica, con carácter en pesos altos. */
+        display: ['var(--fuente-display)', 'system-ui', 'sans-serif'],
+        /** Inter: la referencia en legibilidad de interfaz. */
         sans: ['var(--fuente-sans)', 'system-ui', 'sans-serif'],
+        /** Datos, etiquetas y códigos. */
         mono: ['var(--fuente-mono)', 'ui-monospace', 'monospace'],
       },
       fontSize: {
         // Escala editorial: los saltos grandes solo existen en titulares.
-        etiqueta: ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.14em' }],
+        etiqueta: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.1em' }],
         menudo: ['0.8125rem', { lineHeight: '1.4rem' }],
         cuerpo: ['1rem', { lineHeight: '1.7rem' }],
         'cuerpo-lg': ['1.125rem', { lineHeight: '1.85rem' }],
@@ -63,10 +74,15 @@ const config: Config = {
         contenido: '72rem',
       },
       borderRadius: {
-        // Radios mínimos: institución, no aplicación.
-        DEFAULT: '2px',
-        md: '3px',
-        lg: '4px',
+        // Radios generosos: producto digital, no papelería.
+        DEFAULT: '10px',
+        md: '14px',
+        lg: '20px',
+        xl: '28px',
+      },
+      boxShadow: {
+        tarjeta: '0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -12px rgba(15,23,42,0.10)',
+        elevada: '0 2px 4px rgba(15,23,42,0.04), 0 20px 48px -20px rgba(15,23,42,0.18)',
       },
       spacing: {
         seccion: '5.5rem',

@@ -33,9 +33,14 @@ export type DatosContacto = {
   mensaje: string;
   /** Solo perfil `familia`. */
   edadMenor?: string;
+  gradoEscolar?: string;
+  /** Motivos marcados en el checklist. Es el dato que ordena la agenda. */
+  motivos?: string[];
   /** Solo perfil `colegio`. */
   institucion?: string;
+  cargo?: string;
   numeroAlumnos?: string;
+  numeroEspecialistas?: string;
   /** Solo perfil `profesional`. */
   cedula?: string;
   /** Origen de la solicitud, para saber desde qué página se escribió. */

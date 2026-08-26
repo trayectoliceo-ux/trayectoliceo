@@ -37,7 +37,7 @@
   h1,
   h2,
   h3 {
-    @apply font-display font-normal text-balance;
+    @apply font-display font-bold text-balance;
   }
 
   p {
@@ -55,7 +55,7 @@
 @layer components {
   /* Etiqueta de metadato: la voz del expediente. */
   .etiqueta {
-    @apply font-mono text-etiqueta uppercase tracking-[0.14em] text-gris;
+    @apply font-sans text-etiqueta font-semibold uppercase tracking-[0.1em] text-institucional;
   }
 
   .contenedor {

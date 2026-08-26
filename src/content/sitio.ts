@@ -75,12 +75,10 @@ export const sitio = {
    * menú móvil y en el pie, donde hay espacio para el nombre completo.
    */
   navegacion: [
-    { titulo: 'Talleres STEAM', corto: 'Talleres', href: '/talleres' },
+    { titulo: 'Para familias', corto: 'Familias', href: '/talleres' },
+    { titulo: 'Para colegios', corto: 'Colegios', href: '/colegios' },
     { titulo: 'Formación profesional', corto: 'Formación', href: '/formacion' },
-    { titulo: 'Programas para colegios', corto: 'Colegios', href: '/colegios' },
     { titulo: 'PsicoMetrics', corto: 'PsicoMetrics', href: '/psicometrics', destacado: true },
-    { titulo: 'Orientación de trayectoria', corto: 'Trayectoria', href: '/trayectoria' },
-    { titulo: 'Nosotros', corto: 'Nosotros', href: '/nosotros' },
     { titulo: 'Recursos', corto: 'Recursos', href: '/recursos' },
   ],
 

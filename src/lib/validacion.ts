@@ -45,6 +45,22 @@ export function validarCampo(
         return 'Trabajamos con edades de 3 a 18 años.';
       return undefined;
 
+    case 'gradoEscolar':
+      if (perfil !== 'familia') return undefined;
+      if (!texto) return 'Indica el grado escolar que cursa.';
+      return undefined;
+
+    case 'cargo':
+      if (perfil !== 'colegio') return undefined;
+      if (!texto) return 'Indica tu cargo en la institución.';
+      return undefined;
+
+    case 'numeroEspecialistas':
+      if (perfil !== 'colegio') return undefined;
+      if (!texto) return 'Indica cuántos especialistas usarían la plataforma.';
+      if (!/^\d{1,4}$/.test(texto)) return 'Escribe solo dígitos.';
+      return undefined;
+
     case 'institucion':
       if (perfil !== 'colegio') return undefined;
       if (!texto) return 'Escribe el nombre del centro.';
@@ -62,9 +78,8 @@ export function validarCampo(
       if (!/^\d{6,9}$/.test(texto)) return 'La cédula tiene entre 6 y 9 dígitos.';
       return undefined;
 
+    // El mensaje es opcional: el checklist ya recoge el motivo.
     case 'mensaje':
-      if (!texto) return 'Cuéntanos brevemente qué necesitas.';
-      if (texto.length < 15) return 'Amplía un poco: con dos líneas podemos orientarte mejor.';
       return undefined;
 
     case 'consentimiento':
@@ -78,10 +93,11 @@ export function validarCampo(
 
 /** Campos exigibles según el perfil seleccionado. */
 export function camposDelPerfil(perfil: Perfil): (keyof DatosContacto)[] {
-  const comunes: (keyof DatosContacto)[] = ['nombre', 'correo', 'telefono', 'mensaje'];
+  const comunes: (keyof DatosContacto)[] = ['nombre', 'correo', 'telefono'];
 
-  if (perfil === 'familia') return [...comunes, 'edadMenor'];
-  if (perfil === 'colegio') return [...comunes, 'institucion', 'numeroAlumnos'];
+  if (perfil === 'familia') return [...comunes, 'edadMenor', 'gradoEscolar'];
+  if (perfil === 'colegio')
+    return [...comunes, 'cargo', 'institucion', 'numeroAlumnos', 'numeroEspecialistas'];
   return [...comunes, 'cedula'];
 }
 
@@ -92,7 +108,12 @@ export function validarFormulario(
   const errores: ErroresContacto = {};
 
   for (const campo of camposDelPerfil(datos.perfil)) {
-    const mensaje = validarCampo(campo, datos[campo] ?? '', datos.perfil);
+    const valor = datos[campo];
+    const mensaje = validarCampo(
+      campo,
+      typeof valor === 'string' ? valor : '',
+      datos.perfil,
+    );
     if (mensaje) errores[campo] = mensaje;
   }
 

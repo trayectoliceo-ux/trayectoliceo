@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
 import { BloquePsicoMetrics } from '@/components/inicio/BloquePsicoMetrics';
-import { FormularioContacto } from '@/components/contacto/FormularioContacto';
+import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Marcador, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { EnlaceTexto } from '@/components/ui/Boton';
@@ -75,19 +75,26 @@ export default function PaginaInicio() {
           className="mt-16 grid gap-10 md:grid-cols-3 md:gap-8"
         >
           {queHacemos.bloques.map((bloque) => (
-            <ElementoRevelar as="article" key={bloque.href} className="group flex flex-col">
+            <ElementoRevelar
+              as="article"
+              key={bloque.href}
+              className="group flex flex-col overflow-hidden rounded-lg border border-linea bg-papel-puro shadow-tarjeta transition-shadow duration-300 hover:shadow-elevada"
+            >
               <Marcador
                 src={bloque.imagen.src}
                 descripcion={bloque.imagen.descripcion}
-                proporcion="5 / 4"
+                proporcion="16 / 10"
+                className="rounded-none border-0"
               />
-              <p className="etiqueta mt-6 text-institucional">{bloque.indice}</p>
-              <h3 className="mt-3 text-t3">{bloque.titulo}</h3>
-              <p className="mt-3 flex-1 text-menudo leading-[1.65] text-tinta-suave">
-                {bloque.resumen}
-              </p>
-              <div className="mt-4">
-                <EnlaceTexto href={bloque.href}>{bloque.accion}</EnlaceTexto>
+              <div className="flex flex-1 flex-col p-7">
+                <p className="etiqueta">{bloque.indice}</p>
+                <h3 className="mt-3 text-t3">{bloque.titulo}</h3>
+                <p className="mt-3 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+                  {bloque.resumen}
+                </p>
+                <div className="mt-5">
+                  <EnlaceTexto href={bloque.href}>{bloque.accion}</EnlaceTexto>
+                </div>
               </div>
             </ElementoRevelar>
           ))}
@@ -105,10 +112,14 @@ export default function PaginaInicio() {
         <GrupoRevelar
           as="ol"
           total={metodo.pasos.length}
-          className="mt-16 grid gap-px overflow-hidden border border-linea bg-linea sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {metodo.pasos.map((paso) => (
-            <ElementoRevelar as="li" key={paso.numero} className="bg-papel-hondo p-7 lg:p-8">
+            <ElementoRevelar
+              as="li"
+              key={paso.numero}
+              className="rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta"
+            >
               <span className="font-mono text-etiqueta text-institucional">{paso.numero}</span>
               <h3 className="mt-4 text-entrada leading-[1.25]">{paso.titulo}</h3>
               <p className="mt-3 text-menudo leading-[1.6] text-tinta-suave">
@@ -193,7 +204,7 @@ export default function PaginaInicio() {
           </div>
 
           <Revelar retraso={0.06}>
-            <FormularioContacto />
+            <FormularioInteligente />
           </Revelar>
         </div>
       </Seccion>

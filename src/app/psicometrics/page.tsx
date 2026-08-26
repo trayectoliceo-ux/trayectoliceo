@@ -3,6 +3,7 @@ import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { PortadaPsicoMetrics } from '@/components/psicometrics/PortadaPsicoMetrics';
 import { Acordeon } from '@/components/ui/Acordeon';
+import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
 import { psicometricsPagina as pm } from '@/content/psicometrics';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan, preguntasFrecuentes } from '@/lib/schema';
@@ -104,19 +105,23 @@ export default function PaginaPsicoMetrics() {
 
         <GrupoRevelar
           total={pm.modulos.lista.length}
-          className="mt-14 grid gap-px overflow-hidden border border-linea bg-linea sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {pm.modulos.lista.map((modulo) => (
             <ElementoRevelar
               as="article"
               key={modulo.indice}
-              className="bg-papel p-8 transition-colors duration-200 hover:bg-papel-hondo"
+              className={`rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta transition-shadow duration-300 hover:shadow-elevada ${
+                // El primer módulo ocupa el doble: es el que sostiene el
+                // argumento de privacidad, que es la primera objeción.
+                modulo.indice === '01' ? 'sm:col-span-2' : ''
+              }`}
             >
-              <span className="font-mono text-etiqueta text-institucional">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-institucional/[0.08] font-mono text-menudo font-medium text-institucional">
                 {modulo.indice}
               </span>
-              <h3 className="mt-5 max-w-[18ch] text-entrada">{modulo.titulo}</h3>
-              <p className="mt-3 text-menudo leading-[1.65] text-tinta-suave">
+              <h3 className="mt-5 max-w-[22ch] text-entrada">{modulo.titulo}</h3>
+              <p className="mt-3 max-w-[52ch] text-menudo leading-[1.7] text-tinta-suave">
                 {modulo.descripcion}
               </p>
             </ElementoRevelar>
@@ -165,10 +170,10 @@ export default function PaginaPsicoMetrics() {
             <ElementoRevelar
               as="article"
               key={plan.nombre}
-              className={`flex flex-col rounded border p-8 ${
+              className={`flex flex-col rounded-lg border bg-papel-puro p-8 ${
                 plan.destacado
-                  ? 'border-institucional bg-papel shadow-[0_1px_24px_rgba(54,60,142,0.10)]'
-                  : 'border-linea bg-papel/60'
+                  ? 'border-institucional shadow-elevada lg:-mt-4 lg:mb-[-1rem]'
+                  : 'border-linea shadow-tarjeta'
               }`}
             >
               {plan.destacado ? (
@@ -198,14 +203,19 @@ export default function PaginaPsicoMetrics() {
               </ul>
 
               <div className="mt-7">
-                <BotonEnlace
-                  href={plan.nombre === 'Clínicas y colegios' ? '/contacto' : pm.url}
-                  tono={plan.destacado ? 'solido' : 'contorno'}
-                  externo={plan.nombre !== 'Clínicas y colegios'}
-                  className="w-full"
-                >
-                  {plan.accion}
-                </BotonEnlace>
+                {plan.destacado ? (
+                  // Único plan con cobro directo: pasa por Mercado Pago.
+                  <BotonMercadoPago paquete="creditos-10" etiqueta={plan.accion} />
+                ) : (
+                  <BotonEnlace
+                    href={plan.nombre === 'Clínicas y colegios' ? '/contacto' : pm.url}
+                    tono="contorno"
+                    externo={plan.nombre !== 'Clínicas y colegios'}
+                    className="w-full"
+                  >
+                    {plan.accion}
+                  </BotonEnlace>
+                )}
               </div>
             </ElementoRevelar>
           ))}

@@ -79,10 +79,18 @@ export function Cabecera() {
         <div className="flex items-center gap-2">
           <Link
             href="/contacto"
-            className="hidden min-h-[44px] items-center rounded border border-institucional/40 px-5 text-menudo font-medium text-institucional transition-colors duration-150 hover:border-institucional hover:bg-institucional hover:text-papel sm:inline-flex"
+            className="hidden min-h-[44px] items-center px-3 text-menudo font-semibold text-tinta-suave transition-colors duration-150 hover:text-institucional lg:inline-flex"
           >
             Contacto
           </Link>
+          <a
+            href={sitio.psicometrics.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden min-h-[44px] items-center rounded bg-institucional px-5 text-menudo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo sm:inline-flex"
+          >
+            Acceso PsicoMetrics
+          </a>
 
           <button
             ref={disparadorRef}

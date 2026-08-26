@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Mono, IBM_Plex_Sans, Petrona } from 'next/font/google';
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import { Cabecera } from '@/components/layout/Cabecera';
 import { Pie } from '@/components/layout/Pie';
 import { BotonWhatsApp } from '@/components/layout/BotonWhatsApp';
@@ -7,26 +7,26 @@ import { sitio } from '@/content/sitio';
 import './globals.css';
 
 /**
- * Petrona para titulares: serif de baja modulación dibujada en Latinoamérica,
- * con formas asimétricas que le dan carácter sin caer en el contraste
- * extremo de una didona. Institucional y cálida a la vez.
+ * Plus Jakarta Sans para titulares: geométrica, con terminaciones limpias y
+ * mucho carácter en los pesos altos. Es lo que sostiene un titular grande
+ * sin recurrir a una serif.
  */
-const display = Petrona({
+const display = Plus_Jakarta_Sans({
   subsets: ['latin'],
+  weight: ['600', '700', '800'],
   display: 'swap',
   variable: '--fuente-display',
 });
 
-/** IBM Plex Sans para el cuerpo: neutra, muy legible y de origen técnico. */
-const sans = IBM_Plex_Sans({
+/** Inter para el cuerpo: la referencia en legibilidad de interfaz. */
+const sans = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
   display: 'swap',
   variable: '--fuente-sans',
 });
 
-/** IBM Plex Mono para metadatos: la voz del expediente y de la ficha. */
-const mono = IBM_Plex_Mono({
+/** JetBrains Mono para datos y códigos puntuales. */
+const mono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   display: 'swap',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#F1F2F5',
+  themeColor: '#F8FAFC',
   colorScheme: 'light',
 };
 
