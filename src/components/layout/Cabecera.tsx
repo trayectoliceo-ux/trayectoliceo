@@ -54,7 +54,11 @@ export function Cabecera() {
                 <Link
                   href={elemento.href}
                   aria-current={esActiva(elemento.href) ? 'page' : undefined}
-                  className="relative flex min-h-[44px] items-center px-3 text-menudo text-tinta-suave transition-colors duration-150 hover:text-institucional aria-[current=page]:text-institucional"
+                  className={`relative flex min-h-[44px] items-center px-3 text-menudo transition-colors duration-150 hover:text-institucional aria-[current=page]:text-institucional ${
+                    'destacado' in elemento && elemento.destacado
+                      ? 'font-semibold text-institucional'
+                      : 'text-tinta-suave'
+                  }`}
                 >
                   {elemento.corto}
                   {esActiva(elemento.href) ? (

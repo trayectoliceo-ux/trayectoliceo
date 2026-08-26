@@ -66,7 +66,7 @@ export const sitio = {
   psicometrics: {
     nombre: 'PsicoMetrics',
     /** [EDITAR] URL definitiva de la plataforma. */
-    url: 'https://psicometrics.mx',
+    url: 'https://psicometrics.app',
     descriptor: 'Plataforma profesional de apoyo a la evaluación psicopedagógica',
   },
 
@@ -78,6 +78,7 @@ export const sitio = {
     { titulo: 'Talleres STEAM', corto: 'Talleres', href: '/talleres' },
     { titulo: 'Formación profesional', corto: 'Formación', href: '/formacion' },
     { titulo: 'Programas para colegios', corto: 'Colegios', href: '/colegios' },
+    { titulo: 'PsicoMetrics', corto: 'PsicoMetrics', href: '/psicometrics', destacado: true },
     { titulo: 'Orientación de trayectoria', corto: 'Trayectoria', href: '/trayectoria' },
     { titulo: 'Nosotros', corto: 'Nosotros', href: '/nosotros' },
     { titulo: 'Recursos', corto: 'Recursos', href: '/recursos' },
@@ -91,6 +92,7 @@ export const sitio = {
         { titulo: 'Formación profesional', href: '/formacion' },
         { titulo: 'Programas para colegios', href: '/colegios' },
         { titulo: 'Orientación de trayectoria', href: '/trayectoria' },
+        { titulo: 'PsicoMetrics', href: '/psicometrics' },
       ],
     },
     {

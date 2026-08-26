@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { Revelar } from './Revelar';
 
@@ -36,20 +37,73 @@ export function EncabezadoSeccion({
 }
 
 /**
- * Marcador de imagen descrito. Sustituir por `next/image` con el archivo
- * definitivo manteniendo la misma proporción para que nada salte al cargar.
+ * Hueco de imagen.
+ *
+ * Sin `src` dibuja un marcador con la descripción de la foto que va ahí.
+ * Con `src` renderiza la imagen real. Así sustituir una foto es añadir una
+ * ruta en el archivo de contenido, sin tocar ningún componente.
+ *
+ * Las fotos van en `public/imagenes/`. Mantener la proporción declarada
+ * evita que el diseño salte mientras carga.
  */
 export function Marcador({
   descripcion,
+  src,
   proporcion = '4 / 3',
   tono = 'claro',
+  prioritaria = false,
+  /**
+   * `recorte` para imágenes con fondo transparente: se apoyan directamente
+   * sobre la página, sin marco ni caja. `encuadre` para fotografías, que sí
+   * llevan contenedor y se recortan al llenarlo.
+   */
+  ajuste = 'encuadre',
   className = '',
 }: {
   descripcion: string;
+  src?: string;
   proporcion?: string;
   tono?: 'claro' | 'oscuro';
+  prioritaria?: boolean;
+  ajuste?: 'encuadre' | 'recorte';
   className?: string;
 }) {
+  if (src && ajuste === 'recorte') {
+    return (
+      <div
+        style={{ aspectRatio: proporcion }}
+        className={`relative w-full ${className}`}
+      >
+        <Image
+          src={src}
+          alt={descripcion}
+          fill
+          priority={prioritaria}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-contain object-bottom"
+        />
+      </div>
+    );
+  }
+
+  if (src) {
+    return (
+      <div
+        style={{ aspectRatio: proporcion }}
+        className={`relative w-full overflow-hidden rounded bg-papel-hondo ${className}`}
+      >
+        <Image
+          src={src}
+          alt={descripcion}
+          fill
+          priority={prioritaria}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   const fondo =
     tono === 'claro'
       ? 'bg-papel-hondo text-gris border-linea'

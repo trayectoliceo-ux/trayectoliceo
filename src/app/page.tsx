@@ -76,7 +76,11 @@ export default function PaginaInicio() {
         >
           {queHacemos.bloques.map((bloque) => (
             <ElementoRevelar as="article" key={bloque.href} className="group flex flex-col">
-              <Marcador descripcion={bloque.marcador} proporcion="5 / 4" />
+              <Marcador
+                src={bloque.imagen.src}
+                descripcion={bloque.imagen.descripcion}
+                proporcion="5 / 4"
+              />
               <p className="etiqueta mt-6 text-institucional">{bloque.indice}</p>
               <h3 className="mt-3 text-t3">{bloque.titulo}</h3>
               <p className="mt-3 flex-1 text-menudo leading-[1.65] text-tinta-suave">

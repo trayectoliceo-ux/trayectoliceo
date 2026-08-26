@@ -1,7 +1,6 @@
 import { BotonEnlace } from '@/components/ui/Boton';
 import { Revelar } from '@/components/ui/Revelar';
 import { psicometrics } from '@/content/inicio';
-import { sitio } from '@/content/sitio';
 
 /**
  * Único bloque del sitio con lenguaje de producto: fondo de tinta, retícula
@@ -40,8 +39,8 @@ export function BloquePsicoMetrics() {
                   {psicometrics.entrada}
                 </p>
                 <div className="mt-9">
-                  <BotonEnlace href={sitio.psicometrics.url} tono="claro" externo>
-                    {psicometrics.accion} ↗
+                  <BotonEnlace href="/psicometrics" tono="claro">
+                    {psicometrics.accion}
                   </BotonEnlace>
                 </div>
               </div>

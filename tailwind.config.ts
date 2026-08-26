@@ -51,11 +51,12 @@ const config: Config = {
         menudo: ['0.8125rem', { lineHeight: '1.4rem' }],
         cuerpo: ['1rem', { lineHeight: '1.7rem' }],
         'cuerpo-lg': ['1.125rem', { lineHeight: '1.85rem' }],
-        entrada: ['1.375rem', { lineHeight: '1.9rem' }],
-        t3: ['1.5rem', { lineHeight: '1.9rem', letterSpacing: '-0.01em' }],
-        t2: ['2rem', { lineHeight: '2.35rem', letterSpacing: '-0.015em' }],
-        t1: ['2.75rem', { lineHeight: '3rem', letterSpacing: '-0.02em' }],
-        portada: ['clamp(2.5rem, 7vw, 4.75rem)', { lineHeight: '1.06', letterSpacing: '-0.025em' }],
+        entrada: ['clamp(1.375rem, 2vw, 1.625rem)', { lineHeight: '1.35' }],
+        t3: ['clamp(1.5rem, 2.2vw, 1.875rem)', { lineHeight: '1.25', letterSpacing: '-0.015em' }],
+        t2: ['clamp(2rem, 4vw, 2.875rem)', { lineHeight: '1.12', letterSpacing: '-0.022em' }],
+        t1: ['clamp(2.5rem, 5.5vw, 4rem)', { lineHeight: '1.06', letterSpacing: '-0.028em' }],
+        /** Titular de portada. Deliberadamente grande: es el gancho. */
+        portada: ['clamp(3rem, 8.5vw, 6.25rem)', { lineHeight: '0.98', letterSpacing: '-0.035em' }],
       },
       maxWidth: {
         lectura: '38rem',

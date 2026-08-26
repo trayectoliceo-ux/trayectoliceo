@@ -6,8 +6,17 @@
  */
 
 export const portada = {
-  /** La afirmación es sobre el problema del visitante, no sobre nosotros. */
-  titulo: ['Un niño que se aburre', 'en clase no siempre', 'está desmotivado.'],
+  /**
+   * La afirmación es sobre el problema del visitante, no sobre nosotros.
+   * `rotativa` marca la posición de la palabra que cambia: es el cierre de
+   * la frase, no un adorno a mitad de línea.
+   */
+  titulo: ['Un niño que se aburre', 'en clase no siempre', 'está'],
+  /**
+   * Cada palabra completa la frase con una lectura distinta del mismo
+   * comportamiento. Es el argumento entero del negocio en cuatro palabras.
+   */
+  rotativas: ['desmotivado.', 'distraído.', 'mal portado.', 'identificado.'],
   subtitulo:
     'A veces está sin identificar. Detectarlo no es intuición: es un procedimiento, y alguien tiene que saber aplicarlo.',
   acciones: [
@@ -16,6 +25,17 @@ export const portada = {
   ],
   /** Marcas de la línea de trayecto en la portada. Son etapas, no adornos. */
   hitos: ['Detección', 'Evaluación', 'Enriquecimiento', 'Trayectoria'],
+  /**
+   * Foto de portada. Al tener la imagen, poner la ruta en `src`
+   * (por ejemplo '/imagenes/portada.jpg') y el marcador desaparece solo.
+   */
+  imagen: {
+    src: '/imagenes/portada-recorte.png',
+    descripcion:
+      'Dos niños con gafas de protección y el uniforme de Trayecto Liceo, sosteniendo un matraz y un microscopio',
+    /** Fondo transparente: se apoya en la página, sin marco. */
+    ajuste: 'recorte' as const,
+  },
 };
 
 export const problema = {
@@ -63,7 +83,7 @@ export const queHacemos = {
         'Enriquecimiento por proyectos para niños y jóvenes, sin techo de dificultad. El alumno avanza hasta donde llega, no hasta donde marca el grupo.',
       href: '/talleres',
       accion: 'Ver talleres',
-      marcador: 'Mesa de trabajo con materiales de prototipado, vista cenital',
+      imagen: { src: undefined as string | undefined, descripcion: 'Mesa de trabajo con materiales de prototipado, vista cenital' },
     },
     {
       indice: 'II',
@@ -72,7 +92,7 @@ export const queHacemos = {
         'Diplomados y cursos para psicólogos, psicopedagogos y orientadores que quieren especializarse en detección y evaluación de altas capacidades.',
       href: '/formacion',
       accion: 'Ver programas',
-      marcador: 'Protocolo de evaluación anotado a mano sobre escritorio',
+      imagen: { src: undefined as string | undefined, descripcion: 'Protocolo de evaluación anotado a mano sobre escritorio' },
     },
     {
       indice: 'III',
@@ -81,7 +101,7 @@ export const queHacemos = {
         'Capacitación del claustro en el propio centro y certificación anual como Escuela que identifica talento, con protocolo de derivación incluido.',
       href: '/colegios',
       accion: 'Ver programas',
-      marcador: 'Aula vacía con luz lateral, pupitres alineados',
+      imagen: { src: undefined as string | undefined, descripcion: 'Aula vacía con luz lateral, pupitres alineados' },
     },
   ],
 };

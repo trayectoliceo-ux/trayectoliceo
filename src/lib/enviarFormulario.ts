@@ -51,7 +51,6 @@ export async function enviarFormulario(datos: DatosContacto): Promise<ResultadoE
   await new Promise((resolver) => setTimeout(resolver, RETRASO_SIMULADO));
 
   if (process.env.NODE_ENV === 'development') {
-    // eslint-disable-next-line no-console
     console.info('[contacto] Envío simulado. Sustituir enviarFormulario().', datos);
   }
 
@@ -70,7 +69,6 @@ export async function suscribirCorreo(
   await new Promise((resolver) => setTimeout(resolver, RETRASO_SIMULADO));
 
   if (process.env.NODE_ENV === 'development') {
-    // eslint-disable-next-line no-console
     console.info('[recursos] Suscripción simulada.', { correo, material });
   }
 

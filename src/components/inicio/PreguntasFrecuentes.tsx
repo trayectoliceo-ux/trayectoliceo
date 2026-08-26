@@ -1,9 +1,9 @@
 'use client';
 
 import { motion, useReducedMotion } from 'motion/react';
-import { useState } from 'react';
+import { Acordeon } from '@/components/ui/Acordeon';
 import { preguntas } from '@/content/inicio';
-import { curva, duracion, muelle, vistaUnaVez } from '@/lib/motion';
+import { curva, duracion, vistaUnaVez } from '@/lib/motion';
 
 /**
  * Preguntas frecuentes.
@@ -16,7 +16,6 @@ import { curva, duracion, muelle, vistaUnaVez } from '@/lib/motion';
  * traduce a transformaciones en vez de recalcular el diseño cada fotograma.
  */
 export function PreguntasFrecuentes() {
-  const [abierta, setAbierta] = useState<number | null>(0);
   const reducido = useReducedMotion();
 
   return (
@@ -31,55 +30,7 @@ export function PreguntasFrecuentes() {
         <h2 className="mt-5 max-w-[18ch] text-t2 sm:text-t1">{preguntas.titulo}</h2>
       </motion.div>
 
-      <ul className="border-t border-linea">
-        {preguntas.lista.map((elemento, indice) => {
-          const activa = abierta === indice;
-
-          return (
-            <li key={elemento.pregunta} className="border-b border-linea">
-              <h3>
-                <button
-                  type="button"
-                  onClick={() => setAbierta(activa ? null : indice)}
-                  aria-expanded={activa}
-                  className="flex min-h-[44px] w-full items-start justify-between gap-6 py-5 text-left"
-                >
-                  <span
-                    className={`max-w-[42ch] text-cuerpo font-medium transition-colors duration-150 ${
-                      activa ? 'text-institucional' : 'text-tinta'
-                    }`}
-                  >
-                    {elemento.pregunta}
-                  </span>
-                  <motion.span
-                    aria-hidden
-                    animate={{ rotate: activa ? 45 : 0 }}
-                    transition={reducido ? { duration: 0 } : muelle.firme}
-                    className="mt-0.5 shrink-0 text-institucional"
-                  >
-                    +
-                  </motion.span>
-                </button>
-              </h3>
-
-              {/* El texto permanece en el DOM: solo se recorta la altura. */}
-              <motion.div
-                initial={false}
-                animate={{ height: activa ? 'auto' : 0, opacity: activa ? 1 : 0 }}
-                transition={{
-                  duration: reducido ? 0 : duracion.base,
-                  ease: curva.salidaSuave,
-                }}
-                className="overflow-hidden"
-              >
-                <p className="max-w-lectura pb-6 text-menudo leading-[1.7] text-tinta-suave">
-                  {elemento.respuesta}
-                </p>
-              </motion.div>
-            </li>
-          );
-        })}
-      </ul>
+      <Acordeon elementos={preguntas.lista} />
     </div>
   );
 }
