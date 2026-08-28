@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Marcador, Metadato, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { LlamadaContacto } from '@/components/ui/LlamadaContacto';
+import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
 import { talleres } from '@/content/talleres';
 import { metadatos } from '@/lib/metadatos';
 import { curso, DatosEstructurados, migaDePan } from '@/lib/schema';
@@ -87,6 +88,18 @@ export default async function PaginaTaller({ params }: Props) {
                     </span>
                   ) : null}
                 </Metadato>
+
+                <div className="mt-7">
+                  <BotonMercadoPago paquete={taller.idPago} etiqueta="Apartar lugar" />
+                  {taller.modalidad.toLowerCase().includes('presencial') ? (
+                    <Link
+                      href="/contacto?motivo=calendario"
+                      className="mt-3 flex min-h-[44px] w-full items-center justify-center rounded border border-institucional/40 px-4 text-menudo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional/[0.04]"
+                    >
+                      Conocer calendario y sedes
+                    </Link>
+                  ) : null}
+                </div>
               </dl>
             </div>
           </Revelar>

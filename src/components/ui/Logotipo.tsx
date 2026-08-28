@@ -20,7 +20,12 @@ import { sitio } from '@/content/sitio';
  */
 export function Logotipo({
   tono = 'claro',
-  conDescriptor = true,
+  /**
+   * El descriptor ya no acompaña al logotipo en la cabecera: vive en la
+   * portada, sobre el titular, donde se lee mejor y no compite con el
+   * nombre. En el pie sí se mantiene, que es donde cierra la identidad.
+   */
+  conDescriptor = false,
 }: {
   tono?: 'claro' | 'oscuro';
   conDescriptor?: boolean;

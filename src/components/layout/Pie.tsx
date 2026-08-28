@@ -10,7 +10,7 @@ export function Pie() {
       <div className="contenedor py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1.1fr]">
           <div>
-            <Logotipo tono="oscuro" />
+            <Logotipo tono="oscuro" conDescriptor />
           </div>
 
           {sitio.navegacionPie.map((grupo) => (

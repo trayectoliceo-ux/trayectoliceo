@@ -62,7 +62,7 @@ export const sitio = {
 
   /** Perfiles tomados del sitio actual. */
   redes: [
-    { titulo: 'Facebook', url: 'https://www.facebook.com/trayectoliceo' },
+    { titulo: 'Facebook', url: 'https://www.facebook.com/trayectoliceo/' },
     { titulo: 'Instagram', url: 'https://www.instagram.com/trayecto_liceo' },
     { titulo: 'YouTube', url: 'https://www.youtube.com/@TrayectoLiceo' },
   ],

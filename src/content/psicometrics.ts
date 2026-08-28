@@ -111,7 +111,44 @@ export const psicometricsPagina = {
         descripcion:
           'Los instrumentos propios pasan por un proceso interno de revisión documentada antes de publicarse en la plataforma, con el expediente metodológico disponible.',
       },
+      {
+        indice: '07',
+        titulo: 'Tamizaje escolar',
+        descripcion:
+          'Cribado breve por grupo, de 15 a 20 minutos por aula. Recoge indicadores observacionales, funciones ejecutivas y escalas de riesgo y de talento, y devuelve al centro un mapa de semáforo por grupo: verde sin indicadores, amarillo alerta de aprendizaje, azul indicador de alta capacidad. Permite revisar una generación completa antes de decidir a quién conviene evaluar de forma individual, que es donde está el costo real.',
+      },
+      {
+        indice: '08',
+        titulo: 'Guía interactiva',
+        descripcion:
+          'Recorrido paso a paso dentro de la propia plataforma, con casos de ejemplo y datos ficticios. Cubre desde abrir un expediente hasta emitir el informe con folio, para que el equipo aprenda sobre la herramienta y no sobre un manual. Disponible desde el primer día y sin consumir créditos.',
+      },
     ],
+  },
+
+  /**
+   * Muestra de informe emitido. Los datos son ficticios y el folio apunta a
+   * la verificación real: quien escanee el código llega a la página pública
+   * y comprueba el mecanismo por sí mismo, que convence más que explicarlo.
+   */
+  muestra: {
+    etiqueta: 'Informe verificable',
+    titulo: 'Cada informe emitido se puede comprobar.',
+    entrada:
+      'El documento sale con folio y código de verificación. Una familia o un colegio confirma en segundos quién lo emitió, con qué cédula y si el archivo fue alterado, sin ver una línea del contenido clínico.',
+    folio: 'AB7K-2291-QN',
+    documento: {
+      titulo: 'Informe psicopedagógico',
+      lineas: [
+        { etiqueta: 'Expediente', valor: 'EXP-4471 (pseudonimizado)' },
+        { etiqueta: 'Emitido por', valor: 'Psic. [Nombre] · Céd. [00000000]' },
+        { etiqueta: 'Fecha', valor: '[00 de marzo de 2026]' },
+        { etiqueta: 'Instrumentos', valor: '3 aplicados · baremos vigentes' },
+      ],
+      aviso: 'Documento de muestra con datos ficticios.',
+    },
+    pie: 'Escanea el código para ver la verificación real.',
+    accion: 'Probar la verificación',
   },
 
   confianza: {

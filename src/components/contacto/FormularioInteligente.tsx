@@ -92,6 +92,12 @@ export function FormularioInteligente() {
   const reducido = useReducedMotion();
   const idBase = useId();
 
+  /**
+   * Sin perfil elegido no se muestra ningún campo. Un formulario con
+   * quince casillas a la vista intimida y buena parte de ellas no aplica;
+   * pedir primero «quién eres» reduce lo visible a lo que sí corresponde.
+   */
+  const [elegido, setElegido] = useState(false);
   const [datos, setDatos] = useState<DatosContacto>(datosIniciales);
   const [consentimiento, setConsentimiento] = useState(false);
   const [errores, setErrores] = useState<ErroresContacto>({});
@@ -183,7 +189,9 @@ export function FormularioInteligente() {
     >
       {/* Selector de perfil: decide todo lo que viene después. */}
       <fieldset>
-        <legend className="sr-only">Selecciona tu perfil</legend>
+        <legend className="mb-5 block w-full text-center text-cuerpo font-semibold text-tinta">
+          ¿Quién escribe?
+        </legend>
         <div className="grid gap-3 sm:grid-cols-3">
           {perfiles.map((opcion) => {
             const activo = datos.perfil === opcion.valor;
@@ -192,18 +200,19 @@ export function FormularioInteligente() {
                 key={opcion.valor}
                 type="button"
                 role="radio"
-                aria-checked={activo}
+                aria-checked={activo && elegido}
                 onClick={() => {
                   setDatos((previo) => ({ ...previo, perfil: opcion.valor }));
                   setErrores({});
+                  setElegido(true);
                 }}
-                className={`relative min-h-[44px] rounded-md border p-5 text-left transition-colors duration-200 ${
-                  activo
+                className={`relative min-h-[44px] rounded-md border p-5 text-center transition-colors duration-200 ${
+                  activo && elegido
                     ? 'border-institucional'
                     : 'border-linea hover:border-institucional/40'
                 }`}
               >
-                {activo ? (
+                {activo && elegido ? (
                   <motion.span
                     // El fondo se desplaza entre pestañas: indica que una
                     // sustituye a la otra, no que aparece de la nada.
@@ -214,8 +223,8 @@ export function FormularioInteligente() {
                 ) : null}
                 <span
                   aria-hidden
-                  className={`relative block text-lg ${
-                    activo ? 'text-institucional' : 'text-gris'
+                  className={`relative block text-2xl ${
+                    activo && elegido ? 'text-institucional' : 'text-gris'
                   }`}
                 >
                   {opcion.icono}
@@ -232,7 +241,15 @@ export function FormularioInteligente() {
         </div>
       </fieldset>
 
-      {/* Campos comunes */}
+      {/* Todo lo demás aparece cuando hay perfil elegido. */}
+      <AnimatePresence initial={false}>
+        {elegido ? (
+          <motion.div
+            initial={{ opacity: 0, height: reducido ? 'auto' : 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            transition={{ duration: duracion.lenta, ease: curva.salidaSuave }}
+            className="overflow-hidden"
+          >
       <div className="mt-8 grid gap-x-5 gap-y-6 sm:grid-cols-2">
         <Campo
           id={`${idBase}-nombre`}
@@ -512,6 +529,18 @@ export function FormularioInteligente() {
           Respondemos en dos días hábiles. La primera conversación es sin costo.
         </p>
       )}
+          </motion.div>
+        ) : (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-6 text-center text-menudo text-gris"
+          >
+            Elige una opción para continuar. Solo te pediremos los datos que
+            correspondan a tu caso.
+          </motion.p>
+        )}
+      </AnimatePresence>
     </form>
   );
 }

@@ -47,8 +47,9 @@ export const evaluacion = {
   productos: [
     {
       id: 'valoracion-integral',
-      nombre: 'Valoración diagnóstica integral',
-      precio: '$1,500 a $2,500 MXN',
+      nombre: 'Valoración diagnóstica',
+      precio: '$2,000 MXN',
+      importe: 200000,
       resumen:
         'Evaluación clínica profunda aplicada por un psicólogo titulado de la Red, con instrumentos formales e informe firmado.',
       detalles: [
@@ -60,7 +61,7 @@ export const evaluacion = {
       ],
       cobro: 'contacto' as const,
       accion: 'Agendar valoración',
-      nota: 'El monto depende del alcance del caso. Se confirma en la primera conversación, que es sin costo.',
+      nota: 'Incluye entrevista, sesiones de evaluación, informe y sesión de entrega. Se agenda tras una primera conversación sin costo.',
     },
     {
       id: 'tamizaje-digital',

@@ -81,7 +81,7 @@ export const problema = {
    */
   datos: [
     {
-      valor: '95 %',
+      valor: 'Más del 95 %',
       descripcion:
         'de los alumnos con altas capacidades no está identificado en el sistema educativo mexicano.',
       fuente: 'Centro de Atención al Talento (CEDAT)',
@@ -163,7 +163,7 @@ export const metodo = {
     },
     {
       numero: '02',
-      titulo: 'Valoración de la situación',
+      titulo: 'Valoración integral',
       descripcion:
         'Revisamos historial escolar, informes previos y observación en aula cuando el centro colabora. Si hace falta evaluación psicopedagógica, derivamos a profesional acreditado.',
     },

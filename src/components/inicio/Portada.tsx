@@ -6,6 +6,7 @@ import { BotonEnlace } from '@/components/ui/Boton';
 import { PalabraRotativa } from '@/components/ui/PalabraRotativa';
 import { Marcador } from '@/components/ui/Piezas';
 import { portada } from '@/content/inicio';
+import { sitio } from '@/content/sitio';
 import { curva, duracion, escalonado } from '@/lib/motion';
 
 /**
@@ -52,7 +53,7 @@ export function Portada() {
           transition={{ duration: duracion.base, ease: curva.salidaSuave }}
           className="etiqueta"
         >
-          {portada.hitos.join(' · ')}
+          {sitio.descriptor}
         </motion.p>
 
         <h1 className="mt-8 text-portada font-display">
@@ -192,13 +193,9 @@ function Hitos() {
               delay: reducido ? 0 : RETRASO_HITOS + indice * escalonado.marcado * 0.8,
               ease: curva.salidaSuave,
             }}
-            className="flex items-baseline gap-2"
           >
-            <span className="font-mono text-cuerpo font-medium text-institucional">
-              {String(indice + 1).padStart(2, '0')}
-            </span>
             <span
-              className={`text-entrada font-display font-bold tracking-[-0.015em] transition-colors duration-500 ${
+              className={`font-display text-t3 font-bold tracking-[-0.02em] transition-colors duration-500 ${
                 encendido ? 'text-tinta' : 'text-gris'
               }`}
             >

@@ -7,8 +7,12 @@ import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
 import type { Producto } from '@/content/precios';
 import { curva, duracion, muelle } from '@/lib/motion';
 
-/** A partir de este número, la lista se pliega tras un botón. */
-const DETALLES_VISIBLES = 3;
+/**
+ * La lista se pliega solo si supera este número. Cinco entradas caben sin
+ * empujar el botón fuera de la vista, así que plegarlas sería esconder
+ * información sin ganar nada.
+ */
+const DETALLES_VISIBLES = 5;
 
 /**
  * Tarjeta comercial.

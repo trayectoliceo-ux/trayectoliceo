@@ -9,7 +9,7 @@ import { EncabezadoSeccion, Marcador, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { EnlaceTexto } from '@/components/ui/Boton';
 import { PreguntasFrecuentes } from '@/components/inicio/PreguntasFrecuentes';
-import { metodo, preguntas, problema, pruebaSocial, queHacemos } from '@/content/inicio';
+import { metodo, preguntas, problema, queHacemos } from '@/content/inicio';
 import { metadatos } from '@/lib/metadatos';
 import {
   DatosEstructurados,
@@ -157,42 +157,12 @@ export default function PaginaInicio() {
 
       <BloquePsicoMetrics />
 
-      {/* Prueba social */}
-      <Seccion>
-        <Revelar>
-          <p className="etiqueta">{pruebaSocial.etiqueta}</p>
-        </Revelar>
-
-        <GrupoRevelar
-          total={pruebaSocial.testimonios.length}
-          className="mt-10 grid gap-8 md:grid-cols-2"
-        >
-          {pruebaSocial.testimonios.map((testimonio, indice) => (
-            <ElementoRevelar
-              as="article"
-              key={indice}
-              className="border-t border-linea pt-7"
-            >
-              <blockquote className="font-display text-entrada leading-[1.5] text-tinta-suave">
-                {testimonio.cita}
-              </blockquote>
-              <footer className="mt-5 text-menudo text-gris">
-                <span className="text-tinta">{testimonio.autor}</span> · {testimonio.cargo}
-              </footer>
-            </ElementoRevelar>
-          ))}
-        </GrupoRevelar>
-
-        <Revelar className="mt-14">
-          <ul className="flex flex-wrap items-center gap-x-10 gap-y-5 border-t border-linea pt-8">
-            {pruebaSocial.logotipos.map((logotipo) => (
-              <li key={logotipo} className="font-mono text-etiqueta uppercase text-gris">
-                {logotipo}
-              </li>
-            ))}
-          </ul>
-        </Revelar>
-      </Seccion>
+      {/*
+        Prueba social retirada temporalmente: los testimonios y logotipos
+        eran marcadores y publicar nombres sin autorización escrita no es
+        una opción. El bloque vuelve cuando existan las autorizaciones.
+        El contenido sigue en `src/content/inicio.ts` → `pruebaSocial`.
+      */}
 
       {/* Preguntas frecuentes */}
       <Seccion tono="hondo">

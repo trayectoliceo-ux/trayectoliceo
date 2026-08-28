@@ -4,6 +4,7 @@ import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar'
 import { PortadaPsicoMetrics } from '@/components/psicometrics/PortadaPsicoMetrics';
 import { Acordeon } from '@/components/ui/Acordeon';
 import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
+import { MuestraInforme } from '@/components/psicometrics/MuestraInforme';
 import { psicometricsPagina as pm } from '@/content/psicometrics';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan, preguntasFrecuentes } from '@/lib/schema';
@@ -105,28 +106,29 @@ export default function PaginaPsicoMetrics() {
 
         <GrupoRevelar
           total={pm.modulos.lista.length}
-          className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {pm.modulos.lista.map((modulo) => (
             <ElementoRevelar
               as="article"
               key={modulo.indice}
-              className={`rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta transition-shadow duration-300 hover:shadow-elevada ${
-                // El primer módulo ocupa el doble: es el que sostiene el
-                // argumento de privacidad, que es la primera objeción.
-                modulo.indice === '01' ? 'sm:col-span-2' : ''
-              }`}
+              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-6 text-center shadow-tarjeta transition-shadow duration-300 hover:shadow-elevada"
             >
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-institucional/[0.08] font-mono text-menudo font-medium text-institucional">
+              <span className="mx-auto inline-flex h-9 w-9 items-center justify-center rounded bg-institucional/[0.08] font-mono text-menudo font-medium text-institucional">
                 {modulo.indice}
               </span>
-              <h3 className="mt-5 max-w-[22ch] text-entrada">{modulo.titulo}</h3>
-              <p className="mt-3 max-w-[52ch] text-menudo leading-[1.7] text-tinta-suave justificado">
+              <h3 className="mt-4 text-balance text-entrada">{modulo.titulo}</h3>
+              <p className="justificado mt-3 text-menudo leading-[1.7] text-tinta-suave">
                 {modulo.descripcion}
               </p>
             </ElementoRevelar>
           ))}
         </GrupoRevelar>
+      </Seccion>
+
+      {/* Informe verificable */}
+      <Seccion tono="hondo">
+        <MuestraInforme />
       </Seccion>
 
       {/* Confianza */}
