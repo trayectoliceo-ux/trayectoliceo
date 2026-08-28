@@ -39,9 +39,9 @@ export const programas: Programa[] = [
       'Disponibilidad para una sesión sincrónica semanal de dos horas',
     ],
     constancia:
-      '[Constancia de participación con valor curricular emitida por Gebenz Consultoría y Negocios, S.A. de C.V. — AJUSTAR a lo que realmente pueda emitirse]',
-    precio: '[$00,000 MXN]',
-    notaPrecio: '[Indicar si hay pago en parcialidades]',
+      'Constancia emitida por Gebenz Consultoría y Negocios, S.A. de C.V. [VERIFICAR: indicar el registro oficial y la autoridad emisora, o retirar toda mención a validez oficial]',
+    precio: '$12,500 MXN',
+    notaPrecio: 'O en 5 parcialidades mensuales de $2,700 MXN',
     resumen:
       'El programa completo: de los modelos teóricos a la redacción del informe y la devolución a la familia.',
     temario: [
@@ -92,9 +92,9 @@ export const programas: Programa[] = [
     dirigidoA:
       'Docentes de educación básica y media, tutores y coordinadores académicos.',
     requisitos: ['Ejercicio docente en activo'],
-    constancia: '[Constancia de participación — AJUSTAR]',
-    precio: '[$0,000 MXN por participante]',
-    notaPrecio: '[Indicar precio por grupo completo si aplica]',
+    constancia: 'Constancia de participación emitida por Gebenz Consultoría y Negocios, S.A. de C.V.',
+    precio: '$1,800 MXN por participante',
+    notaPrecio: 'Grupo cerrado hasta 15 docentes: $18,000 MXN',
     resumen:
       'Qué se puede observar desde el aula, qué no, y en qué momento exacto corresponde derivar.',
     temario: [
@@ -136,8 +136,8 @@ export const programas: Programa[] = [
       'Cédula profesional vigente',
       'Experiencia previa en aplicación de pruebas',
     ],
-    constancia: '[Constancia de participación — AJUSTAR]',
-    precio: '[$0,000 MXN]',
+    constancia: 'Constancia de participación emitida por Gebenz Consultoría y Negocios, S.A. de C.V.',
+    precio: '$2,200 MXN por participante',
     resumen:
       'Un informe que la familia entiende y que el centro escolar puede convertir en decisiones.',
     temario: [

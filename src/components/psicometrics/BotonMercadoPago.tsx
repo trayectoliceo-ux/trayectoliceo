@@ -33,9 +33,13 @@ const metodosDePago = [
 export function BotonMercadoPago({
   paquete,
   etiqueta,
+  compacto = false,
 }: {
+  /** Identificador del producto en el catálogo del servidor. */
   paquete: string;
   etiqueta: string;
+  /** Oculta los métodos de pago y el aviso: para listas con varios botones. */
+  compacto?: boolean;
 }) {
   const [estado, setEstado] = useState<'reposo' | 'creando' | 'error'>('reposo');
   const reducido = useReducedMotion();
@@ -88,6 +92,7 @@ export function BotonMercadoPago({
         </p>
       ) : null}
 
+      {compacto ? null : (
       <ul className="mt-4 flex flex-wrap justify-center gap-1.5">
         {metodosDePago.map((metodo) => (
           <li
@@ -98,7 +103,9 @@ export function BotonMercadoPago({
           </li>
         ))}
       </ul>
+      )}
 
+      {compacto ? null : (
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -114,6 +121,7 @@ export function BotonMercadoPago({
           confirma la operación.
         </span>
       </motion.p>
+      )}
     </div>
   );
 }

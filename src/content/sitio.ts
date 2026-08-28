@@ -82,19 +82,20 @@ export const sitio = {
    * menú móvil y en el pie, donde hay espacio para el nombre completo.
    */
   navegacion: [
-    { titulo: 'Para familias', corto: 'Familias', href: '/talleres' },
+    { titulo: 'Evaluación', corto: 'Evaluación', href: '/evaluacion' },
+    { titulo: 'Talleres STEAM', corto: 'Talleres', href: '/talleres' },
     { titulo: 'Para colegios', corto: 'Colegios', href: '/colegios' },
-    { titulo: 'Formación profesional', corto: 'Formación', href: '/formacion' },
+    { titulo: 'Academia', corto: 'Academia', href: '/academia' },
     { titulo: 'PsicoMetrics', corto: 'PsicoMetrics', href: '/psicometrics', destacado: true },
-    { titulo: 'Recursos', corto: 'Recursos', href: '/recursos' },
   ],
 
   navegacionPie: [
     {
       titulo: 'Programas',
       enlaces: [
+        { titulo: 'Evaluación y tamizaje', href: '/evaluacion' },
         { titulo: 'Talleres STEAM', href: '/talleres' },
-        { titulo: 'Formación profesional', href: '/formacion' },
+        { titulo: 'Academia y formación', href: '/academia' },
         { titulo: 'Programas para colegios', href: '/colegios' },
         { titulo: 'Orientación de trayectoria', href: '/trayectoria' },
         { titulo: 'PsicoMetrics', href: '/psicometrics' },
@@ -104,6 +105,7 @@ export const sitio = {
       titulo: 'Institución',
       enlaces: [
         { titulo: 'Nosotros', href: '/nosotros' },
+        { titulo: 'Verificar un informe', href: '/verificar' },
         { titulo: 'Recursos', href: '/recursos' },
         { titulo: 'Contacto', href: '/contacto' },
       ],

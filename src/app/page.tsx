@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
+import { PromocionesRotativas } from '@/components/inicio/PromocionesRotativas';
+import { TarjetaProducto } from '@/components/ui/TarjetaProducto';
+import { evaluacion } from '@/content/precios';
 import { BloquePsicoMetrics } from '@/components/inicio/BloquePsicoMetrics';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Marcador, Seccion } from '@/components/ui/Piezas';
@@ -29,6 +32,7 @@ export default function PaginaInicio() {
       <DatosEstructurados datos={sitioWeb()} />
       <DatosEstructurados datos={preguntasFrecuentes(preguntas.lista)} />
 
+      <PromocionesRotativas />
       <Portada />
 
       {/* El problema, en tres datos */}
@@ -101,8 +105,27 @@ export default function PaginaInicio() {
         </GrupoRevelar>
       </Seccion>
 
-      {/* Cómo trabajamos */}
+      {/* Evaluación con precio y pago */}
       <Seccion tono="hondo">
+        <EncabezadoSeccion
+          etiqueta={evaluacion.etiqueta}
+          titulo={evaluacion.titulo}
+          entrada={evaluacion.entrada}
+        />
+        <GrupoRevelar
+          total={evaluacion.productos.length}
+          className="mt-14 grid gap-6 lg:grid-cols-3"
+        >
+          {evaluacion.productos.map((producto) => (
+            <ElementoRevelar key={producto.id}>
+              <TarjetaProducto producto={producto} />
+            </ElementoRevelar>
+          ))}
+        </GrupoRevelar>
+      </Seccion>
+
+      {/* Cómo trabajamos */}
+      <Seccion>
         <EncabezadoSeccion
           etiqueta={metodo.etiqueta}
           titulo={metodo.titulo}

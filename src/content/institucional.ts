@@ -27,7 +27,7 @@ export const colegios = {
         'Sin auditoría ni revisión posterior',
         'Se contrata por una sola ocasión',
       ],
-      precio: '[$00,000 MXN según número de docentes]',
+      precio: '$25,000 a $45,000 MXN',
     },
     certificacion: {
       etiqueta: 'Alcance institucional',
@@ -41,7 +41,7 @@ export const colegios = {
         'Sello de vigencia anual, sujeto a revisión',
         'Acompañamiento durante el ciclo escolar',
       ],
-      precio: '[$000,000 MXN anuales]',
+      precio: '$65,000 a $95,000 MXN anuales',
     },
   },
 

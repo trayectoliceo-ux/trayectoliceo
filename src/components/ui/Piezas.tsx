@@ -23,8 +23,8 @@ export function EncabezadoSeccion({
     <Revelar as="header" className={`${className}`}>
       <p className="etiqueta">{etiqueta}</p>
       <h2
-        className={`mt-5 text-t2 sm:text-t1 ${
-          ancho === 'lectura' ? 'max-w-[22ch]' : 'max-w-[30ch]'
+        className={`mt-5 text-t1 ${
+          ancho === 'lectura' ? 'max-w-[20ch]' : 'max-w-[28ch]'
         }`}
       >
         {titulo}

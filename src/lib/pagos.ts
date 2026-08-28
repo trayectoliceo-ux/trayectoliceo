@@ -44,6 +44,32 @@ export const paquetesDeCreditos = [
   { id: 'creditos-50', informes: 50, precio: '[$199 USD]' },
 ] as const;
 
+/**
+ * Los productos del sitio (tamizajes, cursos, diplomado) usan la misma
+ * función. El `id` que se envía debe existir en el catálogo del servidor:
+ * si no existe, la petición se rechaza en lugar de crear un cobro huérfano.
+ */
+
+/**
+ * Productos con cobro en línea.
+ *
+ * ESTA TABLA ES SOLO PARA MOSTRAR EN PANTALLA. El importe que se cobra
+ * debe leerse de una tabla equivalente EN EL SERVIDOR a partir del `id`.
+ * Si el precio viaja desde el navegador, cualquiera puede editarlo antes
+ * de enviarlo y comprar un diplomado por un peso.
+ */
+export const productos = {
+  'tamizaje-padres': { nombre: 'Tamizaje digital para padres', importe: 290 },
+  'curso-deteccion-aula': { nombre: 'Curso: Deteccion en el aula', importe: 1800 },
+  'curso-informe': { nombre: 'Curso: Redaccion del informe', importe: 2200 },
+  'diplomado-altas-capacidades': {
+    nombre: 'Diplomado en altas capacidades',
+    importe: 12500,
+  },
+} as const;
+
+export type ProductoId = keyof typeof productos;
+
 const RETRASO_SIMULADO = 1100;
 
 export async function iniciarPagoMercadoPago(paquete: string): Promise<ResultadoPago> {

@@ -30,6 +30,36 @@ export const portada = {
    * Foto de portada. Al tener la imagen, poner la ruta en `src`
    * (por ejemplo '/imagenes/portada.jpg') y el marcador desaparece solo.
    */
+  /**
+   * Anuncios que rotan sobre la portada. Cada uno lleva a una acción
+   * concreta: sin destino, un anuncio solo es ruido.
+   */
+  promociones: [
+    {
+      etiqueta: 'Diplomado',
+      texto: 'Detección y Evaluación de Altas Capacidades · 120 horas en línea',
+      accion: 'Ver programa',
+      href: '/formacion',
+    },
+    {
+      etiqueta: 'Cursos',
+      texto: 'Detección en el aula y redacción del informe psicopedagógico',
+      accion: 'Ver cursos',
+      href: '/formacion',
+    },
+    {
+      etiqueta: 'Red de psicólogos',
+      texto: 'Afíliate sin costo y aumenta tus ingresos con PsicoMetrics',
+      accion: 'Afiliarme',
+      href: '/contacto',
+    },
+    {
+      etiqueta: 'Academia',
+      texto: 'Licenciatura en Psicología en línea · Aparta tu lugar',
+      accion: 'Conocer',
+      href: '/academia',
+    },
+  ],
   imagen: {
     src: '/imagenes/portada-recorte.png',
     descripcion:
@@ -45,28 +75,28 @@ export const problema = {
   entrada:
     'La alta capacidad no se manifiesta como rendimiento alto de forma automática. Sin un procedimiento de detección en el aula, buena parte de los casos pasa inadvertida durante toda la escolaridad.',
   /**
-   * [VERIFICAR ANTES DE PUBLICAR]
-   * Sustituir `valor` y `fuente` por cifras acreditables. Si un dato no se
-   * puede acreditar, se elimina la tarjeta: no se publica aproximado.
+   * Cifras con fuente declarada. Al actualizar, mantener siempre la
+   * fuente: un dato sin origen en esta página contradice todo lo que
+   * afirmamos sobre método verificable.
    */
   datos: [
     {
-      valor: '[00 %]',
+      valor: '95 %',
       descripcion:
         'de los alumnos con altas capacidades no está identificado en el sistema educativo mexicano.',
-      fuente: '[Fuente pendiente de verificación]',
+      fuente: 'Centro de Atención al Talento (CEDAT)',
     },
     {
-      valor: '[00 %]',
+      valor: 'Menos del 5 %',
       descripcion:
         'de los docentes en activo ha recibido formación específica en detección de altas capacidades.',
-      fuente: '[Fuente pendiente de verificación]',
+      fuente: 'MEJOREDU · Estudios de Educación Inclusiva en México (Redalyc)',
     },
     {
-      valor: '[0 de cada 10]',
+      valor: '8 de cada 10',
       descripcion:
-        'casos identificados llegan al servicio de orientación por conducta, no por rendimiento.',
-      fuente: '[Fuente pendiente de verificación]',
+        'casos identificados llegan al servicio de orientación por conducta, desinterés o bajo rendimiento, no por desempeño sobresaliente.',
+      fuente: 'FEMEXDI y diagnósticos clínicos del CEDAT',
     },
   ],
 };
