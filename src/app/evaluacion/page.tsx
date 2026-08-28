@@ -34,7 +34,7 @@ export default function PaginaEvaluacion() {
       <Seccion>
         <GrupoRevelar
           total={evaluacion.productos.length}
-          className="grid gap-6 lg:grid-cols-3"
+          className="grid items-stretch gap-6 lg:grid-cols-3"
         >
           {evaluacion.productos.map((producto) => (
             <ElementoRevelar key={producto.id}>
@@ -56,7 +56,7 @@ export default function PaginaEvaluacion() {
           </p>
         </Revelar>
 
-        <GrupoRevelar total={3} className="mt-12 grid gap-4 sm:grid-cols-3">
+        <GrupoRevelar total={3} className="mt-12 grid items-stretch gap-4 sm:grid-cols-3">
           {[
             {
               color: 'bg-menta',
@@ -83,11 +83,11 @@ export default function PaginaEvaluacion() {
             <ElementoRevelar
               as="article"
               key={nivel.titulo}
-              className="rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta"
+              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-7 text-center shadow-tarjeta"
             >
               <span
                 aria-hidden
-                className={`block h-2 w-12 rounded-full ${nivel.color}`}
+                className={`mx-auto block h-2 w-12 rounded-full ${nivel.color}`}
               />
               <h3 className="mt-5 text-entrada">{nivel.titulo}</h3>
               <p className="mt-1 text-menudo font-semibold text-institucional">

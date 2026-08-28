@@ -76,7 +76,7 @@ export default function PaginaInicio() {
 
         <GrupoRevelar
           total={queHacemos.bloques.length}
-          className="mt-16 grid gap-10 md:grid-cols-3 md:gap-8"
+          className="mt-16 grid items-stretch gap-8 md:grid-cols-3"
         >
           {queHacemos.bloques.map((bloque) => (
             <ElementoRevelar
@@ -90,13 +90,13 @@ export default function PaginaInicio() {
                 proporcion="16 / 10"
                 className="rounded-none border-0"
               />
-              <div className="flex flex-1 flex-col p-7">
+              <div className="flex flex-1 flex-col p-7 text-center">
                 <p className="etiqueta">{bloque.indice}</p>
-                <h3 className="mt-3 text-t3">{bloque.titulo}</h3>
-                <p className="mt-3 flex-1 text-menudo leading-[1.7] text-tinta-suave justificado">
+                <h3 className="mt-3 text-balance text-t3">{bloque.titulo}</h3>
+                <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
                   {bloque.resumen}
                 </p>
-                <div className="mt-5">
+                <div className="mt-5 flex justify-center">
                   <EnlaceTexto href={bloque.href}>{bloque.accion}</EnlaceTexto>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export default function PaginaInicio() {
         />
         <GrupoRevelar
           total={evaluacion.productos.length}
-          className="mt-14 grid gap-6 lg:grid-cols-3"
+          className="mt-14 grid items-stretch gap-6 lg:grid-cols-3"
         >
           {evaluacion.productos.map((producto) => (
             <ElementoRevelar key={producto.id}>
@@ -135,17 +135,19 @@ export default function PaginaInicio() {
         <GrupoRevelar
           as="ol"
           total={metodo.pasos.length}
-          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {metodo.pasos.map((paso) => (
             <ElementoRevelar
               as="li"
               key={paso.numero}
-              className="rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta"
+              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-7 text-center shadow-tarjeta"
             >
-              <span className="font-mono text-etiqueta text-institucional">{paso.numero}</span>
-              <h3 className="mt-4 text-entrada leading-[1.25]">{paso.titulo}</h3>
-              <p className="mt-3 text-menudo leading-[1.6] text-tinta-suave">
+              <span className="font-mono text-menudo font-medium text-institucional">
+                {paso.numero}
+              </span>
+              <h3 className="mt-4 text-balance text-entrada">{paso.titulo}</h3>
+              <p className="justificado mt-4 text-menudo leading-[1.7] text-tinta-suave">
                 {paso.descripcion}
               </p>
             </ElementoRevelar>

@@ -39,7 +39,7 @@ export default function PaginaAcademia() {
           <h2 className="mt-5 max-w-[20ch] text-t1">Inscripción en línea.</h2>
         </Revelar>
 
-        <GrupoRevelar total={formacionPrecios.length} className="mt-12 grid gap-6 lg:grid-cols-3">
+        <GrupoRevelar total={formacionPrecios.length} className="mt-12 grid items-stretch gap-6 lg:grid-cols-3">
           {formacionPrecios.map((producto) => (
             <ElementoRevelar key={producto.id}>
               <TarjetaProducto producto={producto} />

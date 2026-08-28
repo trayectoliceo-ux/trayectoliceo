@@ -114,7 +114,11 @@ export const queHacemos = {
         'Identificamos altas capacidades, aptitudes sobresalientes o dificultades de aprendizaje con instrumentos estandarizados y baremos vigentes. Siempre con profesional acreditado.',
       href: '/contacto',
       accion: 'Agendar valoración',
-      imagen: { src: undefined as string | undefined, descripcion: 'Mesa de trabajo con materiales de prototipado, vista cenital' },
+      imagen: {
+        src: '/imagenes/protocolo-evaluacion.jpg',
+        descripcion:
+          'Protocolo de evaluación anotado a mano sobre una mesa con material de trabajo infantil',
+      },
     },
     {
       indice: '02',
@@ -123,7 +127,11 @@ export const queHacemos = {
         'Programas por proyectos sin techo de dificultad, para que el alumno encuentre por fin resistencia real en vez de aburrimiento y frustración en el aula.',
       href: '/talleres',
       accion: 'Ver talleres',
-      imagen: { src: undefined as string | undefined, descripcion: 'Protocolo de evaluación anotado a mano sobre escritorio' },
+      imagen: {
+        src: '/imagenes/taller-steam.jpg',
+        descripcion:
+          'Alumnos construyendo prototipos con cartón, circuitos y material de dibujo en un taller STEAM',
+      },
     },
     {
       indice: '03',
@@ -132,7 +140,10 @@ export const queHacemos = {
         'Informe detallado con pautas concretas para aplicar en casa y para plantear al colegio. Por escrito, con responsables y plazos, no con recomendaciones vagas.',
       href: '/trayectoria',
       accion: 'Conocer el servicio',
-      imagen: { src: undefined as string | undefined, descripcion: 'Aula vacía con luz lateral, pupitres alineados' },
+      imagen: {
+        src: '/imagenes/aula.jpg',
+        descripcion: 'Aula con mesas de trabajo agrupadas y luz natural lateral',
+      },
     },
   ],
 };

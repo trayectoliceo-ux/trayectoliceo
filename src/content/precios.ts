@@ -40,7 +40,28 @@ export const evaluacion = {
   titulo: 'Tres niveles, según lo que necesites saber.',
   entrada:
     'El tamizaje detecta señales; la valoración diagnóstica confirma. No todo el mundo necesita el proceso completo, y decirlo es parte del servicio.',
+  /**
+   * El orden importa: el producto destacado va en el centro de la fila,
+   * que es donde la vista aterriza primero en una rejilla de tres.
+   */
   productos: [
+    {
+      id: 'valoracion-integral',
+      nombre: 'Valoración diagnóstica integral',
+      precio: '$1,500 a $2,500 MXN',
+      resumen:
+        'Evaluación clínica profunda aplicada por un psicólogo titulado de la Red, con instrumentos formales e informe firmado.',
+      detalles: [
+        'Aplicada por psicólogo titulado con cédula verificada',
+        'Instrumentos formales estandarizados',
+        'Entrevista con la familia y revisión de historial escolar',
+        'Informe psicopedagógico firmado, emitido con PsicoMetrics',
+        'Sesión de entrega de resultados',
+      ],
+      cobro: 'contacto' as const,
+      accion: 'Agendar valoración',
+      nota: 'El monto depende del alcance del caso. Se confirma en la primera conversación, que es sin costo.',
+    },
     {
       id: 'tamizaje-digital',
       nombre: 'Tamizaje digital para familias',
@@ -59,23 +80,6 @@ export const evaluacion = {
       accion: 'Comprar tamizaje',
       destacado: true,
       nota: 'Un tamizaje señala dónde mirar. No es un diagnóstico ni lo sustituye.',
-    },
-    {
-      id: 'valoracion-integral',
-      nombre: 'Valoración diagnóstica integral',
-      precio: '$1,500 a $2,500 MXN',
-      resumen:
-        'Evaluación clínica profunda aplicada por un psicólogo titulado de la Red, con instrumentos formales e informe firmado.',
-      detalles: [
-        'Aplicada por psicólogo titulado con cédula verificada',
-        'Instrumentos formales estandarizados',
-        'Entrevista con la familia y revisión de historial escolar',
-        'Informe psicopedagógico firmado, emitido con PsicoMetrics',
-        'Sesión de entrega de resultados',
-      ],
-      cobro: 'contacto' as const,
-      accion: 'Agendar valoración',
-      nota: 'El monto depende del alcance del caso. Se confirma en la primera conversación, que es sin costo.',
     },
     {
       id: 'tamizaje-escolar',
@@ -121,22 +125,6 @@ export const formacionPrecios: Producto[] = [
     accion: 'Inscribirme',
   },
   {
-    id: 'curso-informe',
-    nombre: 'Redacción del Informe Psicopedagógico',
-    precio: '$2,200 MXN',
-    importe: 220000,
-    unidad: 'por participante',
-    resumen: '16 horas en 4 sesiones. Un informe que la familia entiende y el colegio aplica.',
-    detalles: [
-      '16 horas · 4 sesiones',
-      'En línea con sesiones sincrónicas',
-      'Requiere cédula profesional vigente',
-      'Constancia de participación',
-    ],
-    cobro: 'directo',
-    accion: 'Inscribirme',
-  },
-  {
     id: 'diplomado-altas-capacidades',
     nombre: 'Diplomado en Detección y Evaluación de Altas Capacidades',
     precio: '$12,500 MXN',
@@ -153,6 +141,22 @@ export const formacionPrecios: Producto[] = [
     cobro: 'directo',
     accion: 'Inscribirme al diplomado',
     destacado: true,
+  },
+  {
+    id: 'curso-informe',
+    nombre: 'Redacción del Informe Psicopedagógico',
+    precio: '$2,200 MXN',
+    importe: 220000,
+    unidad: 'por participante',
+    resumen: '16 horas en 4 sesiones. Un informe que la familia entiende y el colegio aplica.',
+    detalles: [
+      '16 horas · 4 sesiones',
+      'En línea con sesiones sincrónicas',
+      'Requiere cédula profesional vigente',
+      'Constancia de participación',
+    ],
+    cobro: 'directo',
+    accion: 'Inscribirme',
   },
 ];
 

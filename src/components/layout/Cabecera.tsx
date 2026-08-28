@@ -87,7 +87,7 @@ export function Cabecera() {
             href={sitio.psicometrics.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden min-h-[44px] items-center rounded bg-institucional px-5 text-menudo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo sm:inline-flex"
+            className="hidden min-h-[44px] items-center justify-center whitespace-nowrap rounded bg-institucional px-5 text-center text-menudo font-semibold leading-tight text-papel transition-colors duration-200 hover:bg-institucional-hondo sm:inline-flex"
           >
             Acceso PsicoMetrics
           </a>
