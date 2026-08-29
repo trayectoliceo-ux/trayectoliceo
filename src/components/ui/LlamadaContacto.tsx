@@ -23,7 +23,7 @@ export function LlamadaContacto({
         <Revelar className="grid gap-8 lg:grid-cols-[1.2fr_auto] lg:items-end">
           <div>
             <h2 className="max-w-[24ch] text-t2 text-papel">{titulo}</h2>
-            <p className="mt-4 max-w-lectura text-cuerpo text-papel/80">{texto}</p>
+            <p className="justificado mt-4 max-w-lectura text-cuerpo text-papel/80">{texto}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
             <BotonEnlace href={href} tono="claro">

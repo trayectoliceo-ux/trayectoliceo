@@ -112,7 +112,7 @@ export default function PaginaFormacion() {
                         <span className="block text-menudo font-medium text-tinta">
                           {modulo.titulo}
                         </span>
-                        <span className="mt-1 block max-w-[52ch] text-menudo leading-[1.6] text-tinta-suave">
+                        <span className="justificado mt-1 block max-w-[52ch] text-menudo leading-[1.6] text-tinta-suave">
                           {modulo.contenidos}
                         </span>
                       </span>

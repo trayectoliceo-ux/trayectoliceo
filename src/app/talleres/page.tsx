@@ -3,7 +3,6 @@ import { CabeceraPagina } from '@/components/ui/CabeceraPagina';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar } from '@/components/ui/Revelar';
 import { LlamadaContacto } from '@/components/ui/LlamadaContacto';
-import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
 import { talleres, talleresPagina } from '@/content/talleres';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
@@ -61,30 +60,19 @@ export default function PaginaTalleres() {
                   <p className="mt-2 whitespace-nowrap font-display text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-none tracking-[-0.025em] text-institucional">
                     {taller.precio}
                   </p>
-                  {taller.fechas?.[0] ? (
-                    <p className="mt-2 text-menudo text-gris">
-                      Próxima: {taller.fechas[0].inicio}
-                    </p>
-                  ) : null}
+                  <p className="mt-1.5 text-menudo text-gris">por grupo</p>
 
-                  <div className="mt-5">
-                    <BotonMercadoPago
-                      paquete={taller.idPago}
-                      etiqueta="Apartar lugar"
-                      nombreProducto={`el taller ${taller.titulo}`}
-                      compacto
-                    />
-                  </div>
-
-                  {/* Los presenciales dependen de sede: conviene verla antes. */}
-                  {taller.modalidad.toLowerCase().includes('presencial') ? (
-                    <Link
-                      href="/contacto?motivo=calendario"
-                      className="mt-3 flex min-h-[44px] w-full items-center justify-center rounded border border-institucional/40 px-4 text-menudo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional/[0.04]"
-                    >
-                      Conocer calendario y sedes
-                    </Link>
-                  ) : null}
+                  {/*
+                    Los talleres se contratan por centro, no por familia
+                    suelta: el precio es por grupo y la sede la pone el
+                    colegio. Por eso no hay pago en línea aquí.
+                  */}
+                  <Link
+                    href="/contacto?motivo=taller"
+                    className="mt-5 flex min-h-[52px] w-full items-center justify-center rounded bg-institucional px-4 text-center text-menudo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+                  >
+                    Contratar para mi colegio
+                  </Link>
 
                   <Link
                     href={`/talleres/${taller.slug}`}

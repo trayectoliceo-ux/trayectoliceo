@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CabeceraPagina } from '@/components/ui/CabeceraPagina';
-import { Metadato, Seccion } from '@/components/ui/Piezas';
+import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { TarjetaProducto } from '@/components/ui/TarjetaProducto';
 import { academia } from '@/content/academia';
@@ -88,105 +88,116 @@ export default function PaginaAcademia() {
         </div>
       </Seccion>
 
-      {/* Licenciatura en preparación */}
+      {/* Licenciatura */}
       <Seccion>
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
-          <Revelar>
-            <span className="inline-flex rounded bg-menta/12 px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-menta">
-              {academia.licenciatura.etiqueta}
-            </span>
-            <h2 className="mt-5 max-w-[20ch] text-t1">
-              {academia.licenciatura.titulo}
-            </h2>
-            <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">
-              {academia.licenciatura.entrada}
-            </p>
+        <Revelar className="text-center">
+          <span className="inline-flex rounded bg-menta/[0.12] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-menta">
+            {academia.licenciatura.etiqueta}
+          </span>
+          <h2 className="mx-auto mt-5 max-w-[22ch] text-t1">
+            {academia.licenciatura.titulo}
+          </h2>
+          <p className="justificado mx-auto mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+            {academia.licenciatura.entrada}
+          </p>
+        </Revelar>
 
-            <Link
-              href="/contacto"
-              className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded bg-institucional px-7 text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+        {/* Los datos en fila: cada uno es un dato corto y no necesita columna. */}
+        <GrupoRevelar
+          total={academia.licenciatura.datos.length}
+          className="mt-12 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {academia.licenciatura.datos.map((dato) => (
+            <ElementoRevelar
+              key={dato.etiqueta}
+              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-5 text-center shadow-tarjeta"
             >
-              {academia.licenciatura.accion}
-            </Link>
+              <p className="etiqueta">{dato.etiqueta}</p>
+              <p className="mt-2 text-balance text-menudo font-semibold leading-[1.4] text-tinta">
+                {dato.valor}
+              </p>
+            </ElementoRevelar>
+          ))}
+        </GrupoRevelar>
 
-            <p className="justificado mt-5 max-w-lectura rounded border-l-4 border-institucional bg-institucional/[0.05] p-4 text-menudo leading-[1.6] text-tinta-suave">
-              {academia.licenciatura.advertencia}
-            </p>
-          </Revelar>
-
-          <Revelar retraso={0.06}>
-            <dl className="lg:pt-4">
-              {academia.licenciatura.datos.map((dato) => (
-                <Metadato key={dato.etiqueta} etiqueta={dato.etiqueta}>
-                  {dato.valor}
-                </Metadato>
-              ))}
-            </dl>
-          </Revelar>
-        </div>
+        <Revelar retraso={0.08} className="mt-10 text-center">
+          <Link
+            href="/contacto"
+            className="inline-flex min-h-[52px] items-center justify-center rounded bg-institucional px-8 text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+          >
+            {academia.licenciatura.accion}
+          </Link>
+          <p className="justificado mx-auto mt-6 max-w-lectura rounded border-l-4 border-institucional bg-institucional/[0.05] p-4 text-menudo leading-[1.6] text-tinta-suave">
+            {academia.licenciatura.advertencia}
+          </p>
+        </Revelar>
       </Seccion>
 
       {/* Titulación por Acuerdo 286 */}
       <Seccion tono="hondo">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
-          <Revelar>
-            <p className="etiqueta">{academia.titulacion.etiqueta}</p>
-            <h2 className="mt-5 max-w-[18ch] text-t1">{academia.titulacion.titulo}</h2>
-            <p className="justificado mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
-              {academia.titulacion.entrada}
+        <Revelar className="text-center">
+          <p className="etiqueta">{academia.titulacion.etiqueta}</p>
+          <h2 className="mx-auto mt-5 max-w-[24ch] text-t1">
+            {academia.titulacion.titulo}
+          </h2>
+          <p className="mt-3 text-cuerpo-lg font-semibold text-institucional">
+            {academia.titulacion.subtitulo}
+          </p>
+          <p className="justificado mx-auto mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+            {academia.titulacion.entrada}
+          </p>
+        </Revelar>
+
+        <GrupoRevelar total={2} className="mx-auto mt-12 grid max-w-2xl items-stretch gap-4 sm:grid-cols-2">
+          <ElementoRevelar className="flex h-full flex-col justify-center rounded-lg border border-institucional bg-papel-puro p-6 text-center shadow-elevada">
+            <p className="etiqueta">Pago único</p>
+            <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
+              {academia.titulacion.precioContado}
             </p>
+          </ElementoRevelar>
+          <ElementoRevelar className="flex h-full flex-col justify-center rounded-lg border border-linea bg-papel-puro p-6 text-center shadow-tarjeta">
+            <p className="etiqueta">Diferido</p>
+            <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-tinta">
+              {academia.titulacion.precioTotal}
+            </p>
+          </ElementoRevelar>
+        </GrupoRevelar>
 
-            <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg border border-institucional bg-papel-puro p-5 text-center shadow-tarjeta">
-                <dt className="etiqueta">Pago único</dt>
-                <dd className="mt-2 whitespace-nowrap font-display text-t3 font-bold text-institucional">
-                  {academia.titulacion.precioContado}
-                </dd>
-              </div>
-              <div className="rounded-lg border border-linea bg-papel-puro p-5 text-center shadow-tarjeta">
-                <dt className="etiqueta">Diferido</dt>
-                <dd className="mt-2 whitespace-nowrap font-display text-t3 font-bold text-tinta">
-                  {academia.titulacion.precioTotal}
-                </dd>
-              </div>
-            </dl>
-
+        <Revelar retraso={0.06} className="mx-auto mt-12 max-w-3xl">
+          <p className="etiqueta text-center">Esquema de pago</p>
+          <ol className="mt-5 border-t border-linea">
+            {academia.titulacion.calendario.map((fase) => (
+              <li
+                key={fase.mes}
+                className="grid gap-1 border-b border-linea py-4 sm:grid-cols-[5rem_1fr_auto] sm:items-baseline sm:gap-6"
+              >
+                <span className="font-mono text-menudo font-medium text-institucional">
+                  {fase.mes}
+                </span>
+                <span>
+                  <span className="block text-menudo font-semibold text-tinta">
+                    {fase.concepto}
+                  </span>
+                  <span className="block text-menudo text-gris">{fase.hito}</span>
+                </span>
+                <span className="whitespace-nowrap text-menudo font-semibold text-tinta">
+                  {academia.titulacion.mensualidad}
+                </span>
+              </li>
+            ))}
+          </ol>
+          <p className="justificado mt-4 text-menudo text-gris">
+            {academia.titulacion.nota}
+          </p>
+          <div className="mt-8 text-center">
             <Link
               href="/contacto"
-              className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded bg-institucional px-7 text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+              className="inline-flex min-h-[52px] items-center justify-center rounded bg-institucional px-8 text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
             >
               {academia.titulacion.accion}
             </Link>
-          </Revelar>
-
-          <Revelar retraso={0.06}>
-            <p className="etiqueta">Esquema de pago</p>
-            <ol className="mt-4 border-t border-linea">
-              {academia.titulacion.calendario.map((fase) => (
-                <li
-                  key={fase.mes}
-                  className="grid gap-1 border-b border-linea py-4 sm:grid-cols-[5rem_1fr_auto] sm:items-baseline sm:gap-5"
-                >
-                  <span className="font-mono text-menudo font-medium text-institucional">
-                    {fase.mes}
-                  </span>
-                  <span>
-                    <span className="block text-menudo font-semibold text-tinta">
-                      {fase.concepto}
-                    </span>
-                    <span className="block text-menudo text-gris">{fase.hito}</span>
-                  </span>
-                  <span className="whitespace-nowrap text-menudo font-semibold text-tinta">
-                    {academia.titulacion.mensualidad}
-                  </span>
-                </li>
-              ))}
-            </ol>
-            <p className="justificado mt-4 text-menudo text-gris">
-              {academia.titulacion.nota}
-            </p>
-          </Revelar>
-        </div>
+          </div>
+        </Revelar>
       </Seccion>
 
       {/* Red de psicólogos */}

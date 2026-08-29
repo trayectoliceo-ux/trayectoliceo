@@ -89,7 +89,7 @@ export default function PaginaNosotros() {
                     {marco.autor}
                   </span>
                 </div>
-                <p className="mt-1.5 max-w-[54ch] text-menudo leading-[1.6] text-tinta-suave">
+                <p className="justificado mt-1.5 max-w-[54ch] text-menudo leading-[1.6] text-tinta-suave">
                   {marco.nota}
                 </p>
               </ElementoRevelar>

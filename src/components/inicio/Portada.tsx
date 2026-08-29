@@ -124,7 +124,15 @@ export function Portada() {
               ease: curva.salidaSuave,
             }}
           >
-            {/* Riel de trayecto: encabeza la columna de la imagen. */}
+            <Marcador
+              src={portada.imagen.src}
+              descripcion={portada.imagen.descripcion}
+              ajuste={portada.imagen.ajuste}
+              proporcion="4 / 3"
+              prioritaria
+            />
+
+            {/* Riel de trayecto: cierra la columna, bajo la fotografía. */}
             <motion.div
               aria-hidden
               initial={reducido ? { opacity: 0 } : { scaleX: 0 }}
@@ -138,15 +146,6 @@ export function Portada() {
               className="h-px w-full bg-linea"
             />
             <Hitos />
-
-            <Marcador
-              src={portada.imagen.src}
-              descripcion={portada.imagen.descripcion}
-              ajuste={portada.imagen.ajuste}
-              proporcion="4 / 3"
-              prioritaria
-              className="mt-2"
-            />
           </motion.div>
         </div>
       </div>

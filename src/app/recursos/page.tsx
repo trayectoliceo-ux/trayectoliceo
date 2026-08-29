@@ -83,7 +83,7 @@ export default function PaginaRecursos() {
                 {material.formato} · {material.dirigidoA}
               </p>
               <h3 className="mt-4 max-w-[24ch] text-t3">{material.titulo}</h3>
-              <p className="mt-3 flex-1 text-menudo leading-[1.65] text-tinta-suave">
+              <p className="justificado mt-3 flex-1 text-menudo leading-[1.65] text-tinta-suave">
                 {material.descripcion}
               </p>
               <FormularioMaterial material={material.titulo} />

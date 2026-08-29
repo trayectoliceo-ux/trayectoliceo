@@ -52,7 +52,7 @@ export default function PaginaTrayectoria() {
                   </span>
                   <div>
                     <h3 className="text-entrada leading-[1.25]">{elemento.titulo}</h3>
-                    <p className="mt-2 max-w-lectura text-menudo leading-[1.65] text-tinta-suave">
+                    <p className="justificado mt-2 max-w-lectura text-menudo leading-[1.65] text-tinta-suave">
                       {elemento.descripcion}
                     </p>
                   </div>

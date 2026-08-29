@@ -183,9 +183,9 @@ export const talleres: Taller[] = [
 
 export const talleresPagina = {
   etiqueta: 'Talleres STEAM',
-  titulo: 'Enriquecimiento por proyectos, sin techo de dificultad.',
+  titulo: 'Enriquecimiento por proyectos para tu colegio.',
   entrada:
-    'Los talleres no adelantan contenido del curso siguiente. Profundizan en problemas que no tienen una única respuesta, que es donde el alumno con alta capacidad encuentra por fin resistencia.',
+    'Programas para colegios que quieren ofrecer enriquecimiento real. No adelantan contenido del curso siguiente: profundizan en problemas sin una única respuesta, que es donde el alumno con alta capacidad encuentra por fin resistencia.',
   aviso:
-    'El pago en línea aparta el lugar. Antes de pagar puedes consultar el calendario y las sedes disponibles del ciclo en curso.',
+    'Los talleres se imparten por grupo dentro del colegio. El precio indicado es por grupo e incluye materiales; acordamos calendario y sede con el centro.',
 };

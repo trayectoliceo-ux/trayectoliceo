@@ -1,5 +1,9 @@
-import { evaluacion, formacionPrecios, institucionalPrecios } from '@/content/precios';
-import { talleres } from '@/content/talleres';
+import {
+  evaluacion,
+  formacionPrecios,
+  institucionalPrecios,
+  trayectoriaPrecios,
+} from '@/content/precios';
 
 /**
  * CATÁLOGO DEL SERVIDOR
@@ -20,20 +24,17 @@ export type ProductoCobrable = {
 };
 
 const catalogo: ProductoCobrable[] = [
-  ...[...evaluacion.productos, ...formacionPrecios, ...institucionalPrecios]
-    .filter((producto) => producto.cobro === 'directo' && producto.importe)
-    .map((producto) => ({
-      id: producto.id,
-      nombre: producto.nombre,
-      importe: producto.importe as number,
-    })),
-
-  ...talleres.map((taller) => ({
-    id: taller.idPago,
-    nombre: `Taller ${taller.titulo}`,
-    importe: Number(taller.precio.replace(/[^\d]/g, '')) * 100,
-  })),
-];
+  ...evaluacion.productos,
+  ...formacionPrecios,
+  ...trayectoriaPrecios,
+  ...institucionalPrecios,
+]
+  .filter((producto) => producto.cobro === 'directo' && producto.importe)
+  .map((producto) => ({
+    id: producto.id,
+    nombre: producto.nombre,
+    importe: producto.importe as number,
+  }));
 
 export function buscarProducto(id: string): ProductoCobrable | undefined {
   return catalogo.find((producto) => producto.id === id);

@@ -117,7 +117,9 @@ export default function PaginaPsicoMetrics() {
               <span className="mx-auto inline-flex h-9 w-9 items-center justify-center rounded bg-institucional/[0.08] font-mono text-menudo font-medium text-institucional">
                 {modulo.indice}
               </span>
-              <h3 className="mt-4 text-balance text-entrada">{modulo.titulo}</h3>
+              <h3 className="mt-4 text-balance text-cuerpo-lg font-bold leading-[1.25] tracking-[-0.015em] [overflow-wrap:anywhere]">
+                {modulo.titulo}
+              </h3>
               <p className="justificado mt-3 text-menudo leading-[1.7] text-tinta-suave">
                 {modulo.descripcion}
               </p>
@@ -184,7 +186,7 @@ export default function PaginaPsicoMetrics() {
                 </span>
               ) : null}
 
-              <h3 className="text-entrada">{plan.nombre}</h3>
+              <h3 className="text-balance text-entrada leading-[1.25]">{plan.nombre}</h3>
               <p className="mt-4 font-display text-t2 leading-none text-institucional">
                 {plan.precio}
               </p>
@@ -254,7 +256,7 @@ export default function PaginaPsicoMetrics() {
         <div className="contenedor">
           <Revelar>
             <h2 className="max-w-[18ch] text-t1 text-papel">{pm.cierre.titulo}</h2>
-            <p className="mt-6 max-w-lectura text-cuerpo-lg text-papel/80">
+            <p className="justificado mt-6 max-w-lectura text-cuerpo-lg text-papel/80">
               {pm.cierre.texto}
             </p>
             <div className="mt-10">

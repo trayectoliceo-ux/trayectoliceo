@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { Marcador, Metadato, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { LlamadaContacto } from '@/components/ui/LlamadaContacto';
-import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
 import { talleres } from '@/content/talleres';
 import { metadatos } from '@/lib/metadatos';
 import { curso, DatosEstructurados, migaDePan } from '@/lib/schema';
@@ -89,38 +88,19 @@ export default async function PaginaTaller({ params }: Props) {
                   ) : null}
                 </Metadato>
 
-                {taller.fechas?.length ? (
-                  <div className="mt-7 rounded-lg border border-linea bg-papel-puro p-5 shadow-tarjeta">
-                    <p className="etiqueta">Próximas fechas</p>
-                    <ul className="mt-3 border-t border-linea">
-                      {taller.fechas.map((fecha) => (
-                        <li key={fecha.inicio} className="border-b border-linea py-3">
-                          <p className="text-menudo font-semibold text-tinta">
-                            {fecha.inicio}
-                          </p>
-                          <p className="text-menudo text-gris">
-                            {fecha.sede} · {fecha.lugares}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
-
-                <div className="mt-5">
-                  <BotonMercadoPago
-                    paquete={taller.idPago}
-                    etiqueta="Apartar lugar"
-                    nombreProducto={`el taller ${taller.titulo}`}
-                  />
-                  {taller.modalidad.toLowerCase().includes('presencial') ? (
-                    <Link
-                      href="/contacto?motivo=calendario"
-                      className="mt-3 flex min-h-[44px] w-full items-center justify-center rounded border border-institucional/40 px-4 text-menudo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional/[0.04]"
-                    >
-                      Conocer calendario y sedes
-                    </Link>
-                  ) : null}
+                <div className="mt-7">
+                  <Link
+                    href="/contacto?motivo=taller"
+                    className="flex min-h-[52px] w-full items-center justify-center rounded bg-institucional px-6 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+                  >
+                    Contratar para mi colegio
+                  </Link>
+                  <Link
+                    href="/contacto?motivo=capacitacion"
+                    className="mt-3 flex min-h-[52px] w-full items-center justify-center rounded border border-institucional/40 px-4 text-center text-menudo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional/[0.04]"
+                  >
+                    Capacitar a mi personal docente
+                  </Link>
                 </div>
               </dl>
             </div>

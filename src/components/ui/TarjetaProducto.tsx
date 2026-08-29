@@ -59,14 +59,16 @@ export function TarjetaProducto({ producto }: { producto: Producto }) {
           ) : null}
         </div>
 
-        <h3 className="mt-4 text-balance text-t3">{producto.nombre}</h3>
+        <h3 className="mt-4 text-balance text-entrada leading-[1.25] [overflow-wrap:anywhere]">
+          {producto.nombre}
+        </h3>
 
-        <p className="mt-4 flex flex-wrap items-baseline justify-center gap-x-2">
-          <span className="whitespace-nowrap font-display text-[clamp(1.75rem,3.2vw,2.375rem)] font-bold leading-none tracking-[-0.025em] text-institucional">
+        <p className="mt-4">
+          <span className="block whitespace-nowrap font-display text-[clamp(1.75rem,3.2vw,2.375rem)] font-bold leading-none tracking-[-0.025em] text-institucional">
             {producto.precio}
           </span>
           {producto.unidad ? (
-            <span className="text-menudo text-gris">{producto.unidad}</span>
+            <span className="mt-1.5 block text-menudo text-gris">{producto.unidad}</span>
           ) : null}
         </p>
       </div>

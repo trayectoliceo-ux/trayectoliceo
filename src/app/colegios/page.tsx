@@ -72,7 +72,7 @@ export default function PaginaColegios() {
           >
             <p className="etiqueta text-sello-claro">{certificacion.etiqueta}</p>
             <h3 className="mt-4 text-t3 text-papel">{certificacion.titulo}</h3>
-            <p className="mt-3 text-menudo leading-[1.65] text-papel/80">
+            <p className="justificado mt-3 text-menudo leading-[1.65] text-papel/80">
               {certificacion.resumen}
             </p>
             <ul className="mt-7 flex-1 border-t border-linea-oscura">
@@ -115,7 +115,7 @@ export default function PaginaColegios() {
                   {fase.duracion}
                 </p>
               </div>
-              <p className="max-w-lectura text-menudo leading-[1.65] text-tinta-suave">
+              <p className="justificado max-w-lectura text-menudo leading-[1.65] text-tinta-suave">
                 {fase.descripcion}
               </p>
             </ElementoRevelar>

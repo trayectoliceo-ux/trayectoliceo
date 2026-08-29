@@ -229,12 +229,10 @@ export function FormularioInteligente() {
                 >
                   {opcion.icono}
                 </span>
-                <span className="relative mt-2 block text-menudo font-semibold text-tinta">
+                <span className="relative mt-2 block text-balance text-menudo font-semibold text-tinta">
                   {opcion.titulo}
                 </span>
-                <span className="justificado relative mt-1 block text-[0.8125rem] leading-[1.45] text-gris">
-                  {opcion.pie}
-                </span>
+
               </button>
             );
           })}

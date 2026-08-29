@@ -42,13 +42,14 @@ export const academia = {
     etiqueta: 'Inscripciones abiertas',
     titulo: 'Licenciatura en Psicología, modalidad en línea',
     entrada:
-      'Programa con reconocimiento de validez oficial para quien quiere titularse sin dejar de trabajar. Sesiones en sábado, avance a tu ritmo y acompañamiento durante todo el trayecto.',
+      'Programa 100 % en línea con reconocimiento de validez oficial, para quien quiere titularse sin dejar de trabajar. Sesiones en sábado, avance a tu ritmo y acompañamiento durante todo el trayecto.',
     datos: [
       { etiqueta: 'RVOE', valor: '20192721' },
       { etiqueta: 'Inicio', valor: 'Enero de 2027' },
-      { etiqueta: 'Modalidad', valor: 'En línea. Estudia a tu ritmo' },
+      { etiqueta: 'Modalidad', valor: '100 % en línea. Estudia a tu ritmo' },
       { etiqueta: 'Sesiones', valor: 'Sábados de 8:00 a 12:30 h' },
       { etiqueta: 'Carga', valor: '6 materias por cuatrimestre, más cursos de verano' },
+      { etiqueta: 'Inscripción', valor: '$1,000 MXN' },
       { etiqueta: 'Colegiatura', valor: '$690 MXN mensuales' },
       { etiqueta: 'Admisión', valor: 'Preinscripción y examen de admisión' },
     ],
@@ -63,9 +64,10 @@ export const academia = {
    */
   titulacion: {
     etiqueta: 'Titulación',
-    titulo: 'Acuerdo 286 · Pedagogía y Ciencias de la Educación',
+    titulo: 'Titulación por Acuerdo 286',
+    subtitulo: 'Pedagogía y Ciencias de la Educación',
     entrada:
-      'Acompañamiento completo para acreditar tus conocimientos por experiencia y obtener el título. Preparamos el examen, el portafolio y el expediente ante la SEP.',
+      'Acompañamiento 100 % en línea para acreditar tus conocimientos por experiencia y obtener el título. Preparamos el examen, el portafolio y el expediente ante la SEP.',
     precioTotal: '$45,000 MXN diferido',
     precioContado: '$38,000 MXN en un solo pago',
     inscripcion: '$9,000 MXN',
