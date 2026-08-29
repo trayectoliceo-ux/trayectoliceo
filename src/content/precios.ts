@@ -171,7 +171,7 @@ export const institucionalPrecios: Producto[] = [
     nombre: 'Capacitación docente puntual',
     precio: '$25,000 a $45,000 MXN',
     resumen:
-      'Formación del claustro en el propio centro, de 20 a 40 horas según el tamaño del equipo.',
+      'Formación del equipo docente en el propio centro, de 20 a 40 horas según el tamaño del equipo.',
     detalles: [
       'De 20 a 40 horas',
       'Presencial en el centro o en línea',
@@ -187,10 +187,10 @@ export const institucionalPrecios: Producto[] = [
     precio: '$65,000 a $95,000 MXN',
     unidad: 'por año',
     resumen:
-      'Certificación anual: auditoría, formación completa del claustro, protocolo propio y sello vigente un ciclo escolar.',
+      'Certificación anual: auditoría, formación completa del equipo docente, protocolo propio y sello vigente un ciclo escolar.',
     detalles: [
       'Auditoría inicial del procedimiento del centro',
-      'Formación completa del claustro',
+      'Formación completa del equipo docente',
       'Protocolo de derivación propiedad del colegio',
       'Sello de vigencia anual, sujeto a revisión',
       'Acompañamiento durante el ciclo escolar',
@@ -201,17 +201,54 @@ export const institucionalPrecios: Producto[] = [
   },
 ];
 
+/* ------------------------------------------------------------------ */
+/* Orientación de trayectoria                                          */
+/* ------------------------------------------------------------------ */
+
+export const trayectoriaPrecios: Producto[] = [
+  {
+    id: 'ruta-digital',
+    nombre: 'Diagnóstico y mapa de ruta',
+    precio: '$990 MXN',
+    importe: 99000,
+    unidad: 'por estudiante',
+    resumen:
+      'Test de perfil vocacional y aptitudes en PsicoMetrics, con reporte y calendario de admisión descargables.',
+    detalles: [
+      'Test de perfil vocacional y aptitudes',
+      'Mapa de opciones de prepa y universidad',
+      'Fechas de examen, costos, becas y temarios',
+      'Checklist y calendario de admisión descargable',
+      'Entrega en formato PDF',
+    ],
+    cobro: 'directo',
+    accion: 'Comprar diagnóstico',
+    nota: 'El reporte se genera de forma automatizada a partir de tus respuestas y se revisa antes de entregarse.',
+  },
+  {
+    id: 'bootcamp-admision',
+    nombre: 'Taller de orientación y estrategia de admisión',
+    precio: '$1,850 MXN',
+    importe: 185000,
+    unidad: 'por familia',
+    resumen:
+      'Todo el diagnóstico anterior más sesión grupal en línea y una sesión exprés para dudas puntuales.',
+    detalles: [
+      'Incluye el diagnóstico completo en PsicoMetrics',
+      'Sesión grupal en línea de 2 horas',
+      'Estrategias para solicitar becas',
+      'Preparación de exámenes de admisión',
+      'Sesión exprés de 20 minutos con la familia',
+    ],
+    cobro: 'directo',
+    accion: 'Inscribirme al taller',
+    destacado: true,
+  },
+];
+
 /**
- * ⚠️ VERIFICAR ANTES DE PUBLICAR
- *
- * Este texto afirma reconocimiento oficial. En México, «valor curricular
- * SEP» y el RVOE son figuras reguladas: publicarlo sin el registro
- * correspondiente expone a la empresa a sanción y a reclamación de los
- * participantes que se inscribieron por eso.
- *
- * Si el registro existe, sustituir por el número y la autoridad que lo
- * emite, que además vende mucho mejor que la frase genérica.
- * Si no existe todavía, dejar solo «constancia de participación».
+ * Registro de capacitación declarado por la empresa. Si cambia el número o
+ * la vigencia, actualizar aquí: aparece en Academia y en Formación.
  */
 export const avisoConstancias =
-  '[VERIFICAR] Constancias emitidas por Gebenz Consultoría y Negocios, S.A. de C.V. [Indicar aquí el registro oficial y la autoridad que lo emite, o retirar cualquier mención a validez oficial.]';
+  'Constancias emitidas por Gebenz Consultoría y Negocios, S.A. de C.V. como centro de capacitación con registro de diplomados ante la SEP, número FCS-190789.';

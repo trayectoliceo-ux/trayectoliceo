@@ -27,11 +27,8 @@ export const psicometricsPagina = {
     accion: 'Probar PsicoMetrics',
     subtexto: 'Plan inicial gratuito · Sin tarjeta de crédito',
     accionSecundaria: 'Ver los módulos',
-    imagen: {
-      src: undefined as string | undefined,
-      descripcion:
-        'Captura del panel de PsicoMetrics con los módulos de expedientes, informes e instrumentos',
-    },
+    /** La portada muestra la muestra de informe verificable, no una captura. */
+    mostrarInforme: true,
   },
 
   /** Origen real del producto. Es el argumento más fuerte que existe. */
@@ -79,49 +76,49 @@ export const psicometricsPagina = {
         indice: '01',
         titulo: 'Expedientes pseudonimizados',
         descripcion:
-          'Cada caso se gestiona bajo identificador, no bajo nombre. La identidad queda separada del expediente de trabajo, que es lo que exige el tratamiento de datos de menores.',
+          'Cada caso se gestiona bajo identificador, no bajo nombre. La identidad queda cifrada y separada del expediente de trabajo, como exige el tratamiento de datos de menores.',
       },
       {
         indice: '02',
         titulo: 'Borradores de informe',
         descripcion:
-          'A partir de los datos capturados, la plataforma redacta un borrador estructurado y coherente. Es un punto de partida para tu revisión, nunca un documento final.',
+          'Con los datos capturados, la plataforma redacta un borrador estructurado y coherente. Es tu punto de partida, nunca un documento final: la firma y el criterio son tuyos.',
       },
       {
         indice: '03',
         titulo: 'Instrumentos y baremos',
         descripcion:
-          'Tus baterías y tablas de baremo licenciadas en un solo lugar, con control de versión. Se acabó buscar qué fotocopia corresponde a qué edición.',
+          'Tus baterías y tablas de baremo licenciadas en un solo lugar, con control de versión. Se acabó buscar qué fotocopia corresponde a qué edición del instrumento.',
       },
       {
         indice: '04',
         titulo: 'Transferencia entre profesionales',
         descripcion:
-          'Traspaso del expediente completo a otro profesional acreditado, con registro de quién lo entregó y quién lo recibió. Pensado para canalizaciones documentadas.',
+          'Traspaso del expediente completo a otro profesional acreditado, con registro de quién entrega y quién recibe. Pensado para canalizaciones documentadas.',
       },
       {
         indice: '05',
         titulo: 'Acumulación normativa',
         descripcion:
-          'Los casos que autorices, y solo esos, alimentan una base de referencia propia con datos disociados. Requiere consentimiento informado explícito y es revocable.',
+          'Los casos que autorices, y solo esos, alimentan una base de referencia propia con datos disociados. Requiere consentimiento informado y es revocable.',
       },
       {
         indice: '06',
         titulo: 'Revisión por comité',
         descripcion:
-          'Los instrumentos propios pasan por un proceso interno de revisión documentada antes de publicarse en la plataforma, con el expediente metodológico disponible.',
+          'Los instrumentos propios pasan por revisión interna documentada antes de publicarse, con el expediente metodológico disponible para consulta.',
       },
       {
         indice: '07',
         titulo: 'Tamizaje escolar',
         descripcion:
-          'Cribado breve por grupo, de 15 a 20 minutos por aula. Recoge indicadores observacionales, funciones ejecutivas y escalas de riesgo y de talento, y devuelve al centro un mapa de semáforo por grupo: verde sin indicadores, amarillo alerta de aprendizaje, azul indicador de alta capacidad. Permite revisar una generación completa antes de decidir a quién conviene evaluar de forma individual, que es donde está el costo real.',
+          'Cribado breve por grupo, de 15 a 20 minutos por aula. Devuelve un mapa de semáforo: verde sin indicadores, amarillo alerta de aprendizaje, azul indicador de alta capacidad. Revisa una generación completa antes de decidir a quién evaluar de forma individual.',
       },
       {
         indice: '08',
         titulo: 'Guía interactiva',
         descripcion:
-          'Recorrido paso a paso dentro de la propia plataforma, con casos de ejemplo y datos ficticios. Cubre desde abrir un expediente hasta emitir el informe con folio, para que el equipo aprenda sobre la herramienta y no sobre un manual. Disponible desde el primer día y sin consumir créditos.',
+          'Recorrido paso a paso con casos de ejemplo y datos ficticios, de abrir un expediente a emitir el informe con folio. El equipo aprende sobre la herramienta, no sobre un manual. Sin consumir créditos.',
       },
     ],
   },
@@ -189,8 +186,8 @@ export const psicometricsPagina = {
       },
       {
         nombre: 'Créditos',
-        precio: 'Desde [$49 USD]',
-        detalle: 'Paquetes de 10, 20 o 50 informes',
+        precio: 'Desde $7 USD',
+        detalle: 'Por informe. Paquetes de 10, 20 o 50',
         incluye: [
           'Vigencia de 12 meses, que se renueva con cada compra',
           'Acceso a los seis módulos',

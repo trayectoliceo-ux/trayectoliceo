@@ -81,7 +81,7 @@ export function Portada() {
           ))}
         </h1>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-16">
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-16">
           <div>
             <motion.p
               initial={{ opacity: 0, y: reducido ? 0 : 10 }}
@@ -113,22 +113,6 @@ export function Portada() {
               ))}
             </motion.div>
 
-            {/* Riel de trayecto: la figura de la marca, ahora horizontal. */}
-            <div className="mt-14">
-              <motion.div
-                aria-hidden
-                initial={reducido ? { opacity: 0 } : { scaleX: 0 }}
-                animate={reducido ? { opacity: 1 } : { scaleX: 1 }}
-                transition={{
-                  duration: reducido ? duracion.base : duracion.firma,
-                  delay: RETRASO_LINEA,
-                  ease: curva.salidaSuave,
-                }}
-                style={{ transformOrigin: 'left' }}
-                className="h-px w-full bg-linea"
-              />
-              <Hitos />
-            </div>
           </div>
 
           <motion.div
@@ -140,12 +124,28 @@ export function Portada() {
               ease: curva.salidaSuave,
             }}
           >
+            {/* Riel de trayecto: encabeza la columna de la imagen. */}
+            <motion.div
+              aria-hidden
+              initial={reducido ? { opacity: 0 } : { scaleX: 0 }}
+              animate={reducido ? { opacity: 1 } : { scaleX: 1 }}
+              transition={{
+                duration: reducido ? duracion.base : duracion.firma,
+                delay: RETRASO_LINEA,
+                ease: curva.salidaSuave,
+              }}
+              style={{ transformOrigin: 'left' }}
+              className="h-px w-full bg-linea"
+            />
+            <Hitos />
+
             <Marcador
               src={portada.imagen.src}
               descripcion={portada.imagen.descripcion}
               ajuste={portada.imagen.ajuste}
               proporcion="4 / 3"
               prioritaria
+              className="mt-2"
             />
           </motion.div>
         </div>
@@ -179,7 +179,7 @@ function Hitos() {
   }, [reducido]);
 
   return (
-    <ul className="flex flex-wrap gap-x-8 gap-y-3 pt-6">
+    <ul className="flex flex-wrap gap-x-7 gap-y-2 pb-2 pt-5">
       {portada.hitos.map((hito, indice) => {
         const encendido = reducido || indice === activo;
 

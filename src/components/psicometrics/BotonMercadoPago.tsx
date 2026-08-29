@@ -33,11 +33,14 @@ const metodosDePago = [
 export function BotonMercadoPago({
   paquete,
   etiqueta,
+  nombreProducto,
   compacto = false,
 }: {
   /** Identificador del producto en el catálogo del servidor. */
   paquete: string;
   etiqueta: string;
+  /** Nombre legible, para el mensaje de WhatsApp si no hay pasarela. */
+  nombreProducto?: string;
   /** Oculta los métodos de pago y el aviso: para listas con varios botones. */
   compacto?: boolean;
 }) {
@@ -46,7 +49,7 @@ export function BotonMercadoPago({
 
   const comprar = async () => {
     setEstado('creando');
-    const resultado = await iniciarPagoMercadoPago(paquete);
+    const resultado = await iniciarPagoMercadoPago(paquete, nombreProducto);
 
     if (resultado.ok) {
       // Con la integración real, aquí se redirige al checkout.

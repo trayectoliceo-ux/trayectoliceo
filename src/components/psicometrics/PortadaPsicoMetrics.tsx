@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import Link from 'next/link';
 import { BotonEnlace } from '@/components/ui/Boton';
 import { PalabraRotativa } from '@/components/ui/PalabraRotativa';
-import { Marcador } from '@/components/ui/Piezas';
+import { HojaInforme } from '@/components/psicometrics/MuestraInforme';
 import { psicometricsPagina as pm } from '@/content/psicometrics';
 import { curva, duracion } from '@/lib/motion';
 
@@ -105,12 +105,7 @@ export function PortadaPsicoMetrics() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: duracion.lenta, delay: 0.28, ease: curva.salidaSuave }}
         >
-          <Marcador
-            src={pm.portada.imagen.src}
-            descripcion={pm.portada.imagen.descripcion}
-            proporcion="4 / 3"
-            prioritaria
-          />
+          <HojaInforme />
         </motion.div>
       </div>
     </section>

@@ -58,14 +58,20 @@ export default function PaginaTalleres() {
 
                 <div className="w-full rounded-lg border border-linea bg-papel-puro p-6 text-center shadow-tarjeta md:w-[19rem]">
                   <p className="etiqueta">Inversión</p>
-                  <p className="mt-2 font-display text-t2 leading-none text-institucional">
+                  <p className="mt-2 whitespace-nowrap font-display text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-none tracking-[-0.025em] text-institucional">
                     {taller.precio}
                   </p>
+                  {taller.fechas?.[0] ? (
+                    <p className="mt-2 text-menudo text-gris">
+                      Próxima: {taller.fechas[0].inicio}
+                    </p>
+                  ) : null}
 
                   <div className="mt-5">
                     <BotonMercadoPago
                       paquete={taller.idPago}
                       etiqueta="Apartar lugar"
+                      nombreProducto={`el taller ${taller.titulo}`}
                       compacto
                     />
                   </div>

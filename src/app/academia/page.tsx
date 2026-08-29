@@ -92,7 +92,7 @@ export default function PaginaAcademia() {
       <Seccion>
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <Revelar>
-            <span className="inline-flex rounded bg-sello-claro/15 px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-sello">
+            <span className="inline-flex rounded bg-menta/12 px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-menta">
               {academia.licenciatura.etiqueta}
             </span>
             <h2 className="mt-5 max-w-[20ch] text-t1">
@@ -109,7 +109,7 @@ export default function PaginaAcademia() {
               {academia.licenciatura.accion}
             </Link>
 
-            <p className="mt-5 max-w-lectura rounded border-l-4 border-sello-claro bg-sello-claro/[0.07] p-4 text-menudo leading-[1.6] text-tinta-suave justificado">
+            <p className="justificado mt-5 max-w-lectura rounded border-l-4 border-institucional bg-institucional/[0.05] p-4 text-menudo leading-[1.6] text-tinta-suave">
               {academia.licenciatura.advertencia}
             </p>
           </Revelar>
@@ -122,6 +122,69 @@ export default function PaginaAcademia() {
                 </Metadato>
               ))}
             </dl>
+          </Revelar>
+        </div>
+      </Seccion>
+
+      {/* Titulación por Acuerdo 286 */}
+      <Seccion tono="hondo">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+          <Revelar>
+            <p className="etiqueta">{academia.titulacion.etiqueta}</p>
+            <h2 className="mt-5 max-w-[18ch] text-t1">{academia.titulacion.titulo}</h2>
+            <p className="justificado mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+              {academia.titulacion.entrada}
+            </p>
+
+            <dl className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-lg border border-institucional bg-papel-puro p-5 text-center shadow-tarjeta">
+                <dt className="etiqueta">Pago único</dt>
+                <dd className="mt-2 whitespace-nowrap font-display text-t3 font-bold text-institucional">
+                  {academia.titulacion.precioContado}
+                </dd>
+              </div>
+              <div className="rounded-lg border border-linea bg-papel-puro p-5 text-center shadow-tarjeta">
+                <dt className="etiqueta">Diferido</dt>
+                <dd className="mt-2 whitespace-nowrap font-display text-t3 font-bold text-tinta">
+                  {academia.titulacion.precioTotal}
+                </dd>
+              </div>
+            </dl>
+
+            <Link
+              href="/contacto"
+              className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded bg-institucional px-7 text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+            >
+              {academia.titulacion.accion}
+            </Link>
+          </Revelar>
+
+          <Revelar retraso={0.06}>
+            <p className="etiqueta">Esquema de pago</p>
+            <ol className="mt-4 border-t border-linea">
+              {academia.titulacion.calendario.map((fase) => (
+                <li
+                  key={fase.mes}
+                  className="grid gap-1 border-b border-linea py-4 sm:grid-cols-[5rem_1fr_auto] sm:items-baseline sm:gap-5"
+                >
+                  <span className="font-mono text-menudo font-medium text-institucional">
+                    {fase.mes}
+                  </span>
+                  <span>
+                    <span className="block text-menudo font-semibold text-tinta">
+                      {fase.concepto}
+                    </span>
+                    <span className="block text-menudo text-gris">{fase.hito}</span>
+                  </span>
+                  <span className="whitespace-nowrap text-menudo font-semibold text-tinta">
+                    {academia.titulacion.mensualidad}
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <p className="justificado mt-4 text-menudo text-gris">
+              {academia.titulacion.nota}
+            </p>
           </Revelar>
         </div>
       </Seccion>

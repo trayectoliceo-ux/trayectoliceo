@@ -202,12 +202,12 @@ export const programasInstitucionales: Servicio[] = [
     etiqueta: 'Alcance puntual',
     titulo: 'Capacitación docente',
     precio: '$25,000 a $45,000 MXN',
-    precioNota: 'Según el tamaño del claustro',
+    precioNota: 'Según el tamaño del equipo docente',
     resumen: 'Formación del equipo en el propio centro, con fecha de inicio y de cierre.',
     alcance: '20 a 40 horas · Presencial o en línea',
     entregable: 'Constancia de participación por docente',
     incluye: [
-      'Formación completa del claustro',
+      'Formación completa del equipo docente',
       'Material de trabajo para el centro',
       'Sin auditoría ni revisión posterior',
       'Se contrata por una sola ocasión',
@@ -226,7 +226,7 @@ export const programasInstitucionales: Servicio[] = [
     entregable: 'Sello de vigencia anual y protocolo propio del centro',
     incluye: [
       'Auditoría inicial del procedimiento vigente',
-      'Formación completa del claustro',
+      'Formación completa del equipo docente',
       'Protocolo de derivación documentado y propio',
       'Sello de vigencia anual, sujeto a revisión',
       'Acompañamiento durante el ciclo escolar',

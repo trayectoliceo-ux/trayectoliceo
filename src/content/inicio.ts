@@ -256,7 +256,7 @@ export const preguntas = {
     {
       pregunta: '¿Qué pasa si el colegio no quiere colaborar?',
       respuesta:
-        'Es frecuente y se puede trabajar igual. El acompañamiento avanza con la familia y el alumno, y preparamos la documentación para plantear el caso al centro cuando exista disposición. También ofrecemos capacitación al claustro si el colegio decide abrirse al tema.',
+        'Es frecuente y se puede trabajar igual. El acompañamiento avanza con la familia y el alumno, y preparamos la documentación para plantear el caso al centro cuando exista disposición. También ofrecemos capacitación al equipo docente si el colegio decide abrirse al tema.',
     },
     {
       pregunta: '¿Cómo protegen los datos de mi hijo?',

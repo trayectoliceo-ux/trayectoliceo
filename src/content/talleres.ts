@@ -12,6 +12,8 @@ export type Taller = {
   slug: string;
   /** Identificador de cobro en el catálogo del servidor. */
   idPago: string;
+  /** Próximas convocatorias. Editar cada ciclo. */
+  fechas?: { inicio: string; sede: string; lugares: string }[];
   titulo: string;
   linea: string;
   edades: string;
@@ -32,6 +34,10 @@ export const talleres: Taller[] = [
   {
     slug: 'construccion-y-mecanismos',
     idPago: 'taller-construccion-y-mecanismos',
+    fechas: [
+      { inicio: '[Sábados desde el 00 de febrero]', sede: '31 Poniente 4128, Puebla', lugares: '[0] lugares' },
+      { inicio: '[Sábados desde el 00 de mayo]', sede: '31 Poniente 4128, Puebla', lugares: '[0] lugares' },
+    ],
     titulo: 'Construcción y mecanismos',
     linea: 'Ingeniería',
     edades: '6 a 8 años',
@@ -59,6 +65,9 @@ export const talleres: Taller[] = [
   {
     slug: 'pensamiento-computacional',
     idPago: 'taller-pensamiento-computacional',
+    fechas: [
+      { inicio: '[Sábados desde el 00 de febrero]', sede: '31 Poniente 4128, Puebla', lugares: '[0] lugares' },
+    ],
     titulo: 'Pensamiento computacional',
     linea: 'Tecnología',
     edades: '9 a 12 años',
@@ -85,6 +94,9 @@ export const talleres: Taller[] = [
   {
     slug: 'laboratorio-de-preguntas',
     idPago: 'taller-laboratorio-de-preguntas',
+    fechas: [
+      { inicio: '[Sábados desde el 00 de marzo]', sede: '31 Poniente 4128, Puebla', lugares: '[0] lugares' },
+    ],
     titulo: 'Laboratorio de preguntas',
     linea: 'Ciencia',
     edades: '9 a 12 años',
@@ -111,6 +123,9 @@ export const talleres: Taller[] = [
   {
     slug: 'diseno-y-fabricacion',
     idPago: 'taller-diseno-y-fabricacion',
+    fechas: [
+      { inicio: '[Sábados desde el 00 de marzo]', sede: '31 Poniente 4128, Puebla', lugares: '[0] lugares' },
+    ],
     titulo: 'Diseño y fabricación',
     linea: 'Arte e ingeniería',
     edades: '13 a 16 años',
@@ -138,6 +153,9 @@ export const talleres: Taller[] = [
   {
     slug: 'matematicas-sin-libro-de-texto',
     idPago: 'taller-matematicas-sin-libro-de-texto',
+    fechas: [
+      { inicio: '[Sábados desde el 00 de febrero]', sede: 'En línea', lugares: '[0] lugares' },
+    ],
     titulo: 'Matemáticas sin libro de texto',
     linea: 'Matemáticas',
     edades: '10 a 14 años',

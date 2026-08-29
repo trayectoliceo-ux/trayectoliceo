@@ -50,7 +50,7 @@ export function Logotipo({
 
       <span className="flex flex-col items-center text-center">
         <span
-          className={`font-display text-[1.375rem] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[1.5rem] ${colorNombre}`}
+          className={`whitespace-nowrap font-display text-[1.25rem] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[1.4375rem] ${colorNombre}`}
         >
           {sitio.nombre}
         </span>

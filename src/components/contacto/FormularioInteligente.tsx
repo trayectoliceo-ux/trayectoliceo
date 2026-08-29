@@ -47,7 +47,7 @@ const perfiles: {
   },
   {
     valor: 'colegio',
-    titulo: 'Represento una institución',
+    titulo: 'Soy una institución',
     pie: 'Colegio, clínica o gabinete',
     icono: '▤',
     accion: 'Solicitar demostración',
@@ -155,11 +155,11 @@ export function FormularioInteligente() {
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-menta/10 text-menta">
           ✓
         </span>
-        <h3 className="mt-6 text-t3">Solicitud recibida.</h3>
+        <h3 className="mt-6 text-t3">Solicitud lista.</h3>
         <p className="mt-4 max-w-lectura text-cuerpo text-tinta-suave justificado justificado">
-          {datos.perfil === 'familia'
-            ? 'Te escribimos en un plazo de dos días hábiles para agendar la primera conversación, que es sin costo.'
-            : 'Un miembro del equipo te contacta en dos días hábiles para coordinar la demostración con tu departamento de orientación.'}
+          Se abrió WhatsApp con tu solicitud ya redactada. Envíala y te
+          respondemos el mismo día hábil. Si no se abrió, escríbenos con el botón
+          verde de la esquina.
         </p>
         <button
           type="button"
@@ -223,16 +223,16 @@ export function FormularioInteligente() {
                 ) : null}
                 <span
                   aria-hidden
-                  className={`relative block text-2xl ${
+                  className={`relative block text-xl ${
                     activo && elegido ? 'text-institucional' : 'text-gris'
                   }`}
                 >
                   {opcion.icono}
                 </span>
-                <span className="relative mt-2 block text-cuerpo font-semibold text-tinta">
+                <span className="relative mt-2 block text-menudo font-semibold text-tinta">
                   {opcion.titulo}
                 </span>
-                <span className="relative mt-1 block text-menudo leading-[1.4] text-gris">
+                <span className="justificado relative mt-1 block text-[0.8125rem] leading-[1.45] text-gris">
                   {opcion.pie}
                 </span>
               </button>
@@ -526,7 +526,8 @@ export function FormularioInteligente() {
         </p>
       ) : (
         <p className="mt-3 text-center text-menudo text-gris">
-          Respondemos en dos días hábiles. La primera conversación es sin costo.
+          Al enviar se abre WhatsApp con tus datos ya escritos. La primera
+          conversación es sin costo.
         </p>
       )}
           </motion.div>

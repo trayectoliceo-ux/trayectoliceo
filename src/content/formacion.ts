@@ -39,7 +39,7 @@ export const programas: Programa[] = [
       'Disponibilidad para una sesión sincrónica semanal de dos horas',
     ],
     constancia:
-      'Constancia emitida por Gebenz Consultoría y Negocios, S.A. de C.V. [VERIFICAR: indicar el registro oficial y la autoridad emisora, o retirar toda mención a validez oficial]',
+      'Constancia emitida por Gebenz Consultoría y Negocios, S.A. de C.V., centro de capacitación con registro de diplomados ante la SEP núm. FCS-190789',
     precio: '$12,500 MXN',
     notaPrecio: 'O en 5 parcialidades mensuales de $2,700 MXN',
     resumen:
@@ -92,7 +92,7 @@ export const programas: Programa[] = [
     dirigidoA:
       'Docentes de educación básica y media, tutores y coordinadores académicos.',
     requisitos: ['Ejercicio docente en activo'],
-    constancia: 'Constancia de participación emitida por Gebenz Consultoría y Negocios, S.A. de C.V.',
+    constancia: 'Constancia de participación emitida por Gebenz Consultoría y Negocios, S.A. de C.V. (registro SEP FCS-190789)',
     precio: '$1,800 MXN por participante',
     notaPrecio: 'Grupo cerrado hasta 15 docentes: $18,000 MXN',
     resumen:
@@ -136,7 +136,7 @@ export const programas: Programa[] = [
       'Cédula profesional vigente',
       'Experiencia previa en aplicación de pruebas',
     ],
-    constancia: 'Constancia de participación emitida por Gebenz Consultoría y Negocios, S.A. de C.V.',
+    constancia: 'Constancia de participación emitida por Gebenz Consultoría y Negocios, S.A. de C.V. (registro SEP FCS-190789)',
     precio: '$2,200 MXN por participante',
     resumen:
       'Un informe que la familia entiende y que el centro escolar puede convertir en decisiones.',

@@ -9,7 +9,7 @@ import { DatosEstructurados, migaDePan } from '@/lib/schema';
 export const metadata = metadatos({
   titulo: 'Capacitación docente y certificación de colegios',
   descripcion:
-    'Formación del claustro en detección de talento y certificación anual «Escuela que identifica talento»: auditoría, protocolo de derivación y sello renovable.',
+    'Formación del equipo docente en detección de talento y certificación anual «Escuela que identifica talento»: auditoría, protocolo de derivación y sello renovable.',
   ruta: '/colegios',
 });
 

@@ -62,7 +62,7 @@ export function TarjetaProducto({ producto }: { producto: Producto }) {
         <h3 className="mt-4 text-balance text-t3">{producto.nombre}</h3>
 
         <p className="mt-4 flex flex-wrap items-baseline justify-center gap-x-2">
-          <span className="font-display text-t2 leading-none text-institucional">
+          <span className="whitespace-nowrap font-display text-[clamp(1.75rem,3.2vw,2.375rem)] font-bold leading-none tracking-[-0.025em] text-institucional">
             {producto.precio}
           </span>
           {producto.unidad ? (

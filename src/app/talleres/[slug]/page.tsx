@@ -89,8 +89,30 @@ export default async function PaginaTaller({ params }: Props) {
                   ) : null}
                 </Metadato>
 
-                <div className="mt-7">
-                  <BotonMercadoPago paquete={taller.idPago} etiqueta="Apartar lugar" />
+                {taller.fechas?.length ? (
+                  <div className="mt-7 rounded-lg border border-linea bg-papel-puro p-5 shadow-tarjeta">
+                    <p className="etiqueta">Próximas fechas</p>
+                    <ul className="mt-3 border-t border-linea">
+                      {taller.fechas.map((fecha) => (
+                        <li key={fecha.inicio} className="border-b border-linea py-3">
+                          <p className="text-menudo font-semibold text-tinta">
+                            {fecha.inicio}
+                          </p>
+                          <p className="text-menudo text-gris">
+                            {fecha.sede} · {fecha.lugares}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                <div className="mt-5">
+                  <BotonMercadoPago
+                    paquete={taller.idPago}
+                    etiqueta="Apartar lugar"
+                    nombreProducto={`el taller ${taller.titulo}`}
+                  />
                   {taller.modalidad.toLowerCase().includes('presencial') ? (
                     <Link
                       href="/contacto?motivo=calendario"

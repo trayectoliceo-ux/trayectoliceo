@@ -11,7 +11,7 @@
 
 export const colegios = {
   etiqueta: 'Programas para colegios',
-  titulo: 'Un claustro que sabe mirar identifica antes que cualquier prueba.',
+  titulo: 'Un equipo docente que sabe mirar identifica antes que cualquier prueba.',
   entrada:
     'Trabajamos con dos alcances distintos y conviene no confundirlos: una capacitación resuelve la formación del equipo; una certificación cambia el procedimiento del centro y se revisa cada año.',
 
@@ -21,7 +21,7 @@ export const colegios = {
       titulo: 'Capacitación docente',
       resumen: 'Formación del equipo en el propio centro, con fecha de inicio y de cierre.',
       puntos: [
-        'De 20 a 40 horas según el tamaño del claustro',
+        'De 20 a 40 horas según el tamaño del equipo docente',
         'Presencial en el centro o en línea',
         'Constancia de participación por docente',
         'Sin auditoría ni revisión posterior',
@@ -33,10 +33,10 @@ export const colegios = {
       etiqueta: 'Alcance institucional',
       titulo: 'Escuela que identifica talento',
       resumen:
-        'Revisión del procedimiento del centro, formación del claustro, protocolo de derivación y sello anual renovable.',
+        'Revisión del procedimiento del centro, formación del equipo docente, protocolo de derivación y sello anual renovable.',
       puntos: [
         'Auditoría inicial del procedimiento vigente',
-        'Formación completa del claustro',
+        'Formación completa del equipo docente',
         'Protocolo de derivación documentado y propio del centro',
         'Sello de vigencia anual, sujeto a revisión',
         'Acompañamiento durante el ciclo escolar',
@@ -55,7 +55,7 @@ export const colegios = {
     },
     {
       numero: '02',
-      titulo: 'Formación del claustro',
+      titulo: 'Formación del equipo docente',
       duracion: '[6 a 8 semanas]',
       descripcion:
         'Capacitación de docentes y equipo de orientación en detección, indicadores observables y límites del rol docente. Sesiones por ciclo escolar, no una conferencia general.',

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
 import { PromocionesRotativas } from '@/components/inicio/PromocionesRotativas';
 import { TarjetaProducto } from '@/components/ui/TarjetaProducto';
-import { evaluacion } from '@/content/precios';
+import { evaluacion, trayectoriaPrecios } from '@/content/precios';
 import { BloquePsicoMetrics } from '@/components/inicio/BloquePsicoMetrics';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Marcador, Seccion } from '@/components/ui/Piezas';
@@ -156,6 +156,25 @@ export default function PaginaInicio() {
       </Seccion>
 
       <BloquePsicoMetrics />
+
+      {/* Orientación de trayectoria */}
+      <Seccion>
+        <EncabezadoSeccion
+          etiqueta="Orientación de trayectoria"
+          titulo="Elegir la siguiente escuela con datos, no con prisa."
+          entrada="Diagnóstico vocacional y mapa de admisión con fechas, costos y becas. Para familias que están decidiendo prepa o universidad."
+        />
+        <GrupoRevelar
+          total={trayectoriaPrecios.length}
+          className="mx-auto mt-14 grid max-w-4xl items-stretch gap-6 sm:grid-cols-2"
+        >
+          {trayectoriaPrecios.map((producto) => (
+            <ElementoRevelar key={producto.id}>
+              <TarjetaProducto producto={producto} />
+            </ElementoRevelar>
+          ))}
+        </GrupoRevelar>
+      </Seccion>
 
       {/*
         Prueba social retirada temporalmente: los testimonios y logotipos

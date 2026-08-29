@@ -3,9 +3,9 @@ import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { PortadaPsicoMetrics } from '@/components/psicometrics/PortadaPsicoMetrics';
 import { Acordeon } from '@/components/ui/Acordeon';
-import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
 import { MuestraInforme } from '@/components/psicometrics/MuestraInforme';
 import { psicometricsPagina as pm } from '@/content/psicometrics';
+import { enlaceWhatsApp } from '@/content/sitio';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan, preguntasFrecuentes } from '@/lib/schema';
 
@@ -166,13 +166,13 @@ export default function PaginaPsicoMetrics() {
 
         <GrupoRevelar
           total={pm.precios.planes.length}
-          className="mt-14 grid gap-6 lg:grid-cols-3"
+          className="mt-14 grid items-stretch gap-6 lg:grid-cols-3"
         >
           {pm.precios.planes.map((plan) => (
             <ElementoRevelar
               as="article"
               key={plan.nombre}
-              className={`flex flex-col rounded-lg border bg-papel-puro p-8 ${
+              className={`flex h-full flex-col rounded-lg border bg-papel-puro p-7 ${
                 plan.destacado
                   ? 'border-institucional shadow-elevada lg:-mt-4 lg:mb-[-1rem]'
                   : 'border-linea shadow-tarjeta'
@@ -206,8 +206,18 @@ export default function PaginaPsicoMetrics() {
 
               <div className="mt-7">
                 {plan.destacado ? (
-                  // Único plan con cobro directo: pasa por Mercado Pago.
-                  <BotonMercadoPago paquete="creditos-10" etiqueta={plan.accion} />
+                  // Los créditos se contratan por WhatsApp: el paquete y la
+                  // facturación se ajustan al volumen de cada profesional.
+                  <a
+                    href={enlaceWhatsApp(
+                      'Hola. Quiero comprar créditos para informes en PsicoMetrics.',
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex min-h-[52px] w-full items-center justify-center rounded bg-institucional px-6 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+                  >
+                    {plan.accion}
+                  </a>
                 ) : (
                   <BotonEnlace
                     href={plan.nombre === 'Clínicas y colegios' ? '/contacto' : pm.url}

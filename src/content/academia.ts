@@ -37,33 +37,48 @@ export const academia = {
       'El campus se habilita en los próximos meses. Los participantes actuales reciben los materiales por correo mientras tanto.',
   },
 
-  /**
-   * Programa en preparación. Redactado como interés anticipado a propósito:
-   * ver el aviso legal de la cabecera de este archivo.
-   */
+  /** Licenciatura con RVOE. Inicio y datos confirmados por la institución. */
   licenciatura: {
-    etiqueta: 'En preparación',
+    etiqueta: 'Inscripciones abiertas',
     titulo: 'Licenciatura en Psicología, modalidad en línea',
     entrada:
-      'Estamos preparando la apertura de un programa de licenciatura en línea con sesiones en sábado. Puedes registrar tu interés para recibir la convocatoria en cuanto se publique.',
+      'Programa con reconocimiento de validez oficial para quien quiere titularse sin dejar de trabajar. Sesiones en sábado, avance a tu ritmo y acompañamiento durante todo el trayecto.',
     datos: [
-      { etiqueta: 'Modalidad', valor: 'En línea con sesiones sincrónicas' },
+      { etiqueta: 'RVOE', valor: '20192721' },
+      { etiqueta: 'Inicio', valor: 'Enero de 2027' },
+      { etiqueta: 'Modalidad', valor: 'En línea. Estudia a tu ritmo' },
       { etiqueta: 'Sesiones', valor: 'Sábados de 8:00 a 12:30 h' },
       { etiqueta: 'Carga', valor: '6 materias por cuatrimestre, más cursos de verano' },
-      { etiqueta: 'Inicio previsto', valor: '[Fecha por confirmar]' },
-      {
-        etiqueta: 'Situación',
-        valor:
-          '[VERIFICAR] Trámite de reconocimiento oficial en curso. Publicar aquí el número de acuerdo y la autoridad emisora en cuanto se obtenga.',
-      },
+      { etiqueta: 'Colegiatura', valor: '$690 MXN mensuales' },
+      { etiqueta: 'Admisión', valor: 'Preinscripción y examen de admisión' },
     ],
-    accion: 'Registrar mi interés',
-    /**
-     * Este texto no es opcional. Quien deja sus datos tiene que saber
-     * exactamente qué está haciendo y qué no.
-     */
+    accion: 'Solicitar preinscripción',
     advertencia:
-      'Registrar tu interés no constituye inscripción ni aparta lugar, y no implica ningún pago. Te contactaremos cuando la convocatoria esté publicada, con las condiciones y el estado del reconocimiento oficial del programa.',
+      'La preinscripción no genera cobro inmediato: primero se agenda el examen de admisión y se revisa la documentación. Te confirmamos por WhatsApp fechas y requisitos.',
+  },
+
+  /**
+   * Titulación por Acuerdo 286. Es un servicio distinto de la licenciatura:
+   * va dirigido a quien ya tiene experiencia y quiere acreditarla.
+   */
+  titulacion: {
+    etiqueta: 'Titulación',
+    titulo: 'Acuerdo 286 · Pedagogía y Ciencias de la Educación',
+    entrada:
+      'Acompañamiento completo para acreditar tus conocimientos por experiencia y obtener el título. Preparamos el examen, el portafolio y el expediente ante la SEP.',
+    precioTotal: '$45,000 MXN diferido',
+    precioContado: '$38,000 MXN en un solo pago',
+    inscripcion: '$9,000 MXN',
+    mensualidad: '$9,000 MXN',
+    calendario: [
+      { mes: 'Mes 0', concepto: 'Inscripción y diagnóstico de perfil', hito: 'Inicio de asesoría y acceso a plataforma' },
+      { mes: 'Mes 1', concepto: 'Acompañamiento', hito: 'Preparación del examen teórico' },
+      { mes: 'Mes 2', concepto: 'Acompañamiento', hito: 'Presentación de examen y proyecto' },
+      { mes: 'Mes 3', concepto: 'Acompañamiento', hito: 'Asesoría de portafolio y proyecto' },
+      { mes: 'Mes 4', concepto: 'Acompañamiento', hito: 'Integración de expediente y trámite SEP' },
+    ],
+    nota: 'La inscripción cubre la primera fase de acompañamiento. El resto se cubre en cuatro mensualidades del mismo importe.',
+    accion: 'Solicitar información',
   },
 
   /** Red de profesionales: capta oferta para las derivaciones. */

@@ -47,7 +47,20 @@ export function MuestraInforme() {
         </Link>
       </motion.div>
 
-      {/* La hoja */}
+      <HojaInforme />
+    </div>
+  );
+}
+
+/**
+ * La hoja del informe. Se usa suelta en la portada de producto y dentro de
+ * la sección explicativa, así que vive como componente propio.
+ */
+export function HojaInforme() {
+  const reducido = useReducedMotion();
+  const { muestra } = pm;
+
+  return (
       <motion.figure
         initial="oculto"
         whileInView="visible"
@@ -157,6 +170,5 @@ export function MuestraInforme() {
           </span>
         </motion.div>
       </motion.figure>
-    </div>
   );
 }

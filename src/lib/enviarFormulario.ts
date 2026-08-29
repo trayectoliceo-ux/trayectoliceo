@@ -49,18 +49,78 @@ export type DatosContacto = {
 
 export type ResultadoEnvio = { ok: true } | { ok: false; motivo: string };
 
-const RETRASO_SIMULADO = 900;
+/**
+ * Construye el mensaje de WhatsApp con los datos del formulario.
+ *
+ * Se envía por WhatsApp y no por correo porque la respuesta llega el mismo
+ * día y la conversación queda abierta: una familia preocupada no espera dos
+ * días a un correo. El mensaje va estructurado para que quien atienda vea
+ * el caso completo sin tener que preguntar lo básico.
+ */
+export function resumenParaWhatsApp(datos: DatosContacto): string {
+  const lineas: string[] = ['Hola. Envío una solicitud desde el sitio web.', ''];
 
-export async function enviarFormulario(datos: DatosContacto): Promise<ResultadoEnvio> {
-  // ── SUSTITUIR DESDE AQUÍ ────────────────────────────────────────────
-  await new Promise((resolver) => setTimeout(resolver, RETRASO_SIMULADO));
+  const perfiles: Record<Perfil, string> = {
+    familia: 'Familia',
+    colegio: 'Institución',
+    profesional: 'Profesional',
+  };
 
-  if (process.env.NODE_ENV === 'development') {
-    console.info('[contacto] Envío simulado. Sustituir enviarFormulario().', datos);
+  lineas.push(`Perfil: ${perfiles[datos.perfil]}`);
+  lineas.push(`Nombre: ${datos.nombre}`);
+  lineas.push(`Correo: ${datos.correo}`);
+  lineas.push(`Teléfono: ${datos.telefono}`);
+
+  if (datos.perfil === 'familia') {
+    if (datos.edadMenor) lineas.push(`Edad del menor: ${datos.edadMenor}`);
+    if (datos.gradoEscolar) lineas.push(`Grado escolar: ${datos.gradoEscolar}`);
   }
 
-  return { ok: true };
-  // ── HASTA AQUÍ ──────────────────────────────────────────────────────
+  if (datos.perfil === 'colegio') {
+    if (datos.cargo) lineas.push(`Cargo: ${datos.cargo}`);
+    if (datos.institucion) lineas.push(`Institución: ${datos.institucion}`);
+    if (datos.numeroAlumnos) lineas.push(`Alumnos: ${datos.numeroAlumnos}`);
+    if (datos.numeroEspecialistas)
+      lineas.push(`Especialistas: ${datos.numeroEspecialistas}`);
+  }
+
+  if (datos.perfil === 'profesional') {
+    if (datos.cedula) lineas.push(`Cédula: ${datos.cedula}`);
+    if (datos.cargo) lineas.push(`Especialidad: ${datos.cargo}`);
+  }
+
+  if (datos.motivos?.length) {
+    lineas.push('', 'Motivo:');
+    datos.motivos.forEach((motivo) => lineas.push(`- ${motivo}`));
+  }
+
+  if (datos.mensaje.trim()) lineas.push('', `Mensaje: ${datos.mensaje.trim()}`);
+
+  lineas.push('', `Origen: ${datos.origen}`);
+
+  return lineas.join('\n');
+}
+
+const RETRASO_SIMULADO = 900;
+
+/**
+ * Abre WhatsApp con la solicitud ya redactada.
+ *
+ * No hay servidor de por medio: el mensaje viaja por WhatsApp, que es donde
+ * se atiende. Si más adelante quieres guardar además una copia en base de
+ * datos o en un CRM, se añade aquí una llamada a `/api/contacto` antes de
+ * abrir el enlace, sin tocar ningún componente.
+ */
+export async function enviarFormulario(datos: DatosContacto): Promise<ResultadoEnvio> {
+  const { enlaceWhatsApp } = await import('@/content/sitio');
+
+  try {
+    window.open(enlaceWhatsApp(resumenParaWhatsApp(datos)), '_blank', 'noopener');
+
+    return { ok: true };
+  } catch {
+    return { ok: false, motivo: 'no_se_pudo_abrir_whatsapp' };
+  }
 }
 
 /**
