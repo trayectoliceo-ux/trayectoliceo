@@ -34,30 +34,40 @@ export const portada = {
    * Anuncios que rotan sobre la portada. Cada uno lleva a una acción
    * concreta: sin destino, un anuncio solo es ruido.
    */
+  /**
+   * Anuncios que rotan sobre la portada. Cada uno lleva precio y destino:
+   * un anuncio sin cifra y sin ruta es decoración, no venta.
+   */
   promociones: [
     {
-      etiqueta: 'Diplomado',
-      texto: 'Detección y Evaluación de Altas Capacidades · 120 horas en línea',
-      accion: 'Ver programa',
-      href: '/formacion',
+      etiqueta: 'Familias',
+      texto: 'Valoración psicopedagógica en línea · $490 · informe en 72 horas',
+      accion: 'Contratar',
+      href: '/familias',
     },
     {
-      etiqueta: 'Cursos',
-      texto: 'Detección en el aula y redacción del informe psicopedagógico',
-      accion: 'Ver cursos',
-      href: '/formacion',
+      etiqueta: 'Escuelas',
+      texto: 'Tamizaje de aula desde $150 por alumno, con semáforo por grupo',
+      accion: 'Solicitar propuesta',
+      href: '/escuelas',
     },
     {
-      etiqueta: 'Red de psicólogos',
-      texto: 'Afíliate sin costo y aumenta tus ingresos con PsicoMetrics',
-      accion: 'Afiliarme',
-      href: '/contacto',
+      etiqueta: 'Psicólogos',
+      texto: 'Primer caso completo gratis en PsicoMetrics y recibe derivaciones',
+      accion: 'Comenzar',
+      href: '/psicologos',
     },
     {
-      etiqueta: 'Academia',
-      texto: 'Licenciatura en Psicología en línea · Aparta tu lugar',
-      accion: 'Conocer',
-      href: '/academia',
+      etiqueta: 'Docentes',
+      texto: 'Capacitación en detección temprana · 20 horas · $1,800',
+      accion: 'Ver curso',
+      href: '/docentes',
+    },
+    {
+      etiqueta: 'Titulación',
+      texto: 'Acuerdo 286 en Pedagogía · preparación desde $3,500',
+      accion: 'Ver etapas',
+      href: '/titulacion',
     },
   ],
   imagen: {

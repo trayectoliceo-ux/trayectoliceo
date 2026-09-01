@@ -99,9 +99,7 @@ export const sitio = {
         { titulo: 'Para escuelas', href: '/escuelas' },
         { titulo: 'Para docentes', href: '/docentes' },
         { titulo: 'Titulación Acuerdo 286', href: '/titulacion' },
-        { titulo: 'Evaluación para familias', href: '/evaluacion' },
         { titulo: 'Talleres STEAM', href: '/talleres' },
-        { titulo: 'Academia', href: '/academia' },
       ],
     },
     {
