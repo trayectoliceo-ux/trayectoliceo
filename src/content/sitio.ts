@@ -83,17 +83,18 @@ export const sitio = {
    */
   /** Un destino por público. No se mezclan. */
   navegacion: [
-    { titulo: 'Psicólogos', corto: 'Psicólogos', href: '/psicologos', destacado: true },
+    { titulo: 'Familias', corto: 'Familias', href: '/familias', destacado: true },
+    { titulo: 'Psicólogos', corto: 'Psicólogos', href: '/psicologos' },
     { titulo: 'Escuelas', corto: 'Escuelas', href: '/escuelas' },
     { titulo: 'Docentes', corto: 'Docentes', href: '/docentes' },
     { titulo: 'Titulación', corto: 'Titulación', href: '/titulacion' },
-    { titulo: 'Familias', corto: 'Familias', href: '/evaluacion' },
   ],
 
   navegacionPie: [
     {
       titulo: 'Programas',
       enlaces: [
+        { titulo: 'Valoración para familias', href: '/familias' },
         { titulo: 'Para psicólogos', href: '/psicologos' },
         { titulo: 'Para escuelas', href: '/escuelas' },
         { titulo: 'Para docentes', href: '/docentes' },
@@ -140,6 +141,8 @@ export const mensajesWhatsApp: Record<string, string> = {
     'Hola. Quiero información sobre la titulación por Acuerdo 286 en Pedagogía.',
   evaluacion:
     'Hola. Busco orientación para mi hijo o hija y quiero saber por dónde empezar.',
+  familias:
+    'Hola. Quiero contratar la valoración digital de $490 para mi hija o hijo.',
   defecto: 'Hola. Me gustaría recibir información sobre Trayecto Liceo.',
 };
 

@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   /** La prioridad refleja la intención comercial, no el gusto. */
   const prioridades: Record<string, number> = {
     '/': 1,
+    '/familias': 1,
     '/psicologos': 1,
     '/escuelas': 0.95,
     '/docentes': 0.9,
@@ -24,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const rutas = [
     '/',
+    '/familias',
     '/psicologos',
     '/escuelas',
     '/docentes',

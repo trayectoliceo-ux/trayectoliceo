@@ -110,7 +110,11 @@ export default function PaginaEscuelas() {
           ))}
         </GrupoRevelar>
 
-        <Revelar retraso={0.08} className="mx-auto mt-10 max-w-2xl rounded-lg border border-linea bg-papel-puro p-6 text-center shadow-tarjeta">
+        <Revelar retraso={0.06} className="mx-auto mt-10 max-w-2xl rounded border-l-4 border-institucional bg-papel-puro p-5">
+          <p className="text-cuerpo font-semibold text-tinta">{escuelas.limite}</p>
+        </Revelar>
+
+        <Revelar retraso={0.08} className="mx-auto mt-6 max-w-2xl rounded-lg border border-linea bg-papel-puro p-6 text-center shadow-tarjeta">
           <h3 className="text-entrada">{escuelas.extra.titulo}</h3>
           <p className="justificado mt-3 text-menudo text-tinta-suave">
             {escuelas.extra.texto}

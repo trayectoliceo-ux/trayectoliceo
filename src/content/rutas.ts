@@ -22,13 +22,21 @@ export type Ruta = {
 
 export const rutas: Ruta[] = [
   {
+    id: 'familias',
+    href: '/familias',
+    etiqueta: 'Soy madre, padre o tutor',
+    titulo: 'Valoración digital de mi hija o hijo',
+    gancho: 'Respondes en línea, un psicólogo con cédula la revisa y firma. Informe en 72 horas.',
+    accion: 'Contratar · $490',
+    principal: true,
+  },
+  {
     id: 'psicologos',
     href: '/psicologos',
     etiqueta: 'Psicólogos y psicopedagogos',
     titulo: 'Evalúa mejor, cobra más y recibe casos',
     gancho: 'Casos derivados, informes con folio verificable y tu primer caso sin costo.',
-    accion: 'Ver cómo funciona',
-    principal: true,
+    accion: 'Ver plataforma',
   },
   {
     id: 'escuelas',
@@ -43,8 +51,8 @@ export const rutas: Ruta[] = [
     href: '/docentes',
     etiqueta: 'Docentes',
     titulo: 'Aprende a detectar lo que otros no ven en tu salón',
-    gancho: 'Curso de 20 horas en detección temprana, con constancia.',
-    accion: 'Ver el curso',
+    gancho: 'Tú los ves ocho horas al día. Aprende qué mirar y cuándo derivar.',
+    accion: 'Ver capacitación',
   },
   {
     id: 'titulacion',
@@ -137,10 +145,10 @@ export const psicologos = {
 export const escuelas = {
   portada: {
     etiqueta: 'Para escuelas',
-    titulo: ['Detecta a tiempo', 'a los alumnos'],
-    rotativas: ['que necesitan apoyo.'],
+    titulo: ['Un aula de 30 tiene', 'en promedio 3 que'],
+    rotativas: ['nadie ha detectado.'],
     entrada:
-      'Tamizaje de aula en 20 minutos por grupo. Sabrás a quién mirar de cerca antes de que el problema se convierta en reprobación.',
+      'Tamizaje psicopedagógico grupal con consentimiento digital de las familias e informe para el centro. Veinte minutos por grupo.',
     precio: '$150 MXN',
     unidad: 'por alumno evaluado',
     accion: 'Solicitar propuesta',
@@ -151,8 +159,12 @@ export const escuelas = {
     'Semáforo por grupo: verde, ámbar y azul',
     'Informe grupal descargable, sin datos individuales',
     'Consentimiento digital de las familias con validez legal',
-    'Canalización a psicólogo acreditado cuando procede',
+    'Ruta de derivación para los casos que lo requieran',
   ],
+
+  /** Delimita qué recibe el centro y qué no. Evita conflictos después. */
+  limite:
+    'La escuela recibe el mapa del aula. Los resultados individuales son de cada familia.',
 
   semaforo: [
     {
@@ -188,10 +200,10 @@ export const escuelas = {
 export const docentes = {
   portada: {
     etiqueta: 'Para docentes',
-    titulo: ['Aprende a detectar', 'lo que otros'],
-    rotativas: ['no ven en tu salón.'],
+    titulo: ['Tú los ves ocho', 'horas al día.'],
+    rotativas: ['Aprende qué mirar.'],
     entrada:
-      'Curso de 20 horas en detección temprana de dificultades de aprendizaje y altas capacidades, para docentes en activo.',
+      'Capacitación en detección temprana de dificultades de aprendizaje y altas capacidades en el aula. 20 horas, con constancia.',
   },
 
   /**
@@ -289,4 +301,78 @@ export const titulacion = {
   nota: 'Las cuotas de examen y de portafolio se pagan directamente a la institución que evalúa, no a nosotros. Nuestro cobro cubre exclusivamente la preparación.',
 
   accion: 'Inscribirme a la primera etapa',
+};
+
+
+/* ------------------------------------------------------------------ */
+/* Familias — la ruta más comercial                                    */
+/* ------------------------------------------------------------------ */
+
+export const familias = {
+  portada: {
+    etiqueta: 'Para familias',
+    titulo: ['¿Sientes que a tu hija', 'o hijo le cuesta'],
+    rotativas: ['más de lo normal?'],
+    entrada:
+      'Una valoración profesional en línea, revisada y firmada por un psicólogo con cédula vigente. Sin listas de espera, sin salir de casa.',
+  },
+
+  producto: {
+    id: 'tamizaje-familiar',
+    nombre: 'Valoración digital familiar',
+    precio: '$490 MXN',
+    importe: 49000,
+    accion: 'Contratar valoración',
+    /** Destino del cobro cuando la pasarela esté activa en la plataforma. */
+    urlApp: 'https://psicometrics.app/tamizaje-familiar',
+  },
+
+  pasos: [
+    {
+      numero: '01',
+      titulo: 'Respondes en línea',
+      texto: '20 minutos desde tu teléfono, cuando puedas.',
+    },
+    {
+      numero: '02',
+      titulo: 'Un psicólogo lo revisa',
+      texto: 'Analiza tus respuestas y firma con su cédula profesional.',
+    },
+    {
+      numero: '03',
+      titulo: 'Recibes el informe',
+      texto: 'En 72 horas hábiles, con recomendaciones concretas.',
+    },
+  ],
+
+  /**
+   * Bloque de honestidad. No quitarlo: vende más de lo que parece.
+   * Una familia preocupada distingue en segundos entre quien promete
+   * certezas y quien explica el alcance real. Contrata la segunda.
+   */
+  honestidad: {
+    si: {
+      titulo: 'Qué sí es',
+      texto:
+        'Una orientación profesional sobre si conviene explorar algo con más detalle, y hacia qué especialista acudir.',
+    },
+    no: {
+      titulo: 'Qué no es',
+      texto:
+        'Un diagnóstico ni una medida de inteligencia. Un tamizaje identifica a quién conviene mirar de cerca; no determina qué le ocurre.',
+    },
+  },
+
+  preguntas: [
+    { pregunta: '¿Desde qué edad?', respuesta: 'De 3 a 18 años.' },
+    {
+      pregunta: '¿Quién ve los datos de mi hija o hijo?',
+      respuesta:
+        'Solo el psicólogo asignado. No almacenamos su nombre completo.',
+    },
+    {
+      pregunta: '¿Y si necesita más apoyo?',
+      respuesta: 'Te derivamos a un especialista de nuestra red.',
+    },
+  ],
 };

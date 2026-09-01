@@ -1,7 +1,7 @@
 import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
-import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
+import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import { docentes } from '@/content/rutas';
 import { avisoConstancias } from '@/content/precios';
 import { metadatos } from '@/lib/metadatos';
@@ -114,22 +114,20 @@ export default function PaginaDocentes() {
           </Revelar>
 
           <Revelar retraso={0.06}>
-            <div className="rounded-lg border border-institucional bg-papel-puro p-7 text-center shadow-elevada lg:sticky lg:top-28">
-              <p className="etiqueta">Inversión</p>
-              <p className="mt-3 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
-                {curso.precio}
-              </p>
-              <p className="mt-2 text-menudo text-gris">{curso.unidad}</p>
-
-              <div className="mt-7">
-                <BotonMercadoPago
-                  paquete={curso.id}
-                  etiqueta={curso.accion}
-                  nombreProducto={`el curso ${curso.nombre}`}
-                />
-              </div>
-
-              <p className="justificado mt-5 border-t border-linea pt-5 text-menudo text-tinta-suave">
+            <div className="lg:sticky lg:top-28">
+              <FormularioCompra
+                producto={curso.nombre}
+                idPago={curso.id}
+                precio={curso.precio}
+                accion={curso.accion}
+                perfil="docente"
+                campoExtra={{
+                  clave: 'centro',
+                  etiqueta: 'Escuela donde trabajas',
+                  ayuda: 'Nos ayuda a agrupar por zona',
+                }}
+              />
+              <p className="justificado mt-5 text-menudo text-tinta-suave">
                 {curso.grupo}
               </p>
               <p className="justificado mt-3 text-menudo text-gris">{avisoConstancias}</p>

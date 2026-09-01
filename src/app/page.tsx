@@ -4,21 +4,15 @@ import { PromocionesRotativas } from '@/components/inicio/PromocionesRotativas';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
-import { PreguntasFrecuentes } from '@/components/inicio/PreguntasFrecuentes';
-import { preguntas, problema } from '@/content/inicio';
+
 import { rutas } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
-import {
-  DatosEstructurados,
-  organizacion,
-  preguntasFrecuentes,
-  sitioWeb,
-} from '@/lib/schema';
+import { DatosEstructurados, organizacion, sitioWeb } from '@/lib/schema';
 
 export const metadata = metadatos({
-  titulo: 'Altas capacidades y talento infantil en Puebla',
+  titulo: 'Evaluación psicopedagógica para niños y adolescentes',
   descripcion:
-    'Detección y desarrollo del talento infantil en Puebla: talleres STEAM, formación para psicólogos y orientadores, y certificación de colegios que identifican talento.',
+    'Evaluación psicopedagógica para niños y adolescentes de 3 a 18 años en Puebla y en línea. Tamizaje escolar, valoración para familias y plataforma para psicólogos.',
   ruta: '/',
 });
 
@@ -27,8 +21,6 @@ export default function PaginaInicio() {
     <>
       <DatosEstructurados datos={organizacion()} />
       <DatosEstructurados datos={sitioWeb()} />
-      <DatosEstructurados datos={preguntasFrecuentes(preguntas.lista)} />
-
       <PromocionesRotativas />
       <Portada />
 
@@ -38,12 +30,6 @@ export default function PaginaInicio() {
         encontrar la suya.
       */}
       <Seccion>
-        <EncabezadoSeccion
-          etiqueta="Elige tu camino"
-          titulo="¿Desde dónde llegas?"
-          entrada="Cada perfil tiene su propia página, con precios visibles y sin rodeos."
-        />
-
         <GrupoRevelar
           total={rutas.length}
           className="mt-14 grid items-stretch gap-5 sm:grid-cols-2"
@@ -76,41 +62,6 @@ export default function PaginaInicio() {
             </ElementoRevelar>
           ))}
         </GrupoRevelar>
-      </Seccion>
-
-      {/* El problema, en tres datos */}
-      <Seccion tono="hondo">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
-          <EncabezadoSeccion
-            etiqueta={problema.etiqueta}
-            titulo={problema.titulo}
-            entrada={problema.entrada}
-            alineacion="izquierda"
-          />
-
-          <GrupoRevelar as="ul" total={problema.datos.length} className="lg:pt-2">
-            {problema.datos.map((dato) => (
-              <ElementoRevelar
-                as="li"
-                key={dato.descripcion}
-                className="border-t border-linea py-7 first:border-t-0 first:pt-0 lg:first:border-t lg:first:pt-7"
-              >
-                <p className="whitespace-nowrap font-display text-t1 font-bold leading-none text-institucional">
-                  {dato.valor}
-                </p>
-                <p className="justificado mt-4 max-w-[42ch] text-cuerpo text-tinta-suave">
-                  {dato.descripcion}
-                </p>
-                <p className="mt-3 text-menudo text-gris">{dato.fuente}</p>
-              </ElementoRevelar>
-            ))}
-          </GrupoRevelar>
-        </div>
-      </Seccion>
-
-      {/* Preguntas frecuentes */}
-      <Seccion tono="hondo">
-        <PreguntasFrecuentes />
       </Seccion>
 
       {/* Cierre: contacto */}

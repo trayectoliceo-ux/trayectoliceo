@@ -11,14 +11,14 @@ export const portada = {
    * `rotativa` marca la posición de la palabra que cambia: es el cierre de
    * la frase, no un adorno a mitad de línea.
    */
-  titulo: ['Un niño que se aburre', 'en clase no siempre', 'está'],
+  titulo: ['Detectamos lo que', 'la escuela no', 'alcanza a'],
   /**
    * Cada palabra completa la frase con una lectura distinta del mismo
    * comportamiento. Es el argumento entero del negocio en cuatro palabras.
    */
-  rotativas: ['desmotivado.', 'distraído.', 'mal portado.', 'evaluado.'],
+  rotativas: ['ver.'],
   subtitulo:
-    'Detectar altas capacidades o barreras de aprendizaje no es intuición: es un procedimiento reglado. Acompañamos a familias con evaluación psicopedagógica y damos a las escuelas la infraestructura para hacerlo a escala.',
+    'Evaluación psicopedagógica profesional para niños y adolescentes de 3 a 18 años. Tamizajes escolares, valoraciones para familias y herramientas para psicólogos.',
   /** Segmentar aquí ahorra al visitante recorrer la página entera. */
   acciones: [
     { titulo: 'Quiero una evaluación', href: '/contacto', tono: 'solido' as const },

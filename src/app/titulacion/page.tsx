@@ -1,7 +1,7 @@
 import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { Revelar } from '@/components/ui/Revelar';
-import { BotonMercadoPago } from '@/components/psicometrics/BotonMercadoPago';
+import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import { titulacion } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
@@ -104,20 +104,24 @@ export default function PaginaTitulacion() {
 
       {/* Compra de la primera etapa */}
       <Seccion tono="hondo">
-        <div className="mx-auto max-w-xl rounded-lg border border-institucional bg-papel-puro p-8 text-center shadow-elevada">
-          <p className="etiqueta">Primera etapa</p>
-          <h2 className="mt-4 text-t2">4 semanas de preparación</h2>
-          <p className="mt-4 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
-            $3,500 MXN
-          </p>
+        <div className="mx-auto max-w-xl">
+          <Revelar className="mb-6 text-center">
+            <p className="etiqueta">Primera etapa</p>
+            <h2 className="mt-4 text-t2">4 semanas de preparación</h2>
+          </Revelar>
 
-          <div className="mt-7">
-            <BotonMercadoPago
-              paquete="titulacion-etapa-1"
-              etiqueta={titulacion.accion}
-              nombreProducto="la primera etapa de titulación por Acuerdo 286"
-            />
-          </div>
+          <FormularioCompra
+            producto="Titulación Acuerdo 286 · Primera etapa"
+            idPago="titulacion-etapa-1"
+            precio="$3,500 MXN"
+            accion={titulacion.accion}
+            perfil="titulacion"
+            campoExtra={{
+              clave: 'licenciatura',
+              etiqueta: 'Área en la que quieres titularte',
+              ayuda: 'Por ejemplo: Pedagogía',
+            }}
+          />
         </div>
 
         {/*

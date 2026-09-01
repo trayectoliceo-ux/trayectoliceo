@@ -4,7 +4,7 @@ import {
   institucionalPrecios,
   trayectoriaPrecios,
 } from '@/content/precios';
-import { titulacion } from '@/content/rutas';
+import { familias, titulacion } from '@/content/rutas';
 
 /**
  * CATÁLOGO DEL SERVIDOR
@@ -36,6 +36,12 @@ const catalogo: ProductoCobrable[] = [
     nombre: producto.nombre,
     importe: producto.importe as number,
   }));
+
+catalogo.push({
+  id: familias.producto.id,
+  nombre: familias.producto.nombre,
+  importe: familias.producto.importe,
+});
 
 /** Las etapas de titulación que sí cobramos nosotros. */
 for (const etapa of titulacion.etapas) {
