@@ -87,7 +87,15 @@ const datosIniciales: DatosContacto = {
   origen: '/',
 };
 
-export function FormularioInteligente() {
+export function FormularioInteligente({
+  /**
+   * En una página dirigida a un solo público, el selector sobra: ya sabemos
+   * quién escribe. Fijar el perfil ahorra un clic y una decisión.
+   */
+  perfilFijo,
+}: {
+  perfilFijo?: Perfil;
+} = {}) {
   const ruta = usePathname();
   const reducido = useReducedMotion();
   const idBase = useId();
@@ -97,8 +105,10 @@ export function FormularioInteligente() {
    * quince casillas a la vista intimida y buena parte de ellas no aplica;
    * pedir primero «quién eres» reduce lo visible a lo que sí corresponde.
    */
-  const [elegido, setElegido] = useState(false);
-  const [datos, setDatos] = useState<DatosContacto>(datosIniciales);
+  const [elegido, setElegido] = useState(Boolean(perfilFijo));
+  const [datos, setDatos] = useState<DatosContacto>(
+    perfilFijo ? { ...datosIniciales, perfil: perfilFijo } : datosIniciales,
+  );
   const [consentimiento, setConsentimiento] = useState(false);
   const [errores, setErrores] = useState<ErroresContacto>({});
   const [estado, setEstado] = useState<Estado>('reposo');
@@ -188,7 +198,7 @@ export function FormularioInteligente() {
       className="rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta sm:p-8 lg:p-10"
     >
       {/* Selector de perfil: decide todo lo que viene después. */}
-      <fieldset>
+      <fieldset className={perfilFijo ? 'hidden' : undefined}>
         <legend className="mb-5 block w-full text-center text-cuerpo font-semibold text-tinta">
           ¿Quién escribe?
         </legend>

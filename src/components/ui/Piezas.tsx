@@ -11,26 +11,41 @@ export function EncabezadoSeccion({
   titulo,
   entrada,
   ancho = 'lectura',
+  /**
+   * Titulares centrados y párrafos justificados. El párrafo centrado
+   * necesita medida corta o los espacios se abren, así que siempre queda
+   * limitado a `max-w-lectura`.
+   */
+  alineacion = 'centrado',
   className = '',
 }: {
   etiqueta: string;
   titulo: string;
   entrada?: string;
   ancho?: 'lectura' | 'ancho';
+  alineacion?: 'centrado' | 'izquierda';
   className?: string;
 }) {
+  const centrado = alineacion === 'centrado';
+
   return (
-    <Revelar as="header" className={`${className}`}>
+    <Revelar as="header" className={`${centrado ? 'text-center' : ''} ${className}`}>
       <p className="etiqueta">{etiqueta}</p>
       <h2
-        className={`mt-5 text-t1 ${
+        className={`mt-5 text-t1 ${centrado ? 'mx-auto' : ''} ${
           ancho === 'lectura' ? 'max-w-[20ch]' : 'max-w-[28ch]'
         }`}
       >
         {titulo}
       </h2>
       {entrada ? (
-        <p className="mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave justificado">{entrada}</p>
+        <p
+          className={`justificado mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave ${
+            centrado ? 'mx-auto' : ''
+          }`}
+        >
+          {entrada}
+        </p>
       ) : null}
     </Revelar>
   );

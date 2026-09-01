@@ -1,15 +1,12 @@
 import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
 import { PromocionesRotativas } from '@/components/inicio/PromocionesRotativas';
-import { TarjetaProducto } from '@/components/ui/TarjetaProducto';
-import { evaluacion, trayectoriaPrecios } from '@/content/precios';
-import { BloquePsicoMetrics } from '@/components/inicio/BloquePsicoMetrics';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
-import { EncabezadoSeccion, Marcador, Seccion } from '@/components/ui/Piezas';
+import { EncabezadoSeccion, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
-import { EnlaceTexto } from '@/components/ui/Boton';
 import { PreguntasFrecuentes } from '@/components/inicio/PreguntasFrecuentes';
-import { metodo, preguntas, problema, queHacemos } from '@/content/inicio';
+import { preguntas, problema } from '@/content/inicio';
+import { rutas } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
 import {
   DatosEstructurados,
@@ -35,6 +32,52 @@ export default function PaginaInicio() {
       <PromocionesRotativas />
       <Portada />
 
+      {/*
+        Cuatro públicos, cuatro destinos. Segmentar aquí evita que el
+        visitante lea tres secciones que no le hablan a él antes de
+        encontrar la suya.
+      */}
+      <Seccion>
+        <EncabezadoSeccion
+          etiqueta="Elige tu camino"
+          titulo="¿Desde dónde llegas?"
+          entrada="Cada perfil tiene su propia página, con precios visibles y sin rodeos."
+        />
+
+        <GrupoRevelar
+          total={rutas.length}
+          className="mt-14 grid items-stretch gap-5 sm:grid-cols-2"
+        >
+          {rutas.map((ruta) => (
+            <ElementoRevelar key={ruta.id}>
+              <Link
+                href={ruta.href}
+                className={`group flex h-full flex-col rounded-lg border bg-papel-puro p-7 transition-shadow duration-300 hover:shadow-elevada sm:p-8 ${
+                  ruta.principal
+                    ? 'border-institucional shadow-elevada'
+                    : 'border-linea shadow-tarjeta'
+                }`}
+              >
+                <p className="etiqueta">{ruta.etiqueta}</p>
+                <h3 className="mt-4 text-balance text-t3 leading-[1.2]">{ruta.titulo}</h3>
+                <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+                  {ruta.gancho}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-2 text-menudo font-semibold text-institucional">
+                  {ruta.accion}
+                  <span
+                    aria-hidden
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </span>
+              </Link>
+            </ElementoRevelar>
+          ))}
+        </GrupoRevelar>
+      </Seccion>
+
       {/* El problema, en tres datos */}
       <Seccion tono="hondo">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
@@ -42,6 +85,7 @@ export default function PaginaInicio() {
             etiqueta={problema.etiqueta}
             titulo={problema.titulo}
             entrada={problema.entrada}
+            alineacion="izquierda"
           />
 
           <GrupoRevelar as="ul" total={problema.datos.length} className="lg:pt-2">
@@ -51,137 +95,18 @@ export default function PaginaInicio() {
                 key={dato.descripcion}
                 className="border-t border-linea py-7 first:border-t-0 first:pt-0 lg:first:border-t lg:first:pt-7"
               >
-                <p className="font-display text-t1 leading-none text-institucional">
+                <p className="whitespace-nowrap font-display text-t1 font-bold leading-none text-institucional">
                   {dato.valor}
                 </p>
-                <p className="mt-4 max-w-[42ch] text-cuerpo text-tinta-suave">
+                <p className="justificado mt-4 max-w-[42ch] text-cuerpo text-tinta-suave">
                   {dato.descripcion}
                 </p>
-                <p className="mt-3 font-mono text-etiqueta uppercase text-gris">
-                  {dato.fuente}
-                </p>
+                <p className="mt-3 text-menudo text-gris">{dato.fuente}</p>
               </ElementoRevelar>
             ))}
           </GrupoRevelar>
         </div>
       </Seccion>
-
-      {/* Qué hacemos */}
-      <Seccion>
-        <EncabezadoSeccion
-          etiqueta={queHacemos.etiqueta}
-          titulo={queHacemos.titulo}
-          entrada={queHacemos.entrada}
-        />
-
-        <GrupoRevelar
-          total={queHacemos.bloques.length}
-          className="mt-16 grid items-stretch gap-8 md:grid-cols-3"
-        >
-          {queHacemos.bloques.map((bloque) => (
-            <ElementoRevelar
-              as="article"
-              key={bloque.href}
-              className="group flex flex-col overflow-hidden rounded-lg border border-linea bg-papel-puro shadow-tarjeta transition-shadow duration-300 hover:shadow-elevada"
-            >
-              <Marcador
-                src={bloque.imagen.src}
-                descripcion={bloque.imagen.descripcion}
-                proporcion="16 / 10"
-                className="rounded-none border-0"
-              />
-              <div className="flex flex-1 flex-col p-7 text-center">
-                <p className="etiqueta">{bloque.indice}</p>
-                <h3 className="mt-3 text-balance text-t3">{bloque.titulo}</h3>
-                <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
-                  {bloque.resumen}
-                </p>
-                <div className="mt-5 flex justify-center">
-                  <EnlaceTexto href={bloque.href}>{bloque.accion}</EnlaceTexto>
-                </div>
-              </div>
-            </ElementoRevelar>
-          ))}
-        </GrupoRevelar>
-      </Seccion>
-
-      {/* Evaluación con precio y pago */}
-      <Seccion tono="hondo">
-        <EncabezadoSeccion
-          etiqueta={evaluacion.etiqueta}
-          titulo={evaluacion.titulo}
-          entrada={evaluacion.entrada}
-        />
-        <GrupoRevelar
-          total={evaluacion.productos.length}
-          className="mt-14 grid items-stretch gap-6 lg:grid-cols-3"
-        >
-          {evaluacion.productos.map((producto) => (
-            <ElementoRevelar key={producto.id}>
-              <TarjetaProducto producto={producto} />
-            </ElementoRevelar>
-          ))}
-        </GrupoRevelar>
-      </Seccion>
-
-      {/* Cómo trabajamos */}
-      <Seccion>
-        <EncabezadoSeccion
-          etiqueta={metodo.etiqueta}
-          titulo={metodo.titulo}
-          entrada={metodo.entrada}
-        />
-
-        <GrupoRevelar
-          as="ol"
-          total={metodo.pasos.length}
-          className="mt-16 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {metodo.pasos.map((paso) => (
-            <ElementoRevelar
-              as="li"
-              key={paso.numero}
-              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-7 text-center shadow-tarjeta"
-            >
-              <span className="font-mono text-menudo font-medium text-institucional">
-                {paso.numero}
-              </span>
-              <h3 className="mt-4 text-balance text-entrada">{paso.titulo}</h3>
-              <p className="justificado mt-4 text-menudo leading-[1.7] text-tinta-suave">
-                {paso.descripcion}
-              </p>
-            </ElementoRevelar>
-          ))}
-        </GrupoRevelar>
-      </Seccion>
-
-      <BloquePsicoMetrics />
-
-      {/* Orientación de trayectoria */}
-      <Seccion>
-        <EncabezadoSeccion
-          etiqueta="Orientación de trayectoria"
-          titulo="Elegir la siguiente escuela con datos, no con prisa."
-          entrada="Diagnóstico vocacional y mapa de admisión con fechas, costos y becas. Para familias que están decidiendo prepa o universidad."
-        />
-        <GrupoRevelar
-          total={trayectoriaPrecios.length}
-          className="mx-auto mt-14 grid max-w-4xl items-stretch gap-6 sm:grid-cols-2"
-        >
-          {trayectoriaPrecios.map((producto) => (
-            <ElementoRevelar key={producto.id}>
-              <TarjetaProducto producto={producto} />
-            </ElementoRevelar>
-          ))}
-        </GrupoRevelar>
-      </Seccion>
-
-      {/*
-        Prueba social retirada temporalmente: los testimonios y logotipos
-        eran marcadores y publicar nombres sin autorización escrita no es
-        una opción. El bloque vuelve cuando existan las autorizaciones.
-        El contenido sigue en `src/content/inicio.ts` → `pruebaSocial`.
-      */}
 
       {/* Preguntas frecuentes */}
       <Seccion tono="hondo">

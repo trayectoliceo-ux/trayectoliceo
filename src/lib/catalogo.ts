@@ -4,6 +4,7 @@ import {
   institucionalPrecios,
   trayectoriaPrecios,
 } from '@/content/precios';
+import { titulacion } from '@/content/rutas';
 
 /**
  * CATÁLOGO DEL SERVIDOR
@@ -35,6 +36,17 @@ const catalogo: ProductoCobrable[] = [
     nombre: producto.nombre,
     importe: producto.importe as number,
   }));
+
+/** Las etapas de titulación que sí cobramos nosotros. */
+for (const etapa of titulacion.etapas) {
+  if (etapa.cobrable && etapa.id && etapa.importe) {
+    catalogo.push({
+      id: etapa.id,
+      nombre: `Titulación Acuerdo 286 · ${etapa.etapa}`,
+      importe: etapa.importe,
+    });
+  }
+}
 
 export function buscarProducto(id: string): ProductoCobrable | undefined {
   return catalogo.find((producto) => producto.id === id);

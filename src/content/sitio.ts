@@ -81,24 +81,26 @@ export const sitio = {
    * `corto` es la etiqueta de la barra de escritorio; `titulo` se usa en el
    * menú móvil y en el pie, donde hay espacio para el nombre completo.
    */
+  /** Un destino por público. No se mezclan. */
   navegacion: [
-    { titulo: 'Evaluación', corto: 'Evaluación', href: '/evaluacion' },
-    { titulo: 'Talleres STEAM', corto: 'Talleres', href: '/talleres' },
-    { titulo: 'Para colegios', corto: 'Colegios', href: '/colegios' },
-    { titulo: 'Academia', corto: 'Academia', href: '/academia' },
-    { titulo: 'PsicoMetrics', corto: 'PsicoMetrics', href: '/psicometrics', destacado: true },
+    { titulo: 'Psicólogos', corto: 'Psicólogos', href: '/psicologos', destacado: true },
+    { titulo: 'Escuelas', corto: 'Escuelas', href: '/escuelas' },
+    { titulo: 'Docentes', corto: 'Docentes', href: '/docentes' },
+    { titulo: 'Titulación', corto: 'Titulación', href: '/titulacion' },
+    { titulo: 'Familias', corto: 'Familias', href: '/evaluacion' },
   ],
 
   navegacionPie: [
     {
       titulo: 'Programas',
       enlaces: [
-        { titulo: 'Evaluación y tamizaje', href: '/evaluacion' },
+        { titulo: 'Para psicólogos', href: '/psicologos' },
+        { titulo: 'Para escuelas', href: '/escuelas' },
+        { titulo: 'Para docentes', href: '/docentes' },
+        { titulo: 'Titulación Acuerdo 286', href: '/titulacion' },
+        { titulo: 'Evaluación para familias', href: '/evaluacion' },
         { titulo: 'Talleres STEAM', href: '/talleres' },
-        { titulo: 'Academia y formación', href: '/academia' },
-        { titulo: 'Programas para colegios', href: '/colegios' },
-        { titulo: 'Orientación de trayectoria', href: '/trayectoria' },
-        { titulo: 'PsicoMetrics', href: '/psicometrics' },
+        { titulo: 'Academia', href: '/academia' },
       ],
     },
     {
@@ -129,6 +131,15 @@ export const mensajesWhatsApp: Record<string, string> = {
   nosotros: 'Hola. Me gustaría conocer más sobre el equipo de Trayecto Liceo.',
   recursos: 'Hola. Vengo de la sección de recursos y tengo una consulta.',
   contacto: 'Hola. Me gustaría agendar una conversación con Trayecto Liceo.',
+  psicologos:
+    'Hola. Soy psicólogo y quiero información sobre PsicoMetrics y la derivación de casos.',
+  escuelas:
+    'Hola. Represento a un colegio y quiero una propuesta de tamizaje de aula.',
+  docentes: 'Hola. Soy docente y me interesa el curso de detección en el aula.',
+  titulacion:
+    'Hola. Quiero información sobre la titulación por Acuerdo 286 en Pedagogía.',
+  evaluacion:
+    'Hola. Busco orientación para mi hijo o hija y quiero saber por dónde empezar.',
   defecto: 'Hola. Me gustaría recibir información sobre Trayecto Liceo.',
 };
 
