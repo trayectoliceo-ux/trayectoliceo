@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { TarjetaPrograma } from '@/components/ui/TarjetaPrograma';
 import { FormularioCompra } from '@/components/contacto/FormularioCompra';
-import { acuerdo286, membresia, programas } from '@/content/certificate';
+import { acuerdo286, grupos, programas } from '@/content/certificate';
 import { metadatos } from '@/lib/metadatos';
 import { curso as esquemaCurso, DatosEstructurados, migaDePan } from '@/lib/schema';
 
@@ -57,7 +56,7 @@ export default function PaginaCertificate() {
           </h2>
         </Revelar>
 
-        <GrupoRevelar total={2} className="mx-auto mt-12 grid max-w-4xl items-stretch gap-5 sm:grid-cols-2">
+        <GrupoRevelar total={2} className="mx-auto mt-9 grid max-w-4xl items-stretch gap-5 sm:grid-cols-2">
           <ElementoRevelar className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta">
             <span className="inline-flex w-fit rounded bg-institucional/[0.08] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-institucional">
               Curso
@@ -84,35 +83,49 @@ export default function PaginaCertificate() {
         </GrupoRevelar>
       </Seccion>
 
-      {/* Membresía */}
+      {/* Qué incluye el precio, según el perfil */}
       <Seccion tono="hondo">
         <Revelar className="text-center">
-          <p className="etiqueta">{membresia.etiqueta}</p>
-          <h2 className="mx-auto mt-5 max-w-[24ch] text-t1">{membresia.titulo}</h2>
-          <p className="mx-auto mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
-            {membresia.entrada}
+          <p className="etiqueta">{grupos.etiqueta}</p>
+          <h2 className="mx-auto mt-5 max-w-[24ch] text-t1">{grupos.titulo}</h2>
+          <p className="mx-auto mt-5 max-w-lectura text-cuerpo-lg text-tinta-suave">
+            {grupos.entrada}
           </p>
         </Revelar>
 
-        <GrupoRevelar total={2} className="mx-auto mt-12 grid max-w-4xl items-stretch gap-5 sm:grid-cols-2">
-          {membresia.vias.map((via) => (
+        <GrupoRevelar
+          total={2}
+          className="mx-auto mt-10 grid max-w-4xl items-stretch gap-5 sm:grid-cols-2"
+        >
+          {grupos.lista.map((grupo) => (
             <ElementoRevelar
-              key={via.perfil}
-              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta"
+              key={grupo.perfil}
+              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta"
             >
-              <h3 className="text-entrada">{via.perfil}</h3>
-              <p className="justificado mt-4 text-menudo font-semibold text-tinta">
-                {via.condicion}
+              <h3 className="text-entrada">{grupo.perfil}</h3>
+              <p className="mt-1 text-menudo text-gris">{grupo.requisito}</p>
+
+              <p className="mt-4 rounded border border-menta/30 bg-menta/[0.06] px-3 py-2 text-center text-menudo font-semibold text-menta">
+                {grupo.obsequio}
               </p>
-              <p className="justificado mt-3 flex-1 text-menudo text-tinta-suave">
-                {via.nota}
-              </p>
-              <Link
-                href={via.href}
-                className="mt-5 inline-flex min-h-[44px] items-center text-menudo font-semibold text-institucional underline underline-offset-4"
-              >
-                {via.accion}
-              </Link>
+
+              <ul className="mt-5 flex-1 border-t border-linea">
+                {grupo.puntos.map((punto) => (
+                  <li
+                    key={punto}
+                    className="flex items-baseline gap-3 border-b border-linea py-2.5 text-menudo text-tinta-suave"
+                  >
+                    <span aria-hidden className="text-institucional">
+                      ✓
+                    </span>
+                    <span>{punto}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {'nota' in grupo && grupo.nota ? (
+                <p className="justificado mt-4 text-menudo text-gris">{grupo.nota}</p>
+              ) : null}
             </ElementoRevelar>
           ))}
         </GrupoRevelar>
@@ -127,7 +140,7 @@ export default function PaginaCertificate() {
           </h2>
         </Revelar>
 
-        <div className="mt-12 space-y-6">
+        <div className="mt-9 space-y-5">
           {certificaciones.map((programa) => (
             <Revelar key={programa.id}>
               <TarjetaPrograma programa={programa} />
@@ -143,7 +156,7 @@ export default function PaginaCertificate() {
           <h2 className="mx-auto mt-5 max-w-[20ch] text-t1">Asincrónicos, a tu ritmo.</h2>
         </Revelar>
 
-        <div className="mt-12 space-y-6">
+        <div className="mt-9 space-y-5">
           {cursos.map((programa) => (
             <Revelar key={programa.id}>
               <TarjetaPrograma programa={programa} />

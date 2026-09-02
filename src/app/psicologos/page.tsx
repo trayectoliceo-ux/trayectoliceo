@@ -108,7 +108,7 @@ export default function PaginaPsicologos() {
 
         <GrupoRevelar
           total={psicologos.planes.length}
-          className="mx-auto mt-12 grid max-w-4xl items-stretch gap-6 lg:grid-cols-3"
+          className="mx-auto mt-9 grid max-w-4xl items-stretch gap-6 lg:grid-cols-3"
         >
           {psicologos.planes.map((plan) => (
             <ElementoRevelar

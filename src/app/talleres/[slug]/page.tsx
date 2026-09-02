@@ -63,7 +63,7 @@ export default async function PaginaTaller({ params }: Props) {
               <span aria-hidden>←</span> Talleres STEAM
             </Link>
 
-            <div className="mt-6 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-20">
+            <div className="mt-6 grid gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
               <div>
                 <p className="etiqueta text-institucional">{taller.linea}</p>
                 <h1 className="mt-4 max-w-[18ch] text-t1 sm:text-[3.25rem] sm:leading-[1.08]">
@@ -109,7 +109,7 @@ export default async function PaginaTaller({ params }: Props) {
       </section>
 
       <Seccion>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+        <div className="grid gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>
             <Revelar>
               <Marcador descripcion={taller.marcador} proporcion="4 / 3" />

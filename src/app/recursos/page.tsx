@@ -72,7 +72,7 @@ export default function PaginaRecursos() {
           </h2>
         </Revelar>
 
-        <GrupoRevelar total={materiales.length} className="mt-12 grid gap-6 lg:grid-cols-2">
+        <GrupoRevelar total={materiales.length} className="mt-9 grid gap-6 lg:grid-cols-2">
           {materiales.map((material) => (
             <ElementoRevelar
               as="article"

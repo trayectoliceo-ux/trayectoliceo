@@ -64,7 +64,7 @@ export default function PaginaEscuelas() {
 
       {/* Qué incluye */}
       <Seccion>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+        <div className="grid gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <Revelar>
             <p className="etiqueta">Qué incluye</p>
             <h2 className="mt-5 max-w-[18ch] text-t1">Veinte minutos por grupo.</h2>
@@ -94,7 +94,7 @@ export default function PaginaEscuelas() {
           <h2 className="mx-auto mt-5 max-w-[20ch] text-t1">Un semáforo por grupo.</h2>
         </Revelar>
 
-        <GrupoRevelar total={3} className="mt-12 grid items-stretch gap-4 sm:grid-cols-3">
+        <GrupoRevelar total={3} className="mt-9 grid items-stretch gap-4 sm:grid-cols-3">
           {escuelas.semaforo.map((nivel) => (
             <ElementoRevelar
               as="article"

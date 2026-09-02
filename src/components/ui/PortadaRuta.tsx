@@ -33,7 +33,7 @@ export function PortadaRuta({
     <section
       className={`border-b border-linea ${tono === 'hondo' ? 'bg-papel-hondo' : ''}`}
     >
-      <div className="contenedor py-14 lg:py-20">
+      <div className="contenedor py-10 lg:py-14">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
-import { PromocionesRotativas } from '@/components/inicio/PromocionesRotativas';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
@@ -21,7 +20,6 @@ export default function PaginaInicio() {
     <>
       <DatosEstructurados datos={organizacion()} />
       <DatosEstructurados datos={sitioWeb()} />
-      <PromocionesRotativas />
       <Portada />
 
       {/*
@@ -32,7 +30,7 @@ export default function PaginaInicio() {
       <Seccion>
         <GrupoRevelar
           total={rutas.length}
-          className="mt-14 grid items-stretch gap-5 sm:grid-cols-2"
+          className="mt-10 grid items-stretch gap-5 sm:grid-cols-2"
         >
           {rutas.map((ruta) => (
             <ElementoRevelar key={ruta.id}>
@@ -66,7 +64,7 @@ export default function PaginaInicio() {
 
       {/* Cierre: contacto */}
       <Seccion id="contacto">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+        <div className="grid gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
           <div>
             <EncabezadoSeccion
               etiqueta="Contacto"

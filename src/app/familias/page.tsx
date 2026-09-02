@@ -35,7 +35,7 @@ export default function PaginaFamilias() {
 
       {/* Pasos y compra, lado a lado: decidir y pagar sin bajar la página */}
       <Seccion>
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-12">
           <div>
             <Revelar>
               <p className="etiqueta">Cómo funciona</p>

@@ -8,7 +8,7 @@ export function Pie() {
   return (
     <footer className="sobre-oscuro bg-tinta text-papel">
       <div className="contenedor py-16 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1.1fr]">
+        <div className="grid gap-9 lg:grid-cols-[1.2fr_1fr_1fr_1.1fr]">
           <div>
             <Logotipo tono="oscuro" conDescriptor />
           </div>

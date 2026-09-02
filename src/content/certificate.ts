@@ -49,7 +49,8 @@ export type Programa = {
   /** Nombre exacto del documento que se emite. */
   nombreCertificacion?: string;
   precio: number;
-  precioMiembro: number;
+  /** Lo que el precio incluye además del programa. Es el gancho real. */
+  regalo?: string;
   /** `pago` cobra en línea y da acceso; `escuela` deriva a WhatsApp. */
   destino: 'pago' | 'escuela';
   temario: Modulo[];
@@ -57,21 +58,29 @@ export type Programa = {
 
 const PRECIO_CURSO = 1250;
 const PRECIO_CERTIFICACION = 1500;
-const PRECIO_MIEMBRO = 850;
+
+/**
+ * Lo que se incluye con cada programa. No es un descuento: es acceso a la
+ * herramienta con la que se aplica lo aprendido, que además convierte al
+ * egresado en usuario de PsicoMetrics desde el primer día.
+ */
+const REGALO_PROFESIONAL =
+  'Acceso a PsicoMetrics con 6 informes de obsequio';
+const REGALO_DOCENTE = 'Acceso a PsicoMetrics con 10 tamizajes de obsequio';
 
 export const programas: Programa[] = [
   {
     id: 'curso-deteccion-aula',
     tipo: 'curso',
     nombre: 'Detección de altas capacidades y rezago en el aula',
-    dirigidoA: 'Docentes, tutores y coordinadores académicos',
+    dirigidoA: 'Docentes, pedagogos y profesionales de ciencias de la educación',
     resumen:
       'Qué se observa desde el aula, cómo registrarlo y en qué momento exacto corresponde derivar. Sin instrumentos: el docente detecta, no evalúa.',
     duracion: '20 horas · 5 sesiones',
     modalidad: 'Asincrónico. Avanzas a tu ritmo desde la plataforma',
     entrega: 'Constancia de participación',
     precio: PRECIO_CURSO,
-    precioMiembro: PRECIO_MIEMBRO,
+    regalo: REGALO_DOCENTE,
     destino: 'pago',
     temario: [
       {
@@ -133,7 +142,7 @@ export const programas: Programa[] = [
     entrega: 'Constancia de participación',
     requisito: 'Título y cédula profesional vigente',
     precio: PRECIO_CURSO,
-    precioMiembro: PRECIO_MIEMBRO,
+    regalo: REGALO_PROFESIONAL,
     destino: 'pago',
     temario: [
       {
@@ -213,7 +222,7 @@ export const programas: Programa[] = [
       'Guía de interpretación',
     ],
     precio: PRECIO_CERTIFICACION,
-    precioMiembro: PRECIO_MIEMBRO,
+    regalo: REGALO_PROFESIONAL,
     destino: 'pago',
     temario: [
       {
@@ -303,7 +312,7 @@ export const programas: Programa[] = [
     entrega: 'Certificación con validez oficial tras aprobar el examen',
     requisito: 'Título y cédula profesional vigente',
     precio: PRECIO_CERTIFICACION,
-    precioMiembro: PRECIO_MIEMBRO,
+    regalo: REGALO_PROFESIONAL,
     destino: 'pago',
     temario: [
       {
@@ -364,7 +373,6 @@ export const programas: Programa[] = [
     modalidad: 'En línea o presencial en el centro',
     entrega: 'Constancia de participación por docente',
     precio: 0,
-    precioMiembro: 0,
     destino: 'escuela',
     temario: [
       {
@@ -396,29 +404,43 @@ export const programas: Programa[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Membresía                                                           */
+/* Los dos grupos                                                      */
 /* ------------------------------------------------------------------ */
 
-export const membresia = {
-  etiqueta: 'Precio de miembro',
-  titulo: 'Si perteneces a la red, toda la formación te cuesta $850.',
+/**
+ * Dos perfiles con alcances distintos dentro de PsicoMetrics. La
+ * diferencia no es comercial, es de competencia profesional: quien no
+ * tiene cédula no evalúa, y la plataforma lo refleja.
+ */
+export const grupos = {
+  etiqueta: 'Incluido en el precio',
+  titulo: 'Toda la formación incluye acceso a PsicoMetrics.',
   entrada:
-    'La membresía no se compra aparte: la tienes por estar activo en PsicoMetrics.',
-  vias: [
+    'No es un descuento ni una suscripción aparte: es la herramienta con la que aplicas lo aprendido, desde el primer día.',
+  lista: [
     {
       perfil: 'Psicólogos y psicopedagogos',
-      condicion: 'Cuenta activa en PsicoMetrics con plan de $249 al mes',
-      nota: 'Incluye 6 informes mensuales y acceso a todos los módulos.',
-      accion: 'Ver PsicoMetrics',
-      href: '/psicologos',
+      requisito: 'Con cédula profesional vigente',
+      obsequio: '6 informes de obsequio',
+      puntos: [
+        'Emisión de informes con folio verificable',
+        'Transferencia de expedientes a otros especialistas',
+        'Captación de casos derivados de escuelas y familias',
+        'Instrumentos y baremos centralizados',
+        'Acumulación normativa con datos disociados',
+      ],
     },
     {
-      perfil: 'Docentes y escuelas',
-      condicion:
-        'Institución registrada y un tamizaje contratado de 30 alumnos como mínimo',
-      nota: 'El precio de miembro aplica a todo el equipo docente del centro.',
-      accion: 'Solicitar propuesta',
-      href: '/escuelas',
+      perfil: 'Docentes y pedagogos',
+      requisito: 'Ejercicio docente en activo',
+      obsequio: '10 tamizajes de obsequio',
+      puntos: [
+        'Aplicación de tamizaje en el aula',
+        'Semáforo por grupo con indicadores de alerta',
+        'Canalización directa a la red de especialistas',
+        'Seguimiento del caso una vez derivado',
+      ],
+      nota: 'El docente detecta y deriva. La evaluación la realiza siempre un profesional con cédula.',
     },
   ],
 };

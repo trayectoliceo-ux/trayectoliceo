@@ -85,8 +85,9 @@ const config: Config = {
         elevada: '0 2px 4px rgba(15,23,42,0.04), 0 20px 48px -20px rgba(15,23,42,0.18)',
       },
       spacing: {
-        seccion: '5.5rem',
-        'seccion-lg': '8rem',
+        /* Ritmo vertical compacto: el sitio vende, no expone. */
+        seccion: '3.5rem',
+        'seccion-lg': '5rem',
       },
     },
   },

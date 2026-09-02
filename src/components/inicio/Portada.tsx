@@ -46,7 +46,7 @@ export function Portada() {
 
   return (
     <section className="relative overflow-hidden border-b border-linea">
-      <div className="contenedor pb-14 pt-12 sm:pt-16 lg:pb-20 lg:pt-24">
+      <div className="contenedor pb-10 pt-10 sm:pt-14 lg:pb-14 lg:pt-16">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -81,7 +81,7 @@ export function Portada() {
           ))}
         </h1>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-16">
+        <div className="mt-9 grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-14">
           <div>
             <motion.p
               initial={{ opacity: 0, y: reducido ? 0 : 10 }}
@@ -178,7 +178,7 @@ function Hitos() {
   }, [reducido]);
 
   return (
-    <ul className="flex flex-wrap gap-x-7 gap-y-2 pb-2 pt-5">
+    <ul className="flex flex-wrap justify-center gap-x-7 gap-y-2 pb-2 pt-5">
       {portada.hitos.map((hito, indice) => {
         const encendido = reducido || indice === activo;
 

@@ -27,7 +27,7 @@ export function MuestraInforme() {
   const { muestra } = pm;
 
   return (
-    <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+    <div className="grid items-center gap-9 lg:grid-cols-[1fr_1fr] lg:gap-14">
       <motion.div
         initial={{ opacity: 0, y: reducido ? 0 : 16 }}
         whileInView={{ opacity: 1, y: 0 }}

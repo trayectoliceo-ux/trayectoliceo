@@ -1,12 +1,12 @@
 'use client';
 
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { motion } from 'motion/react';
 import { useState } from 'react';
-import { TemarioSlides } from '@/components/ui/TemarioSlides';
+import { ModalTemario } from '@/components/ui/ModalTemario';
 import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import type { Programa } from '@/content/certificate';
 import { enlaceWhatsApp } from '@/content/sitio';
-import { curva, duracion, salida } from '@/lib/motion';
+import { curva, duracion } from '@/lib/motion';
 
 const pesos = (importe: number) =>
   `$${importe.toLocaleString('es-MX')} MXN`;
@@ -23,7 +23,6 @@ const pesos = (importe: number) =>
  * porque el precio depende del tamaño del equipo.
  */
 export function TarjetaPrograma({ programa }: { programa: Programa }) {
-  const reducido = useReducedMotion();
   const [abierto, setAbierto] = useState(false);
 
   const esCertificacion = programa.tipo === 'certificacion';
@@ -93,13 +92,15 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
           {programa.destino === 'pago' ? (
             <>
               <div className="text-center">
-                <p className="etiqueta">Precio de miembro</p>
+                <p className="etiqueta">Inversión</p>
                 <p className="mt-1.5 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
-                  {pesos(programa.precioMiembro)}
+                  {pesos(programa.precio)}
                 </p>
-                <p className="mt-3 text-menudo text-gris">
-                  Sin membresía: {pesos(programa.precio)}
-                </p>
+                {programa.regalo ? (
+                  <p className="mt-3 rounded border border-menta/30 bg-menta/[0.06] px-3 py-2 text-menudo font-semibold text-menta">
+                    Incluye {programa.regalo.toLowerCase()}
+                  </p>
+                ) : null}
               </div>
 
               <div className="mt-6">
@@ -150,83 +151,11 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
         </div>
       </div>
 
-      <AnimatePresence initial={false}>
-        {abierto ? (
-          <motion.div
-            initial={{ opacity: 0, height: reducido ? 'auto' : 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{
-              opacity: 0,
-              height: reducido ? 'auto' : 0,
-              transition: { duration: salida(duracion.lenta), ease: curva.entradaSeca },
-            }}
-            transition={{ duration: duracion.lenta, ease: curva.salidaSuave }}
-            className="overflow-hidden"
-          >
-            <div className="pt-8">
-              <TemarioSlides modulos={programa.temario} />
-
-              {programa.resultados || programa.incluye ? (
-                <div className="mt-6 grid gap-5 sm:grid-cols-2">
-                  {programa.resultados ? (
-                    <div className="rounded-lg border border-menta/30 bg-menta/[0.05] p-6">
-                      <p className="text-menudo font-bold uppercase tracking-[0.08em] text-menta">
-                        Al terminar serás capaz de
-                      </p>
-                      <ul className="mt-4 space-y-2">
-                        {programa.resultados.map((resultado) => (
-                          <li
-                            key={resultado}
-                            className="flex items-baseline gap-3 text-menudo text-tinta-suave"
-                          >
-                            <span aria-hidden className="text-menta">
-                              ✓
-                            </span>
-                            <span>{resultado}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
-
-                  {programa.incluye ? (
-                    <div className="rounded-lg border border-linea bg-papel p-6">
-                      <p className="text-menudo font-bold uppercase tracking-[0.08em] text-institucional">
-                        Materiales incluidos
-                      </p>
-                      <ul className="mt-4 space-y-2">
-                        {programa.incluye.map((material) => (
-                          <li
-                            key={material}
-                            className="flex items-baseline gap-3 text-menudo text-tinta-suave"
-                          >
-                            <span aria-hidden className="text-institucional">
-                              —
-                            </span>
-                            <span>{material}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="mt-4 text-menudo text-gris">
-                        Formatos listos para usar en tu consulta desde el primer caso.
-                      </p>
-                    </div>
-                  ) : null}
-                </div>
-              ) : null}
-
-              {programa.nombreCertificacion ? (
-                <div className="mt-5 rounded-lg border border-institucional bg-papel-puro p-6 text-center">
-                  <p className="etiqueta">Documento que recibes</p>
-                  <p className="mx-auto mt-3 max-w-[46ch] text-balance text-cuerpo font-semibold text-tinta">
-                    {programa.nombreCertificacion}
-                  </p>
-                </div>
-              ) : null}
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      <ModalTemario
+        programa={programa}
+        abierto={abierto}
+        alCerrar={() => setAbierto(false)}
+      />
     </article>
   );
 }
