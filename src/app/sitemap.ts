@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { sitio } from '@/content/sitio';
 import { talleres } from '@/content/talleres';
 import { articulos } from '@/content/institucional';
+import { programas } from '@/content/certificate';
 
 /** Se genera a partir de los mismos datos que alimentan el sitio. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,8 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/verificar',
     '/nosotros',
     '/recursos',
+    ...programas.map((programa) => `/programa/${programa.id}`),
     ...talleres.map((taller) => `/talleres/${taller.slug}`),
     ...articulos.map((articulo) => `/recursos/${articulo.slug}`),
+    ...programas
+      .filter((programa) => programa.destino === 'pago')
+      .map((programa) => `/programa/${programa.id}`),
   ];
 
   return rutas.map((ruta) => ({

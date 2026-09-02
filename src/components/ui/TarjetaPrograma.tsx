@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { ModalTemario } from '@/components/ui/ModalTemario';
@@ -60,11 +61,20 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
             ))}
           </dl>
 
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link
+              href={`/programa/${programa.id}`}
+              className="flex min-h-[44px] items-center gap-2 text-menudo font-semibold text-institucional underline underline-offset-4"
+            >
+              Ficha completa y compartir
+            </Link>
+          </div>
+
           <button
             type="button"
             onClick={() => setAbierto((previo) => !previo)}
             aria-expanded={abierto}
-            className="mt-6 flex min-h-[44px] items-center gap-2 text-menudo font-semibold text-institucional"
+            className="mt-1 flex min-h-[44px] items-center gap-2 text-menudo font-semibold text-institucional"
           >
             {abierto ? 'Ocultar temario' : 'Ver temario completo'}
             <motion.span
