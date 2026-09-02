@@ -25,24 +25,15 @@ const pesos = (importe: number) =>
 export function TarjetaPrograma({ programa }: { programa: Programa }) {
   const [abierto, setAbierto] = useState(false);
 
-  const esCertificacion = programa.tipo === 'certificacion';
 
   return (
     <article
-      className={`rounded-lg border bg-papel-puro p-7 shadow-tarjeta sm:p-8 ${
-        esCertificacion ? 'border-institucional/50' : 'border-linea'
-      }`}
+      className="rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta sm:p-8"
     >
       <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start">
         <div>
-          <span
-            className={`inline-flex rounded px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] ${
-              esCertificacion
-                ? 'bg-institucional text-papel'
-                : 'bg-institucional/[0.08] text-institucional'
-            }`}
-          >
-            {esCertificacion ? 'Certificación' : 'Curso'}
+          <span className="inline-flex rounded bg-institucional/[0.08] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-institucional">
+            Curso autogestivo
           </span>
 
           <h3 className="mt-4 text-balance text-t3">{programa.nombre}</h3>
@@ -109,7 +100,7 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
                   idPago={programa.id}
                   precio={pesos(programa.precio)}
                   accion="Inscribirme ahora"
-                  perfil={esCertificacion ? 'psicologo' : 'docente'}
+                  perfil={programa.requisito ? 'psicologo' : 'docente'}
                   campoExtra={
                     programa.requisito
                       ? {
@@ -124,8 +115,27 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
 
               <p className="justificado mt-4 text-menudo text-gris">
                 Al confirmar el pago recibes acceso a la plataforma y avanzas a tu
-                ritmo.
+                ritmo. Al terminar, constancia de participación.
               </p>
+
+              {programa.certificacion ? (
+                <div className="mt-5 border-t border-linea pt-5">
+                  <p className="text-menudo font-bold uppercase tracking-[0.08em] text-institucional">
+                    Certificación oficial · opcional
+                  </p>
+                  <p className="justificado mt-2 text-menudo text-tinta-suave">
+                    Examen y análisis de caso con un especialista evaluador, según
+                    calendario. Al aprobarlo obtienes el certificado con validez
+                    oficial.
+                  </p>
+                  <p className="mt-3 whitespace-nowrap font-display text-entrada font-bold text-institucional">
+                    + {pesos(programa.certificacion.precio)}
+                  </p>
+                  <p className="mt-1 text-menudo text-gris">
+                    Se contrata cuando termines el curso.
+                  </p>
+                </div>
+              ) : null}
             </>
           ) : (
             <>

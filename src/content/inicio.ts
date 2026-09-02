@@ -59,7 +59,7 @@ export const portada = {
     },
     {
       etiqueta: 'Certifícate',
-      texto: 'Certificación en altas capacidades y perfil STEAM · sabatina · desde $850',
+      texto: 'Certificación en altas capacidades y perfil STEAM · autogestiva',
       accion: 'Ver programas',
       href: '/certificate',
     },

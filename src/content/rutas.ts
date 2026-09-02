@@ -51,7 +51,7 @@ export const rutas: Ruta[] = [
     href: '/certificate',
     etiqueta: 'Soy docente o profesional',
     titulo: 'Certifícate: cursos y certificaciones',
-    gancho: 'Detección, evaluación psicopedagógica e informe. Desde $850 para miembros.',
+    gancho: 'Cursos autogestivos desde $1,250, con acceso a PsicoMetrics incluido.',
     accion: 'Ver programas',
   },
 ];

@@ -37,13 +37,21 @@ const catalogo: ProductoCobrable[] = [
     importe: producto.importe as number,
   }));
 
-/** Cursos y certificaciones con cobro en línea. */
+/** Cursos con cobro en línea, y el examen de certificación como pago aparte. */
 for (const programa of programas) {
-  if (programa.destino === 'pago' && programa.precio > 0) {
+  if (programa.destino !== 'pago' || programa.precio <= 0) continue;
+
+  catalogo.push({
+    id: programa.id,
+    nombre: programa.nombre,
+    importe: programa.precio * 100,
+  });
+
+  if (programa.certificacion) {
     catalogo.push({
-      id: programa.id,
-      nombre: programa.nombre,
-      importe: programa.precio * 100,
+      id: programa.certificacion.id,
+      nombre: `Examen de certificación · ${programa.certificacion.nombre}`,
+      importe: programa.certificacion.precio * 100,
     });
   }
 }

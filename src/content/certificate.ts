@@ -34,7 +34,12 @@ export type Modulo = {
 
 export type Programa = {
   id: string;
-  tipo: 'curso' | 'certificacion';
+  /**
+   * `curso` es autogestivo y entrega constancia. `institucional` se cotiza
+   * por centro. La certificación con validez oficial no es un tipo aparte:
+   * es un examen que se contrata además del curso, cuando se quiere.
+   */
+  tipo: 'curso' | 'institucional';
   nombre: string;
   dirigidoA: string;
   resumen: string;
@@ -53,11 +58,24 @@ export type Programa = {
   regalo?: string;
   /** `pago` cobra en línea y da acceso; `escuela` deriva a WhatsApp. */
   destino: 'pago' | 'escuela';
+  /**
+   * Examen y análisis de caso con especialista evaluador, para obtener el
+   * certificado con validez oficial. Se contrata aparte del curso.
+   */
+  certificacion?: {
+    id: string;
+    precio: number;
+    nombre: string;
+  };
   temario: Modulo[];
 };
 
-const PRECIO_CURSO = 1250;
-const PRECIO_CERTIFICACION = 1500;
+/** Curso autogestivo con constancia. */
+const PRECIO_CURSO_DOCENTE = 1250;
+const PRECIO_CURSO_PROFESIONAL = 1500;
+
+/** Examen y análisis de caso con especialista, para el certificado oficial. */
+const PRECIO_EXAMEN = 1000;
 
 /**
  * Lo que se incluye con cada programa. No es un descuento: es acceso a la
@@ -71,15 +89,20 @@ const REGALO_DOCENTE = 'Acceso a PsicoMetrics con 10 tamizajes de obsequio';
 export const programas: Programa[] = [
   {
     id: 'curso-deteccion-aula',
+    certificacion: {
+      id: 'curso-deteccion-aula-examen',
+      precio: PRECIO_EXAMEN,
+      nombre: 'Detección de altas capacidades y rezago en el aula',
+    },
     tipo: 'curso',
     nombre: 'Detección de altas capacidades y rezago en el aula',
     dirigidoA: 'Docentes, pedagogos y profesionales de ciencias de la educación',
     resumen:
       'Qué se observa desde el aula, cómo registrarlo y en qué momento exacto corresponde derivar. Sin instrumentos: el docente detecta, no evalúa.',
-    duracion: '20 horas · 5 sesiones',
-    modalidad: 'Asincrónico. Avanzas a tu ritmo desde la plataforma',
+    duracion: '20 horas · 5 módulos',
+    modalidad: 'Autogestivo. Avanzas a tu ritmo desde la plataforma',
     entrega: 'Constancia de participación',
-    precio: PRECIO_CURSO,
+    precio: PRECIO_CURSO_DOCENTE,
     regalo: REGALO_DOCENTE,
     destino: 'pago',
     temario: [
@@ -132,16 +155,21 @@ export const programas: Programa[] = [
   },
   {
     id: 'curso-informe-psicopedagogico',
+    certificacion: {
+      id: 'curso-informe-psicopedagogico-examen',
+      precio: PRECIO_EXAMEN,
+      nombre: 'Elaboración del informe psicopedagógico',
+    },
     tipo: 'curso',
     nombre: 'Elaboración del informe psicopedagógico',
     dirigidoA: 'Psicólogos, psicopedagogos y orientadores con cédula',
     resumen:
       'Redacción del informe conforme a la normativa mexicana aplicable: estructura, lenguaje, resguardo de datos y recomendaciones que un centro pueda aplicar.',
-    duracion: '20 horas · 5 sesiones',
-    modalidad: 'Asincrónico. Avanzas a tu ritmo desde la plataforma',
+    duracion: '20 horas · 5 módulos',
+    modalidad: 'Autogestivo. Avanzas a tu ritmo desde la plataforma',
     entrega: 'Constancia de participación',
     requisito: 'Título y cédula profesional vigente',
-    precio: PRECIO_CURSO,
+    precio: PRECIO_CURSO_PROFESIONAL,
     regalo: REGALO_PROFESIONAL,
     destino: 'pago',
     temario: [
@@ -194,15 +222,20 @@ export const programas: Programa[] = [
   },
   {
     id: 'certificacion-altas-capacidades',
-    tipo: 'certificacion',
+    certificacion: {
+      id: 'certificacion-altas-capacidades-examen',
+      precio: PRECIO_EXAMEN,
+      nombre: 'Detección de Altas Capacidades y Perfilamiento STEAM con enfoque psicométrico aplicado en contextos educativos',
+    },
+    tipo: 'curso',
     nombre:
-      'Detección y comprensión de las altas capacidades intelectuales y la doble excepcionalidad en el contexto STEAM',
+      'Detección y comprensión de las altas capacidades intelectuales y la doble excepcionalidad',
     dirigidoA: 'Psicólogos y psicopedagogos con cédula profesional',
     resumen:
       'De la detección al reporte que se entrega y se cobra. Incluye instrumentos, interpretación, perfilamiento STEAM y los formatos de trabajo listos para usar.',
     duracion: '20 horas curriculares · 6 módulos',
-    modalidad: 'Sesiones sabatinas por Zoom, con lecturas en PDF, cuestionarios y casos',
-    entrega: 'Certificación con validez oficial tras aprobar el examen',
+    modalidad: 'Autogestivo, con asesoría. Lecturas en PDF, cuestionarios y casos',
+    entrega: 'Constancia de participación. La certificación oficial se contrata aparte',
     requisito: 'Título y cédula profesional vigente',
     nombreCertificacion:
       'Detección de Altas Capacidades y Perfilamiento STEAM con enfoque psicométrico aplicado en contextos educativos',
@@ -221,7 +254,7 @@ export const programas: Programa[] = [
       'Formato de reporte profesional',
       'Guía de interpretación',
     ],
-    precio: PRECIO_CERTIFICACION,
+    precio: PRECIO_CURSO_PROFESIONAL,
     regalo: REGALO_PROFESIONAL,
     destino: 'pago',
     temario: [
@@ -302,16 +335,21 @@ export const programas: Programa[] = [
   },
   {
     id: 'certificacion-evaluacion-psicopedagogica',
-    tipo: 'certificacion',
+    certificacion: {
+      id: 'certificacion-evaluacion-psicopedagogica-examen',
+      precio: PRECIO_EXAMEN,
+      nombre: 'Evaluación psicopedagógica',
+    },
+    tipo: 'curso',
     nombre: 'Certificación en evaluación psicopedagógica',
     dirigidoA: 'Psicólogos y psicopedagogos con cédula profesional',
     resumen:
       'Proceso completo de evaluación, del motivo de consulta a la devolución. Incluye examen en línea con experto y sesión grabada para auditoría.',
     duracion: '20 horas curriculares · 5 módulos',
-    modalidad: 'Sesiones sabatinas por Zoom, con lecturas, cuestionarios y casos',
-    entrega: 'Certificación con validez oficial tras aprobar el examen',
+    modalidad: 'Autogestivo, con asesoría. Lecturas, cuestionarios y casos',
+    entrega: 'Constancia de participación. La certificación oficial se contrata aparte',
     requisito: 'Título y cédula profesional vigente',
-    precio: PRECIO_CERTIFICACION,
+    precio: PRECIO_CURSO_PROFESIONAL,
     regalo: REGALO_PROFESIONAL,
     destino: 'pago',
     temario: [
@@ -364,7 +402,7 @@ export const programas: Programa[] = [
   },
   {
     id: 'capacitacion-institucional',
-    tipo: 'curso',
+    tipo: 'institucional',
     nombre: 'Capacitación para el equipo docente de tu escuela',
     dirigidoA: 'Colegios que quieren formar a todo su equipo',
     resumen:

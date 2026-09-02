@@ -15,8 +15,8 @@ export const metadata = metadatos({
 });
 
 export default function PaginaCertificate() {
-  const certificaciones = programas.filter((p) => p.tipo === 'certificacion');
   const cursos = programas.filter((p) => p.tipo === 'curso');
+  const institucionales = programas.filter((p) => p.tipo === 'institucional');
 
   return (
     <>
@@ -43,7 +43,7 @@ export default function PaginaCertificate() {
         etiqueta="Certifícate"
         titulo={['Fórmate y', 'certifica lo']}
         rotativas={['que ya sabes hacer.']}
-        entrada="Certificaciones con sesiones en vivo y examen aplicado por un experto, y cursos asincrónicos para avanzar a tu ritmo. Ambas cosas existen aquí, y no son lo mismo."
+        entrada="Todo es autogestivo: avanzas a tu ritmo con asesoría cuando la necesites. La diferencia está en el cierre, porque la certificación se examina y el curso no."
         tono="hondo"
       />
 
@@ -51,8 +51,8 @@ export default function PaginaCertificate() {
       <Seccion>
         <Revelar className="text-center">
           <p className="etiqueta">Antes de elegir</p>
-          <h2 className="mx-auto mt-5 max-w-[20ch] text-t1">
-            Un curso no es una certificación.
+          <h2 className="mx-auto mt-5 max-w-[22ch] text-t1">
+            El curso y la certificación son dos cosas.
           </h2>
         </Revelar>
 
@@ -63,21 +63,21 @@ export default function PaginaCertificate() {
             </span>
             <h3 className="mt-4 text-t3">Acredita que lo cursaste</h3>
             <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
-              Contenido asincrónico en la plataforma. Avanzas a tu ritmo y al terminar
-              recibes constancia o diploma de participación. No incluye examen ni
-              certifica competencia.
+              Autogestivo en la plataforma, con asesoría cuando la necesites. Al
+              terminar recibes constancia o diploma de participación. No incluye examen
+              ni certifica competencia.
             </p>
           </ElementoRevelar>
 
           <ElementoRevelar className="flex h-full flex-col rounded-lg border border-institucional bg-papel-puro p-7 shadow-elevada">
             <span className="inline-flex w-fit rounded bg-institucional px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-papel">
-              Certificación
+              Certificación · $1,000
             </span>
             <h3 className="mt-4 text-t3">Acredita que sabes hacerlo</h3>
             <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
-              Incluye examen aplicado por un experto en sesión en línea, grabada para
-              auditoría y calificada. Al aprobarla se emite el documento con validez
-              oficial.
+              También autogestiva, pero cierra con examen aplicado por un experto en
+              sesión en línea, grabada para auditoría y calificada. Al aprobarla se
+              emite el documento con validez oficial.
             </p>
           </ElementoRevelar>
         </GrupoRevelar>
@@ -131,17 +131,17 @@ export default function PaginaCertificate() {
         </GrupoRevelar>
       </Seccion>
 
-      {/* Certificaciones */}
+      {/* Cursos */}
       <Seccion>
         <Revelar className="text-center">
-          <p className="etiqueta">Certificaciones</p>
-          <h2 className="mx-auto mt-5 max-w-[24ch] text-t1">
-            Sesiones sabatinas, examen y validez oficial.
+          <p className="etiqueta">Programas</p>
+          <h2 className="mx-auto mt-5 max-w-[22ch] text-t1">
+            Autogestivos, con asesoría.
           </h2>
         </Revelar>
 
         <div className="mt-9 space-y-5">
-          {certificaciones.map((programa) => (
+          {cursos.map((programa) => (
             <Revelar key={programa.id}>
               <TarjetaPrograma programa={programa} />
             </Revelar>
@@ -149,15 +149,17 @@ export default function PaginaCertificate() {
         </div>
       </Seccion>
 
-      {/* Cursos */}
+      {/* Capacitación para centros */}
       <Seccion tono="hondo">
         <Revelar className="text-center">
-          <p className="etiqueta">Cursos</p>
-          <h2 className="mx-auto mt-5 max-w-[20ch] text-t1">Asincrónicos, a tu ritmo.</h2>
+          <p className="etiqueta">Para centros</p>
+          <h2 className="mx-auto mt-5 max-w-[22ch] text-t1">
+            Formación para todo tu equipo docente.
+          </h2>
         </Revelar>
 
         <div className="mt-9 space-y-5">
-          {cursos.map((programa) => (
+          {institucionales.map((programa) => (
             <Revelar key={programa.id}>
               <TarjetaPrograma programa={programa} />
             </Revelar>
