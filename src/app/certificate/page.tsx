@@ -1,7 +1,7 @@
 import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
-import { TarjetaPrograma } from '@/components/ui/TarjetaPrograma';
+import { ProgramasPorPerfil } from '@/components/ui/ProgramasPorPerfil';
 import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import { acuerdo286, grupos, programas } from '@/content/certificate';
 import { metadatos } from '@/lib/metadatos';
@@ -15,9 +15,6 @@ export const metadata = metadatos({
 });
 
 export default function PaginaCertificate() {
-  const cursos = programas.filter((p) => p.tipo === 'curso');
-  const institucionales = programas.filter((p) => p.tipo === 'institucional');
-
   return (
     <>
       <DatosEstructurados
@@ -131,40 +128,18 @@ export default function PaginaCertificate() {
         </GrupoRevelar>
       </Seccion>
 
-      {/* Cursos */}
+      {/* Programas, filtrados por perfil */}
       <Seccion>
         <Revelar className="text-center">
           <p className="etiqueta">Programas</p>
           <h2 className="mx-auto mt-5 max-w-[22ch] text-t1">
-            Autogestivos, con asesoría.
+            Dinos quién eres y te mostramos lo tuyo.
           </h2>
         </Revelar>
 
-        <div className="mt-9 space-y-5">
-          {cursos.map((programa) => (
-            <Revelar key={programa.id}>
-              <TarjetaPrograma programa={programa} />
-            </Revelar>
-          ))}
-        </div>
-      </Seccion>
-
-      {/* Capacitación para centros */}
-      <Seccion tono="hondo">
-        <Revelar className="text-center">
-          <p className="etiqueta">Para centros</p>
-          <h2 className="mx-auto mt-5 max-w-[22ch] text-t1">
-            Formación para todo tu equipo docente.
-          </h2>
+        <Revelar retraso={0.06} className="mt-9">
+          <ProgramasPorPerfil />
         </Revelar>
-
-        <div className="mt-9 space-y-5">
-          {institucionales.map((programa) => (
-            <Revelar key={programa.id}>
-              <TarjetaPrograma programa={programa} />
-            </Revelar>
-          ))}
-        </div>
       </Seccion>
 
       {/* Titulación por Acuerdo 286 */}

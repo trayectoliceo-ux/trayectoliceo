@@ -42,6 +42,8 @@ export type Programa = {
   tipo: 'curso' | 'institucional';
   nombre: string;
   dirigidoA: string;
+  /** Determina en qué pestaña aparece el programa. */
+  publico: 'profesional' | 'docente' | 'centro';
   resumen: string;
   duracion: string;
   modalidad: string;
@@ -97,6 +99,7 @@ export const programas: Programa[] = [
     tipo: 'curso',
     nombre: 'Detección de altas capacidades y rezago en el aula',
     dirigidoA: 'Docentes, pedagogos y profesionales de ciencias de la educación',
+    publico: 'docente',
     resumen:
       'Qué se observa desde el aula, cómo registrarlo y en qué momento exacto corresponde derivar. Sin instrumentos: el docente detecta, no evalúa.',
     duracion: '20 horas · 5 módulos',
@@ -163,6 +166,7 @@ export const programas: Programa[] = [
     tipo: 'curso',
     nombre: 'Elaboración del informe psicopedagógico',
     dirigidoA: 'Psicólogos, psicopedagogos y orientadores con cédula',
+    publico: 'profesional',
     resumen:
       'Redacción del informe conforme a la normativa mexicana aplicable: estructura, lenguaje, resguardo de datos y recomendaciones que un centro pueda aplicar.',
     duracion: '20 horas · 5 módulos',
@@ -231,6 +235,7 @@ export const programas: Programa[] = [
     nombre:
       'Detección y comprensión de las altas capacidades intelectuales y la doble excepcionalidad',
     dirigidoA: 'Psicólogos y psicopedagogos con cédula profesional',
+    publico: 'profesional',
     resumen:
       'De la detección al reporte que se entrega y se cobra. Incluye instrumentos, interpretación, perfilamiento STEAM y los formatos de trabajo listos para usar.',
     duracion: '20 horas curriculares · 6 módulos',
@@ -343,6 +348,7 @@ export const programas: Programa[] = [
     tipo: 'curso',
     nombre: 'Certificación en evaluación psicopedagógica',
     dirigidoA: 'Psicólogos y psicopedagogos con cédula profesional',
+    publico: 'profesional',
     resumen:
       'Proceso completo de evaluación, del motivo de consulta a la devolución. Incluye examen en línea con experto y sesión grabada para auditoría.',
     duracion: '20 horas curriculares · 5 módulos',
@@ -405,6 +411,7 @@ export const programas: Programa[] = [
     tipo: 'institucional',
     nombre: 'Capacitación para el equipo docente de tu escuela',
     dirigidoA: 'Colegios que quieren formar a todo su equipo',
+    publico: 'centro',
     resumen:
       'El mismo contenido de detección, impartido para el claustro completo y adaptado al procedimiento interno del centro.',
     duracion: 'De 20 a 40 horas según el tamaño del equipo',
@@ -533,3 +540,38 @@ export const acuerdo286 = {
 
   accion: 'Inscribirme a la preparación',
 };
+
+
+/* ------------------------------------------------------------------ */
+/* Pestañas por perfil                                                 */
+/* ------------------------------------------------------------------ */
+
+/**
+ * El visitante elige quién es y ve solo lo que le corresponde. Es más
+ * honesto que mostrar todo y esperar que adivine: un docente no puede
+ * inscribirse a un programa que exige cédula, y descubrirlo después de
+ * pagar es la peor forma de enterarse.
+ */
+export const pestanas = [
+  {
+    id: 'profesional' as const,
+    titulo: 'Soy psicólogo o psicopedagogo',
+    corto: 'Psicología',
+    pie: 'Con cédula profesional vigente',
+    nota: 'Estos programas habilitan para evaluar y emitir informes. Al inscribirte verificamos tu cédula.',
+  },
+  {
+    id: 'docente' as const,
+    titulo: 'Soy docente, pedagogo o de ciencias de la educación',
+    corto: 'Docencia',
+    pie: 'Ejercicio docente en activo',
+    nota: 'Estos programas forman para detectar y derivar. La evaluación la realiza siempre un profesional con cédula.',
+  },
+  {
+    id: 'centro' as const,
+    titulo: 'Represento a un centro',
+    corto: 'Centros',
+    pie: 'Colegios y clínicas',
+    nota: 'Formación para todo el equipo, adaptada al procedimiento interno del centro y cotizada por número de participantes.',
+  },
+];
