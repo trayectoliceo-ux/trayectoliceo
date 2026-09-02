@@ -4,7 +4,7 @@ import {
   institucionalPrecios,
   trayectoriaPrecios,
 } from '@/content/precios';
-import { psicologos, titulacion } from '@/content/rutas';
+import { acuerdo286, programas } from '@/content/certificate';
 
 /**
  * CATÁLOGO DEL SERVIDOR
@@ -37,14 +37,19 @@ const catalogo: ProductoCobrable[] = [
     importe: producto.importe as number,
   }));
 
-catalogo.push({
-  id: psicologos.certificacion.id,
-  nombre: psicologos.certificacion.nombre,
-  importe: psicologos.certificacion.importe,
-});
+/** Cursos y certificaciones con cobro en línea. */
+for (const programa of programas) {
+  if (programa.destino === 'pago' && programa.precio > 0) {
+    catalogo.push({
+      id: programa.id,
+      nombre: programa.nombre,
+      importe: programa.precio * 100,
+    });
+  }
+}
 
 /** Las etapas de titulación que sí cobramos nosotros. */
-for (const etapa of titulacion.etapas) {
+for (const etapa of acuerdo286.etapas) {
   if (etapa.cobrable && etapa.id && etapa.importe) {
     catalogo.push({
       id: etapa.id,

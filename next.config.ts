@@ -16,9 +16,11 @@ const nextConfig: NextConfig = {
     return [
       { source: '/psicometrics', destination: '/psicologos', permanent: true },
       { source: '/colegios', destination: '/escuelas', permanent: true },
-      { source: '/formacion', destination: '/docentes', permanent: true },
+      { source: '/formacion', destination: '/certificate', permanent: true },
+      { source: '/docentes', destination: '/certificate', permanent: true },
+      { source: '/titulacion', destination: '/certificate#titulacion', permanent: true },
       { source: '/evaluacion', destination: '/familias', permanent: true },
-      { source: '/academia', destination: '/docentes', permanent: true },
+      { source: '/academia', destination: '/certificate', permanent: true },
       { source: '/trayectoria', destination: '/familias', permanent: true },
     ];
   },

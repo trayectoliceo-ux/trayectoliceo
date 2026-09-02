@@ -36,7 +36,11 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(sitio.dominio),
   title: {
-    default: `${sitio.nombre} · ${sitio.descriptor}`,
+    /*
+     * El título por defecto debe decir el giro en las primeras palabras.
+     * «Trayecto Liceo» a secas hace que Google lo clasifique como escuela.
+     */
+    default: `${sitio.nombre} · Evaluación psicopedagógica y formación profesional`,
     template: `%s · ${sitio.nombre}`,
   },
   description: sitio.descripcionMeta,

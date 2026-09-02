@@ -22,7 +22,7 @@ export const sitio = {
   operadora: 'Gebenz Consultoría y Negocios, S.A. de C.V.',
   dominio: 'https://trayectoliceo.com',
   descripcionMeta:
-    'Evaluación psicopedagógica en Puebla: altas capacidades, dificultades de aprendizaje y orientación. Talleres STEAM, formación para profesionales y la plataforma PsicoMetrics.',
+    'Servicio de evaluación psicopedagógica y formación profesional. Valoración en línea para familias, tamizaje escolar y certificaciones para psicólogos. No somos un colegio.',
   /**
    * Palabras clave de referencia para redactar títulos y descripciones.
    * Next.js ya no usa la etiqueta meta keywords: esto es una guía editorial,
@@ -86,8 +86,7 @@ export const sitio = {
     { titulo: 'Familias', corto: 'Familias', href: '/familias', destacado: true },
     { titulo: 'Psicólogos', corto: 'Psicólogos', href: '/psicologos' },
     { titulo: 'Escuelas', corto: 'Escuelas', href: '/escuelas' },
-    { titulo: 'Docentes', corto: 'Docentes', href: '/docentes' },
-    { titulo: 'Titulación', corto: 'Titulación', href: '/titulacion' },
+    { titulo: 'Certifícate', corto: 'Certifícate', href: '/certificate' },
   ],
 
   navegacionPie: [
@@ -97,8 +96,8 @@ export const sitio = {
         { titulo: 'Valoración para familias', href: '/familias' },
         { titulo: 'Para psicólogos', href: '/psicologos' },
         { titulo: 'Para escuelas', href: '/escuelas' },
-        { titulo: 'Para docentes', href: '/docentes' },
-        { titulo: 'Titulación Acuerdo 286', href: '/titulacion' },
+        { titulo: 'Certifícate', href: '/certificate' },
+        { titulo: 'Titulación Acuerdo 286', href: '/certificate#titulacion' },
         { titulo: 'Talleres STEAM', href: '/talleres' },
       ],
     },
@@ -134,6 +133,8 @@ export const mensajesWhatsApp: Record<string, string> = {
     'Hola. Soy psicólogo y quiero información sobre PsicoMetrics y la derivación de casos.',
   escuelas:
     'Hola. Represento a un colegio y quiero una propuesta de tamizaje de aula.',
+  certificate:
+    'Hola. Me interesan los cursos y certificaciones de Trayecto Liceo.',
   docentes: 'Hola. Soy docente y me interesa el curso de detección en el aula.',
   titulacion:
     'Hola. Quiero información sobre la titulación por Acuerdo 286 en Pedagogía.',

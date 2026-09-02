@@ -47,20 +47,12 @@ export const rutas: Ruta[] = [
     accion: 'Solicitar propuesta',
   },
   {
-    id: 'docentes',
-    href: '/docentes',
-    etiqueta: 'Docentes',
-    titulo: 'Aprende a detectar lo que otros no ven en tu salón',
-    gancho: 'Tú los ves ocho horas al día. Aprende qué mirar y cuándo derivar.',
-    accion: 'Ver capacitación',
-  },
-  {
-    id: 'titulacion',
-    href: '/titulacion',
-    etiqueta: 'Titulación',
-    titulo: 'Titúlate en Pedagogía por Acuerdo 286',
-    gancho: 'Preparación por etapas, con costos desglosados y sin letra chica.',
-    accion: 'Ver etapas y costos',
+    id: 'certificate',
+    href: '/certificate',
+    etiqueta: 'Soy docente o profesional',
+    titulo: 'Certifícate: cursos y certificaciones',
+    gancho: 'Detección, evaluación psicopedagógica e informe. Desde $850 para miembros.',
+    accion: 'Ver programas',
   },
 ];
 
@@ -113,32 +105,6 @@ export const psicologos = {
       ],
     },
   ],
-
-  /**
-   * Formación propia para la red. A diferencia del curso de docentes, este
-   * exige cédula profesional: forma a quien evalúa, no a quien detecta.
-   */
-  certificacion: {
-    id: 'certificacion-altas-capacidades',
-    nombre: 'Certificación en diagnóstico de altas capacidades',
-    /** [VERIFICAR] Confirmar el importe antes de publicar. */
-    precio: '$3,500 MXN',
-    importe: 350000,
-    unidad: 'por participante',
-    duracion: '20 horas · 5 sesiones',
-    modalidad: 'En línea con sesiones sincrónicas',
-    requisito: 'Requiere título y cédula profesional vigente',
-    resumen:
-      'Aplicación e interpretación de instrumentos, integración de resultados y redacción del informe. Al terminar quedas habilitado para recibir derivaciones de valoración integral.',
-    temario: [
-      'Modelos de referencia y sus consecuencias prácticas',
-      'Selección y aplicación de instrumentos por edad',
-      'Interpretación: qué no puede concluirse de un puntaje',
-      'Perfiles atípicos y doble excepcionalidad',
-      'Informe, devolución a la familia y comunicación con el centro',
-    ],
-    accion: 'Inscribirme a la certificación',
-  },
 
   /** [VERIFICAR] Confirmar moneda e importes antes de publicar. */
   planes: [

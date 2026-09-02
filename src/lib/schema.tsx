@@ -34,7 +34,13 @@ const ID_ORGANIZACION = `${sitio.dominio}/#organizacion`;
 export function organizacion() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['EducationalOrganization', 'LocalBusiness'],
+    /*
+     * NO usar `EducationalOrganization` ni `School`: son los tipos que hacen
+     * que Google presente la ficha como si fuéramos un colegio. Somos un
+     * servicio profesional de evaluación y formación, y el tipo debe
+     * decirlo.
+     */
+    '@type': ['ProfessionalService', 'LocalBusiness'],
     '@id': ID_ORGANIZACION,
     name: sitio.nombre,
     legalName: sitio.operadora,
@@ -71,11 +77,16 @@ export function organizacion() {
     ],
     sameAs: sitio.redes.map((red) => red.url),
     knowsAbout: [
-      'Altas capacidades intelectuales',
-      'Detección de talento infantil',
       'Evaluación psicopedagógica',
-      'Enriquecimiento educativo STEAM',
+      'Tamizaje escolar',
+      'Altas capacidades intelectuales',
+      'Dificultades de aprendizaje',
+      'Formación profesional para psicólogos',
     ],
+    /* Aclara el giro. Sin esto, «Liceo» se interpreta como colegio. */
+    additionalType: 'https://www.wikidata.org/wiki/Q1071988',
+    disambiguatingDescription:
+      'Trayecto Liceo no es un colegio ni imparte educación básica. Es un servicio de evaluación psicopedagógica y formación profesional.',
   };
 }
 
