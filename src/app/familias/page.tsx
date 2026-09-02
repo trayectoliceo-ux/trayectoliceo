@@ -1,7 +1,6 @@
 import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
-import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import { Acordeon } from '@/components/ui/Acordeon';
 import { familias } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
@@ -87,19 +86,35 @@ export default function PaginaFamilias() {
             </GrupoRevelar>
           </div>
 
+          {/*
+            Sin formulario: el cuestionario y el cobro viven en PsicoMetrics.
+            Pedir aquí los mismos datos que va a pedir la plataforma es la
+            forma más rápida de perder a quien ya venía decidido.
+          */}
           <Revelar retraso={0.06} className="lg:sticky lg:top-28">
-            <FormularioCompra
-              producto={producto.nombre}
-              idPago={producto.id}
-              precio={producto.precio}
-              accion={`${producto.accion} · ${producto.precio}`}
-              perfil="familia"
-              campoExtra={{
-                clave: 'edadMenor',
-                etiqueta: 'Edad de tu hija o hijo',
-                ayuda: 'Atendemos de 3 a 18 años',
-              }}
-            />
+            <div className="rounded-lg border border-institucional bg-papel-puro p-7 text-center shadow-elevada sm:p-8">
+              <p className="etiqueta">Inversión</p>
+              <p className="mt-3 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
+                {producto.precio}
+              </p>
+              <p className="mt-3 text-menudo text-tinta-suave">
+                Pago único. Sin suscripción ni cargos posteriores.
+              </p>
+
+              <a
+                href={producto.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 flex min-h-[56px] w-full items-center justify-center rounded bg-institucional px-6 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+              >
+                {producto.accion} · {producto.precio}
+              </a>
+
+              <p className="mt-4 text-menudo text-gris">
+                Continúas en psicometrics.app, donde respondes el cuestionario y
+                realizas el pago con Mercado Pago.
+              </p>
+            </div>
           </Revelar>
         </div>
       </Seccion>

@@ -4,7 +4,7 @@ import {
   institucionalPrecios,
   trayectoriaPrecios,
 } from '@/content/precios';
-import { familias, titulacion } from '@/content/rutas';
+import { psicologos, titulacion } from '@/content/rutas';
 
 /**
  * CATÁLOGO DEL SERVIDOR
@@ -38,9 +38,9 @@ const catalogo: ProductoCobrable[] = [
   }));
 
 catalogo.push({
-  id: familias.producto.id,
-  nombre: familias.producto.nombre,
-  importe: familias.producto.importe,
+  id: psicologos.certificacion.id,
+  nombre: psicologos.certificacion.nombre,
+  importe: psicologos.certificacion.importe,
 });
 
 /** Las etapas de titulación que sí cobramos nosotros. */

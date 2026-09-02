@@ -114,6 +114,32 @@ export const psicologos = {
     },
   ],
 
+  /**
+   * Formación propia para la red. A diferencia del curso de docentes, este
+   * exige cédula profesional: forma a quien evalúa, no a quien detecta.
+   */
+  certificacion: {
+    id: 'certificacion-altas-capacidades',
+    nombre: 'Certificación en diagnóstico de altas capacidades',
+    /** [VERIFICAR] Confirmar el importe antes de publicar. */
+    precio: '$3,500 MXN',
+    importe: 350000,
+    unidad: 'por participante',
+    duracion: '20 horas · 5 sesiones',
+    modalidad: 'En línea con sesiones sincrónicas',
+    requisito: 'Requiere título y cédula profesional vigente',
+    resumen:
+      'Aplicación e interpretación de instrumentos, integración de resultados y redacción del informe. Al terminar quedas habilitado para recibir derivaciones de valoración integral.',
+    temario: [
+      'Modelos de referencia y sus consecuencias prácticas',
+      'Selección y aplicación de instrumentos por edad',
+      'Interpretación: qué no puede concluirse de un puntaje',
+      'Perfiles atípicos y doble excepcionalidad',
+      'Informe, devolución a la familia y comunicación con el centro',
+    ],
+    accion: 'Inscribirme a la certificación',
+  },
+
   /** [VERIFICAR] Confirmar moneda e importes antes de publicar. */
   planes: [
     {
@@ -317,14 +343,16 @@ export const familias = {
       'Una valoración profesional en línea, revisada y firmada por un psicólogo con cédula vigente. Sin listas de espera, sin salir de casa.',
   },
 
+  /**
+   * La contratación y el cobro ocurren en PsicoMetrics, donde ya vive el
+   * cuestionario y la pasarela. Aquí no se pide ningún dato: pedirlos dos
+   * veces es la forma más rápida de perder a quien ya venía decidido.
+   */
   producto: {
-    id: 'tamizaje-familiar',
     nombre: 'Valoración digital familiar',
     precio: '$490 MXN',
-    importe: 49000,
     accion: 'Contratar valoración',
-    /** Destino del cobro cuando la pasarela esté activa en la plataforma. */
-    urlApp: 'https://psicometrics.app/tamizaje-familiar',
+    url: 'https://psicometrics.app/tamizaje-familiar',
   },
 
   pasos: [

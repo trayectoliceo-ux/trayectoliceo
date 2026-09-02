@@ -58,6 +58,12 @@ export const portada = {
       href: '/psicologos',
     },
     {
+      etiqueta: 'Psicólogos',
+      texto: 'Certificación en diagnóstico de altas capacidades · 20 horas · $3,500',
+      accion: 'Ver certificación',
+      href: '/psicologos',
+    },
+    {
       etiqueta: 'Docentes',
       texto: 'Capacitación en detección temprana · 20 horas · $1,800',
       accion: 'Ver curso',

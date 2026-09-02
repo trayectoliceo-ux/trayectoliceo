@@ -2,6 +2,7 @@ import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { MuestraInforme } from '@/components/psicometrics/MuestraInforme';
+import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import { psicologos } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
@@ -77,7 +78,78 @@ export default function PaginaPsicologos() {
         <MuestraInforme />
       </Seccion>
 
+      {/* Formación para la red */}
       <Seccion>
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-16">
+          <div>
+            <Revelar>
+              <p className="etiqueta">Formación</p>
+              <h2 className="mt-5 max-w-[20ch] text-t1">
+                {psicologos.certificacion.nombre}
+              </h2>
+              <p className="justificado mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
+                {psicologos.certificacion.resumen}
+              </p>
+            </Revelar>
+
+            <GrupoRevelar total={3} className="mt-8 grid items-stretch gap-4 sm:grid-cols-3">
+              {[
+                { etiqueta: 'Duración', valor: psicologos.certificacion.duracion },
+                { etiqueta: 'Modalidad', valor: psicologos.certificacion.modalidad },
+                { etiqueta: 'Requisito', valor: psicologos.certificacion.requisito },
+              ].map((dato) => (
+                <ElementoRevelar
+                  key={dato.etiqueta}
+                  className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-5 shadow-tarjeta"
+                >
+                  <p className="etiqueta">{dato.etiqueta}</p>
+                  <p className="mt-2 text-balance text-menudo font-semibold leading-[1.4] text-tinta">
+                    {dato.valor}
+                  </p>
+                </ElementoRevelar>
+              ))}
+            </GrupoRevelar>
+
+            <Revelar retraso={0.06}>
+              <p className="etiqueta mt-10">Temario</p>
+              <ol className="mt-4 border-t border-linea">
+                {psicologos.certificacion.temario.map((tema, indice) => (
+                  <li
+                    key={tema}
+                    className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-linea py-3"
+                  >
+                    <span className="font-mono text-menudo text-institucional">
+                      {String(indice + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-menudo text-tinta-suave">{tema}</span>
+                  </li>
+                ))}
+              </ol>
+            </Revelar>
+          </div>
+
+          <Revelar retraso={0.08} className="lg:sticky lg:top-28">
+            <FormularioCompra
+              producto={psicologos.certificacion.nombre}
+              idPago={psicologos.certificacion.id}
+              precio={psicologos.certificacion.precio}
+              accion={psicologos.certificacion.accion}
+              perfil="psicologo"
+              campoExtra={{
+                clave: 'cedula',
+                etiqueta: 'Cédula profesional',
+                ayuda: 'La verificamos antes de confirmar tu lugar',
+              }}
+            />
+            <p className="justificado mt-4 text-menudo text-gris">
+              {psicologos.certificacion.unidad}. Al concluir quedas habilitado para
+              recibir derivaciones de valoración integral de nuestra red.
+            </p>
+          </Revelar>
+        </div>
+      </Seccion>
+
+      <Seccion tono="hondo">
         <Revelar className="text-center">
           <p className="etiqueta">Precios</p>
           <h2 className="mx-auto mt-5 max-w-[18ch] text-t1">
