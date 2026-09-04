@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { ProgramasPorPerfil } from '@/components/ui/ProgramasPorPerfil';
 import { FormularioCompra } from '@/components/contacto/FormularioCompra';
-import { acuerdo286, grupos, programas } from '@/content/certificate';
+import { acuerdo286, grupos, precios, programas } from '@/content/certificate';
 import { metadatos } from '@/lib/metadatos';
 import { curso as esquemaCurso, DatosEstructurados, migaDePan } from '@/lib/schema';
 
@@ -49,7 +50,7 @@ export default function PaginaCertificate() {
         <Revelar className="text-center">
           <p className="etiqueta">Antes de elegir</p>
           <h2 className="mx-auto mt-5 max-w-[22ch] text-t1">
-            El curso y la certificación son dos cosas.
+            Aprender y certificar son dos cosas.
           </h2>
         </Revelar>
 
@@ -102,8 +103,13 @@ export default function PaginaCertificate() {
               <h3 className="text-entrada">{grupo.perfil}</h3>
               <p className="mt-1 text-menudo text-gris">{grupo.requisito}</p>
 
-              <p className="mt-4 rounded border border-menta/30 bg-menta/[0.06] px-3 py-2 text-center text-menudo font-semibold text-menta">
-                {grupo.obsequio}
+              <p className="mt-4 rounded border border-institucional/30 bg-institucional/[0.05] px-3 py-3 text-center">
+                <span className="block text-menudo font-semibold text-institucional">
+                  {grupo.etiquetaPrecio}
+                </span>
+                <span className="mt-1 block whitespace-nowrap font-display text-entrada font-bold text-institucional">
+                  {grupo.precio}
+                </span>
               </p>
 
               <ul className="mt-5 flex-1 border-t border-linea">
@@ -123,6 +129,24 @@ export default function PaginaCertificate() {
               {'nota' in grupo && grupo.nota ? (
                 <p className="justificado mt-4 text-menudo text-gris">{grupo.nota}</p>
               ) : null}
+
+              {grupo.externo ? (
+                <a
+                  href={grupo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 flex min-h-[52px] w-full items-center justify-center rounded bg-institucional px-5 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+                >
+                  {grupo.accion}
+                </a>
+              ) : (
+                <Link
+                  href={grupo.href}
+                  className="mt-5 flex min-h-[52px] w-full items-center justify-center rounded border border-institucional/40 px-5 text-center text-cuerpo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional hover:text-papel"
+                >
+                  {grupo.accion}
+                </Link>
+              )}
             </ElementoRevelar>
           ))}
         </GrupoRevelar>
@@ -139,6 +163,49 @@ export default function PaginaCertificate() {
 
         <Revelar retraso={0.06} className="mt-9">
           <ProgramasPorPerfil />
+        </Revelar>
+      </Seccion>
+
+      {/* Resumen de precios: evita que alguien pague de más por confusión */}
+      <Seccion tono="hondo">
+        <Revelar className="text-center">
+          <p className="etiqueta">Resumen</p>
+          <h2 className="mx-auto mt-5 max-w-[20ch] text-t1">Todos los precios.</h2>
+        </Revelar>
+
+        <Revelar retraso={0.06} className="mx-auto mt-9 max-w-3xl">
+          <ul className="border-t border-linea">
+            {[
+              {
+                concepto: 'Membresía PsicoMetrics, incluye toda la formación',
+                quien: 'Psicólogos y psicopedagogos con cédula',
+                precio: `$${precios.membresia} MXN al mes`,
+              },
+              {
+                concepto: 'Capacitación docente',
+                quien: 'Docentes y pedagogos en activo',
+                precio: `$${precios.capacitacionDocente} MXN`,
+              },
+              {
+                concepto: 'Certificado con validez oficial: examen y estudio de caso',
+                quien: 'Miembros activos, psicólogos o docentes',
+                precio: `$${precios.certificado.toLocaleString('es-MX')} MXN`,
+              },
+            ].map((fila) => (
+              <li
+                key={fila.concepto}
+                className="grid gap-1 border-b border-linea py-4 sm:grid-cols-[1.5fr_1fr_auto] sm:items-baseline sm:gap-6"
+              >
+                <span className="text-menudo font-semibold text-tinta">
+                  {fila.concepto}
+                </span>
+                <span className="text-menudo text-gris">{fila.quien}</span>
+                <span className="whitespace-nowrap font-display text-entrada font-bold text-institucional">
+                  {fila.precio}
+                </span>
+              </li>
+            ))}
+          </ul>
         </Revelar>
       </Seccion>
 

@@ -25,9 +25,9 @@ export const rutas: Ruta[] = [
     id: 'familias',
     href: '/familias',
     etiqueta: 'Soy madre, padre o tutor',
-    titulo: 'Valoración digital de mi hija o hijo',
+    titulo: 'Valoración psicopedagógica y orientación vocacional',
     gancho: 'Respondes en línea, un psicólogo con cédula la revisa y firma. Informe en 72 horas.',
-    accion: 'Contratar · $490',
+    accion: 'Contratar · desde $490',
     principal: true,
   },
   {
@@ -51,7 +51,7 @@ export const rutas: Ruta[] = [
     href: '/certificate',
     etiqueta: 'Soy docente o profesional',
     titulo: 'Certifícate: cursos y certificaciones',
-    gancho: 'Cursos autogestivos desde $1,250, con acceso a PsicoMetrics incluido.',
+    gancho: 'La formación va incluida en tu membresía PsicoMetrics de $299 al mes.',
     accion: 'Ver programas',
   },
 ];
@@ -314,12 +314,31 @@ export const familias = {
    * cuestionario y la pasarela. Aquí no se pide ningún dato: pedirlos dos
    * veces es la forma más rápida de perder a quien ya venía decidido.
    */
-  producto: {
-    nombre: 'Valoración digital familiar',
-    precio: '$490 MXN',
-    accion: 'Contratar valoración',
-    url: 'https://psicometrics.app/tamizaje-familiar',
-  },
+  /**
+   * Los dos servicios para familias. Ambos se contratan y se pagan en
+   * PsicoMetrics, donde vive el cuestionario: pedir aquí los mismos datos
+   * que va a pedir la plataforma pierde a quien ya venía decidido.
+   */
+  productos: [
+    {
+      nombre: 'Valoración psicopedagógica',
+      resumen:
+        'Responden madre, padre o tutor. Un psicólogo con cédula lo revisa y firma. Informe en 72 horas.',
+      precio: '$490 MXN',
+      accion: 'Contratar valoración',
+      url: 'https://psicometrics.app/tamizaje-familiar',
+      destacado: true,
+    },
+    {
+      nombre: 'Orientación vocacional',
+      resumen:
+        'Para quien está eligiendo prepa o universidad. Perfil de intereses y aptitudes, con reporte y mapa de opciones.',
+      precio: '$490 MXN',
+      accion: 'Contratar orientación',
+      url: 'https://psicometrics.app/orientacion-vocacional',
+      destacado: false,
+    },
+  ],
 
   pasos: [
     {

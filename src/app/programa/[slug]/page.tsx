@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Seccion } from '@/components/ui/Piezas';
 import { Revelar } from '@/components/ui/Revelar';
 import { TemarioSlides } from '@/components/ui/TemarioSlides';
-import { FormularioCompra } from '@/components/contacto/FormularioCompra';
+import { AccesoPrograma } from '@/components/ui/AccesoPrograma';
 import { BotonCompartir } from '@/components/ui/BotonCompartir';
 import { programas } from '@/content/certificate';
 import { metadatos } from '@/lib/metadatos';
@@ -29,8 +29,6 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
-const pesos = (importe: number) => `$${importe.toLocaleString('es-MX')} MXN`;
-
 /**
  * FICHA COMPARTIBLE DE PROGRAMA
  * -----------------------------
@@ -43,8 +41,6 @@ export default async function PaginaPrograma({ params }: Props) {
   const programa = programas.find((elemento) => elemento.id === slug);
 
   if (!programa) notFound();
-
-  const esCobrable = programa.destino === 'pago' && programa.precio > 0;
 
   return (
     <>
@@ -155,69 +151,15 @@ export default async function PaginaPrograma({ params }: Props) {
             ) : null}
           </div>
 
-          {/* Pago, siempre a la vista */}
+          {/* Acceso, siempre a la vista */}
           <Revelar retraso={0.06} className="lg:sticky lg:top-24">
-            {esCobrable ? (
-              <>
-                <FormularioCompra
-                  producto={programa.nombre}
-                  idPago={programa.id}
-                  precio={pesos(programa.precio)}
-                  accion="Inscribirme ahora"
-                  perfil={programa.publico}
-                  campoExtra={
-                    programa.requisito
-                      ? {
-                          clave: 'cedula',
-                          etiqueta: 'Cédula profesional',
-                          ayuda: 'La verificamos antes de confirmar tu lugar',
-                        }
-                      : undefined
-                  }
-                />
-
-                {programa.regalo ? (
-                  <p className="mt-4 rounded border border-menta/30 bg-menta/[0.06] px-4 py-3 text-center text-menudo font-semibold text-menta">
-                    Incluye {programa.regalo.toLowerCase()}
-                  </p>
-                ) : null}
-
-                {programa.certificacion ? (
-                  <div className="mt-4 rounded-lg border border-linea bg-papel-puro p-5">
-                    <p className="text-menudo font-bold uppercase tracking-[0.08em] text-institucional">
-                      Certificación oficial · opcional
-                    </p>
-                    <p className="justificado mt-2 text-menudo text-tinta-suave">
-                      Examen y análisis de caso con un especialista evaluador, según
-                      calendario. Al aprobarlo obtienes el certificado con validez
-                      oficial.
-                    </p>
-                    <p className="mt-3 whitespace-nowrap font-display text-entrada font-bold text-institucional">
-                      + {pesos(programa.certificacion.precio)}
-                    </p>
-                    <p className="mt-1 text-menudo text-gris">
-                      Se contrata al terminar el curso.
-                    </p>
-                  </div>
-                ) : null}
-              </>
-            ) : (
-              <div className="rounded-lg border border-institucional bg-papel-puro p-7 text-center shadow-elevada">
-                <p className="text-cuerpo font-semibold text-tinta">
-                  Precio según el tamaño del equipo
-                </p>
-                <p className="justificado mt-3 text-menudo text-tinta-suave">
-                  Cotizamos por número de participantes y adaptamos el contenido al
-                  procedimiento de tu centro.
-                </p>
-              </div>
-            )}
+            <AccesoPrograma programa={programa} />
 
             <div className="mt-4">
               <BotonCompartir
                 nombre={programa.nombre}
                 ruta={`/programa/${programa.id}`}
-                precio={esCobrable ? pesos(programa.precio) : undefined}
+
               />
             </div>
           </Revelar>

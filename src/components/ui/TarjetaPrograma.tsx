@@ -4,13 +4,9 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { ModalTemario } from '@/components/ui/ModalTemario';
-import { FormularioCompra } from '@/components/contacto/FormularioCompra';
+import { AccesoPrograma } from '@/components/ui/AccesoPrograma';
 import type { Programa } from '@/content/certificate';
-import { enlaceWhatsApp } from '@/content/sitio';
 import { curva, duracion } from '@/lib/motion';
-
-const pesos = (importe: number) =>
-  `$${importe.toLocaleString('es-MX')} MXN`;
 
 /**
  * Ficha de programa.
@@ -88,87 +84,8 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
           </button>
         </div>
 
-        {/* Precio y cierre */}
-        <div className="rounded-lg border border-linea bg-papel p-6">
-          {programa.destino === 'pago' ? (
-            <>
-              <div className="text-center">
-                <p className="etiqueta">Inversión</p>
-                <p className="mt-1.5 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
-                  {pesos(programa.precio)}
-                </p>
-                {programa.regalo ? (
-                  <p className="mt-3 rounded border border-menta/30 bg-menta/[0.06] px-3 py-2 text-menudo font-semibold text-menta">
-                    Incluye {programa.regalo.toLowerCase()}
-                  </p>
-                ) : null}
-              </div>
-
-              <div className="mt-6">
-                <FormularioCompra
-                  producto={programa.nombre}
-                  idPago={programa.id}
-                  precio={pesos(programa.precio)}
-                  accion="Inscribirme ahora"
-                  perfil={programa.requisito ? 'psicologo' : 'docente'}
-                  campoExtra={
-                    programa.requisito
-                      ? {
-                          clave: 'cedula',
-                          etiqueta: 'Cédula profesional',
-                          ayuda: 'La verificamos antes de confirmar tu lugar',
-                        }
-                      : undefined
-                  }
-                />
-              </div>
-
-              <p className="justificado mt-4 text-menudo text-gris">
-                Al confirmar el pago recibes acceso a la plataforma y avanzas a tu
-                ritmo. Al terminar, constancia de participación.
-              </p>
-
-              {programa.certificacion ? (
-                <div className="mt-5 border-t border-linea pt-5">
-                  <p className="text-menudo font-bold uppercase tracking-[0.08em] text-institucional">
-                    Certificación oficial · opcional
-                  </p>
-                  <p className="justificado mt-2 text-menudo text-tinta-suave">
-                    Examen y análisis de caso con un especialista evaluador, según
-                    calendario. Al aprobarlo obtienes el certificado con validez
-                    oficial.
-                  </p>
-                  <p className="mt-3 whitespace-nowrap font-display text-entrada font-bold text-institucional">
-                    + {pesos(programa.certificacion.precio)}
-                  </p>
-                  <p className="mt-1 text-menudo text-gris">
-                    Se contrata cuando termines el curso.
-                  </p>
-                </div>
-              ) : null}
-            </>
-          ) : (
-            <>
-              <p className="text-center text-menudo font-semibold text-tinta">
-                Precio según el tamaño del equipo
-              </p>
-              <p className="justificado mt-3 text-menudo text-tinta-suave">
-                Cotizamos por número de docentes y adaptamos el contenido al
-                procedimiento de tu centro.
-              </p>
-              <a
-                href={enlaceWhatsApp(
-                  `Hola. Represento a un colegio y quiero cotizar: ${programa.nombre}.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 flex min-h-[52px] w-full items-center justify-center rounded bg-institucional px-5 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
-              >
-                Cotizar por WhatsApp
-              </a>
-            </>
-          )}
-        </div>
+        {/* Acceso y cierre, según el perfil del programa */}
+        <AccesoPrograma programa={programa} />
       </div>
 
       <ModalTemario

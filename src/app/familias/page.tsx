@@ -14,8 +14,6 @@ export const metadata = metadatos({
 });
 
 export default function PaginaFamilias() {
-  const { producto } = familias;
-
   return (
     <>
       <DatosEstructurados
@@ -91,30 +89,43 @@ export default function PaginaFamilias() {
             Pedir aquí los mismos datos que va a pedir la plataforma es la
             forma más rápida de perder a quien ya venía decidido.
           */}
-          <Revelar retraso={0.06} className="lg:sticky lg:top-28">
-            <div className="rounded-lg border border-institucional bg-papel-puro p-7 text-center shadow-elevada sm:p-8">
-              <p className="etiqueta">Inversión</p>
-              <p className="mt-3 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
-                {producto.precio}
-              </p>
-              <p className="mt-3 text-menudo text-tinta-suave">
-                Pago único. Sin suscripción ni cargos posteriores.
-              </p>
-
-              <a
-                href={producto.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 flex min-h-[56px] w-full items-center justify-center rounded bg-institucional px-6 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
+          <Revelar retraso={0.06} className="space-y-4 lg:sticky lg:top-24">
+            {familias.productos.map((producto) => (
+              <div
+                key={producto.url}
+                className={`rounded-lg border bg-papel-puro p-6 text-center ${
+                  producto.destacado
+                    ? 'border-institucional shadow-elevada'
+                    : 'border-linea shadow-tarjeta'
+                }`}
               >
-                {producto.accion} · {producto.precio}
-              </a>
+                <h3 className="text-balance text-entrada">{producto.nombre}</h3>
+                <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
+                  {producto.precio}
+                </p>
+                <p className="justificado mt-3 text-menudo leading-[1.6] text-tinta-suave">
+                  {producto.resumen}
+                </p>
 
-              <p className="mt-4 text-menudo text-gris">
-                Continúas en psicometrics.app, donde respondes el cuestionario y
-                realizas el pago con Mercado Pago.
-              </p>
-            </div>
+                <a
+                  href={producto.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-5 flex min-h-[52px] w-full items-center justify-center rounded px-5 text-center text-cuerpo font-semibold transition-colors duration-200 ${
+                    producto.destacado
+                      ? 'bg-institucional text-papel hover:bg-institucional-hondo'
+                      : 'border border-institucional/40 text-institucional hover:border-institucional hover:bg-institucional hover:text-papel'
+                  }`}
+                >
+                  {producto.accion}
+                </a>
+              </div>
+            ))}
+
+            <p className="text-center text-menudo text-gris">
+              Continúas en psicometrics.app, donde respondes el cuestionario y pagas
+              con Mercado Pago.
+            </p>
           </Revelar>
         </div>
       </Seccion>

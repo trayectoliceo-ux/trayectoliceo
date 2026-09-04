@@ -4,7 +4,7 @@ import {
   institucionalPrecios,
   trayectoriaPrecios,
 } from '@/content/precios';
-import { acuerdo286, programas } from '@/content/certificate';
+import { acuerdo286, certificado, precios, programas } from '@/content/certificate';
 
 /**
  * CATÁLOGO DEL SERVIDOR
@@ -37,24 +37,28 @@ const catalogo: ProductoCobrable[] = [
     importe: producto.importe as number,
   }));
 
-/** Cursos con cobro en línea, y el examen de certificación como pago aparte. */
+/**
+ * Formación con cobro en línea.
+ *
+ * Solo entran la capacitación docente y el examen de certificación: los
+ * programas incluidos en la membresía NO se cobran aquí, porque cobrarlos
+ * sería cobrar dos veces lo mismo.
+ */
 for (const programa of programas) {
-  if (programa.destino !== 'pago' || programa.precio <= 0) continue;
+  if (programa.acceso !== 'docente') continue;
 
   catalogo.push({
     id: programa.id,
     nombre: programa.nombre,
-    importe: programa.precio * 100,
+    importe: precios.capacitacionDocente * 100,
   });
-
-  if (programa.certificacion) {
-    catalogo.push({
-      id: programa.certificacion.id,
-      nombre: `Examen de certificación · ${programa.certificacion.nombre}`,
-      importe: programa.certificacion.precio * 100,
-    });
-  }
 }
+
+catalogo.push({
+  id: certificado.id,
+  nombre: 'Examen y estudio de caso · certificado con validez oficial',
+  importe: certificado.precio * 100,
+});
 
 /** Las etapas de titulación que sí cobramos nosotros. */
 for (const etapa of acuerdo286.etapas) {

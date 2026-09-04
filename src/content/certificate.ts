@@ -55,47 +55,35 @@ export type Programa = {
   incluye?: string[];
   /** Nombre exacto del documento que se emite. */
   nombreCertificacion?: string;
-  precio: number;
-  /** Lo que el precio incluye además del programa. Es el gancho real. */
-  regalo?: string;
+  /**
+   * Cómo se accede:
+   *  `membresia` → incluido al estar activo en PsicoMetrics ($299/mes)
+   *  `docente`   → capacitación de acceso de pago único ($450)
+   *  `centro`    → se cotiza por número de participantes
+   */
+  acceso: 'membresia' | 'docente' | 'centro';
   /** `pago` cobra en línea y da acceso; `escuela` deriva a WhatsApp. */
   destino: 'pago' | 'escuela';
-  /**
-   * Examen y análisis de caso con especialista evaluador, para obtener el
-   * certificado con validez oficial. Se contrata aparte del curso.
-   */
-  certificacion?: {
-    id: string;
-    precio: number;
-    nombre: string;
-  };
+  /** Si al terminar puede presentarse el examen de validez oficial. */
+  certificable?: boolean;
   temario: Modulo[];
 };
 
-/** Curso autogestivo con constancia. */
-const PRECIO_CURSO_DOCENTE = 1250;
-const PRECIO_CURSO_PROFESIONAL = 1500;
-
-/** Examen y análisis de caso con especialista, para el certificado oficial. */
-const PRECIO_EXAMEN = 1000;
-
 /**
- * Lo que se incluye con cada programa. No es un descuento: es acceso a la
- * herramienta con la que se aplica lo aprendido, que además convierte al
- * egresado en usuario de PsicoMetrics desde el primer día.
+ * MODELO VIGENTE
+ * La formación no se vende suelta: va incluida en la membresía. Solo se
+ * cobra el examen que otorga validez oficial.
  */
-const REGALO_PROFESIONAL =
-  'Acceso a PsicoMetrics con 6 informes de obsequio';
-const REGALO_DOCENTE = 'Acceso a PsicoMetrics con 10 tamizajes de obsequio';
+export const precios = {
+  membresia: 299,
+  capacitacionDocente: 450,
+  certificado: 1500,
+};
 
 export const programas: Programa[] = [
   {
     id: 'curso-deteccion-aula',
-    certificacion: {
-      id: 'curso-deteccion-aula-examen',
-      precio: PRECIO_EXAMEN,
-      nombre: 'Detección de altas capacidades y rezago en el aula',
-    },
+    certificable: true,
     tipo: 'curso',
     nombre: 'Detección de altas capacidades y rezago en el aula',
     dirigidoA: 'Docentes, pedagogos y profesionales de ciencias de la educación',
@@ -104,9 +92,8 @@ export const programas: Programa[] = [
       'Qué se observa desde el aula, cómo registrarlo y en qué momento exacto corresponde derivar. Sin instrumentos: el docente detecta, no evalúa.',
     duracion: '20 horas · 5 módulos',
     modalidad: 'Autogestivo. Avanzas a tu ritmo desde la plataforma',
-    entrega: 'Constancia de participación',
-    precio: PRECIO_CURSO_DOCENTE,
-    regalo: REGALO_DOCENTE,
+    entrega: 'Constancia de participación. El certificado oficial se obtiene con el examen',
+    acceso: 'docente',
     destino: 'pago',
     temario: [
       {
@@ -158,11 +145,7 @@ export const programas: Programa[] = [
   },
   {
     id: 'curso-informe-psicopedagogico',
-    certificacion: {
-      id: 'curso-informe-psicopedagogico-examen',
-      precio: PRECIO_EXAMEN,
-      nombre: 'Elaboración del informe psicopedagógico',
-    },
+    certificable: true,
     tipo: 'curso',
     nombre: 'Elaboración del informe psicopedagógico',
     dirigidoA: 'Psicólogos, psicopedagogos y orientadores con cédula',
@@ -171,10 +154,9 @@ export const programas: Programa[] = [
       'Redacción del informe conforme a la normativa mexicana aplicable: estructura, lenguaje, resguardo de datos y recomendaciones que un centro pueda aplicar.',
     duracion: '20 horas · 5 módulos',
     modalidad: 'Autogestivo. Avanzas a tu ritmo desde la plataforma',
-    entrega: 'Constancia de participación',
+    entrega: 'Constancia de participación. El certificado oficial se obtiene con el examen',
     requisito: 'Título y cédula profesional vigente',
-    precio: PRECIO_CURSO_PROFESIONAL,
-    regalo: REGALO_PROFESIONAL,
+    acceso: 'membresia',
     destino: 'pago',
     temario: [
       {
@@ -226,11 +208,7 @@ export const programas: Programa[] = [
   },
   {
     id: 'certificacion-altas-capacidades',
-    certificacion: {
-      id: 'certificacion-altas-capacidades-examen',
-      precio: PRECIO_EXAMEN,
-      nombre: 'Detección de Altas Capacidades y Perfilamiento STEAM con enfoque psicométrico aplicado en contextos educativos',
-    },
+    certificable: true,
     tipo: 'curso',
     nombre:
       'Detección y comprensión de las altas capacidades intelectuales y la doble excepcionalidad',
@@ -240,7 +218,7 @@ export const programas: Programa[] = [
       'De la detección al reporte que se entrega y se cobra. Incluye instrumentos, interpretación, perfilamiento STEAM y los formatos de trabajo listos para usar.',
     duracion: '20 horas curriculares · 6 módulos',
     modalidad: 'Autogestivo, con asesoría. Lecturas en PDF, cuestionarios y casos',
-    entrega: 'Constancia de participación. La certificación oficial se contrata aparte',
+    entrega: 'Constancia de participación. El certificado oficial se obtiene con el examen',
     requisito: 'Título y cédula profesional vigente',
     nombreCertificacion:
       'Detección de Altas Capacidades y Perfilamiento STEAM con enfoque psicométrico aplicado en contextos educativos',
@@ -259,8 +237,7 @@ export const programas: Programa[] = [
       'Formato de reporte profesional',
       'Guía de interpretación',
     ],
-    precio: PRECIO_CURSO_PROFESIONAL,
-    regalo: REGALO_PROFESIONAL,
+    acceso: 'membresia',
     destino: 'pago',
     temario: [
       {
@@ -340,11 +317,7 @@ export const programas: Programa[] = [
   },
   {
     id: 'certificacion-evaluacion-psicopedagogica',
-    certificacion: {
-      id: 'certificacion-evaluacion-psicopedagogica-examen',
-      precio: PRECIO_EXAMEN,
-      nombre: 'Evaluación psicopedagógica',
-    },
+    certificable: true,
     tipo: 'curso',
     nombre: 'Certificación en evaluación psicopedagógica',
     dirigidoA: 'Psicólogos y psicopedagogos con cédula profesional',
@@ -353,10 +326,9 @@ export const programas: Programa[] = [
       'Proceso completo de evaluación, del motivo de consulta a la devolución. Incluye examen en línea con experto y sesión grabada para auditoría.',
     duracion: '20 horas curriculares · 5 módulos',
     modalidad: 'Autogestivo, con asesoría. Lecturas, cuestionarios y casos',
-    entrega: 'Constancia de participación. La certificación oficial se contrata aparte',
+    entrega: 'Constancia de participación. El certificado oficial se obtiene con el examen',
     requisito: 'Título y cédula profesional vigente',
-    precio: PRECIO_CURSO_PROFESIONAL,
-    regalo: REGALO_PROFESIONAL,
+    acceso: 'membresia',
     destino: 'pago',
     temario: [
       {
@@ -417,7 +389,7 @@ export const programas: Programa[] = [
     duracion: 'De 20 a 40 horas según el tamaño del equipo',
     modalidad: 'En línea o presencial en el centro',
     entrega: 'Constancia de participación por docente',
-    precio: 0,
+    acceso: 'centro',
     destino: 'escuela',
     temario: [
       {
@@ -449,45 +421,60 @@ export const programas: Programa[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Los dos grupos                                                      */
+/* Cómo se accede a la formación                                       */
 /* ------------------------------------------------------------------ */
 
-/**
- * Dos perfiles con alcances distintos dentro de PsicoMetrics. La
- * diferencia no es comercial, es de competencia profesional: quien no
- * tiene cédula no evalúa, y la plataforma lo refleja.
- */
 export const grupos = {
-  etiqueta: 'Incluido en el precio',
-  titulo: 'Toda la formación incluye acceso a PsicoMetrics.',
+  etiqueta: 'Cómo se accede',
+  titulo: 'Tu membresía PsicoMetrics incluye toda la formación.',
   entrada:
-    'No es un descuento ni una suscripción aparte: es la herramienta con la que aplicas lo aprendido, desde el primer día.',
+    'No es un curso que compras una vez: es parte de estar activo en la plataforma. Aprendes a tu ritmo y, cuando quieras el papel con validez oficial, presentas el examen.',
   lista: [
     {
       perfil: 'Psicólogos y psicopedagogos',
       requisito: 'Con cédula profesional vigente',
-      obsequio: '6 informes de obsequio',
+      precio: `$${precios.membresia} MXN al mes`,
+      etiquetaPrecio: 'Membresía PsicoMetrics',
       puntos: [
+        'Formación completa incluida en tu membresía',
         'Emisión de informes con folio verificable',
-        'Transferencia de expedientes a otros especialistas',
         'Captación de casos derivados de escuelas y familias',
-        'Instrumentos y baremos centralizados',
-        'Acumulación normativa con datos disociados',
+        'Transferencia de expedientes entre especialistas',
+        `Certificado con validez oficial disponible por $${precios.certificado.toLocaleString('es-MX')} MXN`,
       ],
+      accion: 'Activar mi membresía',
+      href: 'https://psicometrics.app',
+      externo: true,
     },
     {
       perfil: 'Docentes y pedagogos',
       requisito: 'Ejercicio docente en activo',
-      obsequio: '10 tamizajes de obsequio',
+      precio: `$${precios.capacitacionDocente} MXN`,
+      etiquetaPrecio: 'Capacitación de acceso',
       puntos: [
+        'Capacitación completa en detección',
         'Aplicación de tamizaje en el aula',
-        'Semáforo por grupo con indicadores de alerta',
         'Canalización directa a la red de especialistas',
-        'Seguimiento del caso una vez derivado',
+        `Certificado con validez oficial disponible por $${precios.certificado.toLocaleString('es-MX')} MXN`,
       ],
-      nota: 'El docente detecta y deriva. La evaluación la realiza siempre un profesional con cédula.',
+      nota: 'No incluye acceso a la plataforma clínica PsicoMetrics: la evaluación la realiza siempre un profesional con cédula.',
+      accion: 'Inscribirme',
+      href: '/programa/curso-deteccion-aula',
+      externo: false,
     },
   ],
+};
+
+/** Examen que otorga el certificado con validez oficial. */
+export const certificado = {
+  id: 'certificado-oficial',
+  etiqueta: 'Certificado con validez oficial',
+  titulo: 'Certifícalo',
+  texto:
+    'Cuando estés listo, presentas un examen de conocimientos y un estudio de caso evaluado en sesión de Zoom por un especialista. Al aprobar, obtienes el documento con validez oficial.',
+  precio: precios.certificado,
+  requisito: 'Disponible solo para miembros activos de PsicoMetrics.',
+  accion: 'Agendar mi examen',
 };
 
 /* ------------------------------------------------------------------ */
