@@ -78,7 +78,7 @@ export const precios = {
   membresia: 299,
   capacitacionDocente: 450,
   /** Examen y estudio de caso con validez SEP. */
-  certificado: 900,
+  certificado: 990,
 };
 
 export const programas: Programa[] = [

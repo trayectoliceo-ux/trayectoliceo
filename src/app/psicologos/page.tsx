@@ -83,11 +83,14 @@ export default function PaginaPsicologos() {
         <Revelar className="mx-auto max-w-2xl rounded-lg border border-institucional bg-papel-puro p-8 text-center shadow-elevada">
           <p className="etiqueta">Formación</p>
           <h2 className="mt-4 text-balance text-t2">
-            Certifícate en altas capacidades y evaluación psicopedagógica
+            Tres capacitaciones incluidas en tu membresía
           </h2>
-          <p className="justificado mx-auto mt-5 max-w-lectura text-menudo text-tinta-suave">
-            Certificaciones con examen aplicado por un experto y validez oficial. Si
-            tienes cuenta activa en PsicoMetrics, te cuestan $850 en lugar de $1,500.
+          <p className="justificado mx-auto mt-5 max-w-[40rem] text-menudo text-tinta-suave">
+            Con tu cuenta activa en psicometrics.app tienes acceso sin costo a las
+            tres: altas capacidades y doble excepcionalidad, diagnóstico
+            psicopedagógico e informe conforme a la normativa. Si además quieres el
+            certificado con validez oficial, se obtiene con un examen y un estudio de
+            caso por $990.
           </p>
           <Link
             href="/certificate"
@@ -132,7 +135,9 @@ export default function PaginaPsicologos() {
               <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
                 {plan.precio}
               </p>
-              <p className="mt-3 flex-1 text-menudo text-tinta-suave">{plan.detalle}</p>
+              <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
+                {plan.detalle}
+              </p>
 
               <a
                 href={psicologos.urlApp}

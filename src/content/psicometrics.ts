@@ -30,7 +30,7 @@ export const psicometrics = {
       {
         titulo: 'Altas capacidades',
         texto:
-          'El núcleo original. Distingue superdotación, talento simple, talento complejo, precocidad y capacidad media-alta. Cinco hipótesis distintas, no una etiqueta binaria.',
+          'El núcleo original. Distingue entre superdotación, talento simple, talento complejo, precocidad y capacidad media-alta. Son cinco hipótesis distintas, no una etiqueta que se pone o no se pone. Cada una lleva a una respuesta educativa diferente, y confundirlas es lo que hace que un alumno reciba el apoyo que no necesitaba.',
         destacado: true,
       },
       {
@@ -42,26 +42,26 @@ export const psicometrics = {
       {
         titulo: 'Doble excepcionalidad',
         texto:
-          'Alta capacidad y dificultad de aprendizaje a la vez. Es el perfil que más se pierde porque cada rasgo enmascara al otro: el niño brillante que «podría si quisiera» y el niño con dificultad que «no destaca en nada».',
+          'Alta capacidad y dificultad de aprendizaje a la vez. Es el perfil que más se pierde, porque cada rasgo enmascara al otro: el niño brillante que «podría si quisiera» y el que tiene una dificultad y «no destaca en nada». El motor lo busca de forma explícita.',
       },
       {
         titulo: 'Dificultades específicas de aprendizaje',
         texto:
-          'Lectura, escritura y cálculo. Explora indicadores y decide si la evidencia justifica derivación.',
+          'Lectura, escritura y cálculo. Explora los indicadores de cada área, los contrasta con lo que reportan familia y docente, y decide si la evidencia justifica una derivación formal.',
       },
       {
         titulo: 'Indicadores del espectro autista',
         texto:
-          'Con la cautela de que en menores de alta capacidad el enmascaramiento es frecuente.',
+          'Explora los indicadores con la cautela que exige el caso: en menores de alta capacidad el enmascaramiento es frecuente, y lo que parece ausencia de señales a veces es solo compensación.',
       },
       {
         titulo: 'Rezago del desarrollo en preescolar',
         texto:
-          'Lenguaje, motricidad, socioemocional y razonamiento preacadémico. Aquí la lógica se invierte: a los 4 años, detectar a tiempo un rezago de lenguaje puede corregir la trayectoria antes de primaria.',
+          'Lenguaje, motricidad, área socioemocional y razonamiento preacadémico. Aquí la lógica se invierte: a los cuatro años, detectar a tiempo un rezago de lenguaje puede corregir la trayectoria completa antes de que empiece la primaria.',
       },
       {
         titulo: 'Orientación vocacional',
-        texto: 'Desde los 14 años, con perfil RIASEC de intereses.',
+        texto: 'Desde los 14 años, con perfil RIASEC de intereses. Cruza lo que le gusta con lo que se le da bien y con las opciones reales a su alcance, para que la decisión de prepa o carrera no se tome por descarte ni por presión del calendario.',
       },
     ],
   },

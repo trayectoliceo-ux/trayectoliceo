@@ -11,14 +11,19 @@ export const portada = {
    * `rotativa` marca la posición de la palabra que cambia: es el cierre de
    * la frase, no un adorno a mitad de línea.
    */
-  titulo: ['Detectamos lo que', 'la escuela no', 'alcanza a'],
+  titulo: ['Cuando algo no', 'encaja en la escuela,'],
   /**
    * Cada palabra completa la frase con una lectura distinta del mismo
    * comportamiento. Es el argumento entero del negocio en cuatro palabras.
    */
-  rotativas: ['ver.'],
+  rotativas: ['hay una explicación.', 'se puede saber por qué.', 'hay algo que hacer.'],
+  /**
+   * Redactado con palabras cortas a propósito: el justificado sin guiones
+   * abre huecos cuando una palabra larga no cabe al final de la línea.
+   * Con palabras breves los espacios quedan parejos sin partir nada.
+   */
   subtitulo:
-    'Evaluación psicopedagógica profesional para niños y adolescentes de 3 a 18 años. Tamizajes escolares, valoraciones para familias y herramientas para psicólogos.',
+    'Evaluamos a niñas, niños y jóvenes de 3 a 18 años. A las familias les damos un informe claro. A las escuelas, una forma de ver a tiempo lo que hoy se les escapa. Todo con un equipo de psicólogos con cédula.',
   /** Segmentar aquí ahorra al visitante recorrer la página entera. */
   /** Las dos acciones que dejan dinero: contratar o sumarse a la red. */
   acciones: [
@@ -66,7 +71,7 @@ export const portada = {
     },
     {
       etiqueta: 'Docentes',
-      texto: 'Curso asincrónico de detección en el aula · 20 horas · desde $850',
+      texto: 'Capacitación docente en detección temprana · 20 horas · $450',
       accion: 'Ver curso',
       href: '/certificate',
     },

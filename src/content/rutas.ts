@@ -42,8 +42,8 @@ export const rutas: Ruta[] = [
     id: 'escuelas',
     href: '/escuelas',
     etiqueta: 'Escuelas',
-    titulo: 'Detecta a tiempo a los alumnos que necesitan apoyo',
-    gancho: 'Tamizaje de aula desde $150 por alumno, con semáforo por grupo.',
+    titulo: 'Detecta a tiempo y acompaña mejor a tus alumnos',
+    gancho: 'Tamizaje de aula desde $150 por alumno, con capacitación docente incluida.',
     accion: 'Solicitar propuesta',
   },
   {
@@ -111,20 +111,20 @@ export const psicologos = {
     {
       nombre: 'Primer caso',
       precio: 'Gratis',
-      detalle: 'Un caso completo, de expediente a informe firmado',
+      detalle: 'Un caso completo, de la apertura del expediente al informe firmado con folio. Sin tarjeta y sin compromiso: si no te sirve, no pagas nada.',
       accion: 'Comenzar ahora',
     },
     {
       nombre: 'Plan mensual',
       precio: '$249 MXN',
-      detalle: '6 informes al mes, con todos los módulos',
+      detalle: 'Seis informes al mes, acceso a todos los módulos y a las tres capacitaciones. Recibes casos derivados de escuelas y de familias.',
       accion: 'Suscribirme',
       destacado: true,
     },
     {
-      nombre: 'Créditos sueltos',
+      nombre: 'Créditos plus',
       precio: '$120 MXN',
-      detalle: 'Por informe, sin suscripción',
+      detalle: 'Para los meses en que necesitas más de seis. Se suman a tu cuenta y no caducan mientras la membresía siga activa.',
       accion: 'Comprar créditos',
     },
   ],
@@ -137,10 +137,10 @@ export const psicologos = {
 export const escuelas = {
   portada: {
     etiqueta: 'Para escuelas',
-    titulo: ['Un aula de 30 tiene', 'en promedio 3 que'],
-    rotativas: ['nadie ha detectado.'],
+    titulo: ['En cada grupo hay', 'alumnos que esperan'],
+    rotativas: ['que alguien los vea.', 'una respuesta.', 'un plan.'],
     entrada:
-      'Tamizaje psicopedagógico grupal con consentimiento digital de las familias e informe para el centro. Veinte minutos por grupo.',
+      'Veinte minutos por grupo y tu escuela sabe a quién mirar de cerca. Con consentimiento digital de las familias e informe para el centro.',
     precio: '$150 MXN',
     unidad: 'por alumno · desde 10 alumnos',
     accion: 'Solicitar propuesta',
