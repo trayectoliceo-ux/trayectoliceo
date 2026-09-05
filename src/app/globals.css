@@ -72,6 +72,23 @@
     text-wrap: pretty;
   }
 
+  /*
+    Justificado sin partición de palabras.
+
+    Sin guiones, el navegador ensancha los espacios para cuadrar la línea.
+    Se compensa con dos ajustes: medida más ancha y `text-align-last: left`,
+    que libera el último renglón. Reservado a párrafos destacados en columna
+    amplia; en columna estrecha usar `.justificado`, que sí parte palabras.
+  */
+  .justificado-limpio {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+
   /* Etiqueta de metadato: la voz del expediente. */
   .etiqueta {
     @apply font-sans text-etiqueta font-semibold uppercase tracking-[0.1em] text-institucional;

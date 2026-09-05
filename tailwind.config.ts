@@ -86,8 +86,8 @@ const config: Config = {
       },
       spacing: {
         /* Ritmo vertical compacto: el sitio vende, no expone. */
-        seccion: '3.5rem',
-        'seccion-lg': '5rem',
+        seccion: '2.75rem',
+        'seccion-lg': '3.75rem',
       },
     },
   },

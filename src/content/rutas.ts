@@ -142,9 +142,29 @@ export const escuelas = {
     entrada:
       'Tamizaje psicopedagógico grupal con consentimiento digital de las familias e informe para el centro. Veinte minutos por grupo.',
     precio: '$150 MXN',
-    unidad: 'por alumno evaluado',
+    unidad: 'por alumno · desde 10 alumnos',
     accion: 'Solicitar propuesta',
   },
+
+  /** Escalas de contratación. La capacitación va incluida y no se cobra. */
+  escalas: [
+    {
+      alumnos: 'Desde 10 alumnos',
+      incluye: 'Capacitación incluida para 1 docente',
+      nota: 'Pensado para que el centro lo pruebe con un grupo.',
+    },
+    {
+      alumnos: '20 alumnos',
+      incluye: 'Capacitación incluida para 2 docentes',
+      nota: 'Un docente capacitado por cada 10 alumnos evaluados.',
+    },
+    {
+      alumnos: 'Desde 100 alumnos',
+      incluye: 'Capacitación para el equipo y un taller STEAM a elegir',
+      nota: 'Formamos a tu personal para que ustedes mismos lo impartan.',
+      destacado: true,
+    },
+  ],
 
   incluye: [
     'Aplicación grupal de 15 a 20 minutos',

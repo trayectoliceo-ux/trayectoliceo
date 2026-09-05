@@ -87,6 +87,46 @@ export default function PaginaEscuelas() {
         </div>
       </Seccion>
 
+      {/* Escalas de contratación */}
+      <Seccion tono="hondo">
+        <Revelar className="text-center">
+          <p className="etiqueta">Cómo se contrata</p>
+          <h2 className="mx-auto mt-3 max-w-[24ch] text-t1">
+            La capacitación de tus docentes va incluida.
+          </h2>
+          <p className="justificado-limpio mx-auto mt-5 max-w-[42rem] text-cuerpo-lg leading-[1.6] text-tinta-suave">
+            Un docente capacitado por cada diez alumnos evaluados, sin costo adicional.
+            Puedes empezar con un solo grupo para probarlo.
+          </p>
+        </Revelar>
+
+        <GrupoRevelar
+          total={escuelas.escalas.length}
+          className="mt-9 grid items-stretch gap-4 sm:grid-cols-3"
+        >
+          {escuelas.escalas.map((escala) => (
+            <ElementoRevelar
+              key={escala.alumnos}
+              className={`flex h-full flex-col rounded-lg border bg-papel-puro p-6 text-center ${
+                'destacado' in escala && escala.destacado
+                  ? 'border-institucional shadow-elevada'
+                  : 'border-linea shadow-tarjeta'
+              }`}
+            >
+              <p className="whitespace-nowrap font-display text-entrada font-bold text-institucional">
+                {escala.alumnos}
+              </p>
+              <p className="mt-3 text-balance text-menudo font-semibold text-tinta">
+                {escala.incluye}
+              </p>
+              <p className="justificado mt-3 flex-1 text-menudo text-tinta-suave">
+                {escala.nota}
+              </p>
+            </ElementoRevelar>
+          ))}
+        </GrupoRevelar>
+      </Seccion>
+
       {/* Semáforo */}
       <Seccion tono="hondo">
         <Revelar className="text-center">

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'motion/react';
-import { psicometricsPagina as pm } from '@/content/psicometrics';
+import { muestraInforme as muestra } from '@/content/psicometrics';
 import { curva, duracion, escalonado, vistaUnaVez } from '@/lib/motion';
 
 /**
@@ -24,7 +24,6 @@ import { curva, duracion, escalonado, vistaUnaVez } from '@/lib/motion';
  */
 export function MuestraInforme() {
   const reducido = useReducedMotion();
-  const { muestra } = pm;
 
   return (
     <div className="grid items-center gap-9 lg:grid-cols-[1fr_1fr] lg:gap-14">
@@ -58,7 +57,6 @@ export function MuestraInforme() {
  */
 export function HojaInforme() {
   const reducido = useReducedMotion();
-  const { muestra } = pm;
 
   return (
       <motion.figure

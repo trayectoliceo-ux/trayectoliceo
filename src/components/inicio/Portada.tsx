@@ -1,13 +1,12 @@
 'use client';
 
 import { motion, useReducedMotion } from 'motion/react';
-import { useEffect, useState } from 'react';
 import { BotonEnlace } from '@/components/ui/Boton';
 import { PalabraRotativa } from '@/components/ui/PalabraRotativa';
 import { Marcador } from '@/components/ui/Piezas';
 import { portada } from '@/content/inicio';
 import { sitio } from '@/content/sitio';
-import { curva, duracion, escalonado } from '@/lib/motion';
+import { curva, duracion } from '@/lib/motion';
 
 /**
  * MOMENTO FIRMA
@@ -29,9 +28,7 @@ import { curva, duracion, escalonado } from '@/lib/motion';
  * interacción y los enlaces no dependen de que la secuencia termine.
  */
 
-const RETRASO_LINEA = 0.05;
 const RETRASO_TITULAR = 0.16;
-const RETRASO_HITOS = 0.5;
 
 export function Portada() {
   const reducido = useReducedMotion();
@@ -132,78 +129,10 @@ export function Portada() {
               prioritaria
             />
 
-            {/* Riel de trayecto: cierra la columna, bajo la fotografía. */}
-            <motion.div
-              aria-hidden
-              initial={reducido ? { opacity: 0 } : { scaleX: 0 }}
-              animate={reducido ? { opacity: 1 } : { scaleX: 1 }}
-              transition={{
-                duration: reducido ? duracion.base : duracion.firma,
-                delay: RETRASO_LINEA,
-                ease: curva.salidaSuave,
-              }}
-              style={{ transformOrigin: 'left' }}
-              className="h-px w-full bg-linea"
-            />
-            <Hitos />
           </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-/**
- * Las cuatro etapas del trayecto.
- *
- * Se resaltan por turnos: la activa aparece a tamaño y color plenos, las
- * demás quedan atenuadas. El ciclo cuenta la secuencia del método en vez de
- * limitarse a enumerarla.
- *
- * Solo se animan `opacity` y `color`, nunca el tamaño de fuente, para que
- * el bloque no se mueva ni provoque recálculos de diseño.
- */
-function Hitos() {
-  const reducido = useReducedMotion();
-  const [activo, setActivo] = useState(0);
-
-  useEffect(() => {
-    if (reducido) return;
-
-    const temporizador = setInterval(() => {
-      setActivo((previo) => (previo + 1) % portada.hitos.length);
-    }, 1900);
-
-    return () => clearInterval(temporizador);
-  }, [reducido]);
-
-  return (
-    <ul className="flex flex-wrap justify-center gap-x-7 gap-y-2 pb-2 pt-5">
-      {portada.hitos.map((hito, indice) => {
-        const encendido = reducido || indice === activo;
-
-        return (
-          <motion.li
-            key={hito}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: encendido ? 1 : 0.32 }}
-            transition={{
-              duration: duracion.lenta,
-              delay: reducido ? 0 : RETRASO_HITOS + indice * escalonado.marcado * 0.8,
-              ease: curva.salidaSuave,
-            }}
-          >
-            <span
-              className={`font-display text-t3 font-bold tracking-[-0.02em] transition-colors duration-500 ${
-                encendido ? 'text-tinta' : 'text-gris'
-              }`}
-            >
-              {hito}
-            </span>
-          </motion.li>
-        );
-      })}
-    </ul>
   );
 }
 

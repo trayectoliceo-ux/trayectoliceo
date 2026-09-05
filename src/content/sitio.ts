@@ -87,6 +87,7 @@ export const sitio = {
     { titulo: 'Psicólogos', corto: 'Psicólogos', href: '/psicologos' },
     { titulo: 'Escuelas', corto: 'Escuelas', href: '/escuelas' },
     { titulo: 'Certifícate', corto: 'Certifícate', href: '/certificate' },
+    { titulo: 'Red de especialistas', corto: 'Red', href: '/red' },
   ],
 
   navegacionPie: [
@@ -97,6 +98,7 @@ export const sitio = {
         { titulo: 'Para psicólogos', href: '/psicologos' },
         { titulo: 'Para escuelas', href: '/escuelas' },
         { titulo: 'Certifícate', href: '/certificate' },
+        { titulo: 'Red de especialistas', href: '/red' },
         { titulo: 'Titulación Acuerdo 286', href: '/certificate#titulacion' },
         { titulo: 'Talleres STEAM', href: '/talleres' },
       ],
@@ -135,6 +137,7 @@ export const mensajesWhatsApp: Record<string, string> = {
     'Hola. Represento a un colegio y quiero una propuesta de tamizaje de aula.',
   certificate:
     'Hola. Me interesan los cursos y certificaciones de Trayecto Liceo.',
+  red: 'Hola. Quiero unirme a la red de especialistas de Trayecto Liceo.',
   docentes: 'Hola. Soy docente y me interesa el curso de detección en el aula.',
   titulacion:
     'Hola. Quiero información sobre la titulación por Acuerdo 286 en Pedagogía.',

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
+import { BloquePsicoMetrics } from '@/components/psicometrics/BloquePsicoMetrics';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 
-import { rutas } from '@/content/rutas';
+import { familias, rutas } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, organizacion, sitioWeb } from '@/lib/schema';
 
@@ -21,6 +22,51 @@ export default function PaginaInicio() {
       <DatosEstructurados datos={organizacion()} />
       <DatosEstructurados datos={sitioWeb()} />
       <Portada />
+
+      {/* Los dos servicios de contratación directa */}
+      <Seccion tono="hondo">
+        <EncabezadoSeccion
+          etiqueta="Para familias"
+          titulo="Contrátalo hoy y recibe el informe en 72 horas."
+          entrada="Dos servicios en línea, revisados y firmados por un psicólogo con cédula vigente. Sin listas de espera y sin salir de casa."
+        />
+
+        <GrupoRevelar
+          total={familias.productos.length}
+          className="mx-auto mt-9 grid max-w-4xl items-stretch gap-5 sm:grid-cols-2"
+        >
+          {familias.productos.map((producto) => (
+            <ElementoRevelar
+              key={producto.url}
+              className={`flex h-full flex-col rounded-lg border bg-papel-puro p-7 text-center ${
+                producto.destacado
+                  ? 'border-institucional shadow-elevada'
+                  : 'border-linea shadow-tarjeta'
+              }`}
+            >
+              <h3 className="text-balance text-t3">{producto.nombre}</h3>
+              <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
+                {producto.precio}
+              </p>
+              <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+                {producto.resumen}
+              </p>
+              <a
+                href={producto.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-6 flex min-h-[52px] w-full items-center justify-center rounded px-5 text-center text-cuerpo font-semibold transition-colors duration-200 ${
+                  producto.destacado
+                    ? 'bg-institucional text-papel hover:bg-institucional-hondo'
+                    : 'border border-institucional/40 text-institucional hover:border-institucional hover:bg-institucional hover:text-papel'
+                }`}
+              >
+                {producto.accion}
+              </a>
+            </ElementoRevelar>
+          ))}
+        </GrupoRevelar>
+      </Seccion>
 
       {/*
         Cuatro públicos, cuatro destinos. Segmentar aquí evita que el
@@ -61,6 +107,8 @@ export default function PaginaInicio() {
           ))}
         </GrupoRevelar>
       </Seccion>
+
+      <BloquePsicoMetrics />
 
       {/* Cierre: contacto */}
       <Seccion id="contacto">

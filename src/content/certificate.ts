@@ -77,7 +77,8 @@ export type Programa = {
 export const precios = {
   membresia: 299,
   capacitacionDocente: 450,
-  certificado: 1500,
+  /** Examen y estudio de caso con validez SEP. */
+  certificado: 900,
 };
 
 export const programas: Programa[] = [
@@ -436,11 +437,12 @@ export const grupos = {
       precio: `$${precios.membresia} MXN al mes`,
       etiquetaPrecio: 'Membresía PsicoMetrics',
       puntos: [
-        'Formación completa incluida en tu membresía',
-        'Emisión de informes con folio verificable',
-        'Captación de casos derivados de escuelas y familias',
+        'Las tres capacitaciones incluidas: altas capacidades y doble excepcionalidad, diagnóstico psicopedagógico e informe conforme a normativa',
+        'Emisión de informes con folio verificable y código QR',
+        'Recibes casos del tamizaje escolar y de orientación vocacional',
         'Transferencia de expedientes entre especialistas',
-        `Certificado con validez oficial disponible por $${precios.certificado.toLocaleString('es-MX')} MXN`,
+        'Acceso constante a servicios de tamizaje',
+        `Certificado con validez SEP disponible por $${precios.certificado} MXN`,
       ],
       accion: 'Activar mi membresía',
       href: 'https://psicometrics.app',
@@ -452,12 +454,13 @@ export const grupos = {
       precio: `$${precios.capacitacionDocente} MXN`,
       etiquetaPrecio: 'Capacitación de acceso',
       puntos: [
-        'Capacitación completa en detección',
-        'Aplicación de tamizaje en el aula',
+        'Capacitación completa en detección temprana',
+        'Aplicación de tamizaje en el aula de tu centro',
         'Canalización directa a la red de especialistas',
-        `Certificado con validez oficial disponible por $${precios.certificado.toLocaleString('es-MX')} MXN`,
+        'Incluida sin costo al contratar tamizaje escolar: 1 docente por cada 10 alumnos',
+        `Certificado con validez SEP disponible por $${precios.certificado} MXN`,
       ],
-      nota: 'No incluye acceso a la plataforma clínica PsicoMetrics: la evaluación la realiza siempre un profesional con cédula.',
+      nota: 'Los docentes no se registran en PsicoMetrics: la plataforma clínica es para profesionales con cédula. Si aún no tienes titulación, revisa la titulación por Acuerdo 286 en esta misma página.',
       accion: 'Inscribirme',
       href: '/programa/curso-deteccion-aula',
       externo: false,
