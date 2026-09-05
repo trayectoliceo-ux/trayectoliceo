@@ -48,7 +48,7 @@ export default function PaginaInicio() {
               <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
                 {producto.precio}
               </p>
-              <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+              <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
                 {producto.resumen}
               </p>
               <a
@@ -90,7 +90,7 @@ export default function PaginaInicio() {
               >
                 <p className="etiqueta">{ruta.etiqueta}</p>
                 <h3 className="mt-4 text-balance text-t3 leading-[1.2]">{ruta.titulo}</h3>
-                <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+                <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
                   {ruta.gancho}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-2 text-menudo font-semibold text-institucional">
@@ -112,7 +112,7 @@ export default function PaginaInicio() {
 
       {/* Cierre: contacto */}
       <Seccion id="contacto">
-        <div className="grid gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+        <div className="grid items-stretch gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
           <div>
             <EncabezadoSeccion
               etiqueta="Contacto"

@@ -77,7 +77,7 @@ export default async function PaginaPrograma({ params }: Props) {
               {programa.resumen}
             </p>
 
-            <dl className="mt-7 grid gap-3 sm:grid-cols-3">
+            <dl className="mt-7 grid items-stretch gap-3 sm:grid-cols-3">
               {[
                 { etiqueta: 'Duración', valor: programa.duracion },
                 { etiqueta: 'Modalidad', valor: programa.modalidad },
@@ -97,7 +97,7 @@ export default async function PaginaPrograma({ params }: Props) {
       </section>
 
       <Seccion>
-        <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-12">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-12">
           <div>
             <Revelar>
               <p className="etiqueta">Temario</p>

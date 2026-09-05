@@ -202,7 +202,7 @@ export function FormularioInteligente({
         <legend className="mb-5 block w-full text-center text-cuerpo font-semibold text-tinta">
           ¿Quién escribe?
         </legend>
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid items-stretch gap-3 sm:grid-cols-3">
           {perfiles.map((opcion) => {
             const activo = datos.perfil === opcion.valor;
             return (
@@ -258,7 +258,7 @@ export function FormularioInteligente({
             transition={{ duration: duracion.lenta, ease: curva.salidaSuave }}
             className="overflow-hidden"
           >
-      <div className="mt-8 grid gap-x-5 gap-y-6 sm:grid-cols-2">
+      <div className="mt-8 grid items-stretch gap-x-5 gap-y-6 sm:grid-cols-2">
         <Campo
           id={`${idBase}-nombre`}
           etiqueta={
@@ -309,7 +309,7 @@ export function FormularioInteligente({
               transition: { duration: salida(duracion.base), ease: curva.entradaSeca },
             }}
             transition={{ duration: duracion.base, ease: curva.salidaSuave }}
-            className="grid gap-x-5 gap-y-6 sm:col-span-2 sm:grid-cols-2"
+            className="grid items-stretch gap-x-5 gap-y-6 sm:col-span-2 sm:grid-cols-2"
           >
             {datos.perfil === 'profesional' ? (
               <>
@@ -340,7 +340,7 @@ export function FormularioInteligente({
                   <p className="mt-1 text-menudo text-gris">
                     Puedes marcar más de una opción.
                   </p>
-                  <div className="mt-3 grid gap-2">
+                  <div className="mt-3 grid items-stretch gap-2">
                     {interesesProfesionales.map((interes) => {
                       const marcado = (datos.motivos ?? []).includes(interes);
                       return (
@@ -394,7 +394,7 @@ export function FormularioInteligente({
                   <p className="mt-1 text-menudo text-gris">
                     Puedes marcar más de una opción.
                   </p>
-                  <div className="mt-3 grid gap-2">
+                  <div className="mt-3 grid items-stretch gap-2">
                     {motivos.map((motivo) => {
                       const marcado = (datos.motivos ?? []).includes(motivo);
                       return (

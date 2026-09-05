@@ -32,7 +32,7 @@ export default function PaginaRed() {
       />
 
       <Seccion>
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-12">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-12">
           <div>
             <Revelar>
               <p className="etiqueta">Por qué unirte</p>
@@ -61,7 +61,7 @@ export default function PaginaRed() {
             </GrupoRevelar>
 
             <Revelar retraso={0.08}>
-              <p className="justificado-limpio mt-7 rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.7] text-tinta-suave">
+              <p className="justificado-limpio mt-7 rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.75] text-tinta-suave">
                 Psicólogos y psicopedagogos acceden a la plataforma clínica con la
                 membresía de ${precios.membresia} MXN al mes. Los docentes se suman a
                 la red para detectar y derivar, y su capacitación va incluida al

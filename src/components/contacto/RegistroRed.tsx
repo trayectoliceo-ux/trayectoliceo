@@ -111,7 +111,7 @@ export function RegistroRed() {
           ¿Cuál es tu rama de estudio?
         </legend>
 
-        <div className="mt-5 grid gap-2 sm:grid-cols-3">
+        <div className="mt-5 grid items-stretch gap-2 sm:grid-cols-3">
           {ramas.map((opcion) => {
             const activa = rama === opcion.valor;
 
@@ -157,7 +157,7 @@ export function RegistroRed() {
             transition={{ duration: duracion.lenta, ease: curva.salidaSuave }}
             className="overflow-hidden"
           >
-            <div className="mt-7 grid gap-4 sm:grid-cols-2">
+            <div className="mt-7 grid items-stretch gap-4 sm:grid-cols-2">
               <Campo
                 id={`${idBase}-nombre`}
                 etiqueta="Nombre completo"

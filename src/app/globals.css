@@ -54,39 +54,36 @@
 
 @layer components {
   /*
-    Texto justificado.
+    Texto justificado sin partición de palabras.
 
-    En web, justificar sin partición de palabras abre «ríos» de espacio
-    blanco entre palabras, sobre todo en columnas estrechas y en español,
-    que tiene palabras largas. La combinación con `hyphens: auto` lo
-    resuelve: el navegador parte las palabras con las reglas del idioma
-    declarado en <html lang="es-MX">.
+    Justificar y no partir palabras obliga al navegador a ensanchar los
+    espacios. Se compensa con tres ajustes:
+      · `text-align-last: left` libera el último renglón, que es donde el
+        hueco se vuelve escandaloso.
+      · `word-spacing` negativo compensa el ensanchado.
+      · Cuerpo ligeramente menor: caben más palabras por línea y cada hueco
+        reparte menos espacio.
 
-    Se aplica solo a párrafos de lectura. Nunca a titulares, botones,
-    etiquetas ni listas cortas, donde el justificado deforma el ritmo.
+    En columnas por debajo de unos 34 caracteres el justificado deja de
+    funcionar por mucho que se ajuste, así que ahí se alinea a la izquierda.
   */
-  .justificado {
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    text-wrap: pretty;
-  }
-
-  /*
-    Justificado sin partición de palabras.
-
-    Sin guiones, el navegador ensancha los espacios para cuadrar la línea.
-    Se compensa con dos ajustes: medida más ancha y `text-align-last: left`,
-    que libera el último renglón. Reservado a párrafos destacados en columna
-    amplia; en columna estrecha usar `.justificado`, que sí parte palabras.
-  */
+  .justificado,
   .justificado-limpio {
     text-align: justify;
     text-align-last: left;
     hyphens: none;
     -webkit-hyphens: none;
-    word-spacing: -0.01em;
+    word-spacing: -0.035em;
     text-wrap: pretty;
+  }
+
+  /* En pantallas estrechas no hay ancho suficiente: se alinea a la izquierda. */
+  @media (max-width: 480px) {
+    .justificado,
+    .justificado-limpio {
+      text-align: left;
+      word-spacing: normal;
+    }
   }
 
   /* Etiqueta de metadato: la voz del expediente. */

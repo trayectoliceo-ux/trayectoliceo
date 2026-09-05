@@ -33,7 +33,7 @@ export default function PaginaFamilias() {
 
       {/* Pasos y compra, lado a lado: decidir y pagar sin bajar la página */}
       <Seccion>
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-12">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-12">
           <div>
             <Revelar>
               <p className="etiqueta">Cómo funciona</p>
@@ -68,7 +68,7 @@ export default function PaginaFamilias() {
                 <p className="text-menudo font-bold uppercase tracking-[0.08em] text-menta">
                   {familias.honestidad.si.titulo}
                 </p>
-                <p className="justificado mt-3 text-menudo leading-[1.7] text-tinta-suave">
+                <p className="justificado mt-3 text-menudo leading-[1.75] text-tinta-suave">
                   {familias.honestidad.si.texto}
                 </p>
               </ElementoRevelar>
@@ -77,7 +77,7 @@ export default function PaginaFamilias() {
                 <p className="text-menudo font-bold uppercase tracking-[0.08em] text-gris">
                   {familias.honestidad.no.titulo}
                 </p>
-                <p className="justificado mt-3 text-menudo leading-[1.7] text-tinta-suave">
+                <p className="justificado mt-3 text-menudo leading-[1.75] text-tinta-suave">
                   {familias.honestidad.no.texto}
                 </p>
               </ElementoRevelar>
@@ -103,7 +103,7 @@ export default function PaginaFamilias() {
                 <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
                   {producto.precio}
                 </p>
-                <p className="justificado mt-3 text-menudo leading-[1.6] text-tinta-suave">
+                <p className="justificado mt-3 text-menudo leading-[1.75] text-tinta-suave">
                   {producto.resumen}
                 </p>
 

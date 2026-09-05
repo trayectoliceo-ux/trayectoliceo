@@ -35,7 +35,7 @@ export default function PaginaTalleres() {
         <GrupoRevelar as="ul" total={talleres.length} className="border-t border-linea">
           {talleres.map((taller) => (
             <ElementoRevelar as="li" key={taller.slug} className="border-b border-linea">
-              <div className="grid gap-6 py-8 md:grid-cols-[1fr_auto] md:items-start md:gap-12 lg:py-10">
+              <div className="grid items-stretch gap-6 py-8 md:grid-cols-[1fr_auto] md:items-start md:gap-12 lg:py-10">
                 <div>
                   <p className="etiqueta">{taller.linea}</p>
                   <Link href={`/talleres/${taller.slug}`} className="group block">
@@ -43,7 +43,7 @@ export default function PaginaTalleres() {
                       {taller.titulo}
                     </h2>
                   </Link>
-                  <p className="justificado mt-3 max-w-lectura text-menudo leading-[1.7] text-tinta-suave">
+                  <p className="justificado mt-3 max-w-lectura text-menudo leading-[1.75] text-tinta-suave">
                     {taller.resumen}
                   </p>
 

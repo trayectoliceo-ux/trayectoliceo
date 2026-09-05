@@ -42,7 +42,7 @@ export default function PaginaVerificar() {
 
         <Revelar retraso={0.08} className="mx-auto mt-16 max-w-2xl">
           <h2 className="text-t3">Qué muestra y qué no</h2>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          <div className="mt-5 grid items-stretch gap-4 sm:grid-cols-2">
             <div className="rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta">
               <p className="text-menudo font-semibold text-menta">Sí se muestra</p>
               <ul className="mt-3 space-y-2 text-menudo text-tinta-suave">

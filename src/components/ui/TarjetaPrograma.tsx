@@ -27,7 +27,7 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
     <article
       className="rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta sm:p-8"
     >
-      <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start">
+      <div className="grid items-stretch gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start">
         <div>
           <span className="inline-flex rounded bg-institucional/[0.08] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-institucional">
             Curso autogestivo
@@ -37,11 +37,11 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
           <p className="mt-2 text-menudo font-semibold text-institucional">
             {programa.dirigidoA}
           </p>
-          <p className="justificado mt-4 max-w-lectura text-menudo leading-[1.7] text-tinta-suave">
+          <p className="justificado mt-4 max-w-lectura text-menudo leading-[1.75] text-tinta-suave">
             {programa.resumen}
           </p>
 
-          <dl className="mt-6 grid gap-3 sm:grid-cols-2">
+          <dl className="mt-6 grid items-stretch gap-3 sm:grid-cols-2">
             {[
               { etiqueta: 'Duración', valor: programa.duracion },
               { etiqueta: 'Modalidad', valor: programa.modalidad },

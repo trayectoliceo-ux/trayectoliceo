@@ -73,7 +73,7 @@ export function TarjetaProducto({ producto }: { producto: Producto }) {
         </p>
       </div>
 
-      <p className="justificado mt-5 text-menudo leading-[1.7] text-tinta-suave">
+      <p className="justificado mt-5 text-menudo leading-[1.75] text-tinta-suave">
         {producto.resumen}
       </p>
 

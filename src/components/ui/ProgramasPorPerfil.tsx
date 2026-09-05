@@ -31,7 +31,7 @@ export function ProgramasPorPerfil() {
       <div
         role="tablist"
         aria-label="Perfil profesional"
-        className="grid gap-2 sm:grid-cols-3"
+        className="grid items-stretch gap-2 sm:grid-cols-3"
       >
         {pestanas.map((elemento) => {
           const seleccionada = elemento.id === activa;
@@ -80,7 +80,7 @@ export function ProgramasPorPerfil() {
             transition: { duration: salida(duracion.base), ease: curva.entradaSeca },
           }}
           transition={{ duration: duracion.base, ease: curva.salidaSuave }}
-          className="justificado mx-auto mt-6 max-w-lectura rounded border-l-4 border-institucional bg-papel-puro p-4 text-menudo leading-[1.6] text-tinta-suave"
+          className="justificado mx-auto mt-6 max-w-lectura rounded border-l-4 border-institucional bg-papel-puro p-4 text-menudo leading-[1.75] text-tinta-suave"
         >
           {pestana.nota}
         </motion.p>

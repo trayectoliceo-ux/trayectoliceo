@@ -20,7 +20,7 @@ export function CabeceraPagina({
 }) {
   return (
     <section className="border-b border-linea">
-      <div className="contenedor grid gap-10 py-14 lg:grid-cols-[1.35fr_1fr] lg:gap-14 lg:py-24">
+      <div className="contenedor grid items-stretch gap-10 py-14 lg:grid-cols-[1.35fr_1fr] lg:gap-14 lg:py-24">
         <div>
           <Revelar desplazamiento={8}>
             <p className="etiqueta">{etiqueta}</p>

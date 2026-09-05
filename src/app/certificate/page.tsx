@@ -60,7 +60,7 @@ export default function PaginaCertificate() {
               Curso
             </span>
             <h3 className="mt-4 text-t3">Acredita que lo cursaste</h3>
-            <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+            <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
               Autogestivo en la plataforma, con asesoría cuando la necesites. Al
               terminar recibes constancia o diploma de participación. No incluye examen
               ni certifica competencia.
@@ -72,7 +72,7 @@ export default function PaginaCertificate() {
               Certificación · $1,000
             </span>
             <h3 className="mt-4 text-t3">Acredita que sabes hacerlo</h3>
-            <p className="justificado mt-4 flex-1 text-menudo leading-[1.7] text-tinta-suave">
+            <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
               También autogestiva, pero cierra con examen aplicado por un experto en
               sesión en línea, grabada para auditoría y calificada. Al aprobarla se
               emite el documento con validez oficial.
@@ -194,7 +194,7 @@ export default function PaginaCertificate() {
             ].map((fila) => (
               <li
                 key={fila.concepto}
-                className="grid gap-1 border-b border-linea py-4 sm:grid-cols-[1.5fr_1fr_auto] sm:items-baseline sm:gap-6"
+                className="grid items-stretch gap-1 border-b border-linea py-4 sm:grid-cols-[1.5fr_1fr_auto] sm:items-baseline sm:gap-6"
               >
                 <span className="text-menudo font-semibold text-tinta">
                   {fila.concepto}
@@ -224,7 +224,7 @@ export default function PaginaCertificate() {
             {acuerdo286.etapas.map((etapa) => (
               <li
                 key={etapa.etapa}
-                className="grid gap-2 border-b border-linea py-5 sm:grid-cols-[1.4fr_1fr_auto] sm:items-baseline sm:gap-6"
+                className="grid items-stretch gap-2 border-b border-linea py-5 sm:grid-cols-[1.4fr_1fr_auto] sm:items-baseline sm:gap-6"
               >
                 <span className="text-cuerpo font-semibold text-tinta">{etapa.etapa}</span>
                 <span
@@ -255,7 +255,7 @@ export default function PaginaCertificate() {
               ayuda: 'Por ejemplo: Pedagogía',
             }}
           />
-          <p className="justificado mt-6 rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.7] text-tinta-suave">
+          <p className="justificado mt-6 rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.75] text-tinta-suave">
             {acuerdo286.aviso}
           </p>
         </Revelar>

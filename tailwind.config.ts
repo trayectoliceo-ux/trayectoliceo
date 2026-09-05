@@ -59,9 +59,9 @@ const config: Config = {
       fontSize: {
         // Escala editorial: los saltos grandes solo existen en titulares.
         etiqueta: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.1em' }],
-        menudo: ['0.9375rem', { lineHeight: '1.6rem' }],
-        cuerpo: ['1.0625rem', { lineHeight: '1.75rem' }],
-        'cuerpo-lg': ['1.25rem', { lineHeight: '1.9rem' }],
+        menudo: ['0.9063rem', { lineHeight: '1.6rem' }],
+        cuerpo: ['1.0313rem', { lineHeight: '1.75rem' }],
+        'cuerpo-lg': ['1.1875rem', { lineHeight: '1.9rem' }],
         entrada: ['clamp(1.5rem, 2.3vw, 1.875rem)', { lineHeight: '1.3' }],
         t3: ['clamp(1.75rem, 2.6vw, 2.125rem)', { lineHeight: '1.22', letterSpacing: '-0.018em' }],
         t2: ['clamp(2.25rem, 4.5vw, 3.25rem)', { lineHeight: '1.1', letterSpacing: '-0.025em' }],

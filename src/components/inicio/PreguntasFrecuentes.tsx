@@ -19,7 +19,7 @@ export function PreguntasFrecuentes() {
   const reducido = useReducedMotion();
 
   return (
-    <div className="grid gap-9 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+    <div className="grid items-stretch gap-9 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
       <motion.div
         initial={{ opacity: 0, y: reducido ? 0 : 16 }}
         whileInView={{ opacity: 1, y: 0 }}

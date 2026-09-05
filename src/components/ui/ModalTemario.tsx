@@ -111,7 +111,7 @@ export function ModalTemario({
               <TemarioSlides modulos={programa.temario} />
 
               {programa.resultados || programa.incluye ? (
-                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                <div className="mt-5 grid items-stretch gap-4 sm:grid-cols-2">
                   {programa.resultados ? (
                     <div className="rounded-lg border border-menta/30 bg-menta/[0.05] p-5">
                       <p className="text-menudo font-bold uppercase tracking-[0.08em] text-menta">

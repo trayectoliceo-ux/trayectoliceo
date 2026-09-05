@@ -20,9 +20,10 @@ export const portada = {
   subtitulo:
     'Evaluación psicopedagógica profesional para niños y adolescentes de 3 a 18 años. Tamizajes escolares, valoraciones para familias y herramientas para psicólogos.',
   /** Segmentar aquí ahorra al visitante recorrer la página entera. */
+  /** Las dos acciones que dejan dinero: contratar o sumarse a la red. */
   acciones: [
-    { titulo: 'Quiero una evaluación', href: '/contacto', tono: 'solido' as const },
-    { titulo: 'Conocer PsicoMetrics', href: '/psicometrics', tono: 'contorno' as const },
+    { titulo: 'Quiero una evaluación', href: '/familias', tono: 'solido' as const },
+    { titulo: 'Registro de profesionales', href: '/red', tono: 'contorno' as const },
   ],
   /** Marcas de la línea de trayecto en la portada. Son etapas, no adornos. */
   hitos: ['Detección', 'Evaluación', 'Enriquecimiento', 'Trayectoria'],

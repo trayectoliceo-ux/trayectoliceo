@@ -64,7 +64,7 @@ export default function PaginaEscuelas() {
 
       {/* Qué incluye */}
       <Seccion>
-        <div className="grid gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+        <div className="grid items-stretch gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <Revelar>
             <p className="etiqueta">Qué incluye</p>
             <h2 className="mt-5 max-w-[18ch] text-t1">Veinte minutos por grupo.</h2>
@@ -143,7 +143,7 @@ export default function PaginaEscuelas() {
             >
               <span aria-hidden className={`mx-auto block h-2 w-12 rounded-full ${nivel.color}`} />
               <h3 className="mt-5 text-entrada">{nivel.titulo}</h3>
-              <p className="justificado mt-3 text-menudo leading-[1.7] text-tinta-suave">
+              <p className="justificado mt-3 text-menudo leading-[1.75] text-tinta-suave">
                 {nivel.texto}
               </p>
             </ElementoRevelar>

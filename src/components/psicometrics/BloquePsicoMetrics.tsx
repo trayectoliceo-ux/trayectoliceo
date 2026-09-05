@@ -35,28 +35,37 @@ export function BloquePsicoMetrics() {
           </h3>
         </Revelar>
 
+        {/*
+          Siete fichas en tres columnas dejarían un hueco al final. Se
+          reparten 2+1 / 3 / 1+2 para que cada renglón cierre completo: la
+          primera ficha y la última ocupan doble ancho.
+        */}
         <GrupoRevelar
           total={psicometrics.evalua.lista.length}
-          className="mt-7 grid items-stretch gap-4 md:grid-cols-2"
+          className="mt-7 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {psicometrics.evalua.lista.map((elemento) => (
-            <ElementoRevelar
-              as="article"
-              key={elemento.titulo}
-              className={`flex h-full flex-col rounded-lg border bg-papel-puro p-6 shadow-tarjeta ${
-                'destacado' in elemento && elemento.destacado
-                  ? 'border-institucional/50 md:col-span-2'
-                  : 'border-linea'
-              }`}
-            >
-              <h4 className="text-balance text-entrada leading-[1.25]">
-                {elemento.titulo}
-              </h4>
-              <p className="justificado mt-3 text-menudo leading-[1.7] text-tinta-suave">
-                {elemento.texto}
-              </p>
-            </ElementoRevelar>
-          ))}
+          {psicometrics.evalua.lista.map((elemento, indice) => {
+            const doble = indice === 0 || indice === psicometrics.evalua.lista.length - 1;
+
+            return (
+              <ElementoRevelar
+                as="article"
+                key={elemento.titulo}
+                className={`flex h-full flex-col rounded-lg border bg-papel-puro p-6 shadow-tarjeta ${
+                  'destacado' in elemento && elemento.destacado
+                    ? 'border-institucional/50'
+                    : 'border-linea'
+                } ${doble ? 'sm:col-span-2' : ''}`}
+              >
+                <h4 className="text-balance text-cuerpo-lg font-bold leading-[1.25] tracking-[-0.015em]">
+                  {elemento.titulo}
+                </h4>
+                <p className="justificado mt-3 flex-1 text-menudo leading-[1.75] text-tinta-suave">
+                  {elemento.texto}
+                </p>
+              </ElementoRevelar>
+            );
+          })}
         </GrupoRevelar>
       </Seccion>
 
@@ -90,7 +99,7 @@ export function BloquePsicoMetrics() {
         </GrupoRevelar>
 
         <Revelar retraso={0.08}>
-          <p className="justificado-limpio mx-auto mt-7 max-w-[44rem] rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.7] text-tinta-suave">
+          <p className="justificado-limpio mx-auto mt-7 max-w-[44rem] rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.75] text-tinta-suave">
             {psicometrics.metodo.nota}
           </p>
         </Revelar>
@@ -98,7 +107,7 @@ export function BloquePsicoMetrics() {
 
       {/* Edades y modalidades */}
       <Seccion tono="hondo">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
           <Revelar>
             <p className="etiqueta">Rangos de edad</p>
             <h3 className="mt-3 text-t2">De 3 a 18 años.</h3>

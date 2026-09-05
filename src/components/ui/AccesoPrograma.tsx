@@ -98,7 +98,7 @@ export function AccesoPrograma({ programa }: { programa: Programa }) {
           <p className="text-menudo font-bold uppercase tracking-[0.08em] text-institucional">
             {certificado.etiqueta} · opcional
           </p>
-          <p className="justificado mt-2 text-menudo leading-[1.6] text-tinta-suave">
+          <p className="justificado mt-2 text-menudo leading-[1.75] text-tinta-suave">
             {certificado.texto}
           </p>
           <p className="mt-3 whitespace-nowrap font-display text-entrada font-bold text-institucional">

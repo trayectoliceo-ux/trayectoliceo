@@ -41,7 +41,7 @@ export default function PaginaNosotros() {
 
         <GrupoRevelar
           total={nosotros.enfoque.length}
-          className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8"
+          className="mt-10 grid items-stretch gap-10 md:grid-cols-3 md:gap-8"
         >
           {nosotros.enfoque.map((punto) => (
             <ElementoRevelar
@@ -50,7 +50,7 @@ export default function PaginaNosotros() {
               className="border-t border-linea pt-6"
             >
               <h3 className="max-w-[20ch] text-entrada leading-[1.3]">{punto.titulo}</h3>
-              <p className="mt-3 text-menudo leading-[1.65] text-tinta-suave justificado">
+              <p className="mt-3 text-menudo leading-[1.75] text-tinta-suave justificado">
                 {punto.descripcion}
               </p>
             </ElementoRevelar>
@@ -60,7 +60,7 @@ export default function PaginaNosotros() {
 
       {/* Marcos teóricos: es lo que revisa un profesional antes de inscribirse. */}
       <Seccion tono="hondo">
-        <div className="grid gap-9 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+        <div className="grid items-stretch gap-9 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
           <Revelar>
             <p className="etiqueta">Marcos de referencia</p>
             <h2 className="mt-5 max-w-[18ch] text-t2">
@@ -89,7 +89,7 @@ export default function PaginaNosotros() {
                     {marco.autor}
                   </span>
                 </div>
-                <p className="justificado mt-1.5 max-w-[54ch] text-menudo leading-[1.6] text-tinta-suave">
+                <p className="justificado mt-1.5 max-w-[54ch] text-menudo leading-[1.75] text-tinta-suave">
                   {marco.nota}
                 </p>
               </ElementoRevelar>
@@ -109,7 +109,7 @@ export default function PaginaNosotros() {
 
         <GrupoRevelar
           total={nosotros.equipo.length}
-          className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8"
+          className="mt-10 grid items-stretch gap-10 md:grid-cols-3 md:gap-8"
         >
           {nosotros.equipo.map((persona, indice) => (
             <ElementoRevelar as="article" key={indice}>

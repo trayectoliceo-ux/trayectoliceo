@@ -56,7 +56,7 @@ export function Acordeon({
               transition={{ duration: reducido ? 0 : duracion.base, ease: curva.salidaSuave }}
               className="overflow-hidden"
             >
-              <p className="max-w-lectura pb-6 text-menudo leading-[1.7] text-tinta-suave justificado">
+              <p className="max-w-lectura pb-6 text-menudo leading-[1.75] text-tinta-suave justificado">
                 {elemento.respuesta}
               </p>
             </motion.div>

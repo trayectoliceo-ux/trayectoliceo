@@ -78,7 +78,7 @@ export function Portada() {
           ))}
         </h1>
 
-        <div className="mt-9 grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-14">
+        <div className="mt-9 grid items-stretch gap-8 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-14">
           <div>
             <motion.p
               initial={{ opacity: 0, y: reducido ? 0 : 10 }}

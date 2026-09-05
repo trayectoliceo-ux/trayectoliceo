@@ -41,7 +41,7 @@ export default function PaginaRecursos() {
             <ElementoRevelar as="li" key={articulo.slug} className="border-b border-linea">
               <Link
                 href={`/recursos/${articulo.slug}`}
-                className="group grid gap-3 py-8 md:grid-cols-[8rem_1fr_7rem] md:items-baseline md:gap-10"
+                className="group grid items-stretch gap-3 py-8 md:grid-cols-[8rem_1fr_7rem] md:items-baseline md:gap-10"
               >
                 <span className="font-mono text-etiqueta uppercase text-institucional">
                   {articulo.categoria}
@@ -50,7 +50,7 @@ export default function PaginaRecursos() {
                   <span className="block max-w-[30ch] text-t3 transition-colors duration-150 group-hover:text-institucional">
                     {articulo.titulo}
                   </span>
-                  <span className="mt-2 block max-w-lectura text-menudo leading-[1.65] text-tinta-suave">
+                  <span className="mt-2 block max-w-lectura text-menudo leading-[1.75] text-tinta-suave">
                     {articulo.entradilla}
                   </span>
                 </span>
@@ -72,7 +72,7 @@ export default function PaginaRecursos() {
           </h2>
         </Revelar>
 
-        <GrupoRevelar total={materiales.length} className="mt-9 grid gap-6 lg:grid-cols-2">
+        <GrupoRevelar total={materiales.length} className="mt-9 grid items-stretch gap-6 lg:grid-cols-2">
           {materiales.map((material) => (
             <ElementoRevelar
               as="article"
@@ -83,7 +83,7 @@ export default function PaginaRecursos() {
                 {material.formato} · {material.dirigidoA}
               </p>
               <h3 className="mt-4 max-w-[24ch] text-t3">{material.titulo}</h3>
-              <p className="justificado mt-3 flex-1 text-menudo leading-[1.65] text-tinta-suave">
+              <p className="justificado mt-3 flex-1 text-menudo leading-[1.75] text-tinta-suave">
                 {material.descripcion}
               </p>
               <FormularioMaterial material={material.titulo} />

@@ -34,7 +34,7 @@ export default function PaginaContacto() {
       />
 
       <Seccion>
-        <div className="grid gap-14 lg:grid-cols-[1fr_1.5fr] lg:gap-14">
+        <div className="grid items-stretch gap-14 lg:grid-cols-[1fr_1.5fr] lg:gap-14">
           <Revelar>
             <dl className="border-t border-linea">
               <div className="border-b border-linea py-5">
