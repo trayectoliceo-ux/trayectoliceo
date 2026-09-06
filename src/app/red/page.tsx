@@ -42,7 +42,7 @@ export default function PaginaRed() {
             <GrupoRevelar as="ul" total={5} className="mt-7 border-t border-linea">
               {[
                 'Recibes casos derivados de tamizajes escolares y de familias',
-                'Las tres capacitaciones incluidas en tu membresía',
+                'Las tres capacitaciones incluidas en tu plan',
                 `Certificado con validez SEP por $${precios.certificado} MXN`,
                 'Emites informes con folio verificable y código QR',
                 'Transfieres expedientes a otros especialistas de la red',
@@ -63,7 +63,7 @@ export default function PaginaRed() {
             <Revelar retraso={0.08}>
               <p className="justificado-limpio mt-7 rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.75] text-tinta-suave">
                 Psicólogos y psicopedagogos acceden a la plataforma clínica con la
-                membresía de ${precios.membresia} MXN al año. Los docentes se suman a
+                plan anual de ${precios.membresia} MXN, o mensual de $299. Los docentes se suman a
                 la red para detectar y derivar, y su capacitación va incluida al
                 contratar tamizaje escolar en su centro.
               </p>

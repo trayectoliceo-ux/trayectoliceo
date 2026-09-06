@@ -11,8 +11,8 @@ const pesos = (importe: number) => `$${importe.toLocaleString('es-MX')} MXN`;
  * ------------------
  * Cada perfil entra de una forma distinta, y confundirlas cuesta dinero:
  *
- *  · Psicólogos → la formación va incluida en la membresía. El botón lleva
- *    a activar la membresía en psicometrics.app, NO a una pasarela: cobrar
+ *  · Psicólogos → la formación va incluida en el plan. El botón lleva a
+ *    activarlo en psicometrics.app, NO a una pasarela: cobrar
  *    aquí un curso que ya está incluido sería un cobro indebido.
  *  · Docentes → capacitación de acceso de pago único, que sí se cobra aquí.
  *  · Centros → se cotiza por número de participantes.
@@ -24,11 +24,11 @@ export function AccesoPrograma({ programa }: { programa: Programa }) {
     <div className="space-y-4">
       {programa.acceso === 'membresia' ? (
         <div className="rounded-lg border border-institucional bg-papel-puro p-7 text-center shadow-elevada">
-          <p className="etiqueta">Incluido en tu membresía</p>
+          <p className="etiqueta">Incluido en tu plan</p>
           <p className="mt-3 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
             ${precios.membresia} MXN
           </p>
-          <p className="mt-1 text-menudo text-gris">al año, en PsicoMetrics</p>
+          <p className="mt-1 text-menudo text-gris">al año · o $299 al mes</p>
 
           <p className="justificado mt-4 text-menudo text-tinta-suave">
             No pagas el curso aparte. Está disponible mientras estés activo en la
@@ -41,7 +41,7 @@ export function AccesoPrograma({ programa }: { programa: Programa }) {
             rel="noopener noreferrer"
             className="mt-6 flex min-h-[56px] w-full items-center justify-center rounded bg-institucional px-5 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
           >
-            Activar mi membresía y empezar
+            Activar mi plan y empezar
           </a>
 
           <p className="mt-3 text-menudo text-gris">

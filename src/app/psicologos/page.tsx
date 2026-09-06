@@ -83,14 +83,14 @@ export default function PaginaPsicologos() {
         <Revelar className="mx-auto max-w-2xl rounded-lg border border-institucional bg-papel-puro p-8 text-center shadow-elevada">
           <p className="etiqueta">Formación</p>
           <h2 className="mt-4 text-balance text-t2">
-            Tres capacitaciones incluidas en tu membresía
+            Tres capacitaciones incluidas en tu plan
           </h2>
           <p className="justificado mx-auto mt-5 max-w-[40rem] text-menudo text-tinta-suave">
             Con tu cuenta activa en psicometrics.app tienes acceso sin costo a las
             tres: altas capacidades y doble excepcionalidad, diagnóstico
             psicopedagógico e informe conforme a la normativa. Si además quieres el
             certificado con validez oficial, se obtiene con un examen y un estudio de
-            caso por $990. La membresía cuesta $499 al año.
+            caso por $990. El plan cuesta $499 al año o $299 al mes.
           </p>
           <Link
             href="/certificate"

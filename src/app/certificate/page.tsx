@@ -177,7 +177,7 @@ export default function PaginaCertificate() {
           <ul className="border-t border-linea">
             {[
               {
-                concepto: 'Membresía PsicoMetrics: un informe al mes y toda la formación',
+                concepto: 'Plan anual PsicoMetrics: un informe al mes y toda la formación',
                 quien: 'Psicólogos y psicopedagogos con cédula',
                 precio: `$${precios.membresia} MXN al año`,
               },

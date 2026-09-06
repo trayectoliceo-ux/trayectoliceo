@@ -57,7 +57,7 @@ export type Programa = {
   nombreCertificacion?: string;
   /**
    * Cómo se accede:
-   *  `membresia` → incluido al estar activo en PsicoMetrics ($299/mes)
+   *  `membresia` → incluido al estar activo en PsicoMetrics (plan anual o mensual)
    *  `docente`   → capacitación de acceso de pago único ($450)
    *  `centro`    → se cotiza por número de participantes
    */
@@ -71,11 +71,11 @@ export type Programa = {
 
 /**
  * MODELO VIGENTE
- * La formación no se vende suelta: va incluida en la membresía. Solo se
+ * La formación no se vende suelta: va incluida en el plan. Solo se
  * cobra el examen que otorga validez oficial.
  */
 export const precios = {
-  /** Membresía anual, no mensual. Incluye un informe al mes. */
+  /** Plan anual. Incluye un informe al mes. El plan mensual son $299. */
   membresia: 499,
   capacitacionDocente: 450,
   /** Examen y estudio de caso con validez SEP. */
@@ -428,15 +428,15 @@ export const programas: Programa[] = [
 
 export const grupos = {
   etiqueta: 'Cómo se accede',
-  titulo: 'Tu membresía PsicoMetrics incluye toda la formación.',
+  titulo: 'Tu plan de PsicoMetrics incluye toda la formación.',
   entrada:
-    'No es un curso que compras una vez: es parte de estar activo en la plataforma. Aprendes a tu ritmo y, cuando quieras el papel con validez oficial, presentas el examen.',
+    'No es un curso que compras una vez: es parte de estar activo en la plataforma, con plan anual o mensual. Aprendes a tu ritmo y, cuando quieras el papel con validez oficial, presentas el examen.',
   lista: [
     {
       perfil: 'Psicólogos y psicopedagogos',
       requisito: 'Con cédula profesional vigente',
       precio: `$${precios.membresia} MXN al año`,
-      etiquetaPrecio: 'Membresía PsicoMetrics',
+      etiquetaPrecio: 'Plan anual PsicoMetrics',
       puntos: [
         'Un informe incluido cada mes',
         'Las tres capacitaciones incluidas: altas capacidades y doble excepcionalidad, diagnóstico psicopedagógico e informe conforme a normativa',
@@ -446,7 +446,7 @@ export const grupos = {
         'Acceso constante a servicios de tamizaje',
         `Certificado con validez SEP disponible por $${precios.certificado} MXN`,
       ],
-      accion: 'Activar mi membresía',
+      accion: 'Activar mi plan',
       href: 'https://psicometrics.app',
       externo: true,
     },
@@ -478,7 +478,7 @@ export const certificado = {
   texto:
     'Cuando estés listo, presentas un examen de conocimientos y un estudio de caso evaluado en sesión de Zoom por un especialista. Al aprobar, obtienes el documento con validez oficial.',
   precio: precios.certificado,
-  requisito: 'Disponible solo para miembros activos de PsicoMetrics.',
+  requisito: 'Disponible solo para usuarios con plan activo en PsicoMetrics.',
   accion: 'Agendar mi examen',
 };
 

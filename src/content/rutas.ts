@@ -51,7 +51,7 @@ export const rutas: Ruta[] = [
     href: '/certificate',
     etiqueta: 'Soy docente o profesional',
     titulo: 'Certifícate: cursos y certificaciones',
-    gancho: 'La formación va incluida en tu membresía PsicoMetrics de $499 al año.',
+    gancho: 'La formación va incluida en tu plan de PsicoMetrics, desde $499 al año.',
     accion: 'Ver programas',
   },
 ];
@@ -115,17 +115,17 @@ export const psicologos = {
       accion: 'Comenzar ahora',
     },
     {
-      nombre: 'Membresía anual',
+      nombre: 'Plan anual',
       precio: '$499 MXN',
       detalle: 'Un informe incluido cada mes, acceso a todos los módulos y a las tres capacitaciones. Recibes casos derivados de escuelas y de familias.',
-      accion: 'Suscribirme',
+      accion: 'Activar plan anual',
       destacado: true,
     },
     {
-      nombre: 'Créditos plus',
-      precio: '$120 MXN',
-      detalle: 'Para los meses en que necesitas más de uno. Se suman a tu cuenta y no caducan mientras la membresía siga activa.',
-      accion: 'Comprar créditos',
+      nombre: 'Plan mensual',
+      precio: '$299 MXN',
+      detalle: 'Seis informes al mes para quien evalúa con volumen. Mismo acceso a módulos, capacitaciones y derivación de casos.',
+      accion: 'Activar plan mensual',
     },
   ],
 };

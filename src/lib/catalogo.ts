@@ -41,7 +41,7 @@ const catalogo: ProductoCobrable[] = [
  * Formación con cobro en línea.
  *
  * Solo entran la capacitación docente y el examen de certificación: los
- * programas incluidos en la membresía NO se cobran aquí, porque cobrarlos
+ * programas incluidos en el plan NO se cobran aquí, porque cobrarlos
  * sería cobrar dos veces lo mismo.
  */
 for (const programa of programas) {
