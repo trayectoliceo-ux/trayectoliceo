@@ -11,19 +11,19 @@ export const portada = {
    * `rotativa` marca la posición de la palabra que cambia: es el cierre de
    * la frase, no un adorno a mitad de línea.
    */
-  titulo: ['Cuando algo no', 'encaja en la escuela,'],
+  titulo: ['Cada niño aprende', 'distinto. Saber cómo'],
   /**
    * Cada palabra completa la frase con una lectura distinta del mismo
    * comportamiento. Es el argumento entero del negocio en cuatro palabras.
    */
-  rotativas: ['hay una explicación.', 'se puede saber por qué.', 'hay algo que hacer.'],
+  rotativas: ['lo cambia todo.', 'evita años perdidos.', 'le abre el camino.'],
   /**
    * Redactado con palabras cortas a propósito: el justificado sin guiones
    * abre huecos cuando una palabra larga no cabe al final de la línea.
    * Con palabras breves los espacios quedan parejos sin partir nada.
    */
   subtitulo:
-    'Evaluamos a niñas, niños y jóvenes de 3 a 18 años. A las familias les damos un informe claro. A las escuelas, una forma de ver a tiempo lo que hoy se les escapa. Todo con un equipo de psicólogos con cédula.',
+    'Evaluamos a niñas, niños y jóvenes de 3 a 18 años. Te decimos cómo aprende, qué se le facilita y qué le cuesta, con un informe claro que la familia entiende y la escuela puede usar. Todo con psicólogos con cédula vigente.',
   /** Segmentar aquí ahorra al visitante recorrer la página entera. */
   /** Las dos acciones que dejan dinero: contratar o sumarse a la red. */
   acciones: [

@@ -50,7 +50,7 @@ export default function PaginaPsicologos() {
             <ElementoRevelar
               as="article"
               key={bloque.indice}
-              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta"
+              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta sm:p-7"
             >
               <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-institucional/[0.08] font-mono text-menudo font-medium text-institucional">
                 {bloque.indice}
@@ -90,7 +90,7 @@ export default function PaginaPsicologos() {
             tres: altas capacidades y doble excepcionalidad, diagnóstico
             psicopedagógico e informe conforme a la normativa. Si además quieres el
             certificado con validez oficial, se obtiene con un examen y un estudio de
-            caso por $990.
+            caso por $990. La membresía cuesta $499 al año.
           </p>
           <Link
             href="/certificate"

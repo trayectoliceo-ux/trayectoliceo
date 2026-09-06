@@ -160,7 +160,7 @@ export function FormularioInteligente({
         initial={{ opacity: 0, y: reducido ? 0 : 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: duracion.base, ease: curva.salidaSuave }}
-        className="rounded-lg border border-menta/25 bg-papel-puro p-8 shadow-tarjeta sm:p-10"
+        className="rounded-lg border border-menta/25 bg-papel-puro p-6 shadow-tarjeta sm:p-8 sm:p-10"
       >
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-menta/10 text-menta">
           ✓

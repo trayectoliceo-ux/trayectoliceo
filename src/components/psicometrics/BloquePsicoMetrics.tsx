@@ -57,7 +57,7 @@ export function BloquePsicoMetrics() {
                     : 'border-linea'
                 } ${doble ? 'sm:col-span-2' : ''}`}
               >
-                <h4 className="text-balance text-cuerpo-lg font-bold leading-[1.25] tracking-[-0.015em]">
+                <h4 className="text-balance text-center text-cuerpo-lg font-bold leading-[1.25] tracking-[-0.015em] sm:text-left">
                   {elemento.titulo}
                 </h4>
                 <p className="justificado mt-3 flex-1 text-menudo leading-[1.75] text-tinta-suave">

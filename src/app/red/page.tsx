@@ -63,7 +63,7 @@ export default function PaginaRed() {
             <Revelar retraso={0.08}>
               <p className="justificado-limpio mt-7 rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.75] text-tinta-suave">
                 Psicólogos y psicopedagogos acceden a la plataforma clínica con la
-                membresía de ${precios.membresia} MXN al mes. Los docentes se suman a
+                membresía de ${precios.membresia} MXN al año. Los docentes se suman a
                 la red para detectar y derivar, y su capacitación va incluida al
                 contratar tamizaje escolar en su centro.
               </p>

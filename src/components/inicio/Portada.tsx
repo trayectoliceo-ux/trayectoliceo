@@ -53,7 +53,7 @@ export function Portada() {
           {sitio.descriptor}
         </motion.p>
 
-        <h1 className="mt-8 text-portada font-display">
+        <h1 className="mt-6 text-portada font-display sm:mt-8">
           {portada.titulo.map((linea, indice) => (
             // La máscara es lo que hace que el texto «se componga» en vez
             // de aparecer: solo se anima `transform` dentro del recorte.
@@ -101,7 +101,7 @@ export function Portada() {
                 delay: finDelTitular - 0.3,
                 ease: curva.salidaSuave,
               }}
-              className="mt-10 flex flex-col gap-3 sm:flex-row"
+              className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row"
             >
               {portada.acciones.map((accion) => (
                 <BotonEnlace key={accion.href} href={accion.href} tono={accion.tono}>

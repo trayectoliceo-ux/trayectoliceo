@@ -25,7 +25,7 @@ export function TarjetaPrograma({ programa }: { programa: Programa }) {
 
   return (
     <article
-      className="rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta sm:p-8"
+      className="rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta sm:p-7 sm:p-8"
     >
       <div className="grid items-stretch gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start">
         <div>

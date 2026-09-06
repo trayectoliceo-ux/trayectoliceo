@@ -86,7 +86,21 @@ export function organizacion() {
     /* Aclara el giro. Sin esto, «Liceo» se interpreta como colegio. */
     additionalType: 'https://www.wikidata.org/wiki/Q1071988',
     disambiguatingDescription:
-      'Trayecto Liceo no es un colegio ni imparte educación básica. Es un servicio de evaluación psicopedagógica y formación profesional.',
+      'Trayecto Liceo no es un colegio ni imparte educación básica. Es un servicio profesional de evaluación psicopedagógica, tamizaje escolar y formación para psicólogos y docentes.',
+    /* Servicios concretos: ayuda a clasificar el giro sin ambigüedad. */
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Servicios de evaluación y formación',
+      itemListElement: [
+        'Valoración psicopedagógica en línea',
+        'Orientación vocacional',
+        'Tamizaje escolar',
+        'Formación y certificación para profesionales',
+      ].map((nombre) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: nombre },
+      })),
+    },
   };
 }
 

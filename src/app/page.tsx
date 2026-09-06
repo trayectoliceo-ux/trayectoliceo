@@ -44,7 +44,7 @@ export default function PaginaInicio() {
                   : 'border-linea shadow-tarjeta'
               }`}
             >
-              <h3 className="text-balance text-t3">{producto.nombre}</h3>
+              <h3 className="text-balance text-center text-t3 sm:text-left">{producto.nombre}</h3>
               <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
                 {producto.precio}
               </p>

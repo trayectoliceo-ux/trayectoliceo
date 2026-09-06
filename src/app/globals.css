@@ -77,13 +77,32 @@
     text-wrap: pretty;
   }
 
-  /* En pantallas estrechas no hay ancho suficiente: se alinea a la izquierda. */
-  @media (max-width: 480px) {
+  /*
+    En móvil el justificado se mantiene, pero con la compensación más
+    agresiva: la columna es estrecha y cada línea reparte el hueco entre
+    menos palabras. Por debajo de 360 px ya no hay ancho suficiente ni con
+    ajustes, así que ahí sí se alinea a la izquierda.
+  */
+  @media (max-width: 640px) {
+    .justificado,
+    .justificado-limpio {
+      word-spacing: -0.05em;
+      letter-spacing: -0.004em;
+    }
+  }
+
+  @media (max-width: 360px) {
     .justificado,
     .justificado-limpio {
       text-align: left;
       word-spacing: normal;
+      letter-spacing: normal;
     }
+  }
+
+  /* En móvil los títulos van centrados; desde tablet manda el componente. */
+  .titulo-movil {
+    @apply text-center sm:text-left;
   }
 
   /* Etiqueta de metadato: la voz del expediente. */

@@ -75,7 +75,8 @@ export type Programa = {
  * cobra el examen que otorga validez oficial.
  */
 export const precios = {
-  membresia: 299,
+  /** Membresía anual, no mensual. Incluye un informe al mes. */
+  membresia: 499,
   capacitacionDocente: 450,
   /** Examen y estudio de caso con validez SEP. */
   certificado: 990,
@@ -434,9 +435,10 @@ export const grupos = {
     {
       perfil: 'Psicólogos y psicopedagogos',
       requisito: 'Con cédula profesional vigente',
-      precio: `$${precios.membresia} MXN al mes`,
+      precio: `$${precios.membresia} MXN al año`,
       etiquetaPrecio: 'Membresía PsicoMetrics',
       puntos: [
+        'Un informe incluido cada mes',
         'Las tres capacitaciones incluidas: altas capacidades y doble excepcionalidad, diagnóstico psicopedagógico e informe conforme a normativa',
         'Emisión de informes con folio verificable y código QR',
         'Recibes casos del tamizaje escolar y de orientación vocacional',

@@ -28,7 +28,7 @@ export function AccesoPrograma({ programa }: { programa: Programa }) {
           <p className="mt-3 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
             ${precios.membresia} MXN
           </p>
-          <p className="mt-1 text-menudo text-gris">al mes, en PsicoMetrics</p>
+          <p className="mt-1 text-menudo text-gris">al año, en PsicoMetrics</p>
 
           <p className="justificado mt-4 text-menudo text-tinta-suave">
             No pagas el curso aparte. Está disponible mientras estés activo en la

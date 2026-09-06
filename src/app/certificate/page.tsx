@@ -55,7 +55,7 @@ export default function PaginaCertificate() {
         </Revelar>
 
         <GrupoRevelar total={2} className="mx-auto mt-9 grid max-w-4xl items-stretch gap-5 sm:grid-cols-2">
-          <ElementoRevelar className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-7 shadow-tarjeta">
+          <ElementoRevelar className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta sm:p-7">
             <span className="inline-flex w-fit rounded bg-institucional/[0.08] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-institucional">
               Curso
             </span>
@@ -177,9 +177,9 @@ export default function PaginaCertificate() {
           <ul className="border-t border-linea">
             {[
               {
-                concepto: 'Membresía PsicoMetrics, incluye toda la formación',
+                concepto: 'Membresía PsicoMetrics: un informe al mes y toda la formación',
                 quien: 'Psicólogos y psicopedagogos con cédula',
-                precio: `$${precios.membresia} MXN al mes`,
+                precio: `$${precios.membresia} MXN al año`,
               },
               {
                 concepto: 'Capacitación docente',

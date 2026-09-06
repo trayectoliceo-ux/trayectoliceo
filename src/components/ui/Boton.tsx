@@ -17,7 +17,7 @@ const tonos: Record<Tono, string> = {
 };
 
 const base =
-  'inline-flex min-h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded px-7 py-3.5 font-sans text-cuerpo font-semibold transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50';
+  'inline-flex w-full min-h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded px-7 py-3.5 text-center font-sans text-cuerpo font-semibold transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto';
 
 type PropsComunes = {
   children: ReactNode;
@@ -51,14 +51,19 @@ export function BotonEnlace({
 
   if (externo) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block w-full sm:w-auto"
+      >
         {contenido}
       </a>
     );
   }
 
   return (
-    <Link href={href} className="inline-block">
+    <Link href={href} className="inline-block w-full sm:w-auto">
       {contenido}
     </Link>
   );
