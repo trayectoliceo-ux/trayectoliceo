@@ -38,6 +38,8 @@
   h2,
   h3 {
     @apply font-display font-bold text-balance;
+    /* Ninguna palabra larga debe desbordar la caja en pantallas estrechas. */
+    overflow-wrap: break-word;
   }
 
   p {

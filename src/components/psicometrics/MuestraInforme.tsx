@@ -39,7 +39,7 @@ export function MuestraInforme() {
           {muestra.entrada}
         </p>
         <Link
-          href={`/verificar/${muestra.folio}`}
+          href="/verificar"
           className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded bg-institucional px-7 text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
         >
           {muestra.accion}

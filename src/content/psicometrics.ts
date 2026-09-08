@@ -122,7 +122,7 @@ export const muestraInforme = {
   titulo: 'Cada informe emitido se puede comprobar.',
   entrada:
     'El documento sale con folio y código de verificación. Una familia o un colegio confirma en segundos quién lo emitió, con qué cédula y si el archivo fue alterado, sin ver una línea del contenido clínico.',
-  folio: 'AB7K-2291-QN',
+  folio: 'PM-2026-K23KQ-3W9B3-Y',
   documento: {
     titulo: 'Informe psicopedagógico',
     lineas: [
@@ -130,9 +130,10 @@ export const muestraInforme = {
       { etiqueta: 'Emitido por', valor: 'Psic. [Nombre] · Céd. [00000000]' },
       { etiqueta: 'Fecha', valor: '[00 de marzo de 2026]' },
       { etiqueta: 'Instrumentos', valor: '3 aplicados · baremos vigentes' },
+      { etiqueta: 'Integridad', valor: 'Huella SHA-256 registrada' },
     ],
     aviso: 'Documento de muestra con datos ficticios.',
   },
   pie: 'Escanea el código para ver la verificación real.',
-  accion: 'Probar la verificación',
+  accion: 'Cómo verificar un informe',
 };

@@ -4,13 +4,9 @@ import { Seccion } from '@/components/ui/Piezas';
 import { Revelar } from '@/components/ui/Revelar';
 
 /**
- * Destino del código QR impreso en el documento.
- *
- * Recibe el folio en la URL y lanza la consulta sin que nadie escriba nada:
- * quien escanea con el celular ve el resultado directamente.
- *
- * `noindex` deliberado: cada folio es una URL distinta y no tiene sentido
- * que los buscadores rastreen e indexen el registro documento a documento.
+ * Ruta antigua de verificación con folio en la URL. Se conserva para que
+ * los documentos ya emitidos con ese formato sigan funcionando: recoge el
+ * folio y lo lleva a la comprobación en PsicoMetrics.
  */
 export const metadata = {
   title: 'Verificación de documento',
@@ -26,23 +22,24 @@ export default async function PaginaFolio({
 
   return (
     <Seccion>
-      <Revelar>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="etiqueta">Verificación pública</p>
-          <h1 className="mt-4 text-t2">Resultado de la verificación</h1>
-        </div>
+      <Revelar className="mx-auto max-w-xl text-center">
+        <p className="etiqueta">Verificación pública</p>
+        <h1 className="mt-3 text-t2">Comprueba este documento</h1>
+        <p className="justificado-limpio mt-4 text-menudo text-tinta-suave">
+          Confirma el folio y continúa a la verificación.
+        </p>
       </Revelar>
 
-      <div className="mt-10">
+      <div className="mx-auto mt-7 max-w-xl">
         <VerificadorFolio folioInicial={decodeURIComponent(folio)} />
       </div>
 
       <Revelar retraso={0.08}>
-        <p className="mt-10 text-center text-menudo text-gris">
+        <p className="mt-7 text-center text-menudo text-gris">
           ¿Tienes dudas sobre este documento?{' '}
           <Link
             href="/contacto"
-            className="font-medium text-institucional underline underline-offset-4"
+            className="font-semibold text-institucional underline underline-offset-4"
           >
             Escríbenos
           </Link>

@@ -62,12 +62,13 @@ const config: Config = {
         menudo: ['0.9063rem', { lineHeight: '1.6rem' }],
         cuerpo: ['1.0313rem', { lineHeight: '1.75rem' }],
         'cuerpo-lg': ['1.1875rem', { lineHeight: '1.9rem' }],
-        entrada: ['clamp(1.5rem, 2.3vw, 1.875rem)', { lineHeight: '1.3' }],
-        t3: ['clamp(1.75rem, 2.6vw, 2.125rem)', { lineHeight: '1.22', letterSpacing: '-0.018em' }],
-        t2: ['clamp(2.25rem, 4.5vw, 3.25rem)', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
-        t1: ['clamp(2.75rem, 6vw, 4.5rem)', { lineHeight: '1.04', letterSpacing: '-0.03em' }],
+        entrada: ['clamp(1.25rem, 2.3vw, 1.875rem)', { lineHeight: '1.32' }],
+        t3: ['clamp(1.4375rem, 2.6vw, 2.125rem)', { lineHeight: '1.25', letterSpacing: '-0.015em' }],
+        t2: ['clamp(1.75rem, 4.5vw, 3.25rem)', { lineHeight: '1.14', letterSpacing: '-0.022em' }],
+        t1: ['clamp(2rem, 6vw, 4.5rem)', { lineHeight: '1.08', letterSpacing: '-0.028em' }],
         /** Titular de portada. Deliberadamente grande: es el gancho. */
-        portada: ['clamp(3rem, 8.5vw, 6.25rem)', { lineHeight: '0.98', letterSpacing: '-0.035em' }],
+        /* El mínimo baja a 2.25rem: con palabras largas, 3rem se desborda en móvil. */
+        portada: ['clamp(2.25rem, 8.5vw, 6.25rem)', { lineHeight: '1.02', letterSpacing: '-0.03em' }],
       },
       maxWidth: {
         lectura: '38rem',

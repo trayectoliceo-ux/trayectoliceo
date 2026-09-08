@@ -39,7 +39,7 @@ export const sitio = {
   ],
 
   contacto: {
-    correo: 'contacto@trayectoliceo.com',
+    correo: 'alianzas@trayectoliceo.com',
     /**
      * Número en formato internacional, sin signos ni espacios.
      * Mientras esté vacío se usa `whatsappEnlace` y NO hay mensaje
