@@ -3,6 +3,7 @@ import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { Acordeon } from '@/components/ui/Acordeon';
 import { familias } from '@/content/rutas';
+import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan, preguntasFrecuentes } from '@/lib/schema';
 
@@ -140,6 +141,15 @@ export default function PaginaFamilias() {
             <Acordeon elementos={familias.preguntas} />
           </div>
         </div>
+      </Seccion>
+
+      <Seccion>
+        <CompartirServicio
+          servicio="Valoración psicopedagógica y orientación vocacional"
+          ruta="/familias"
+          precio="Desde $490 MXN"
+          descripcion="Evaluación en línea para niñas, niños y jóvenes de 3 a 18 años. Informe firmado por psicólogo con cédula en 72 horas."
+        />
       </Seccion>
     </>
   );

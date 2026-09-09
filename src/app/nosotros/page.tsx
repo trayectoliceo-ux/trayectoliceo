@@ -119,13 +119,13 @@ export default function PaginaNosotros() {
                 {persona.cargo}
               </p>
               <p className="mt-3 text-menudo text-tinta-suave">{persona.formacion}</p>
-              <p className="mt-2 text-menudo text-gris">{persona.nota}</p>
+              <p className="justificado mt-2 text-menudo leading-[1.75] text-gris">{persona.nota}</p>
             </ElementoRevelar>
           ))}
         </GrupoRevelar>
 
         <Revelar retraso={0.06} className="mt-16">
-          <p className="max-w-lectura border-t border-linea pt-6 text-menudo text-gris">
+          <p className="justificado max-w-lectura border-t border-linea pt-6 text-menudo leading-[1.75] text-gris">
             {sitio.nombre} es la marca de formación y acompañamiento operada por{' '}
             {sitio.operadora}. La evaluación psicopedagógica se realiza siempre por
             profesional acreditado, dentro o fuera de nuestro equipo según el caso.

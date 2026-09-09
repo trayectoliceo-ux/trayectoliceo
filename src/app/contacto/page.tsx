@@ -79,7 +79,7 @@ export default function PaginaContacto() {
               </div>
             </dl>
 
-            <p className="mt-8 max-w-[38ch] text-menudo text-gris">
+            <p className="justificado mt-8 max-w-[44ch] text-menudo leading-[1.75] text-gris">
               No realizamos evaluaciones ni emitimos diagnósticos por mensaje. La primera
               conversación sirve para orientar y, si corresponde, derivar.
             </p>

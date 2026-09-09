@@ -5,6 +5,7 @@ import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar'
 import { ProgramasPorPerfil } from '@/components/ui/ProgramasPorPerfil';
 import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import { acuerdo286, grupos, precios, programas } from '@/content/certificate';
+import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 import { curso as esquemaCurso, DatosEstructurados, migaDePan } from '@/lib/schema';
 
@@ -259,6 +260,15 @@ export default function PaginaCertificate() {
             {acuerdo286.aviso}
           </p>
         </Revelar>
+      </Seccion>
+
+      <Seccion>
+        <CompartirServicio
+          servicio="Certifícate con Trayecto Liceo"
+          ruta="/certificate"
+          precio="Formación incluida en tu plan"
+          descripcion="Cursos autogestivos y certificado con validez oficial por $990."
+        />
       </Seccion>
     </>
   );

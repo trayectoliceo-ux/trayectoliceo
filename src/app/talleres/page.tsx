@@ -4,6 +4,7 @@ import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar } from '@/components/ui/Revelar';
 import { LlamadaContacto } from '@/components/ui/LlamadaContacto';
 import { talleres, talleresPagina } from '@/content/talleres';
+import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
 
@@ -91,6 +92,15 @@ export default function PaginaTalleres() {
         titulo="¿No sabes cuál corresponde?"
         texto="Escríbenos con la edad y el contexto escolar. Recomendamos el taller adecuado, o ninguno si creemos que no aporta."
       />
+
+      <Seccion>
+        <CompartirServicio
+          servicio="Talleres STEAM para colegios"
+          ruta="/talleres"
+          
+          descripcion="Enriquecimiento por proyectos, impartido por grupo dentro del centro."
+        />
+      </Seccion>
     </>
   );
 }

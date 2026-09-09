@@ -3,6 +3,7 @@ import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { RegistroRed } from '@/components/contacto/RegistroRed';
 import { precios } from '@/content/certificate';
+import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
 
@@ -74,6 +75,15 @@ export default function PaginaRed() {
             <RegistroRed />
           </Revelar>
         </div>
+      </Seccion>
+
+      <Seccion>
+        <CompartirServicio
+          servicio="Red de especialistas de Trayecto Liceo"
+          ruta="/red"
+          precio="Registro sin costo"
+          descripcion="Psicólogos, psicopedagogos y docentes que reciben casos, se capacitan y se certifican."
+        />
       </Seccion>
     </>
   );

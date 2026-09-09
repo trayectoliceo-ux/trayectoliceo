@@ -1,6 +1,7 @@
 import { VerificadorFolio } from '@/components/verificar/VerificadorFolio';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
+import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 
 export const metadata = metadatos({
@@ -136,6 +137,15 @@ export default function PaginaVerificar() {
             ser pública sin exponer a nadie.
           </p>
         </Revelar>
+      </Seccion>
+
+      <Seccion>
+        <CompartirServicio
+          servicio="Verifica un informe psicopedagógico"
+          ruta="/verificar"
+          
+          descripcion="Comprueba con el código QR o el folio quién firmó el documento y si sigue siendo el original."
+        />
       </Seccion>
     </>
   );

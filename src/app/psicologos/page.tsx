@@ -4,6 +4,7 @@ import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar'
 import { MuestraInforme } from '@/components/psicometrics/MuestraInforme';
 import Link from 'next/link';
 import { psicologos } from '@/content/rutas';
+import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
 
@@ -156,11 +157,20 @@ export default function PaginaPsicologos() {
         </GrupoRevelar>
 
         <Revelar retraso={0.08} className="mt-10 text-center">
-          <p className="mx-auto max-w-lectura text-menudo text-gris">
+          <p className="justificado mx-auto max-w-lectura text-menudo leading-[1.75] text-gris">
             La cuenta, los expedientes y el cobro viven en psicometrics.app. Aquí solo
             te contamos qué hace.
           </p>
         </Revelar>
+      </Seccion>
+
+      <Seccion>
+        <CompartirServicio
+          servicio="PsicoMetrics para psicólogos y psicopedagogos"
+          ruta="/psicologos"
+          precio="Plan desde $499 al año"
+          descripcion="Recibe casos derivados, emite informes con folio verificable y accede a las tres capacitaciones."
+        />
       </Seccion>
     </>
   );

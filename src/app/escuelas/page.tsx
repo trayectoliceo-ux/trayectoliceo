@@ -5,6 +5,7 @@ import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar'
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { escuelas } from '@/content/rutas';
 import { enlaceWhatsApp } from '@/content/sitio';
+import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
 
@@ -180,6 +181,15 @@ export default function PaginaEscuelas() {
         <Revelar retraso={0.06} className="mx-auto mt-10 max-w-2xl">
           <FormularioInteligente perfilFijo="colegio" />
         </Revelar>
+      </Seccion>
+
+      <Seccion>
+        <CompartirServicio
+          servicio="Tamizaje escolar para colegios"
+          ruta="/escuelas"
+          precio="Desde $150 MXN por alumno"
+          descripcion="Detección en el aula con semáforo por grupo y capacitación docente incluida."
+        />
       </Seccion>
     </>
   );
