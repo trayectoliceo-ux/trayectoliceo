@@ -102,6 +102,65 @@ export default function PaginaPsicologos() {
         </Revelar>
       </Seccion>
 
+      {/* Qué habilita cada nivel: evita la pregunta antes de que llegue */}
+      <Seccion>
+        <Revelar className="text-center">
+          <p className="etiqueta">{psicologos.alcance.etiqueta}</p>
+          <h2 className="mx-auto mt-3 max-w-[24ch] text-t1">
+            {psicologos.alcance.titulo}
+          </h2>
+        </Revelar>
+
+        <GrupoRevelar
+          total={2}
+          className="mx-auto mt-8 grid max-w-4xl items-stretch gap-4 sm:grid-cols-2"
+        >
+          <ElementoRevelar className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta sm:p-7">
+            <p className="text-menudo font-bold uppercase tracking-[0.08em] text-gris">
+              {psicologos.alcance.gratis.titulo}
+            </p>
+            <ul className="mt-4 space-y-2">
+              {psicologos.alcance.gratis.puntos.map((punto) => (
+                <li
+                  key={punto}
+                  className="flex items-baseline gap-3 text-menudo text-tinta-suave"
+                >
+                  <span aria-hidden className="text-institucional">
+                    ✓
+                  </span>
+                  <span>{punto}</span>
+                </li>
+              ))}
+            </ul>
+          </ElementoRevelar>
+
+          <ElementoRevelar className="flex h-full flex-col rounded-lg border border-institucional bg-papel-puro p-6 shadow-elevada sm:p-7">
+            <p className="text-menudo font-bold uppercase tracking-[0.08em] text-institucional">
+              {psicologos.alcance.conPlan.titulo}
+            </p>
+            <ul className="mt-4 space-y-2">
+              {psicologos.alcance.conPlan.puntos.map((punto) => (
+                <li
+                  key={punto}
+                  className="flex items-baseline gap-3 text-menudo text-tinta-suave"
+                >
+                  <span aria-hidden className="text-menta">
+                    ✓
+                  </span>
+                  <span>{punto}</span>
+                </li>
+              ))}
+            </ul>
+          </ElementoRevelar>
+        </GrupoRevelar>
+
+        <Revelar retraso={0.08}>
+          <p className="justificado-limpio mx-auto mt-6 max-w-[44rem] rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.75] text-tinta-suave">
+            {psicologos.alcance.nota}
+          </p>
+        </Revelar>
+      </Seccion>
+
       <Seccion tono="hondo">
         <Revelar className="text-center">
           <p className="etiqueta">Precios</p>

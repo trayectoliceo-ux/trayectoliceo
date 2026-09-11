@@ -27,7 +27,7 @@ export const rutas: Ruta[] = [
     etiqueta: 'Soy madre, padre o tutor',
     titulo: 'Valoración psicopedagógica y orientación vocacional',
     gancho: 'Respondes en línea, un psicólogo con cédula la revisa y firma. Informe en 72 horas.',
-    accion: 'Contratar · desde $490',
+    accion: 'Contratar · desde $150',
     principal: true,
   },
   {
@@ -107,12 +107,40 @@ export const psicologos = {
   ],
 
   /** [VERIFICAR] Confirmar moneda e importes antes de publicar. */
+  /**
+   * Qué permite cada nivel. Es la distinción que más preguntas evita:
+   * registrarse es gratis y da formación, pero facturar casos exige plan.
+   */
+  alcance: {
+    etiqueta: 'Qué permite cada nivel',
+    titulo: 'Registrarte es gratis. Cobrar casos necesita plan.',
+    gratis: {
+      titulo: 'Con el registro gratuito',
+      puntos: [
+        'Alta en la plataforma y perfil profesional en la red',
+        'Capacitación en fundamentos de detección de altas capacidades',
+        'Capacitación en informe psicopedagógico conforme a normativa',
+      ],
+    },
+    conPlan: {
+      titulo: 'Con plan mensual o anual',
+      puntos: [
+        'Recibes casos de orientación vocacional',
+        'Recibes valoraciones psicopedagógicas derivadas de escuelas',
+        'Recibes valoraciones contratadas por familias',
+        'Emites informes con folio verificable y los facturas',
+      ],
+    },
+    nota: 'Sin plan activo puedes formarte y tener tu perfil en la red, pero no recibir ni cobrar casos derivados.',
+  },
+
   planes: [
     {
-      nombre: 'Primer caso',
+      nombre: 'Registro',
       precio: 'Gratis',
-      detalle: 'Un caso completo, de la apertura del expediente al informe firmado con folio. Sin tarjeta y sin compromiso: si no te sirve, no pagas nada.',
-      accion: 'Comenzar ahora',
+      detalle:
+        'Alta en la plataforma y dos capacitaciones incluidas: fundamentos de detección de altas capacidades e informe psicopedagógico conforme a normativa. Para recibir casos y facturarlos hace falta plan mensual o anual.',
+      accion: 'Registrarme gratis',
     },
     {
       nombre: 'Plan anual',
@@ -353,7 +381,7 @@ export const familias = {
       nombre: 'Orientación vocacional',
       resumen:
         'Para quien está eligiendo prepa o universidad. Perfil de intereses y aptitudes, con reporte y mapa de opciones.',
-      precio: '$490 MXN',
+      precio: '$150 MXN',
       accion: 'Contratar orientación',
       url: 'https://psicometrics.app/orientacion-vocacional',
       destacado: false,

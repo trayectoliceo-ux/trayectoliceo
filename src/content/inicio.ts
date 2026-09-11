@@ -47,7 +47,7 @@ export const portada = {
   promociones: [
     {
       etiqueta: 'Familias',
-      texto: 'Valoración psicopedagógica en línea · $490 · informe en 72 horas',
+      texto: 'Valoración psicopedagógica $490 · orientación vocacional $150',
       accion: 'Contratar',
       href: '/familias',
     },

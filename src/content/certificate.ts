@@ -470,6 +470,29 @@ export const grupos = {
   ],
 };
 
+/**
+ * Lo que se habilita al certificarse como docente.
+ *
+ * ⚠️ [VERIFICAR] Confirmar el alcance exacto antes de publicar: acompañar
+ * emocionalmente a un alumno roza el terreno clínico, y la línea entre
+ * tutoría y terapia tiene que quedar explícita para el docente y para la
+ * familia. Redactado como acompañamiento socioemocional, no como terapia.
+ */
+export const docenteCertificado = {
+  etiqueta: 'Para docentes certificados',
+  titulo: 'Acompañamiento socioemocional en tu aula.',
+  texto:
+    'Al certificarte quedas habilitado para llevar un acompañamiento de cuatro sesiones de 40 minutos en manejo de emociones con tus alumnos, dentro del encuadre y los materiales que te damos.',
+  puntos: [
+    'Cuatro sesiones de 40 minutos por alumno o grupo',
+    'Guion de sesión y materiales incluidos',
+    'Registro de avance en formato estandarizado',
+    'Criterios claros de cuándo derivar a un profesional con cédula',
+  ],
+  limite:
+    'Es acompañamiento educativo, no terapia. Ante indicadores de riesgo, el protocolo indica derivar de inmediato a un psicólogo de la red.',
+};
+
 /** Examen que otorga el certificado con validez oficial. */
 export const certificado = {
   id: 'certificado-oficial',

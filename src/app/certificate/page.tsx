@@ -4,7 +4,13 @@ import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { ProgramasPorPerfil } from '@/components/ui/ProgramasPorPerfil';
 import { FormularioCompra } from '@/components/contacto/FormularioCompra';
-import { acuerdo286, grupos, precios, programas } from '@/content/certificate';
+import {
+  acuerdo286,
+  docenteCertificado,
+  grupos,
+  precios,
+  programas,
+} from '@/content/certificate';
 import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
 import { curso as esquemaCurso, DatosEstructurados, migaDePan } from '@/lib/schema';
@@ -165,6 +171,38 @@ export default function PaginaCertificate() {
         <Revelar retraso={0.06} className="mt-9">
           <ProgramasPorPerfil />
         </Revelar>
+      </Seccion>
+
+      {/* Lo que habilita certificarse siendo docente */}
+      <Seccion>
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-12">
+          <Revelar>
+            <p className="etiqueta">{docenteCertificado.etiqueta}</p>
+            <h2 className="mt-3 max-w-[20ch] text-t1">{docenteCertificado.titulo}</h2>
+            <p className="justificado-limpio mt-5 max-w-[42rem] text-cuerpo-lg leading-[1.6] text-tinta-suave">
+              {docenteCertificado.texto}
+            </p>
+          </Revelar>
+
+          <Revelar retraso={0.06}>
+            <ul className="border-t border-linea">
+              {docenteCertificado.puntos.map((punto) => (
+                <li
+                  key={punto}
+                  className="flex items-baseline gap-4 border-b border-linea py-3.5 text-menudo text-tinta-suave"
+                >
+                  <span aria-hidden className="text-institucional">
+                    ✓
+                  </span>
+                  <span>{punto}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="justificado-limpio mt-5 rounded border-l-4 border-sello-claro bg-sello-claro/[0.07] p-4 text-menudo leading-[1.75] text-tinta-suave">
+              {docenteCertificado.limite}
+            </p>
+          </Revelar>
+        </div>
       </Seccion>
 
       {/* Resumen de precios: evita que alguien pague de más por confusión */}
