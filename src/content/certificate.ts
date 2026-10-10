@@ -440,7 +440,7 @@ export const grupos = {
     {
       perfil: 'Psicólogos y psicopedagogos',
       requisito: 'Con cédula profesional vigente',
-      precio: `Desde $${precios.membresia} MXN al año`,
+      precio: `Desde $${precios.membresia} MXN al año`,
       etiquetaPrecio: 'Plan anual PsicoMetrics',
       puntos: [
         'Todas las capacitaciones incluidas en el pago anual, sin costo aparte',
@@ -458,7 +458,7 @@ export const grupos = {
     {
       perfil: 'Docentes y pedagogos',
       requisito: 'Ejercicio docente en activo',
-      precio: `$${precios.capacitacionDocente} MXN`,
+      precio: `$${precios.capacitacionDocente} MXN`,
       etiquetaPrecio: 'Capacitación docente',
       puntos: [
         'Capacitación completa en detección temprana',

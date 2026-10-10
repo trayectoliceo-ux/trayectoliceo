@@ -25,10 +25,13 @@ export function AccesoPrograma({ programa }: { programa: Programa }) {
       {programa.acceso === 'membresia' ? (
         <div className="rounded-lg border border-institucional bg-papel-puro p-7 text-center shadow-elevada">
           <p className="etiqueta">Incluido en tu plan</p>
-          <p className="mt-3 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
-            ${precios.membresia} MXN
+          <p className="mt-1 text-menudo font-medium uppercase tracking-[0.08em] text-gris">
+            Desde
           </p>
-          <p className="mt-1 text-menudo text-gris">desde · al año</p>
+          <p className="mt-1 whitespace-nowrap font-display text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.1] tracking-[-0.03em] text-institucional">
+            ${precios.membresia} MXN
+          </p>
+          <p className="mt-1 text-menudo text-gris">al año</p>
 
           <p className="justificado mt-4 text-menudo text-tinta-suave">
             No pagas el curso aparte: las capacitaciones van incluidas en el pago

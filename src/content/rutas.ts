@@ -144,7 +144,9 @@ export const psicologos = {
     },
     {
       nombre: 'Plan anual',
-      precio: 'Desde $899 MXN',
+      /** El calificador va aparte: junto al importe desborda la tarjeta. */
+      prefijo: 'Desde',
+      precio: '$899 MXN',
       detalle:
         'Todas las capacitaciones incluidas en el mismo pago, sin costo aparte. Acceso completo a los módulos y a los casos que derivamos de escuelas y de familias.',
       accion: 'Activar plan anual',

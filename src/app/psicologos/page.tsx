@@ -192,9 +192,26 @@ export default function PaginaPsicologos() {
               </div>
 
               <h3 className="mt-4 text-entrada">{plan.nombre}</h3>
-              <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
-                {plan.precio}
-              </p>
+
+              {/*
+                El calificador («Desde») vive en su propia línea, pequeño y en
+                gris. Pegado al importe lo alarga hasta desbordar la tarjeta, y
+                encogerlo todo para que quepa le resta fuerza justo al número
+                que decide la compra.
+              */}
+              <div className="mt-3">
+                {/* Se reserva la línea aunque el plan no tenga prefijo, para
+                    que los importes de las tarjetas queden a la misma altura. */}
+                <span
+                  aria-hidden={!('prefijo' in plan && plan.prefijo)}
+                  className="block text-menudo font-medium uppercase tracking-[0.08em] text-gris"
+                >
+                  {'prefijo' in plan && plan.prefijo ? plan.prefijo : ' '}
+                </span>
+                <span className="block whitespace-nowrap font-display text-[clamp(1.75rem,4.2vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-institucional">
+                  {plan.precio}
+                </span>
+              </div>
               <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
                 {plan.detalle}
               </p>

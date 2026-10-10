@@ -114,7 +114,7 @@ export default function PaginaCertificate() {
                 <span className="block text-menudo font-semibold text-institucional">
                   {grupo.etiquetaPrecio}
                 </span>
-                <span className="mt-1 block whitespace-nowrap font-display text-entrada font-bold text-institucional">
+                <span className="mt-1 block text-balance font-display text-entrada font-bold leading-[1.2] text-institucional">
                   {grupo.precio}
                 </span>
               </p>
@@ -218,12 +218,12 @@ export default function PaginaCertificate() {
               {
                 concepto: 'Plan anual PsicoMetrics: incluye todas las capacitaciones',
                 quien: 'Psicólogos y psicopedagogos con cédula',
-                precio: `Desde $${precios.membresia} MXN al año`,
+                precio: `Desde $${precios.membresia} MXN al año`,
               },
               {
                 concepto: 'Capacitación docente',
                 quien: 'Docentes y pedagogos en activo',
-                precio: `$${precios.capacitacionDocente} MXN`,
+                precio: `$${precios.capacitacionDocente} MXN`,
               },
               {
                 concepto: 'Certificado con validez SEP: examen y estudio de caso',
@@ -239,7 +239,7 @@ export default function PaginaCertificate() {
                   {fila.concepto}
                 </span>
                 <span className="text-menudo text-gris">{fila.quien}</span>
-                <span className="whitespace-nowrap font-display text-entrada font-bold text-institucional">
+                <span className="text-balance font-display text-entrada font-bold leading-[1.2] text-institucional sm:text-right">
                   {fila.precio}
                 </span>
               </li>
