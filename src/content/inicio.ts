@@ -47,19 +47,19 @@ export const portada = {
   promociones: [
     {
       etiqueta: 'Familias',
-      texto: 'Valoración psicopedagógica $490 · orientación vocacional $150',
+      texto: 'Valoración psicopedagógica $349 · orientación vocacional $249',
       accion: 'Contratar',
       href: '/familias',
     },
     {
       etiqueta: 'Escuelas',
-      texto: 'Tamizaje de aula desde $150 por alumno, con semáforo por grupo',
+      texto: 'Tamizaje de aula sin costo, con semáforo por grupo',
       accion: 'Solicitar propuesta',
       href: '/escuelas',
     },
     {
       etiqueta: 'Psicólogos',
-      texto: 'Primer caso completo gratis en PsicoMetrics y recibe derivaciones',
+      texto: 'Registro gratis en PsicoMetrics: una evaluación de prueba y otra cada mes',
       accion: 'Comenzar',
       href: '/psicologos',
     },
@@ -71,7 +71,7 @@ export const portada = {
     },
     {
       etiqueta: 'Docentes',
-      texto: 'Capacitación docente en detección temprana · 20 horas · $450',
+      texto: 'Capacitación docente en detección temprana · 20 horas · $590',
       accion: 'Ver curso',
       href: '/certificate',
     },

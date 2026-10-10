@@ -216,9 +216,9 @@ export default function PaginaCertificate() {
           <ul className="border-t border-linea">
             {[
               {
-                concepto: 'Plan anual PsicoMetrics: un informe al mes y toda la formación',
+                concepto: 'Plan anual PsicoMetrics: incluye todas las capacitaciones',
                 quien: 'Psicólogos y psicopedagogos con cédula',
-                precio: `$${precios.membresia} MXN al año`,
+                precio: `Desde $${precios.membresia} MXN al año`,
               },
               {
                 concepto: 'Capacitación docente',
@@ -226,8 +226,8 @@ export default function PaginaCertificate() {
                 precio: `$${precios.capacitacionDocente} MXN`,
               },
               {
-                concepto: 'Certificado con validez oficial: examen y estudio de caso',
-                quien: 'Miembros activos, psicólogos o docentes',
+                concepto: 'Certificado con validez SEP: examen y estudio de caso',
+                quien: 'Psicólogos o docentes. Es el único cobro aparte',
                 precio: `$${precios.certificado.toLocaleString('es-MX')} MXN`,
               },
             ].map((fila) => (

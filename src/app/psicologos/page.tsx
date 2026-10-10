@@ -11,7 +11,7 @@ import { DatosEstructurados, migaDePan } from '@/lib/schema';
 export const metadata = metadatos({
   titulo: 'Software para psicólogos: informes y casos derivados',
   descripcion:
-    'Recibe casos derivados, emite informes con folio verificable y cobra por tamizaje. Primer caso completo gratis en PsicoMetrics.',
+    'Recibe casos derivados y emite informes con folio verificable. El registro en PsicoMetrics es gratis e incluye una evaluación de prueba más una cada mes.',
   ruta: '/psicologos',
 });
 
@@ -87,11 +87,11 @@ export default function PaginaPsicologos() {
             Tres capacitaciones incluidas en tu plan
           </h2>
           <p className="justificado mx-auto mt-5 max-w-[40rem] text-menudo text-tinta-suave">
-            Con tu cuenta activa en psicometrics.app tienes acceso sin costo a las
-            tres: altas capacidades y doble excepcionalidad, diagnóstico
-            psicopedagógico e informe conforme a la normativa. Si además quieres el
-            certificado con validez oficial, se obtiene con un examen y un estudio de
-            caso por $990. El plan cuesta $499 al año o $299 al mes.
+            Las tres van incluidas en tu plan anual, sin costo aparte: altas
+            capacidades y doble excepcionalidad, diagnóstico psicopedagógico e
+            informe conforme a la normativa. El plan cuesta desde $899 al año. Lo
+            único que se paga por separado es el certificado con validez oficial:
+            $990, con examen y estudio de caso.
           </p>
           <Link
             href="/certificate"
@@ -171,7 +171,7 @@ export default function PaginaPsicologos() {
 
         <GrupoRevelar
           total={psicologos.planes.length}
-          className="mx-auto mt-9 grid max-w-4xl items-stretch gap-6 lg:grid-cols-3"
+          className="mx-auto mt-9 grid max-w-3xl items-stretch gap-6 md:grid-cols-2"
         >
           {psicologos.planes.map((plan) => (
             <ElementoRevelar
@@ -223,12 +223,30 @@ export default function PaginaPsicologos() {
         </Revelar>
       </Seccion>
 
+      {/* Hay más planes de los que caben aquí */}
+      <Seccion>
+        <Revelar className="mx-auto max-w-3xl rounded-lg border border-linea bg-papel-puro p-7 text-center shadow-tarjeta sm:p-10">
+          <h2 className="text-balance text-t3">{psicologos.masPlanes.titulo}</h2>
+          <p className="justificado mx-auto mt-4 max-w-lectura text-cuerpo leading-[1.7] text-tinta-suave">
+            {psicologos.masPlanes.texto}
+          </p>
+          <a
+            href={psicologos.masPlanes.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded border border-institucional/40 px-7 text-cuerpo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional hover:text-papel"
+          >
+            {psicologos.masPlanes.accion}
+          </a>
+        </Revelar>
+      </Seccion>
+
       <Seccion>
         <CompartirServicio
           servicio="PsicoMetrics para psicólogos y psicopedagogos"
           ruta="/psicologos"
-          precio="Plan desde $499 al año"
-          descripcion="Recibe casos derivados, emite informes con folio verificable y accede a las tres capacitaciones."
+          precio="Plan anual desde $899"
+          descripcion="Registro gratis con una evaluación de prueba y otra cada mes. Con el plan anual recibes casos derivados y todas las capacitaciones."
         />
       </Seccion>
     </>

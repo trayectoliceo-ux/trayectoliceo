@@ -134,7 +134,7 @@ export const mensajesWhatsApp: Record<string, string> = {
   psicologos:
     'Hola. Soy psicólogo y quiero información sobre PsicoMetrics y la derivación de casos.',
   escuelas:
-    'Hola. Represento a un colegio y quiero una propuesta de tamizaje de aula.',
+    'Hola. Represento a un colegio y quiero el tamizaje de aula sin costo. ¿Cómo es la capacitación docente?',
   certificate:
     'Hola. Me interesan los cursos y certificaciones de Trayecto Liceo.',
   red: 'Hola. Quiero unirme a la red de especialistas de Trayecto Liceo.',
@@ -144,7 +144,7 @@ export const mensajesWhatsApp: Record<string, string> = {
   evaluacion:
     'Hola. Busco orientación para mi hijo o hija y quiero saber por dónde empezar.',
   familias:
-    'Hola. Quiero contratar la valoración digital de $490 para mi hija o hijo.',
+    'Hola. Quiero contratar la valoración psicopedagógica de $349 para mi hija o hijo.',
   defecto: 'Hola. Me gustaría recibir información sobre Trayecto Liceo.',
 };
 

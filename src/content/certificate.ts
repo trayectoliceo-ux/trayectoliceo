@@ -57,8 +57,8 @@ export type Programa = {
   nombreCertificacion?: string;
   /**
    * Cómo se accede:
-   *  `membresia` → incluido al estar activo en PsicoMetrics (plan anual o mensual)
-   *  `docente`   → capacitación de acceso de pago único ($450)
+   *  `membresia` → incluido al estar activo en PsicoMetrics (plan anual)
+   *  `docente`   → capacitación de acceso de pago único ($590)
    *  `centro`    → se cotiza por número de participantes
    */
   acceso: 'membresia' | 'docente' | 'centro';
@@ -75,10 +75,15 @@ export type Programa = {
  * cobra el examen que otorga validez oficial.
  */
 export const precios = {
-  /** Plan anual. Incluye un informe al mes. El plan mensual son $299. */
-  membresia: 499,
-  capacitacionDocente: 450,
-  /** Examen y estudio de caso con validez SEP. */
+  /**
+   * Plan anual de PsicoMetrics. Único plan para psicólogos y
+   * psicopedagogos: el plan mensual ya no existe. Las capacitaciones van
+   * incluidas en este pago.
+   */
+  membresia: 899,
+  /** Capacitación docente. Es el único cobro para el perfil docente. */
+  capacitacionDocente: 590,
+  /** Examen y estudio de caso con validez SEP. Lo único que se cobra aparte. */
   certificado: 990,
 };
 
@@ -428,18 +433,18 @@ export const programas: Programa[] = [
 
 export const grupos = {
   etiqueta: 'Cómo se accede',
-  titulo: 'Tu plan de PsicoMetrics incluye toda la formación.',
+  titulo: 'Tu plan anual de PsicoMetrics incluye toda la formación.',
   entrada:
-    'No es un curso que compras una vez: es parte de estar activo en la plataforma, con plan anual o mensual. Aprendes a tu ritmo y, cuando quieras el papel con validez oficial, presentas el examen.',
+    'No es un curso que compras una vez: las capacitaciones van incluidas en el pago anual. Aprendes a tu ritmo y, cuando quieras el papel con validez oficial, presentas el examen. Es lo único que se cobra aparte.',
   lista: [
     {
       perfil: 'Psicólogos y psicopedagogos',
       requisito: 'Con cédula profesional vigente',
-      precio: `$${precios.membresia} MXN al año`,
+      precio: `Desde $${precios.membresia} MXN al año`,
       etiquetaPrecio: 'Plan anual PsicoMetrics',
       puntos: [
-        'Un informe incluido cada mes',
-        'Las tres capacitaciones incluidas: altas capacidades y doble excepcionalidad, diagnóstico psicopedagógico e informe conforme a normativa',
+        'Todas las capacitaciones incluidas en el pago anual, sin costo aparte',
+        'Altas capacidades y doble excepcionalidad, diagnóstico psicopedagógico e informe conforme a normativa',
         'Emisión de informes con folio verificable y código QR',
         'Recibes casos del tamizaje escolar y de orientación vocacional',
         'Transferencia de expedientes entre especialistas',
@@ -454,12 +459,12 @@ export const grupos = {
       perfil: 'Docentes y pedagogos',
       requisito: 'Ejercicio docente en activo',
       precio: `$${precios.capacitacionDocente} MXN`,
-      etiquetaPrecio: 'Capacitación de acceso',
+      etiquetaPrecio: 'Capacitación docente',
       puntos: [
         'Capacitación completa en detección temprana',
         'Aplicación de tamizaje en el aula de tu centro',
         'Canalización directa a la red de especialistas',
-        'Incluida sin costo al contratar tamizaje escolar: 1 docente por cada 10 alumnos',
+        'El tamizaje escolar es gratuito: basta capacitar a un docente por cada grupo evaluado',
         `Certificado con validez SEP disponible por $${precios.certificado} MXN`,
       ],
       nota: 'Los docentes no se registran en PsicoMetrics: la plataforma clínica es para profesionales con cédula. Si aún no tienes titulación, revisa la titulación por Acuerdo 286 en esta misma página.',
@@ -471,26 +476,25 @@ export const grupos = {
 };
 
 /**
- * Lo que se habilita al certificarse como docente.
+ * Beneficio para el docente certificado. NO es un curso y NO es para los
+ * alumnos: son sesiones para el propio docente, de modo que aprenda a
+ * canalizar sus emociones en un trabajo que desgasta.
  *
- * ⚠️ [VERIFICAR] Confirmar el alcance exacto antes de publicar: acompañar
- * emocionalmente a un alumno roza el terreno clínico, y la línea entre
- * tutoría y terapia tiene que quedar explícita para el docente y para la
- * familia. Redactado como acompañamiento socioemocional, no como terapia.
+ * ⚠️ Redactado como acompañamiento, nunca como terapia ni como tratamiento.
  */
 export const docenteCertificado = {
   etiqueta: 'Para docentes certificados',
-  titulo: 'Acompañamiento socioemocional en tu aula.',
+  titulo: 'Acompañamiento socioemocional para ti.',
   texto:
-    'Al certificarte quedas habilitado para llevar un acompañamiento de cuatro sesiones de 40 minutos en manejo de emociones con tus alumnos, dentro del encuadre y los materiales que te damos.',
+    'No es un curso ni es para tus alumnos: es para ti. Al certificarte te damos tres sesiones de 40 minutos, sin costo, para aprender a canalizar tus propias emociones en un trabajo que desgasta más de lo que se reconoce.',
   puntos: [
-    'Cuatro sesiones de 40 minutos por alumno o grupo',
-    'Guion de sesión y materiales incluidos',
-    'Registro de avance en formato estandarizado',
-    'Criterios claros de cuándo derivar a un profesional con cédula',
+    'Tres sesiones de 40 minutos, sin costo, incluidas al certificarte',
+    'Son para el docente, no para el grupo ni para alumnos en particular',
+    'Herramientas de regulación y manejo del desgaste en el aula',
+    'Espacio privado: nada de lo que hables se comparte con tu centro',
   ],
   limite:
-    'Es acompañamiento educativo, no terapia. Ante indicadores de riesgo, el protocolo indica derivar de inmediato a un psicólogo de la red.',
+    'Es acompañamiento, no terapia ni atención clínica. Si en el proceso aparecen indicadores que lo ameriten, te derivamos a un psicólogo de la red.',
 };
 
 /** Examen que otorga el certificado con validez oficial. */
@@ -501,7 +505,8 @@ export const certificado = {
   texto:
     'Cuando estés listo, presentas un examen de conocimientos y un estudio de caso evaluado en sesión de Zoom por un especialista. Al aprobar, obtienes el documento con validez oficial.',
   precio: precios.certificado,
-  requisito: 'Disponible solo para usuarios con plan activo en PsicoMetrics.',
+  requisito:
+    'Es lo único que se cobra aparte: las capacitaciones ya van incluidas en tu plan anual.',
   accion: 'Agendar mi examen',
 };
 

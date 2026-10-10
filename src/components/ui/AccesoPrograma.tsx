@@ -28,11 +28,11 @@ export function AccesoPrograma({ programa }: { programa: Programa }) {
           <p className="mt-3 whitespace-nowrap font-display text-t1 font-bold leading-none tracking-[-0.03em] text-institucional">
             ${precios.membresia} MXN
           </p>
-          <p className="mt-1 text-menudo text-gris">al año · o $299 al mes</p>
+          <p className="mt-1 text-menudo text-gris">desde · al año</p>
 
           <p className="justificado mt-4 text-menudo text-tinta-suave">
-            No pagas el curso aparte. Está disponible mientras estés activo en la
-            plataforma, sin límite de tiempo para avanzar.
+            No pagas el curso aparte: las capacitaciones van incluidas en el pago
+            anual, sin límite de tiempo para avanzar.
           </p>
 
           <a

@@ -10,9 +10,9 @@ import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan } from '@/lib/schema';
 
 export const metadata = metadatos({
-  titulo: 'Tamizaje escolar: detecta a tiempo en tu colegio',
+  titulo: 'Tamizaje escolar sin costo para tu colegio',
   descripcion:
-    'Tamizaje de aula desde $150 por alumno, con semáforo por grupo e informe descargable. Consentimiento digital de las familias incluido.',
+    'Tamizaje de aula sin costo, con semáforo por grupo e informe descargable. Solo pedimos capacitar a un docente por grupo evaluado.',
   ruta: '/escuelas',
 });
 
@@ -63,8 +63,44 @@ export default function PaginaEscuelas() {
         </div>
       </PortadaRuta>
 
-      {/* Qué incluye */}
+      {/* El tamizaje no cuesta: la condición es capacitar */}
       <Seccion>
+        <div className="grid items-start gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+          <Revelar>
+            <p className="etiqueta">{escuelas.condicion.etiqueta}</p>
+            <h2 className="mt-5 max-w-[20ch] text-balance text-t2">
+              {escuelas.condicion.titulo}
+            </h2>
+            <p className="justificado mt-5 text-cuerpo leading-[1.7] text-tinta-suave">
+              {escuelas.condicion.texto}
+            </p>
+          </Revelar>
+
+          <GrupoRevelar
+            as="ul"
+            total={escuelas.condicion.puntos.length}
+            className="rounded-lg border border-institucional/25 bg-papel-puro p-6 shadow-tarjeta sm:p-8"
+          >
+            {escuelas.condicion.puntos.map((punto, indice) => (
+              <ElementoRevelar
+                as="li"
+                key={punto}
+                className={`flex items-baseline gap-4 py-3.5 text-cuerpo text-tinta ${
+                  indice === 0 ? '' : 'border-t border-linea'
+                }`}
+              >
+                <span aria-hidden className="text-menta">
+                  ✓
+                </span>
+                <span>{punto}</span>
+              </ElementoRevelar>
+            ))}
+          </GrupoRevelar>
+        </div>
+      </Seccion>
+
+      {/* Qué incluye */}
+      <Seccion tono="hondo">
         <div className="grid items-stretch gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <Revelar>
             <p className="etiqueta">Qué incluye</p>
@@ -89,15 +125,15 @@ export default function PaginaEscuelas() {
       </Seccion>
 
       {/* Escalas de contratación */}
-      <Seccion tono="hondo">
+      <Seccion>
         <Revelar className="text-center">
           <p className="etiqueta">Cómo se contrata</p>
           <h2 className="mx-auto mt-3 max-w-[24ch] text-t1">
-            La capacitación de tus docentes va incluida.
+            Empieza con un grupo o con todo el centro.
           </h2>
           <p className="justificado-limpio mx-auto mt-5 max-w-[42rem] text-cuerpo-lg leading-[1.6] text-tinta-suave">
-            Un docente capacitado por cada diez alumnos evaluados, sin costo adicional.
-            Puedes empezar con un solo grupo para probarlo.
+            El tamizaje es sin costo en los tres casos. Lo único que cambia es el
+            número de docentes que se capacitan: uno por cada grupo evaluado.
           </p>
         </Revelar>
 
@@ -187,8 +223,8 @@ export default function PaginaEscuelas() {
         <CompartirServicio
           servicio="Tamizaje escolar para colegios"
           ruta="/escuelas"
-          precio="Desde $150 MXN por alumno"
-          descripcion="Detección en el aula con semáforo por grupo y capacitación docente incluida."
+          precio="Sin costo"
+          descripcion="Detección en el aula con semáforo por grupo, sin costo. Solo se capacita a un docente por cada grupo evaluado."
         />
       </Seccion>
     </>

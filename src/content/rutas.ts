@@ -27,7 +27,7 @@ export const rutas: Ruta[] = [
     etiqueta: 'Soy madre, padre o tutor',
     titulo: 'Valoración psicopedagógica y orientación vocacional',
     gancho: 'Respondes en línea, un psicólogo con cédula la revisa y firma. Informe en 72 horas.',
-    accion: 'Contratar · desde $150',
+    accion: 'Contratar · desde $249',
     principal: true,
   },
   {
@@ -35,7 +35,7 @@ export const rutas: Ruta[] = [
     href: '/psicologos',
     etiqueta: 'Psicólogos y psicopedagogos',
     titulo: 'Evalúa mejor, cobra más y recibe casos',
-    gancho: 'Casos derivados, informes con folio verificable y tu primer caso sin costo.',
+    gancho: 'Casos derivados, informes con folio verificable y una evaluación gratis cada mes.',
     accion: 'Ver plataforma',
   },
   {
@@ -43,7 +43,7 @@ export const rutas: Ruta[] = [
     href: '/escuelas',
     etiqueta: 'Escuelas',
     titulo: 'Detecta a tiempo y acompaña mejor a tus alumnos',
-    gancho: 'Tamizaje de aula desde $150 por alumno, con capacitación docente incluida.',
+    gancho: 'Tamizaje de aula sin costo. Solo capacitas a un docente por grupo evaluado.',
     accion: 'Solicitar propuesta',
   },
   {
@@ -51,7 +51,7 @@ export const rutas: Ruta[] = [
     href: '/certificate',
     etiqueta: 'Soy docente o profesional',
     titulo: 'Certifícate: cursos y certificaciones',
-    gancho: 'La formación va incluida en tu plan de PsicoMetrics, desde $499 al año.',
+    gancho: 'Las capacitaciones van incluidas en tu plan anual de PsicoMetrics, desde $899.',
     accion: 'Ver programas',
   },
 ];
@@ -68,9 +68,9 @@ export const psicologos = {
     titulo: ['Evalúa mejor,', 'cobra más'],
     rotativas: ['y recibe casos.'],
     entrada:
-      'PsicoMetrics te da los informes y nosotros te damos los casos. Tu primer caso completo es gratis.',
+      'PsicoMetrics te da los informes y nosotros te damos los casos. El registro es gratis e incluye una evaluación de prueba, más una cada mes.',
     accion: 'Comienza gratis en psicometrics.app',
-    subtexto: 'Sin tarjeta. El primer caso completo no cuesta nada.',
+    subtexto: 'Sin tarjeta. Una evaluación de prueba y otra cada mes, sin pagar.',
   },
 
   bloques: [
@@ -81,7 +81,7 @@ export const psicologos = {
         'Recibes casos de familias y escuelas que canalizamos a tu área',
         'Tamizaje familiar: tú firmas, tú cobras',
         'Valoraciones integrales derivadas de nuestros tamizajes escolares',
-        'Tamizaje escolar: cobras por alumno evaluado',
+        'Orientación vocacional: casos de familias que ya decidieron contratar',
       ],
     },
     {
@@ -113,25 +113,25 @@ export const psicologos = {
    */
   alcance: {
     etiqueta: 'Qué permite cada nivel',
-    titulo: 'Registrarte es gratis. Cobrar casos necesita plan.',
+    titulo: 'Registrarte es gratis y ya puedes evaluar.',
     gratis: {
       titulo: 'Con el registro gratuito',
       puntos: [
+        'Una evaluación de psicodiagnóstico para que pruebes la plataforma',
+        'Una evaluación más cada mes, sin pagar nada',
         'Alta en la plataforma y perfil profesional en la red',
-        'Capacitación en fundamentos de detección de altas capacidades',
-        'Capacitación en informe psicopedagógico conforme a normativa',
       ],
     },
     conPlan: {
-      titulo: 'Con plan mensual o anual',
+      titulo: 'Con el plan anual',
       puntos: [
+        'Todas las capacitaciones incluidas en el mismo pago',
         'Recibes casos de orientación vocacional',
-        'Recibes valoraciones psicopedagógicas derivadas de escuelas',
-        'Recibes valoraciones contratadas por familias',
+        'Recibes valoraciones derivadas de escuelas y de familias',
         'Emites informes con folio verificable y los facturas',
       ],
     },
-    nota: 'Sin plan activo puedes formarte y tener tu perfil en la red, pero no recibir ni cobrar casos derivados.',
+    nota: 'El registro gratuito sirve para probar y evaluar. Para recibir y cobrar casos derivados hace falta plan anual activo.',
   },
 
   planes: [
@@ -139,23 +139,31 @@ export const psicologos = {
       nombre: 'Registro',
       precio: 'Gratis',
       detalle:
-        'Alta en la plataforma y dos capacitaciones incluidas: fundamentos de detección de altas capacidades e informe psicopedagógico conforme a normativa. Para recibir casos y facturarlos hace falta plan mensual o anual.',
+        'Una evaluación de psicodiagnóstico para probar la plataforma, más una evaluación cada mes. Alta inmediata y perfil en la red. Para recibir casos derivados y facturarlos hace falta plan anual.',
       accion: 'Registrarme gratis',
     },
     {
       nombre: 'Plan anual',
-      precio: '$499 MXN',
-      detalle: 'Un informe incluido cada mes, acceso a todos los módulos y a las tres capacitaciones. Recibes casos derivados de escuelas y de familias.',
+      precio: 'Desde $899 MXN',
+      detalle:
+        'Todas las capacitaciones incluidas en el mismo pago, sin costo aparte. Acceso completo a los módulos y a los casos que derivamos de escuelas y de familias.',
       accion: 'Activar plan anual',
       destacado: true,
     },
-    {
-      nombre: 'Plan mensual',
-      precio: '$299 MXN',
-      detalle: 'Seis informes al mes para quien evalúa con volumen. Mismo acceso a módulos, capacitaciones y derivación de casos.',
-      accion: 'Activar plan mensual',
-    },
   ],
+
+  /**
+   * PsicoMetrics tiene más planes, entre ellos la evaluación de la NOM-035
+   * para empresas. Aquí solo se menciona: el foco de Trayecto Liceo es
+   * educación, y abrir el tema laboral en esta página distrae de la venta.
+   */
+  masPlanes: {
+    titulo: 'Hay más de lo que cabe en esta página.',
+    texto:
+      'PsicoMetrics tiene otros planes, incluida la evaluación de la NOM-035 para centros de trabajo. Aquí nos enfocamos en educación, pero la herramienta llega más lejos: vale la pena explorarla.',
+    accion: 'Explorar psicometrics.app',
+    url: 'https://psicometrics.app',
+  },
 };
 
 /* ------------------------------------------------------------------ */
@@ -169,26 +177,44 @@ export const escuelas = {
     rotativas: ['que alguien los vea.', 'una respuesta.', 'un plan.'],
     entrada:
       'Veinte minutos por grupo y tu escuela sabe a quién mirar de cerca. Con consentimiento digital de las familias e informe para el centro.',
-    precio: '$150 MXN',
-    unidad: 'por alumno · desde 10 alumnos',
+    precio: 'Sin costo',
+    unidad: 'con un docente capacitado por grupo evaluado',
     accion: 'Solicitar propuesta',
   },
 
-  /** Escalas de contratación. La capacitación va incluida y no se cobra. */
+  /**
+   * El tamizaje dejó de cobrarse. La condición es formativa, no comercial:
+   * un semáforo de aula sin nadie capacitado para leerlo no sirve de nada,
+   * y esa es la razón por la que la capacitación es el requisito.
+   */
+  condicion: {
+    etiqueta: 'Cómo funciona',
+    titulo: 'El tamizaje no cuesta. La condición es capacitar.',
+    texto:
+      'Aplicamos el tamizaje sin costo en tu centro. A cambio pedimos que al menos un docente por cada grupo evaluado tome la capacitación en detección temprana: alguien tiene que saber leer el semáforo y qué hacer con él.',
+    puntos: [
+      'Tamizaje de aula: sin costo, sin mínimo de alumnos',
+      'Un docente capacitado por cada grupo evaluado',
+      'Capacitación docente: $590 MXN por participante',
+      'Certificado con validez SEP, opcional: $990 MXN',
+    ],
+  },
+
+  /** Lo que el centro recibe según el volumen que decida evaluar. */
   escalas: [
     {
-      alumnos: 'Desde 10 alumnos',
-      incluye: 'Capacitación incluida para 1 docente',
-      nota: 'Pensado para que el centro lo pruebe con un grupo.',
+      alumnos: 'Un grupo',
+      incluye: 'Tamizaje sin costo y 1 docente capacitado',
+      nota: 'Pensado para que el centro lo pruebe sin arriesgar presupuesto.',
     },
     {
-      alumnos: '20 alumnos',
-      incluye: 'Capacitación incluida para 2 docentes',
-      nota: 'Un docente capacitado por cada 10 alumnos evaluados.',
+      alumnos: 'Varios grupos',
+      incluye: 'Tamizaje sin costo y 1 docente capacitado por grupo',
+      nota: 'Mismo esquema, escalado al número de grupos que evalúes.',
     },
     {
       alumnos: 'Desde 100 alumnos',
-      incluye: 'Capacitación para el equipo y un taller STEAM a elegir',
+      incluye: 'Además, un taller STEAM a elegir para tu centro',
       nota: 'Formamos a tu personal para que ustedes mismos lo impartan.',
       destacado: true,
     },
@@ -372,7 +398,7 @@ export const familias = {
       nombre: 'Valoración psicopedagógica',
       resumen:
         'Responden madre, padre o tutor. Un psicólogo con cédula lo revisa y firma. Informe en 72 horas.',
-      precio: '$490 MXN',
+      precio: '$349 MXN',
       accion: 'Contratar valoración',
       url: 'https://psicometrics.app/tamizaje-familiar',
       destacado: true,
@@ -381,7 +407,7 @@ export const familias = {
       nombre: 'Orientación vocacional',
       resumen:
         'Para quien está eligiendo prepa o universidad. Perfil de intereses y aptitudes, con reporte y mapa de opciones.',
-      precio: '$150 MXN',
+      precio: '$249 MXN',
       accion: 'Contratar orientación',
       url: 'https://psicometrics.app/orientacion-vocacional',
       destacado: false,

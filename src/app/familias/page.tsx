@@ -8,7 +8,7 @@ import { metadatos } from '@/lib/metadatos';
 import { DatosEstructurados, migaDePan, preguntasFrecuentes } from '@/lib/schema';
 
 export const metadata = metadatos({
-  titulo: 'Valoración psicopedagógica en línea desde $490',
+  titulo: 'Valoración psicopedagógica en línea desde $349',
   descripcion:
     'Valoración digital para niños y adolescentes de 3 a 18 años, revisada y firmada por psicólogo con cédula. Informe en 72 horas, sin listas de espera.',
   ruta: '/familias',
@@ -147,7 +147,7 @@ export default function PaginaFamilias() {
         <CompartirServicio
           servicio="Valoración psicopedagógica y orientación vocacional"
           ruta="/familias"
-          precio="Desde $490 MXN"
+          precio="Desde $249 MXN"
           descripcion="Evaluación en línea para niñas, niños y jóvenes de 3 a 18 años. Informe firmado por psicólogo con cédula en 72 horas."
         />
       </Seccion>

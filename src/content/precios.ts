@@ -1,9 +1,15 @@
 /**
- * CATÁLOGO COMERCIAL
+ * CATÁLOGO HISTÓRICO
  * ------------------
- * Fuente única de precios del sitio. Ningún precio se escribe dentro de un
- * componente: si cambia una tarifa, cambia aquí y se propaga a todas las
- * páginas y a los botones de pago.
+ * ⚠️ NO ES EL MODELO VIGENTE y no alimenta la pasarela de pago. Se conserva
+ * como referencia de productos anteriores (diplomado, tamizaje de aula de
+ * pago, talleres de admisión). Los precios en uso viven en:
+ *
+ *   · `content/certificate.ts` → plan anual, capacitación docente, certificado
+ *   · `content/rutas.ts`       → familias, escuelas, psicólogos
+ *   · `lib/catalogo.ts`        → lo único que Mercado Pago acepta cobrar
+ *
+ * Antes de revivir cualquier producto de este archivo, verificar su precio.
  *
  * `id` es lo que viaja a Mercado Pago. El servidor debe buscar el precio
  * por ese identificador y NUNCA aceptar el importe que mande el cliente.

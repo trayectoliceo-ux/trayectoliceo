@@ -1,9 +1,3 @@
-import {
-  evaluacion,
-  formacionPrecios,
-  institucionalPrecios,
-  trayectoriaPrecios,
-} from '@/content/precios';
 import { acuerdo286, certificado, precios, programas } from '@/content/certificate';
 
 /**
@@ -13,9 +7,24 @@ import { acuerdo286, certificado, precios, programas } from '@/content/certifica
  * de los mismos archivos de contenido que muestran las páginas, así que un
  * precio nunca puede divergir entre lo publicado y lo cobrado.
  *
- * Solo entran productos con `importe`: los que se cotizan a medida no
- * pueden cobrarse en línea, y omitirlos aquí lo garantiza aunque alguien
- * llame a la API con su identificador.
+ * Solo entra lo que el modelo vigente cobra en línea:
+ *
+ *   · Capacitación docente ($590)
+ *   · Examen de certificación con validez SEP ($990)
+ *   · Las etapas de titulación que cobramos nosotros
+ *
+ * Deliberadamente NO entran:
+ *
+ *   · Los programas incluidos en el plan anual de PsicoMetrics, porque
+ *     cobrarlos sería cobrar dos veces lo mismo.
+ *   · El tamizaje escolar, que es gratuito.
+ *   · La valoración psicopedagógica y la orientación vocacional, que se
+ *     pagan en psicometrics.app, no aquí.
+ *   · El catálogo histórico de `content/precios.ts`, cuyos importes ya no
+ *     corresponden al modelo vigente.
+ *
+ * Omitirlos aquí garantiza que no puedan cobrarse aunque alguien llame a la
+ * API con su identificador.
  */
 export type ProductoCobrable = {
   id: string;
@@ -24,26 +33,9 @@ export type ProductoCobrable = {
   importe: number;
 };
 
-const catalogo: ProductoCobrable[] = [
-  ...evaluacion.productos,
-  ...formacionPrecios,
-  ...trayectoriaPrecios,
-  ...institucionalPrecios,
-]
-  .filter((producto) => producto.cobro === 'directo' && producto.importe)
-  .map((producto) => ({
-    id: producto.id,
-    nombre: producto.nombre,
-    importe: producto.importe as number,
-  }));
+const catalogo: ProductoCobrable[] = [];
 
-/**
- * Formación con cobro en línea.
- *
- * Solo entran la capacitación docente y el examen de certificación: los
- * programas incluidos en el plan NO se cobran aquí, porque cobrarlos
- * sería cobrar dos veces lo mismo.
- */
+/** Capacitación docente: el único cobro del perfil docente. */
 for (const programa of programas) {
   if (programa.acceso !== 'docente') continue;
 
