@@ -4,15 +4,16 @@ import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { escuelas } from '@/content/rutas';
+import { ServiciosInstitucion } from '@/components/ui/ServiciosInstitucion';
 import { enlaceWhatsApp } from '@/content/sitio';
 import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
-import { DatosEstructurados, migaDePan } from '@/lib/schema';
+import { DatosEstructurados, migaDePan, servicio } from '@/lib/schema';
 
 export const metadata = metadatos({
-  titulo: 'Tamizaje escolar sin costo para tu colegio',
+  titulo: 'Evaluaciones gratuitas para escuelas y universidades',
   descripcion:
-    'Tamizaje de aula sin costo, con semáforo por grupo e informe descargable. Solo pedimos capacitar a un docente por grupo evaluado.',
+    'Tamizaje escolar, salud psicológica y pruebas de habilidades. Aplicar es gratis y cada alumno ve su resultado al terminar. Solo se cotiza el informe por grupo.',
   ruta: '/escuelas',
 });
 
@@ -24,6 +25,16 @@ export default function PaginaEscuelas() {
           { titulo: 'Inicio', ruta: '/' },
           { titulo: 'Para escuelas', ruta: '/escuelas' },
         ])}
+      />
+      <DatosEstructurados
+        datos={servicio({
+          nombre: 'Evaluaciones escolares: tamizaje, salud psicológica y habilidades',
+          descripcion:
+            'Tamizaje escolar por grupo, estudio de salud psicológica y pruebas de habilidades y conocimientos. La aplicación es gratuita y cada alumno ve su resultado al terminar.',
+          ruta: '/escuelas',
+          publico: 'Escuelas, preparatorias y universidades',
+          gratuito: true,
+        })}
       />
 
       <PortadaRuta
@@ -51,7 +62,7 @@ export default function PaginaEscuelas() {
             </Link>
             <a
               href={enlaceWhatsApp(
-                'Hola. Represento a un colegio y quiero información del tamizaje de aula.',
+                'Hola, quiero aplicar las evaluaciones de PsicoMetrics en mi escuela',
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -63,8 +74,49 @@ export default function PaginaEscuelas() {
         </div>
       </PortadaRuta>
 
-      {/* El tamizaje no cuesta: la condición es capacitar */}
+      {/* Los tres servicios. Lo primero que se lee es que aplicar no cuesta. */}
       <Seccion>
+        <Revelar className="text-center">
+          <p className="etiqueta">Tres servicios</p>
+          <h2 className="mx-auto mt-3 max-w-[24ch] text-t1">
+            Aplicar es gratis en los tres.
+          </h2>
+          <p className="justificado-limpio mx-auto mt-5 max-w-[44rem] text-cuerpo-lg leading-[1.6] text-tinta-suave">
+            Cada alumno ve su resultado al terminar, sin pagar nada. La institución
+            solo cotiza si quiere el informe por grupo con folio.
+          </p>
+        </Revelar>
+
+        <div className="mt-10">
+          <ServiciosInstitucion />
+        </div>
+
+        <Revelar retraso={0.08}>
+          <p className="mx-auto mt-8 max-w-lectura text-center text-menudo leading-[1.7] text-gris">
+            {escuelas.usos}
+          </p>
+        </Revelar>
+
+        {/* El alcance real, a la vista y no en letra chica al pie. */}
+        <Revelar retraso={0.1} className="mx-auto mt-8 max-w-3xl rounded-lg border-l-4 border-sello-claro bg-sello-claro/[0.07] p-5 sm:p-6">
+          <p className="text-menudo font-bold uppercase tracking-[0.08em] text-tinta">
+            {escuelas.limiteAcademico.titulo}
+          </p>
+          <ul className="mt-3 space-y-2">
+            {escuelas.limiteAcademico.puntos.map((punto) => (
+              <li
+                key={punto}
+                className="justificado text-menudo leading-[1.7] text-tinta-suave"
+              >
+                {punto}
+              </li>
+            ))}
+          </ul>
+        </Revelar>
+      </Seccion>
+
+      {/* El tamizaje no cuesta: la condición es capacitar */}
+      <Seccion tono="hondo">
         <div className="grid items-start gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <Revelar>
             <p className="etiqueta">{escuelas.condicion.etiqueta}</p>
@@ -92,7 +144,7 @@ export default function PaginaEscuelas() {
                 <span aria-hidden className="text-menta">
                   ✓
                 </span>
-                <span>{punto}</span>
+                <span className="min-w-0">{punto}</span>
               </ElementoRevelar>
             ))}
           </GrupoRevelar>
@@ -100,7 +152,7 @@ export default function PaginaEscuelas() {
       </Seccion>
 
       {/* Qué incluye */}
-      <Seccion tono="hondo">
+      <Seccion>
         <div className="grid items-stretch gap-9 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <Revelar>
             <p className="etiqueta">Qué incluye</p>

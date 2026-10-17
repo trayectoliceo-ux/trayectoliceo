@@ -35,12 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...programas.map((programa) => `/programa/${programa.id}`),
     ...talleres.map((taller) => `/talleres/${taller.slug}`),
     ...articulos.map((articulo) => `/recursos/${articulo.slug}`),
-    ...programas
-      .filter((programa) => programa.destino === 'pago')
-      .map((programa) => `/programa/${programa.id}`),
   ];
 
-  return rutas.map((ruta) => ({
+  /*
+    Sin duplicados. Una ruta repetida en el sitemap no rompe nada, pero es
+    la clase de señal que hace a un rastreador desconfiar del archivo
+    entero, y el archivo entero es lo que decide qué se indexa.
+  */
+  return [...new Set(rutas)].map((ruta) => ({
     url: `${sitio.dominio}${ruta}`,
     lastModified: new Date(),
     changeFrequency: ruta === '/recursos' ? ('weekly' as const) : ('monthly' as const),

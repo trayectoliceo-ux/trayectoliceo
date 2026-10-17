@@ -11,24 +11,29 @@ export const portada = {
    * `rotativa` marca la posición de la palabra que cambia: es el cierre de
    * la frase, no un adorno a mitad de línea.
    */
-  titulo: ['Cada niño aprende', 'distinto. Saber cómo'],
+  titulo: ['Cada estudiante', 'aprende distinto.'],
   /**
    * Cada palabra completa la frase con una lectura distinta del mismo
    * comportamiento. Es el argumento entero del negocio en cuatro palabras.
    */
-  rotativas: ['lo cambia todo.', 'evita años perdidos.', 'le abre el camino.'],
+  rotativas: ['Empieza gratis, hoy mismo.', 'Saber a tiempo lo cambia todo.', 'Y saberlo le abre el camino.'],
   /**
    * Redactado con palabras cortas a propósito: el justificado sin guiones
    * abre huecos cuando una palabra larga no cabe al final de la línea.
    * Con palabras breves los espacios quedan parejos sin partir nada.
    */
   subtitulo:
-    'Evaluamos a niñas, niños y jóvenes de 3 a 18 años. Te decimos cómo aprende, qué se le facilita y qué le cuesta, con un informe claro que la familia entiende y la escuela puede usar. Todo con psicólogos con cédula vigente.',
+    'Respondes en línea y tienes tu resultado orientativo al momento, sin costo. Si quieres el informe firmado por un psicólogo con cédula, con folio y código QR, se obtiene con una aportación desde $49. Empezar no cuesta nada.',
   /** Segmentar aquí ahorra al visitante recorrer la página entera. */
   /** Las dos acciones que dejan dinero: contratar o sumarse a la red. */
   acciones: [
-    { titulo: 'Quiero una evaluación', href: '/familias', tono: 'solido' as const },
-    { titulo: 'Registro de profesionales', href: '/red', tono: 'contorno' as const },
+    {
+      titulo: 'Hacer la valoración gratis',
+      href: 'https://psicometrics.app/tamizaje-familiar',
+      tono: 'solido' as const,
+      externo: true,
+    },
+    { titulo: 'Soy escuela o universidad', href: '/escuelas', tono: 'contorno' as const },
   ],
   /** Marcas de la línea de trayecto en la portada. Son etapas, no adornos. */
   hitos: ['Detección', 'Evaluación', 'Enriquecimiento', 'Trayectoria'],
@@ -47,13 +52,13 @@ export const portada = {
   promociones: [
     {
       etiqueta: 'Familias',
-      texto: 'Valoración psicopedagógica $349 · orientación vocacional $249',
+      texto: 'Valoración, orientación vocacional y bienestar: empezar es gratis',
       accion: 'Contratar',
       href: '/familias',
     },
     {
       etiqueta: 'Escuelas',
-      texto: 'Tamizaje de aula sin costo, con semáforo por grupo',
+      texto: 'Tamizaje, salud psicológica y pruebas de habilidades: aplicar es gratis',
       accion: 'Solicitar propuesta',
       href: '/escuelas',
     },
@@ -258,8 +263,33 @@ export const pruebaSocial = {
  */
 export const preguntas = {
   etiqueta: 'Preguntas frecuentes',
-  titulo: 'Lo que más nos preguntan las familias.',
+  titulo: 'Lo que más nos preguntan.',
   lista: [
+    {
+      pregunta: '¿De verdad es gratis empezar?',
+      respuesta:
+        'Sí. Respondes el cuestionario en línea y ves tu resultado orientativo al terminar, sin pagar nada y sin dejar tarjeta. El informe firmado por un psicólogo con cédula es aparte y opcional, con una aportación desde $49. En escuelas, preparatorias y universidades la aplicación también es gratuita.',
+    },
+    {
+      pregunta: '¿Quién firma el informe?',
+      respuesta:
+        'Un psicólogo con cédula profesional verificada, que responde por su contenido. El informe lleva folio y código QR para que cualquiera pueda comprobar que es auténtico. Nada de lo que entregamos es un diagnóstico: son tamizajes y orientaciones revisados por un profesional.',
+    },
+    {
+      pregunta: '¿Qué recibe la escuela y qué no?',
+      respuesta:
+        'Recibe el mapa del grupo: el semáforo por aula y los resultados agregados, a partir de diez respuestas. No recibe resultados individuales ni nombres, y en el tamizaje escolar no se guarda el nombre del menor. El resultado individual es de cada alumno y de su familia.',
+    },
+    {
+      pregunta: '¿El nivel de inglés es un certificado?',
+      respuesta:
+        'No. Ubicamos el nivel del Marco Común Europeo, de A1 a C1, y damos una equivalencia orientativa con Cambridge, TOEFL iBT e IELTS para que sepas dónde estás parado. No sustituye a ninguno de esos exámenes ni emite un certificado oficial. Las pruebas de habilidades tampoco son pruebas de coeficiente intelectual.',
+    },
+    {
+      pregunta: '¿Cómo agendo con un psicólogo?',
+      respuesta:
+        'En el directorio público de psicólogos con cédula verificada. Quien tiene agenda en línea muestra el botón de agendar y reservas directo, sin llamadas ni esperar respuesta.',
+    },
     {
       pregunta: '¿Cómo sé si mi hijo tiene altas capacidades?',
       respuesta:

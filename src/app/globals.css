@@ -56,49 +56,42 @@
 
 @layer components {
   /*
-    Texto justificado sin partición de palabras.
+    Texto justificado con partición silábica.
 
-    Justificar y no partir palabras obliga al navegador a ensanchar los
-    espacios. Se compensa con tres ajustes:
-      · `text-align-last: left` libera el último renglón, que es donde el
-        hueco se vuelve escandaloso.
-      · `word-spacing` negativo compensa el ensanchado.
-      · Cuerpo ligeramente menor: caben más palabras por línea y cada hueco
-        reparte menos espacio.
+    La separación hace el trabajo que antes hacía el `word-spacing`
+    negativo: al poder partir una palabra larga al final del renglón, el
+    navegador ya no tiene que ensanchar los espacios para cuadrar la línea.
+    Es la razón por la que aquí se justifica con `hyphens: auto` en vez de
+    pelear contra los huecos.
 
-    En columnas por debajo de unos 34 caracteres el justificado deja de
-    funcionar por mucho que se ajuste, así que ahí se alinea a la izquierda.
+    Depende del idioma declarado: el diccionario silábico se elige por el
+    `lang` del documento, que en `layout.tsx` es `es-MX`. Si ese atributo
+    desaparece, la partición deja de funcionar sin avisar.
+
+    `text-align-last: left` libera el último renglón, que es donde un hueco
+    residual se vuelve escandaloso. Y `hyphenate-limit-chars` impide las
+    particiones feas de una o dos letras sueltas.
   */
   .justificado,
   .justificado-limpio {
     text-align: justify;
     text-align-last: left;
-    hyphens: none;
-    -webkit-hyphens: none;
-    word-spacing: -0.035em;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-chars: 7 4 3;
     text-wrap: pretty;
   }
 
   /*
-    En móvil el justificado se mantiene, pero con la compensación más
-    agresiva: la columna es estrecha y cada línea reparte el hueco entre
-    menos palabras. Por debajo de 360 px ya no hay ancho suficiente ni con
-    ajustes, así que ahí sí se alinea a la izquierda.
+    Por debajo de 360 px la columna es tan estrecha que ni partiendo
+    palabras se reparte bien el hueco: ahí se alinea a la izquierda.
   */
-  @media (max-width: 640px) {
-    .justificado,
-    .justificado-limpio {
-      word-spacing: -0.05em;
-      letter-spacing: -0.004em;
-    }
-  }
-
   @media (max-width: 360px) {
     .justificado,
     .justificado-limpio {
       text-align: left;
-      word-spacing: normal;
-      letter-spacing: normal;
+      hyphens: none;
+      -webkit-hyphens: none;
     }
   }
 

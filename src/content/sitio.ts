@@ -16,7 +16,8 @@ export const sitio = {
    * orientación: una familia con un hijo que va rezagado también tiene que
    * reconocerse en esta línea.
    */
-  descriptor: 'Evaluación y acompañamiento del aprendizaje infantil',
+  descriptor:
+    'Evaluación y acompañamiento del aprendizaje, de los 3 años a la universidad',
   /** Versión corta, para espacios estrechos. */
   descriptorCorto: 'Aprendizaje infantil',
   operadora: 'Gebenz Consultoría y Negocios, S.A. de C.V.',
@@ -133,8 +134,7 @@ export const mensajesWhatsApp: Record<string, string> = {
   contacto: 'Hola. Me gustaría agendar una conversación con Trayecto Liceo.',
   psicologos:
     'Hola. Soy psicólogo y quiero información sobre PsicoMetrics y la derivación de casos.',
-  escuelas:
-    'Hola. Represento a un colegio y quiero el tamizaje de aula sin costo. ¿Cómo es la capacitación docente?',
+  escuelas: 'Hola, quiero aplicar las evaluaciones de PsicoMetrics en mi escuela',
   certificate:
     'Hola. Me interesan los cursos y certificaciones de Trayecto Liceo.',
   red: 'Hola. Quiero unirme a la red de especialistas de Trayecto Liceo.',
@@ -144,7 +144,7 @@ export const mensajesWhatsApp: Record<string, string> = {
   evaluacion:
     'Hola. Busco orientación para mi hijo o hija y quiero saber por dónde empezar.',
   familias:
-    'Hola. Quiero contratar la valoración psicopedagógica de $349 para mi hija o hijo.',
+    'Hola. Quiero hacer la valoración psicopedagógica gratuita para mi hija o hijo.',
   defecto: 'Hola. Me gustaría recibir información sobre Trayecto Liceo.',
 };
 

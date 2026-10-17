@@ -104,7 +104,12 @@ export function Portada() {
               className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row"
             >
               {portada.acciones.map((accion) => (
-                <BotonEnlace key={accion.href} href={accion.href} tono={accion.tono}>
+                <BotonEnlace
+                  key={accion.href}
+                  href={accion.href}
+                  tono={accion.tono}
+                  externo={'externo' in accion && accion.externo}
+                >
                   {accion.titulo}
                 </BotonEnlace>
               ))}

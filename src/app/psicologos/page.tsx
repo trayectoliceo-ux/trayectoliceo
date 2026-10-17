@@ -6,12 +6,12 @@ import Link from 'next/link';
 import { psicologos } from '@/content/rutas';
 import { CompartirServicio } from '@/components/ui/CompartirServicio';
 import { metadatos } from '@/lib/metadatos';
-import { DatosEstructurados, migaDePan } from '@/lib/schema';
+import { DatosEstructurados, migaDePan, servicio } from '@/lib/schema';
 
 export const metadata = metadatos({
-  titulo: 'Software para psicólogos: informes y casos derivados',
+  titulo: 'Psicólogos: informes, agenda en línea y casos derivados',
   descripcion:
-    'Recibe casos derivados y emite informes con folio verificable. El registro en PsicoMetrics es gratis e incluye una evaluación de prueba más una cada mes.',
+    'Recibe casos derivados, emite informes con folio verificable, agenda citas en línea y aparece en el directorio con tu cédula verificada. Registro gratis.',
   ruta: '/psicologos',
 });
 
@@ -23,6 +23,15 @@ export default function PaginaPsicologos() {
           { titulo: 'Inicio', ruta: '/' },
           { titulo: 'Para psicólogos', ruta: '/psicologos' },
         ])}
+      />
+      <DatosEstructurados
+        datos={servicio({
+          nombre: 'PsicoMetrics para psicólogos y psicopedagogos',
+          descripcion:
+            'Informes con folio verificable, casos derivados de escuelas y familias, agenda de citas en línea y perfil en el directorio público con cédula verificada.',
+          ruta: '/psicologos',
+          publico: 'Psicólogos y psicopedagogos con cédula profesional',
+        })}
       />
 
       <PortadaRuta
@@ -240,20 +249,41 @@ export default function PaginaPsicologos() {
         </Revelar>
       </Seccion>
 
-      {/* Hay más planes de los que caben aquí */}
+      {/* Lo que la plataforma hace además de emitir informes */}
       <Seccion>
-        <Revelar className="mx-auto max-w-3xl rounded-lg border border-linea bg-papel-puro p-7 text-center shadow-tarjeta sm:p-10">
-          <h2 className="text-balance text-t3">{psicologos.masPlanes.titulo}</h2>
-          <p className="justificado mx-auto mt-4 max-w-lectura text-cuerpo leading-[1.7] text-tinta-suave">
-            {psicologos.masPlanes.texto}
-          </p>
+        <Revelar className="text-center">
+          <p className="etiqueta">{psicologos.herramientas.etiqueta}</p>
+          <h2 className="mx-auto mt-3 max-w-[26ch] text-balance text-t1">
+            {psicologos.herramientas.titulo}
+          </h2>
+        </Revelar>
+
+        <GrupoRevelar
+          total={psicologos.herramientas.puntos.length}
+          className="mx-auto mt-9 grid max-w-5xl items-stretch gap-5 lg:grid-cols-3"
+        >
+          {psicologos.herramientas.puntos.map((punto) => (
+            <ElementoRevelar
+              as="article"
+              key={punto.titulo}
+              className="flex h-full flex-col rounded-lg border border-linea bg-papel-puro p-6 shadow-tarjeta sm:p-7"
+            >
+              <h3 className="text-balance text-t3">{punto.titulo}</h3>
+              <p className="justificado mt-3 flex-1 text-menudo leading-[1.75] text-tinta-suave">
+                {punto.texto}
+              </p>
+            </ElementoRevelar>
+          ))}
+        </GrupoRevelar>
+
+        <Revelar retraso={0.08} className="mt-9 text-center">
           <a
-            href={psicologos.masPlanes.url}
+            href={psicologos.herramientas.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex min-h-[52px] items-center justify-center rounded border border-institucional/40 px-7 text-cuerpo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional hover:text-papel"
+            className="inline-flex min-h-[52px] items-center justify-center rounded bg-institucional px-8 text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
           >
-            {psicologos.masPlanes.accion}
+            {psicologos.herramientas.accion}
           </a>
         </Revelar>
       </Seccion>

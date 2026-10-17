@@ -165,6 +165,51 @@ export function curso({
   };
 }
 
+/**
+ * Servicio ofrecido. Es lo que permite a Google entender que una página
+ * vende algo concreto a alguien concreto, en vez de ser texto suelto.
+ *
+ * `gratuito` emite una oferta de precio cero: cuando el argumento central
+ * de la página es que empezar no cuesta, declararlo en los datos
+ * estructurados es lo que puede hacer que el resultado lo muestre.
+ */
+export function servicio({
+  nombre,
+  descripcion,
+  ruta,
+  publico,
+  gratuito = false,
+}: {
+  nombre: string;
+  descripcion: string;
+  ruta: string;
+  publico: string;
+  gratuito?: boolean;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: nombre,
+    description: descripcion,
+    url: `${sitio.dominio}${ruta}`,
+    serviceType: nombre,
+    inLanguage: 'es-MX',
+    provider: { '@id': ID_ORGANIZACION },
+    areaServed: { '@type': 'Country', name: 'México' },
+    audience: { '@type': 'Audience', audienceType: publico },
+    ...(gratuito
+      ? {
+          offers: {
+            '@type': 'Offer',
+            price: 0,
+            priceCurrency: 'MXN',
+            availability: 'https://schema.org/InStock',
+          },
+        }
+      : {}),
+  };
+}
+
 /** Miga de pan: Google la usa para sustituir la URL cruda en resultados. */
 export function migaDePan(pasos: { titulo: string; ruta: string }[]) {
   return {

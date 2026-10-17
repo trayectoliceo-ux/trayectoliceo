@@ -5,9 +5,14 @@ import { FormularioInteligente } from '@/components/contacto/FormularioInteligen
 import { EncabezadoSeccion, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 
+import { PreguntasFrecuentes } from '@/components/inicio/PreguntasFrecuentes';
+import { preguntas } from '@/content/inicio';
+import { BloqueDirectorio } from '@/components/ui/BloqueDirectorio';
+import { ServiciosInstitucion } from '@/components/ui/ServiciosInstitucion';
+import { TarjetaServicio } from '@/components/ui/TarjetaServicio';
 import { familias, rutas } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
-import { DatosEstructurados, organizacion, sitioWeb } from '@/lib/schema';
+import { DatosEstructurados, organizacion, preguntasFrecuentes, sitioWeb } from '@/lib/schema';
 
 export const metadata = metadatos({
   titulo: 'Evaluación psicopedagógica para niños y adolescentes',
@@ -21,51 +26,42 @@ export default function PaginaInicio() {
     <>
       <DatosEstructurados datos={organizacion()} />
       <DatosEstructurados datos={sitioWeb()} />
+      <DatosEstructurados datos={preguntasFrecuentes(preguntas.lista)} />
       <Portada />
 
-      {/* Los dos servicios de contratación directa */}
+      {/* Los tres servicios para familias. Empezar cuesta $0. */}
       <Seccion tono="hondo">
         <EncabezadoSeccion
           etiqueta="Para familias"
-          titulo="Contrátalo hoy y recibe el informe en 72 horas."
-          entrada="Dos servicios en línea, revisados y firmados por un psicólogo con cédula vigente. Sin listas de espera y sin salir de casa."
+          titulo="Empieza hoy sin pagar nada."
+          entrada="Respondes en línea y ves tu resultado orientativo al momento. El informe firmado por un psicólogo con cédula, con folio y código QR, es opcional y se obtiene con una aportación desde $49."
         />
 
         <GrupoRevelar
           total={familias.productos.length}
-          className="mx-auto mt-9 grid max-w-4xl items-stretch gap-5 sm:grid-cols-2"
+          className="mx-auto mt-9 grid max-w-5xl items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {familias.productos.map((producto) => (
-            <ElementoRevelar
-              key={producto.url}
-              className={`flex h-full flex-col rounded-lg border bg-papel-puro p-7 text-center ${
-                producto.destacado
-                  ? 'border-institucional shadow-elevada'
-                  : 'border-linea shadow-tarjeta'
-              }`}
-            >
-              <h3 className="text-balance text-center text-t3 sm:text-left">{producto.nombre}</h3>
-              <p className="mt-3 whitespace-nowrap font-display text-t2 font-bold leading-none tracking-[-0.025em] text-institucional">
-                {producto.precio}
-              </p>
-              <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
-                {producto.resumen}
-              </p>
-              <a
-                href={producto.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-6 flex min-h-[52px] w-full items-center justify-center rounded px-5 text-center text-cuerpo font-semibold transition-colors duration-200 ${
-                  producto.destacado
-                    ? 'bg-institucional text-papel hover:bg-institucional-hondo'
-                    : 'border border-institucional/40 text-institucional hover:border-institucional hover:bg-institucional hover:text-papel'
-                }`}
-              >
-                {producto.accion}
-              </a>
+          {familias.productos.map((servicio) => (
+            <ElementoRevelar key={servicio.id} className="h-full">
+              <TarjetaServicio servicio={servicio} />
             </ElementoRevelar>
           ))}
         </GrupoRevelar>
+      </Seccion>
+
+      <BloqueDirectorio />
+
+      {/* Instituciones: lo mismo, con el énfasis en que aplicar no cuesta. */}
+      <Seccion>
+        <EncabezadoSeccion
+          etiqueta="Para escuelas, preparatorias y universidades"
+          titulo="Aplicar es gratis en los tres servicios."
+          entrada="Cada alumno ve su resultado al terminar, sin pagar nada. La institución solo cotiza el informe por grupo con folio, si lo quiere."
+        />
+
+        <div className="mt-9">
+          <ServiciosInstitucion />
+        </div>
       </Seccion>
 
       {/*
@@ -111,6 +107,15 @@ export default function PaginaInicio() {
       <BloquePsicoMetrics />
 
       {/* Cierre: contacto */}
+      {/*
+        Las preguntas van antes del contacto: resuelven las objeciones que
+        frenan el primer clic, y quien ya las tiene resueltas escribe con
+        una intención mucho más concreta.
+      */}
+      <Seccion tono="hondo">
+        <PreguntasFrecuentes />
+      </Seccion>
+
       <Seccion id="contacto">
         <div className="grid items-stretch gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
           <div>
