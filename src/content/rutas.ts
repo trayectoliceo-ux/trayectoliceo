@@ -570,7 +570,13 @@ export const familias = {
       nombre: 'Valoración psicopedagógica',
       edades: 'De 3 a 18 años',
       resumen:
-        'La responde mamá, papá o tutor, en unos veinte minutos. Te dice cómo aprende tu hija o hijo, qué se le facilita y qué le cuesta.',
+        'La responde mamá, papá o tutor en unos veinte minutos. Te dice cómo aprende tu hija o hijo, qué se le facilita y qué le cuesta.',
+      detalle: [
+        'La contesta quien ejerce la patria potestad, no el menor',
+        'Unos veinte minutos desde el teléfono, cuando puedas',
+        'Explora atención, memoria, lectura, escritura y cálculo',
+        'Señala si conviene una valoración más a fondo y con quién',
+      ],
       accion: 'Hacerla gratis',
       url: 'https://psicometrics.app/tamizaje-familiar',
       destacado: true,
@@ -581,16 +587,28 @@ export const familias = {
       edades: 'Adolescentes y adultos',
       resumen:
         'Perfil de intereses y aptitudes con el modelo RIASEC, y un mapa de opciones de prepa y universidad acorde al perfil.',
+      detalle: [
+        'Modelo RIASEC de intereses y aptitudes',
+        'Mapa de carreras y planteles acorde al perfil obtenido',
+        'Útil antes de elegir prepa, universidad o cambio de carrera',
+        'También para adultos que estén replanteando su rumbo',
+      ],
       accion: 'Hacerla gratis',
       url: 'https://psicometrics.app/orientacion-vocacional',
       destacado: false,
     },
     {
       id: 'bienestar-emocional',
-      nombre: 'Bienestar emocional, ánimo y ansiedad',
-      edades: 'Adultos y adolescentes de 12 a 17 con autorización del tutor',
+      nombre: 'Bienestar emocional',
+      edades: 'Adultos y adolescentes',
       resumen:
-        'Escalas PHQ-9 y GAD-7 para ubicar cómo andas de ánimo y de ansiedad, y qué conviene hacer a partir de ahí.',
+        'Ubica cómo andas de ánimo y de ansiedad con las escalas PHQ-9 y GAD-7, y qué conviene hacer con ese resultado en la mano.',
+      detalle: [
+        'Escala PHQ-9 para el estado de ánimo',
+        'Escala GAD-7 para la ansiedad',
+        'De 12 a 17 años se requiere autorización del tutor',
+        'No es un diagnóstico: orienta sobre si conviene consultar',
+      ],
       accion: 'Hacerla gratis',
       url: 'https://psicometrics.app/bienestar',
       destacado: false,

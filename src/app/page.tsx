@@ -39,7 +39,7 @@ export default function PaginaInicio() {
 
         <GrupoRevelar
           total={familias.productos.length}
-          className="mx-auto mt-9 grid max-w-5xl items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mx-auto mt-9 grid max-w-5xl items-start gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
           {familias.productos.map((servicio) => (
             <ElementoRevelar key={servicio.id} className="h-full">
