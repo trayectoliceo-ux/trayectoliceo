@@ -52,27 +52,21 @@ export const portada = {
   promociones: [
     {
       etiqueta: 'Familias',
-      texto: 'Valoración, orientación vocacional y bienestar: empezar es gratis',
+      texto: 'Evaluación psicopedagógica y orientación vocacional: empezar es gratis',
       accion: 'Contratar',
       href: '/familias',
     },
     {
       etiqueta: 'Escuelas',
-      texto: 'Tamizaje, salud psicológica y pruebas de habilidades: aplicar es gratis',
+      texto: 'Tamizaje, salud psicológica, razonamiento, inglés y matemáticas: gratis',
       accion: 'Solicitar propuesta',
       href: '/escuelas',
     },
     {
-      etiqueta: 'Psicólogos',
-      texto: 'Registro gratis en PsicoMetrics: una evaluación de prueba y otra cada mes',
-      accion: 'Comenzar',
-      href: '/psicologos',
-    },
-    {
-      etiqueta: 'Certifícate',
-      texto: 'Certificación en altas capacidades y perfil STEAM · autogestiva',
-      accion: 'Ver programas',
-      href: '/certificate',
+      etiqueta: 'Talleres STEAM',
+      texto: 'Tres días intensivos, grupos de hasta 10 alumnos',
+      accion: 'Ver talleres',
+      href: '/talleres',
     },
     {
       etiqueta: 'Docentes',
@@ -80,12 +74,7 @@ export const portada = {
       accion: 'Ver curso',
       href: '/certificate',
     },
-    {
-      etiqueta: 'Titulación',
-      texto: 'Acuerdo 286 en Pedagogía · preparación desde $3,500',
-      accion: 'Ver etapas',
-      href: '/certificate#titulacion',
-    },
+
   ],
   imagen: {
     src: '/imagenes/portada-recorte.png',

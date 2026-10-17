@@ -120,6 +120,60 @@
     @apply text-center sm:text-left;
   }
 
+  /*
+    TÍTULO DE TARJETA — dos renglones como máximo.
+
+    Dentro de una tarjeta el título no puede crecer a lo alto: si ocupa
+    tres o cuatro renglones empuja el precio fuera de la vista y rompe la
+    comparación entre tarjetas, que es para lo que están puestas juntas.
+
+    La solución es encoger la letra, no recortar el texto. El tamaño baja
+    de 1.5rem a 1.0625rem según el ancho disponible, y a partir de ahí la
+    partición silábica hace el resto. En la práctica ningún nombre de
+    servicio pasa de dos renglones ni siquiera a 320 px.
+
+    `line-clamp: 2` queda como red de seguridad para un título que alguien
+    alargue de más en el futuro: preferible un título cortado con puntos
+    suspensivos que una tarjeta descuadrada en producción. El texto sigue
+    completo en el DOM, así que buscadores y lectores de pantalla lo leen
+    entero.
+  */
+  /*
+    FRASE DE «QUÉ RESUELVE» — dos renglones, como el título.
+
+    Es la línea que decide: un director no compra «escalas PHQ-9 y GAD-7»,
+    compra saber quién de sus alumnos está mal antes de que sea tarde. Por
+    eso va destacada y arriba del precio.
+
+    Lleva el mismo tratamiento que el título porque tiene el mismo
+    problema: una frase que ocupa tres renglones en una tarjeta y dos en
+    las de al lado desalinea toda la fila de precios, que es justo lo que
+    se compara. El cuerpo escala con el ancho para que siempre quepa.
+  */
+  .frase-resuelve {
+    font-size: clamp(0.9375rem, 1.45vw, 1.0625rem);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    min-height: 2.8em;
+  }
+
+  .titulo-tarjeta {
+    font-size: clamp(1.0625rem, 2.1vw, 1.5rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    /* Dos renglones reservados: alinea la fila de abajo entre tarjetas. */
+    min-height: 2.5em;
+  }
+
   /* Etiqueta de metadato: la voz del expediente. */
   .etiqueta {
     @apply font-sans text-etiqueta font-semibold uppercase tracking-[0.1em] text-institucional;

@@ -2,7 +2,6 @@ import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { Acordeon } from '@/components/ui/Acordeon';
-import { BloqueDirectorio } from '@/components/ui/BloqueDirectorio';
 import { TarjetaServicio } from '@/components/ui/TarjetaServicio';
 import { familias } from '@/content/rutas';
 import { CompartirServicio } from '@/components/ui/CompartirServicio';
@@ -145,7 +144,6 @@ export default function PaginaFamilias() {
         </div>
       </Seccion>
 
-      <BloqueDirectorio tono="hondo" />
 
       {/* Tres preguntas y ninguna más */}
       <Seccion tono="hondo">

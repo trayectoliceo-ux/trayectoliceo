@@ -41,11 +41,11 @@ export const talleres: Taller[] = [
     titulo: 'Construcción y mecanismos',
     linea: 'Ingeniería',
     edades: '6 a 8 años',
-    duracion: '8 sesiones de 90 minutos',
-    cupo: '10 participantes',
+    duracion: '3 días intensivos',
+    cupo: 'Máximo 10 alumnos',
     modalidad: 'Presencial',
     precio: '$2,800 MXN',
-    notaPrecio: '[Indicar si incluye materiales]',
+    notaPrecio: 'Por alumno. Los alumnos adicionales al cupo se agendan en un grupo aparte.',
     resumen:
       'Palancas, engranes y estructuras. El proyecto se complica hasta donde el grupo lo lleve.',
     descripcion: [
@@ -71,10 +71,11 @@ export const talleres: Taller[] = [
     titulo: 'Pensamiento computacional',
     linea: 'Tecnología',
     edades: '9 a 12 años',
-    duracion: '10 sesiones de 2 horas',
-    cupo: '12 participantes',
+    duracion: '3 días intensivos',
+    cupo: 'Máximo 10 alumnos',
     modalidad: 'Presencial',
     precio: '$3,600 MXN',
+    notaPrecio: 'Por alumno. Los alumnos adicionales al cupo se agendan en un grupo aparte.',
     resumen:
       'Del algoritmo en papel al programa que falla y hay que depurar. La depuración es el contenido.',
     descripcion: [
@@ -100,10 +101,11 @@ export const talleres: Taller[] = [
     titulo: 'Laboratorio de preguntas',
     linea: 'Ciencia',
     edades: '9 a 12 años',
-    duracion: '8 sesiones de 2 horas',
-    cupo: '12 participantes',
+    duracion: '3 días intensivos',
+    cupo: 'Máximo 10 alumnos',
     modalidad: 'Presencial',
     precio: '$3,200 MXN',
+    notaPrecio: 'Por alumno. Los alumnos adicionales al cupo se agendan en un grupo aparte.',
     resumen:
       'Formular una pregunta que se pueda responder con una medición. Más difícil de lo que suena.',
     descripcion: [
@@ -129,11 +131,11 @@ export const talleres: Taller[] = [
     titulo: 'Diseño y fabricación',
     linea: 'Arte e ingeniería',
     edades: '13 a 16 años',
-    duracion: '12 sesiones de 2 horas',
-    cupo: '10 participantes',
+    duracion: '3 días intensivos',
+    cupo: 'Máximo 10 alumnos',
     modalidad: 'Presencial',
     precio: '$4,200 MXN',
-    notaPrecio: '[Indicar política de materiales del proyecto final]',
+    notaPrecio: 'Por alumno. Los alumnos adicionales al cupo se agendan en un grupo aparte.',
     resumen:
       'Del boceto al objeto fabricado, con las restricciones reales de material, tiempo y presupuesto.',
     descripcion: [
@@ -159,10 +161,11 @@ export const talleres: Taller[] = [
     titulo: 'Matemáticas sin libro de texto',
     linea: 'Matemáticas',
     edades: '10 a 14 años',
-    duracion: '10 sesiones de 90 minutos',
-    cupo: '12 participantes',
+    duracion: '3 días intensivos',
+    cupo: 'Máximo 10 alumnos',
     modalidad: 'Presencial y en línea',
     precio: '$2,900 MXN',
+    notaPrecio: 'Por alumno. Los alumnos adicionales al cupo se agendan en un grupo aparte.',
     resumen:
       'Problemas que no traen método asociado. Se resuelven o no, y ambas cosas enseñan.',
     descripcion: [

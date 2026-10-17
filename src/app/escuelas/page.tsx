@@ -77,9 +77,9 @@ export default function PaginaEscuelas() {
       {/* Los tres servicios. Lo primero que se lee es que aplicar no cuesta. */}
       <Seccion>
         <Revelar className="text-center">
-          <p className="etiqueta">Tres servicios</p>
+          <p className="etiqueta">Cinco servicios</p>
           <h2 className="mx-auto mt-3 max-w-[24ch] text-t1">
-            Aplicar es gratis en los tres.
+            Aplicar es gratis. Siempre.
           </h2>
           <p className="justificado-limpio mx-auto mt-5 max-w-[44rem] text-cuerpo-lg leading-[1.6] text-tinta-suave">
             Cada alumno ve su resultado al terminar, sin pagar nada. La institución

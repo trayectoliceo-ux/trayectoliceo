@@ -85,22 +85,19 @@ export const sitio = {
   /** Un destino por público. No se mezclan. */
   navegacion: [
     { titulo: 'Familias', corto: 'Familias', href: '/familias', destacado: true },
-    { titulo: 'Psicólogos', corto: 'Psicólogos', href: '/psicologos' },
     { titulo: 'Escuelas', corto: 'Escuelas', href: '/escuelas' },
-    { titulo: 'Certifícate', corto: 'Certifícate', href: '/certificate' },
-    { titulo: 'Red de especialistas', corto: 'Red', href: '/red' },
+    { titulo: 'Docentes', corto: 'Docentes', href: '/certificate' },
+    { titulo: 'Talleres STEAM', corto: 'STEAM', href: '/talleres' },
   ],
 
   navegacionPie: [
     {
       titulo: 'Programas',
       enlaces: [
-        { titulo: 'Valoración para familias', href: '/familias' },
-        { titulo: 'Para psicólogos', href: '/psicologos' },
+        { titulo: 'Evaluación psicopedagógica', href: '/familias' },
+        { titulo: 'Orientación vocacional', href: '/familias' },
         { titulo: 'Para escuelas', href: '/escuelas' },
-        { titulo: 'Certifícate', href: '/certificate' },
-        { titulo: 'Red de especialistas', href: '/red' },
-        { titulo: 'Titulación Acuerdo 286', href: '/certificate#titulacion' },
+        { titulo: 'Capacitación docente', href: '/certificate' },
         { titulo: 'Talleres STEAM', href: '/talleres' },
       ],
     },
@@ -132,15 +129,10 @@ export const mensajesWhatsApp: Record<string, string> = {
   nosotros: 'Hola. Me gustaría conocer más sobre el equipo de Trayecto Liceo.',
   recursos: 'Hola. Vengo de la sección de recursos y tengo una consulta.',
   contacto: 'Hola. Me gustaría agendar una conversación con Trayecto Liceo.',
-  psicologos:
-    'Hola. Soy psicólogo y quiero información sobre PsicoMetrics y la derivación de casos.',
   escuelas: 'Hola, quiero aplicar las evaluaciones de PsicoMetrics en mi escuela',
   certificate:
     'Hola. Me interesan los cursos y certificaciones de Trayecto Liceo.',
-  red: 'Hola. Quiero unirme a la red de especialistas de Trayecto Liceo.',
   docentes: 'Hola. Soy docente y me interesa el curso de detección en el aula.',
-  titulacion:
-    'Hola. Quiero información sobre la titulación por Acuerdo 286 en Pedagogía.',
   evaluacion:
     'Hola. Busco orientación para mi hijo o hija y quiero saber por dónde empezar.',
   familias:

@@ -20,7 +20,7 @@ import { curva, duracion, escalonado, muelle, salida } from '@/lib/motion';
  */
 export function ProgramasPorPerfil() {
   const reducido = useReducedMotion();
-  const [activa, setActiva] = useState<(typeof pestanas)[number]['id']>('profesional');
+  const [activa, setActiva] = useState<(typeof pestanas)[number]['id']>('docente');
 
   const pestana = pestanas.find((elemento) => elemento.id === activa) ?? pestanas[0];
   const visibles = programas.filter((programa) => programa.publico === activa);

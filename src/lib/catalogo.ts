@@ -1,4 +1,4 @@
-import { acuerdo286, certificado, precios, programas } from '@/content/certificate';
+import { certificado, precios, programas } from '@/content/certificate';
 
 /**
  * CATÁLOGO DEL SERVIDOR
@@ -11,7 +11,6 @@ import { acuerdo286, certificado, precios, programas } from '@/content/certifica
  *
  *   · Capacitación docente ($590)
  *   · Examen de certificación con validez SEP ($990)
- *   · Las etapas de titulación que cobramos nosotros
  *
  * Deliberadamente NO entran:
  *
@@ -51,17 +50,6 @@ catalogo.push({
   nombre: 'Examen y estudio de caso · certificado con validez oficial',
   importe: certificado.precio * 100,
 });
-
-/** Las etapas de titulación que sí cobramos nosotros. */
-for (const etapa of acuerdo286.etapas) {
-  if (etapa.cobrable && etapa.id && etapa.importe) {
-    catalogo.push({
-      id: etapa.id,
-      nombre: `Titulación Acuerdo 286 · ${etapa.etapa}`,
-      importe: etapa.importe,
-    });
-  }
-}
 
 export function buscarProducto(id: string): ProductoCobrable | undefined {
   return catalogo.find((producto) => producto.id === id);

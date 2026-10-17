@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
-import { BloquePsicoMetrics } from '@/components/psicometrics/BloquePsicoMetrics';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 
 import { PreguntasFrecuentes } from '@/components/inicio/PreguntasFrecuentes';
 import { preguntas } from '@/content/inicio';
-import { BloqueDirectorio } from '@/components/ui/BloqueDirectorio';
 import { ServiciosInstitucion } from '@/components/ui/ServiciosInstitucion';
 import { TarjetaServicio } from '@/components/ui/TarjetaServicio';
 import { familias, rutas } from '@/content/rutas';
@@ -49,14 +47,13 @@ export default function PaginaInicio() {
         </GrupoRevelar>
       </Seccion>
 
-      <BloqueDirectorio />
 
       {/* Instituciones: lo mismo, con el énfasis en que aplicar no cuesta. */}
       <Seccion>
         <EncabezadoSeccion
-          etiqueta="Para escuelas, preparatorias y universidades"
-          titulo="Aplicar es gratis en los tres servicios."
-          entrada="Cada alumno ve su resultado al terminar, sin pagar nada. La institución solo cotiza el informe por grupo con folio, si lo quiere."
+          etiqueta="Escuelas, preparatorias y universidades"
+          titulo="Todo lo que se puede medir en tu escuela."
+          entrada="Tamizaje, salud psicológica, razonamiento, inglés y matemáticas. Aplicar es gratis y cada alumno ve su resultado al terminar. La institución solo cotiza el informe por grupo."
         />
 
         <div className="mt-9">
@@ -104,7 +101,6 @@ export default function PaginaInicio() {
         </GrupoRevelar>
       </Seccion>
 
-      <BloquePsicoMetrics />
 
       {/* Cierre: contacto */}
       {/*

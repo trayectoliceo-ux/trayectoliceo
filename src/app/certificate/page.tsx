@@ -3,9 +3,7 @@ import { PortadaRuta } from '@/components/ui/PortadaRuta';
 import { Seccion } from '@/components/ui/Piezas';
 import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
 import { ProgramasPorPerfil } from '@/components/ui/ProgramasPorPerfil';
-import { FormularioCompra } from '@/components/contacto/FormularioCompra';
 import {
-  acuerdo286,
   docenteCertificado,
   grupos,
   precios,
@@ -245,58 +243,6 @@ export default function PaginaCertificate() {
               </li>
             ))}
           </ul>
-        </Revelar>
-      </Seccion>
-
-      {/* Titulación por Acuerdo 286 */}
-      <Seccion id="titulacion">
-        <Revelar className="text-center">
-          <p className="etiqueta">{acuerdo286.etiqueta}</p>
-          <h2 className="mx-auto mt-5 max-w-[24ch] text-t1">{acuerdo286.titulo}</h2>
-          <p className="justificado mx-auto mt-6 max-w-lectura text-cuerpo-lg text-tinta-suave">
-            {acuerdo286.entrada}
-          </p>
-        </Revelar>
-
-        <Revelar retraso={0.06} className="mx-auto mt-12 max-w-3xl">
-          <ul className="border-t border-linea">
-            {acuerdo286.etapas.map((etapa) => (
-              <li
-                key={etapa.etapa}
-                className="grid items-stretch gap-2 border-b border-linea py-5 sm:grid-cols-[1.4fr_1fr_auto] sm:items-baseline sm:gap-6"
-              >
-                <span className="text-cuerpo font-semibold text-tinta">{etapa.etapa}</span>
-                <span
-                  className={`text-menudo font-medium ${
-                    etapa.cobrable ? 'text-institucional' : 'text-gris'
-                  }`}
-                >
-                  Se paga a {etapa.paraQuien}
-                </span>
-                <span className="whitespace-nowrap font-display text-entrada font-bold text-tinta">
-                  {etapa.costo}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </Revelar>
-
-        <Revelar retraso={0.1} className="mx-auto mt-10 max-w-xl">
-          <FormularioCompra
-            producto="Titulación Acuerdo 286 · Primera etapa"
-            idPago="titulacion-etapa-1"
-            precio="$3,500 MXN"
-            accion={acuerdo286.accion}
-            perfil="titulacion"
-            campoExtra={{
-              clave: 'area',
-              etiqueta: 'Área en la que quieres titularte',
-              ayuda: 'Por ejemplo: Pedagogía',
-            }}
-          />
-          <p className="justificado mt-6 rounded border-l-4 border-institucional bg-papel-puro p-5 text-menudo leading-[1.75] text-tinta-suave">
-            {acuerdo286.aviso}
-          </p>
         </Revelar>
       </Seccion>
 

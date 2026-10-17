@@ -151,241 +151,6 @@ export const programas: Programa[] = [
     ],
   },
   {
-    id: 'curso-informe-psicopedagogico',
-    certificable: true,
-    tipo: 'curso',
-    nombre: 'Elaboración del informe psicopedagógico',
-    dirigidoA: 'Psicólogos, psicopedagogos y orientadores con cédula',
-    publico: 'profesional',
-    resumen:
-      'Redacción del informe conforme a la normativa mexicana aplicable: estructura, lenguaje, resguardo de datos y recomendaciones que un centro pueda aplicar.',
-    duracion: '20 horas · 5 módulos',
-    modalidad: 'Autogestivo. Avanzas a tu ritmo desde la plataforma',
-    entrega: 'Constancia de participación. El certificado oficial se obtiene con el examen',
-    requisito: 'Título y cédula profesional vigente',
-    acceso: 'membresia',
-    destino: 'pago',
-    temario: [
-      {
-        numero: '01',
-        titulo: 'Marco normativo mexicano',
-        puntos: [
-          '[REVISAR] Normativa educativa aplicable al informe psicopedagógico',
-          '[REVISAR] Obligaciones del profesional conforme a la ley de datos personales',
-          'Consentimiento informado de quien ejerce la patria potestad',
-        ],
-      },
-      {
-        numero: '02',
-        titulo: 'Estructura del informe',
-        puntos: [
-          'Secciones obligatorias y orden de presentación',
-          'Datos de identificación y motivo de consulta',
-          'Extensión razonable según el tipo de caso',
-        ],
-      },
-      {
-        numero: '03',
-        titulo: 'Lenguaje y precisión',
-        puntos: [
-          'Precisión técnica sin jerga innecesaria',
-          'Qué afirmar, qué matizar y qué no puede concluirse',
-          'Errores de redacción que invalidan un informe',
-        ],
-      },
-      {
-        numero: '04',
-        titulo: 'Recomendaciones aplicables',
-        puntos: [
-          'Cómo redactar indicaciones que un centro pueda ejecutar',
-          'Distinción entre ajuste razonable y adecuación curricular',
-          'Plazos y responsables por escrito',
-        ],
-      },
-      {
-        numero: '05',
-        titulo: 'Ética, resguardo y devolución',
-        puntos: [
-          'Confidencialidad y conservación del expediente',
-          'Devolución a la familia: qué se dice y cómo',
-          'Comunicación con el centro escolar sin exponer al menor',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'certificacion-altas-capacidades',
-    certificable: true,
-    tipo: 'curso',
-    nombre:
-      'Detección y comprensión de las altas capacidades intelectuales y la doble excepcionalidad',
-    dirigidoA: 'Psicólogos y psicopedagogos con cédula profesional',
-    publico: 'profesional',
-    resumen:
-      'De la detección al reporte que se entrega y se cobra. Incluye instrumentos, interpretación, perfilamiento STEAM y los formatos de trabajo listos para usar.',
-    duracion: '20 horas curriculares · 6 módulos',
-    modalidad: 'Autogestivo, con asesoría. Lecturas en PDF, cuestionarios y casos',
-    entrega: 'Constancia de participación. El certificado oficial se obtiene con el examen',
-    requisito: 'Título y cédula profesional vigente',
-    nombreCertificacion:
-      'Detección de Altas Capacidades y Perfilamiento STEAM con enfoque psicométrico aplicado en contextos educativos',
-    resultados: [
-      'Detectar alumnos con altas capacidades',
-      'Aplicar evaluación psicométrica básica',
-      'Generar perfiles cognitivos',
-      'Construir el perfil STEAM',
-      'Elaborar reportes profesionales',
-      'Implementar el servicio en escuelas privadas',
-    ],
-    incluye: [
-      'Formato de entrevista inicial',
-      'Checklist de detección',
-      'Matriz STEAM',
-      'Formato de reporte profesional',
-      'Guía de interpretación',
-    ],
-    acceso: 'membresia',
-    destino: 'pago',
-    temario: [
-      {
-        numero: '01',
-        titulo: 'Fundamentos de altas capacidades',
-        objetivo: 'Entender qué detectar y bajo qué criterios',
-        horas: '4 horas',
-        puntos: [
-          'Definición operativa de altas capacidades',
-          'Diferencia entre alto CI, talento y alto rendimiento',
-          'Modelos clave: Joseph Renzulli y John B. Carroll',
-          'Errores comunes en escuelas: falsos positivos y falsos negativos',
-        ],
-      },
-      {
-        numero: '02',
-        titulo: 'Entrevista y screening',
-        objetivo: 'Detectar candidatos rápidamente',
-        horas: '3 horas',
-        puntos: [
-          'Entrevista inicial: historia breve adaptada de la historia clínica',
-          'Contexto familiar y escolar',
-          'Observación conductual',
-          'Indicadores clave: curiosidad, pensamiento divergente y velocidad de aprendizaje',
-          'Aplicación del checklist docente',
-        ],
-      },
-      {
-        numero: '03',
-        titulo: 'Evaluación psicométrica',
-        objetivo: 'Medir capacidad cognitiva real',
-        horas: '6 horas',
-        puntos: [
-          'Selección de pruebas',
-          'Aplicación básica y protocolos',
-          'Instrumentos: WNV, Leiter-3, WISC-V, WPPSI-IV y RIAS',
-          'Interpretación de CI e índices cognitivos',
-          'Lectura de perfiles, no solo de la puntuación total',
-        ],
-      },
-      {
-        numero: '04',
-        titulo: 'Atención, memoria y aprendizaje',
-        objetivo: 'Evitar errores de interpretación',
-        horas: '3 horas',
-        puntos: [
-          'Función de la atención en el aprendizaje',
-          'Diferencias entre talento y déficit',
-          'Memoria de trabajo e impacto en el rendimiento',
-          'Alto potencial confundido con TDAH',
-          'Bajo rendimiento con alta capacidad',
-        ],
-      },
-      {
-        numero: '05',
-        titulo: 'Perfilamiento STEAM',
-        objetivo: 'Traducir resultados a talento aplicable',
-        horas: '2 horas',
-        puntos: [
-          'Identificación por áreas: ciencia, tecnología, ingeniería, arte y matemáticas',
-          'Construcción de la matriz de talento',
-          'Integración de CI, conducta y creatividad',
-        ],
-      },
-      {
-        numero: '06',
-        titulo: 'Reporte profesional y aplicación',
-        objetivo: 'Entregar valor real, y cobrarlo',
-        horas: '2 horas',
-        puntos: [
-          'Estructura del reporte: datos generales, resultados, interpretación, perfil STEAM y recomendaciones',
-          'Qué decir y qué evitar por sus implicaciones legales',
-          'Presentación a familias y a colegios',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'certificacion-evaluacion-psicopedagogica',
-    certificable: true,
-    tipo: 'curso',
-    nombre: 'Certificación en evaluación psicopedagógica',
-    dirigidoA: 'Psicólogos y psicopedagogos con cédula profesional',
-    publico: 'profesional',
-    resumen:
-      'Proceso completo de evaluación, del motivo de consulta a la devolución. Incluye examen en línea con experto y sesión grabada para auditoría.',
-    duracion: '20 horas curriculares · 5 módulos',
-    modalidad: 'Autogestivo, con asesoría. Lecturas, cuestionarios y casos',
-    entrega: 'Constancia de participación. El certificado oficial se obtiene con el examen',
-    requisito: 'Título y cédula profesional vigente',
-    acceso: 'membresia',
-    destino: 'pago',
-    temario: [
-      {
-        numero: '01',
-        titulo: 'Encuadre del caso',
-        puntos: [
-          'Motivo de consulta y demanda real de la familia',
-          'Entrevista inicial y revisión de historial escolar',
-          'Hipótesis de trabajo y plan de evaluación',
-        ],
-      },
-      {
-        numero: '02',
-        titulo: 'Áreas de exploración',
-        puntos: [
-          'Capacidad intelectual y funciones ejecutivas',
-          'Lectura, escritura y cálculo',
-          'Atención, memoria y regulación emocional',
-        ],
-      },
-      {
-        numero: '03',
-        titulo: 'Dificultades específicas',
-        puntos: [
-          'Diferenciación entre rezago, dificultad específica y desmotivación',
-          'Indicadores de dislexia, discalculia y disgrafía',
-          'Cuándo derivar a neurología, lenguaje o psiquiatría',
-        ],
-      },
-      {
-        numero: '04',
-        titulo: 'Integración de resultados',
-        puntos: [
-          'Triangulación de fuentes: pruebas, aula y familia',
-          'Redacción de conclusiones sostenibles',
-          'Límites de lo que la evaluación puede afirmar',
-        ],
-      },
-      {
-        numero: '05',
-        titulo: 'Devolución y plan de intervención',
-        puntos: [
-          'Devolución a la familia y al alumno según su edad',
-          'Plan de apoyo con responsables y plazos',
-          'Seguimiento y criterios de reevaluación',
-        ],
-      },
-    ],
-  },
-  {
     id: 'capacitacion-institucional',
     tipo: 'institucional',
     nombre: 'Capacitación para el equipo docente de tu escuela',
@@ -433,41 +198,39 @@ export const programas: Programa[] = [
 
 export const grupos = {
   etiqueta: 'Cómo se accede',
-  titulo: 'Tu plan anual de PsicoMetrics incluye toda la formación.',
+  titulo: 'Una capacitación, dos formas de obtenerla.',
   entrada:
-    'No es un curso que compras una vez: las capacitaciones van incluidas en el pago anual. Aprendes a tu ritmo y, cuando quieras el papel con validez oficial, presentas el examen. Es lo único que se cobra aparte.',
+    'Si tu escuela contrata el tamizaje, la capacitación de un docente por grupo evaluado va incluida y no cuesta nada. Si vienes por tu cuenta, se paga una sola vez.',
   lista: [
     {
-      perfil: 'Psicólogos y psicopedagogos',
-      requisito: 'Con cédula profesional vigente',
-      precio: `Desde $${precios.membresia} MXN al año`,
-      etiquetaPrecio: 'Plan anual PsicoMetrics',
+      perfil: 'Docentes de un centro con tamizaje',
+      requisito: 'La escuela solicita el tamizaje escolar',
+      precio: 'Sin costo',
+      etiquetaPrecio: 'Incluida con el tamizaje',
       puntos: [
-        'Todas las capacitaciones incluidas en el pago anual, sin costo aparte',
-        'Altas capacidades y doble excepcionalidad, diagnóstico psicopedagógico e informe conforme a normativa',
-        'Emisión de informes con folio verificable y código QR',
-        'Recibes casos del tamizaje escolar y de orientación vocacional',
-        'Transferencia de expedientes entre especialistas',
-        'Acceso constante a servicios de tamizaje',
-        `Certificado con validez SEP disponible por $${precios.certificado} MXN`,
+        'Un docente capacitado por cada grupo evaluado',
+        'Capacitación completa en detección temprana',
+        'Aplicación del tamizaje en el aula de tu centro',
+        'Canalización de los casos a un psicólogo con cédula',
+        `Certificado con validez SEP, opcional: $${precios.certificado} MXN`,
       ],
-      accion: 'Activar mi plan',
-      href: 'https://psicometrics.app',
-      externo: true,
+      accion: 'Solicitar para mi escuela',
+      href: '/escuelas',
+      externo: false,
     },
     {
-      perfil: 'Docentes y pedagogos',
+      perfil: 'Docentes por cuenta propia',
       requisito: 'Ejercicio docente en activo',
-      precio: `$${precios.capacitacionDocente} MXN`,
-      etiquetaPrecio: 'Capacitación docente',
+      precio: `$${precios.capacitacionDocente} MXN`,
+      etiquetaPrecio: 'Pago único',
       puntos: [
-        'Capacitación completa en detección temprana',
-        'Aplicación de tamizaje en el aula de tu centro',
-        'Canalización directa a la red de especialistas',
-        'El tamizaje escolar es gratuito: basta capacitar a un docente por cada grupo evaluado',
-        `Certificado con validez SEP disponible por $${precios.certificado} MXN`,
+        'Veinte horas autogestivas, a tu ritmo',
+        'Qué se observa desde el aula y cuándo corresponde derivar',
+        'Constancia de participación al terminar',
+        'Tres sesiones de acompañamiento socioemocional para ti',
+        `Certificado con validez SEP, opcional: $${precios.certificado} MXN`,
       ],
-      nota: 'Los docentes no se registran en PsicoMetrics: la plataforma clínica es para profesionales con cédula. Si aún no tienes titulación, revisa la titulación por Acuerdo 286 en esta misma página.',
+      nota: 'La evaluación psicopedagógica la realiza siempre un profesional con cédula. Esta capacitación forma para detectar y derivar, no para evaluar.',
       accion: 'Inscribirme',
       href: '/programa/curso-deteccion-aula',
       externo: false,
@@ -511,58 +274,6 @@ export const certificado = {
 };
 
 /* ------------------------------------------------------------------ */
-/* Titulación por Acuerdo 286                                          */
-/* ------------------------------------------------------------------ */
-
-export const acuerdo286 = {
-  etiqueta: 'Titulación',
-  titulo: 'Titúlate en Pedagogía por Acuerdo 286',
-  entrada:
-    'Preparación para las dos etapas del proceso CENEVAL. Los costos van desglosados: verás con claridad qué nos pagas a nosotros y qué pagas directo a la institución evaluadora.',
-
-  /**
-   * ⚠️ REDACCIÓN OBLIGATORIA
-   * Se ofrece preparación, nunca resultado.
-   */
-  aviso:
-    'Trayecto Liceo ofrece preparación. Los exámenes y su resultado dependen del CENEVAL, y su costo se paga directamente a esa institución.',
-
-  etapas: [
-    {
-      etapa: 'Preparación primera etapa · 4 semanas',
-      paraQuien: 'Trayecto Liceo',
-      costo: '$3,500 MXN',
-      cobrable: true,
-      id: 'titulacion-etapa-1',
-      importe: 350000,
-    },
-    {
-      etapa: 'Examen CENEVAL',
-      paraQuien: 'CENEVAL',
-      costo: '$4,614 MXN',
-      cobrable: false,
-    },
-    {
-      etapa: 'Preparación segunda etapa · 2 semanas',
-      paraQuien: 'Trayecto Liceo',
-      costo: '$1,500 MXN',
-      cobrable: true,
-      id: 'titulacion-etapa-2',
-      importe: 150000,
-    },
-    {
-      etapa: 'Portafolio y examen oral',
-      paraQuien: 'CENEVAL',
-      costo: '$10,450 MXN',
-      cobrable: false,
-    },
-  ],
-
-  accion: 'Inscribirme a la preparación',
-};
-
-
-/* ------------------------------------------------------------------ */
 /* Pestañas por perfil                                                 */
 /* ------------------------------------------------------------------ */
 
@@ -573,13 +284,6 @@ export const acuerdo286 = {
  * pagar es la peor forma de enterarse.
  */
 export const pestanas = [
-  {
-    id: 'profesional' as const,
-    titulo: 'Soy psicólogo o psicopedagogo',
-    corto: 'Psicología',
-    pie: 'Con cédula profesional vigente',
-    nota: 'Estos programas habilitan para evaluar y emitir informes. Al inscribirte verificamos tu cédula.',
-  },
   {
     id: 'docente' as const,
     titulo: 'Soy docente, pedagogo o de ciencias de la educación',

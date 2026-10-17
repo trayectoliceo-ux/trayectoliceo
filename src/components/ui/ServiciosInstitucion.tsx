@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CompartirTarjeta } from '@/components/ui/CompartirTarjeta';
 import { Desplegable } from '@/components/ui/Desplegable';
 import { ElementoRevelar, GrupoRevelar } from '@/components/ui/Revelar';
@@ -17,6 +18,16 @@ import { sitio } from '@/content/sitio';
  * resumen; el detalle de qué mide cada prueba y qué datos se guardan lo
  * abre quien ya se interesó por una en concreto.
  */
+/** Un solo lugar para el estilo del botón: el destino cambia, el aspecto no. */
+function claseAccion(destacado?: boolean) {
+  const base =
+    'flex min-h-[52px] w-full items-center justify-center rounded px-5 text-center text-cuerpo font-semibold transition-colors duration-200';
+
+  return destacado
+    ? `${base} bg-institucional text-papel hover:bg-institucional-hondo`
+    : `${base} border border-institucional/40 text-institucional hover:border-institucional hover:bg-institucional hover:text-papel`;
+}
+
 export function ServiciosInstitucion() {
   return (
     /*
@@ -31,47 +42,46 @@ export function ServiciosInstitucion() {
     */
     <GrupoRevelar
       total={escuelas.servicios.length}
-      className="grid items-start gap-5 lg:grid-cols-3"
+      className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3"
     >
       {escuelas.servicios.map((servicio) => (
         <ElementoRevelar
           as="article"
           key={servicio.id}
-          className={`flex flex-col rounded-lg border bg-papel-puro p-6 sm:p-7 ${
+          className={`flex flex-col rounded-lg border bg-papel-puro p-6 text-center sm:p-7 ${
             'destacado' in servicio && servicio.destacado
               ? 'border-institucional shadow-elevada'
               : 'border-linea shadow-tarjeta'
           }`}
         >
-          {/*
-            La etiqueta también reserva dos renglones: «Secundaria, prepa y
-            universidad» ocupa dos líneas en anchos intermedios mientras las
-            otras ocupan una, y ese renglón de más desalineaba la tarjeta
-            entera por debajo.
-          */}
-          <p className="etiqueta lg:min-h-[2.75em]">{servicio.etiqueta}</p>
-          {/*
-            Dos renglones reservados, medidos en `em` para que equivalgan
-            siempre a dos líneas del propio título aunque su tamaño escale
-            con el ancho. Así la fila de precios —que es lo que se compara
-            entre tarjetas— queda a la misma altura en las tres.
-          */}
-          <h3 className="mt-3 text-balance text-t3 leading-[1.15] lg:min-h-[3.45em]">
+          {/* La etiqueta reserva dos renglones: hay nombres de etapa que
+              ocupan una línea y otros dos, y ese renglón de diferencia
+              desalineaba la tarjeta entera por debajo. */}
+          <p className="etiqueta min-h-[2.75em]">{servicio.etiqueta}</p>
+
+          <h3 className="titulo-tarjeta font-display font-bold">
             {servicio.nombre}
           </h3>
 
-          <p className="mt-3 whitespace-nowrap font-display text-entrada font-bold leading-[1.2] text-menta">
+          {/* Qué resuelve, no qué mide. Es la frase que decide. */}
+          <p className="frase-resuelve mt-2 font-semibold text-tinta">
+            {servicio.resuelve}
+          </p>
+
+          <p className="mt-4 whitespace-nowrap font-display text-entrada font-bold leading-[1.2] text-menta">
             {servicio.precio}
           </p>
-          <p className="mt-1 text-menudo text-gris">{servicio.precioNota}</p>
+          <p className="mt-1 min-h-[2.6em] text-menudo leading-[1.3] text-gris">
+            {servicio.precioNota}
+          </p>
 
-          <p className="justificado mt-3 text-menudo leading-[1.75] text-tinta-suave lg:min-h-[5.5em]">
+          <p className="justificado mt-3 text-menudo leading-[1.75] text-tinta-suave lg:min-h-[7em]">
             {servicio.resumen}
           </p>
 
           <div className="mt-4">
             <Desplegable resumen="Ver detalle">
-              <ul className="border-t border-linea">
+              <ul className="border-t border-linea text-left">
                 {servicio.puntos.map((punto) => (
                   <li
                     key={punto}
@@ -93,18 +103,30 @@ export function ServiciosInstitucion() {
             mínimas reservadas arriba.
           */}
           <div className="pt-5">
-            <a
-              href={servicio.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex min-h-[52px] w-full items-center justify-center rounded px-5 text-center text-cuerpo font-semibold transition-colors duration-200 ${
-                'destacado' in servicio && servicio.destacado
-                  ? 'bg-institucional text-papel hover:bg-institucional-hondo'
-                  : 'border border-institucional/40 text-institucional hover:border-institucional hover:bg-institucional hover:text-papel'
-              }`}
-            >
-              {servicio.accion}
-            </a>
+            {/*
+              Dos destinos según quién resuelve el servicio. Las pruebas se
+              aplican en PsicoMetrics y van directo allá; el tamizaje y el
+              estudio de salud psicológica requieren acordar fechas y
+              permisos con el centro, así que pasan por el formulario de
+              propuesta de esta misma página.
+            */}
+            {servicio.destino === 'psicometrics' ? (
+              <a
+                href={servicio.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={claseAccion(servicio.destacado)}
+              >
+                {servicio.accion}
+              </a>
+            ) : (
+              <Link
+                href="/escuelas#propuesta"
+                className={claseAccion(servicio.destacado)}
+              >
+                {servicio.accion}
+              </Link>
+            )}
 
             <CompartirTarjeta
               titulo={`${servicio.nombre} · Trayecto Liceo`}

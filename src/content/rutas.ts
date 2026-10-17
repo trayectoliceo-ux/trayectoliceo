@@ -25,167 +25,40 @@ export const rutas: Ruta[] = [
     id: 'familias',
     href: '/familias',
     etiqueta: 'Soy madre, padre o tutor',
-    titulo: 'Valoración psicopedagógica y orientación vocacional',
-    gancho: 'Respondes en línea y ves tu resultado al momento, gratis. El informe firmado es opcional.',
+    titulo: 'Evaluación psicopedagógica y orientación vocacional',
+    gancho: 'Respondes en línea y ves tu resultado al momento. Empezar es gratis.',
     accion: 'Empezar gratis',
     principal: true,
   },
   {
-    id: 'psicologos',
-    href: '/psicologos',
-    etiqueta: 'Psicólogos y psicopedagogos',
-    titulo: 'Evalúa mejor, cobra más y recibe casos',
-    gancho: 'Casos derivados, informes con folio verificable y una evaluación gratis cada mes.',
-    accion: 'Ver plataforma',
-  },
-  {
     id: 'escuelas',
     href: '/escuelas',
-    etiqueta: 'Escuelas',
-    titulo: 'Detecta a tiempo y acompaña mejor a tus alumnos',
-    gancho: 'Tamizaje de aula sin costo. Solo capacitas a un docente por grupo evaluado.',
-    accion: 'Solicitar propuesta',
+    etiqueta: 'Escuelas, prepas y universidades',
+    titulo: 'Mide lo que pasa en tus aulas',
+    gancho: 'Tamizaje, salud psicológica, razonamiento, inglés y matemáticas. Aplicar es gratis.',
+    accion: 'Ver los servicios',
   },
   {
     id: 'certificate',
     href: '/certificate',
-    etiqueta: 'Soy docente o profesional',
-    titulo: 'Certifícate: cursos y certificaciones',
-    gancho: 'Las capacitaciones van incluidas en tu plan anual de PsicoMetrics, desde $899.',
-    accion: 'Ver programas',
+    etiqueta: 'Soy docente',
+    titulo: 'Capacítate en detección temprana',
+    gancho: 'Veinte horas autogestivas, con certificado de validez SEP opcional.',
+    accion: 'Ver la capacitación',
+  },
+  {
+    id: 'talleres',
+    href: '/talleres',
+    etiqueta: 'Enriquecimiento',
+    titulo: 'Talleres STEAM por proyectos',
+    gancho: 'Tres días intensivos, grupos de hasta diez alumnos.',
+    accion: 'Ver talleres',
   },
 ];
 
 /* ------------------------------------------------------------------ */
 /* 1. Psicólogos — público principal                                   */
 /* ------------------------------------------------------------------ */
-
-export const psicologos = {
-  urlApp: 'https://psicometrics.app',
-
-  portada: {
-    etiqueta: 'Para psicólogos y psicopedagogos',
-    titulo: ['Evalúa mejor,', 'cobra más'],
-    rotativas: ['y recibe casos.'],
-    entrada:
-      'PsicoMetrics te da los informes y nosotros te damos los casos. El registro es gratis e incluye una evaluación de prueba, más una cada mes.',
-    accion: 'Comienza gratis en psicometrics.app',
-    subtexto: 'Sin tarjeta. Una evaluación de prueba y otra cada mes, sin pagar.',
-  },
-
-  bloques: [
-    {
-      indice: '01',
-      titulo: 'Gana más',
-      puntos: [
-        'Recibes casos de familias y escuelas que canalizamos a tu área',
-        'Tamizaje familiar: tú firmas, tú cobras',
-        'Valoraciones integrales derivadas de nuestros tamizajes escolares',
-        'Orientación vocacional: casos de familias que ya decidieron contratar',
-      ],
-    },
-    {
-      indice: '02',
-      titulo: 'Trabaja mejor',
-      puntos: [
-        'Informes con folio verificable y código QR de autenticidad',
-        'Motor determinista: mismo perfil, misma hipótesis, siempre',
-        'La IA redacta, nunca diagnostica',
-        'Instrumento propio incluido si no tienes escala licenciada',
-        'Transferencia de casos entre colegas',
-      ],
-    },
-    {
-      indice: '03',
-      titulo: 'Respalda tu trabajo',
-      puntos: [
-        'Panel de expertos que valida los instrumentos',
-        'Datos cifrados, sin nombres de menores almacenados',
-        'Consentimiento informado con bitácora legal',
-      ],
-    },
-  ],
-
-  /** [VERIFICAR] Confirmar moneda e importes antes de publicar. */
-  /**
-   * Qué permite cada nivel. Es la distinción que más preguntas evita:
-   * registrarse es gratis y da formación, pero facturar casos exige plan.
-   */
-  alcance: {
-    etiqueta: 'Qué permite cada nivel',
-    titulo: 'Registrarte es gratis y ya puedes evaluar.',
-    gratis: {
-      titulo: 'Con el registro gratuito',
-      puntos: [
-        'Una evaluación de psicodiagnóstico para que pruebes la plataforma',
-        'Una evaluación más cada mes, sin pagar nada',
-        'Alta en la plataforma y perfil profesional en la red',
-      ],
-    },
-    conPlan: {
-      titulo: 'Con el plan anual',
-      puntos: [
-        'Todas las capacitaciones incluidas en el mismo pago',
-        'Recibes casos de orientación vocacional',
-        'Recibes valoraciones derivadas de escuelas y de familias',
-        'Emites informes con folio verificable y los facturas',
-      ],
-    },
-    nota: 'El registro gratuito sirve para probar y evaluar. Para recibir y cobrar casos derivados hace falta plan anual activo.',
-  },
-
-  planes: [
-    {
-      nombre: 'Registro',
-      precio: 'Gratis',
-      detalle:
-        'Una evaluación de psicodiagnóstico para probar la plataforma, más una evaluación cada mes. Alta inmediata y perfil en la red. Para recibir casos derivados y facturarlos hace falta plan anual.',
-      accion: 'Registrarme gratis',
-    },
-    {
-      nombre: 'Plan anual',
-      /** El calificador va aparte: junto al importe desborda la tarjeta. */
-      prefijo: 'Desde',
-      precio: '$899 MXN',
-      detalle:
-        'Todas las capacitaciones incluidas en el mismo pago, sin costo aparte. Acceso completo a los módulos y a los casos que derivamos de escuelas y de familias.',
-      accion: 'Activar plan anual',
-      destacado: true,
-    },
-  ],
-
-  /**
-   * Lo que el psicólogo puede hacer desde la plataforma además de evaluar.
-   * Son las tres funciones que convierten una herramienta de informes en
-   * una fuente de trabajo, y por eso van juntas y no repartidas.
-   *
-   * ⚠️ Esta página es de alcance educativo. No añadir aquí servicios de
-   * ámbito laboral ni enlazarlos.
-   */
-  herramientas: {
-    etiqueta: 'Además de evaluar',
-    titulo: 'Tu agenda, tu perfil público y los estudios de escuela.',
-    puntos: [
-      {
-        titulo: 'Agenda de citas en línea',
-        texto:
-          'Tienes tu propio enlace para compartir. Quien lo abre ve tus horarios libres y reserva sin llamadas ni mensajes de ida y vuelta.',
-      },
-      {
-        titulo: 'Perfil en el directorio público',
-        texto:
-          'Apareces con tu cédula verificada en el directorio que ven las familias, y recibes consultas directas desde ahí.',
-      },
-      {
-        titulo: 'Estudios masivos para escuelas',
-        texto:
-          'Aplicas los estudios de salud psicológica y las pruebas de habilidades en centros escolares, cuando la administración lo autoriza.',
-      },
-    ],
-    accion: 'Acceso PsicoMetrics',
-    url: 'https://psicometrics.app',
-  },
-};
 
 /* ------------------------------------------------------------------ */
 /* 2. Escuelas                                                         */
@@ -214,58 +87,119 @@ export const escuelas = {
    * ⚠️ El alcance de esta página es exclusivamente educativo. No añadir
    * aquí servicios de ámbito laboral ni enlazarlos.
    */
+  /**
+   * LOS SERVICIOS QUE SE APLICAN EN UN CENTRO ESCOLAR
+   *
+   * Todo lo que se puede medir a nivel escolar, en un solo lugar y con la
+   * misma lógica: aplicar no cuesta, el alumno ve su resultado al terminar
+   * y lo que se cotiza es el informe agregado por grupo.
+   *
+   * Cada tarjeta abre con el problema que resuelve, no con lo que mide.
+   * Un director no compra «escalas PHQ-9 y GAD-7»: compra saber quién de
+   * sus alumnos está mal antes de que sea tarde.
+   *
+   * ⚠️ El alcance es exclusivamente educativo. No añadir aquí servicios de
+   * ámbito laboral ni enlazarlos.
+   */
   servicios: [
     {
       id: 'tamizaje-escolar',
-      etiqueta: 'Preescolar a secundaria',
-      nombre: 'Tamizaje escolar por grupo',
+      etiqueta: 'Primaria, secundaria y media superior',
+      nombre: 'Tamizaje escolar',
+      resuelve: 'Sabe a quién mirar primero.',
       precio: 'Sin costo',
       precioNota: 'Ni la escuela ni las familias pagan',
       resumen:
-        'Las familias autorizan y responden desde su propio enlace. El centro recibe un semáforo por aula y la carta para las familias.',
+        'Un cribado breve que las familias contestan desde un enlace, con un semáforo por aula para la escuela y la canalización de cada caso a cargo de un psicólogo.',
       puntos: [
+        'Las familias autorizan y responden desde su propio enlace',
+        'Semáforo por aula: verde, ámbar y azul',
         'La escuela nunca ve el resultado individual',
         'No se guarda el nombre del menor',
         'Incluye capacitación de un docente por grupo evaluado',
-        'Ruta de derivación para los casos que lo requieran',
       ],
-      accion: 'Ver el tamizaje escolar',
-      url: 'https://psicometrics.app/tamizaje-escolar',
+      accion: 'Solicitar propuesta',
+      destino: 'formulario' as const,
       destacado: true,
     },
     {
       id: 'salud-psicologica',
       etiqueta: 'Preparatorias y universidades',
-      nombre: 'Estudio de salud psicológica',
+      nombre: 'Salud psicológica',
+      resuelve: 'Conoce cómo están tus estudiantes y actúa a tiempo.',
       precio: 'Aplicación gratuita',
-      precioNota: 'Cada alumno ve su resultado gratis',
+      precioNota: 'Cada alumno ve su resultado al instante',
       resumen:
-        'Un enlace o código QR por grupo, que se comparte por WhatsApp o correo. Cada alumno ve su resultado gratis al terminar.',
+        'Un estudio en línea para grupos completos: ánimo, ansiedad, estrés y consumo de alcohol. Cada alumno contesta desde su celular y ve su resultado al instante.',
       puntos: [
         'Ánimo (PHQ-9), ansiedad (GAD-7), estrés (DASS-21) y alcohol (AUDIT)',
-        'Si un alumno marca riesgo, el psicólogo recibe un aviso inmediato para contactarlo',
-        'La institución recibe resultados por grupo, a partir de 10 respuestas, nunca nombres',
+        'Un enlace o código QR por grupo, que se comparte por WhatsApp o correo',
+        'Quien marca riesgo recibe contacto del psicólogo en menos de 24 horas',
+        'La institución recibe resultados por grupo, desde 10 respuestas, nunca nombres',
         'El informe institucional con folio y el Excel se cotizan por alumno',
       ],
-      accion: 'Ver el estudio',
-      url: 'https://psicometrics.app/salud-psicologica-escuelas',
+      accion: 'Solicitar propuesta',
+      destino: 'formulario' as const,
     },
     {
-      id: 'pruebas-razonamiento',
+      id: 'razonamiento',
       etiqueta: 'Secundaria, prepa y universidad',
-      nombre: 'Pruebas de habilidades y conocimientos',
+      nombre: 'Razonamiento',
+      resuelve: 'Mide con qué base real entra cada alumno.',
       precio: 'Aplicación gratuita',
       precioNota: 'Resultado inmediato para el alumno',
       resumen:
-        'Misma lógica: aplicar no cuesta, el alumno ve su resultado al instante y el informe por grupo se cotiza por alumno.',
+        'Razonamiento verbal, numérico y abstracto. Sirve para el diagnóstico de ingreso y para armar los cursos propedéuticos con datos y no con suposiciones.',
       puntos: [
         'Razonamiento verbal, numérico y abstracto',
-        'Inglés por nivel del Marco Común Europeo, de A1 a C1, con equivalencia orientativa a Cambridge, TOEFL iBT e IELTS',
-        'Aritmética, álgebra, geometría y lenguaje por grado escolar, de 6.º de primaria a bachillerato: dice hasta qué grado domina cada alumno',
-        'Tiempo por sección controlado y protección contra copiar: si el alumno sale de la prueba para buscar o preguntar a una IA recibe un aviso, y a la segunda vez la sección se cierra',
+        'Resultado inmediato para el alumno al terminar',
+        'Informe por grupo para la institución, cotizado por alumno',
+        'Tiempo por sección controlado',
+        'No es una prueba de coeficiente intelectual',
       ],
-      accion: 'Ver las pruebas',
-      url: 'https://psicometrics.app/pruebas-de-razonamiento',
+      accion: 'Aplicar en mi grupo',
+      destino: 'psicometrics' as const,
+      url: 'https://www.psicometrics.app/pruebas-de-razonamiento',
+    },
+    {
+      id: 'ingles',
+      etiqueta: 'Secundaria, prepa y universidad',
+      nombre: 'Inglés',
+      resuelve: 'Arma los grupos por nivel en una sola sesión.',
+      precio: 'Aplicación gratuita',
+      precioNota: 'Nivel del Marco Común Europeo',
+      resumen:
+        'Ubica a cada alumno de A1 a C1, con equivalencia orientativa a Cambridge, TOEFL iBT e IELTS. Deja de formar grupos por grado y fórmalos por nivel real.',
+      puntos: [
+        'Nivel del Marco Común Europeo, de A1 a C1',
+        'Equivalencia orientativa con Cambridge, TOEFL iBT e IELTS',
+        'Útil para formar grupos por nivel al inicio del ciclo',
+        'Resultado inmediato para el alumno',
+        'No es un certificado oficial ni sustituye a esos exámenes',
+      ],
+      accion: 'Aplicar en mi grupo',
+      destino: 'psicometrics' as const,
+      url: 'https://www.psicometrics.app/pruebas-de-razonamiento',
+    },
+    {
+      id: 'matematicas',
+      etiqueta: 'De 6.º de primaria a bachillerato',
+      nombre: 'Matemáticas y lenguaje',
+      resuelve: 'Dice hasta qué grado domina de verdad cada alumno.',
+      precio: 'Aplicación gratuita',
+      precioNota: 'Por grado escolar, no por edad',
+      resumen:
+        'Aritmética, álgebra, geometría y lenguaje, evaluados por grado escolar. Encuentra el rezago donde está de verdad, aunque el alumno vaya aprobando.',
+      puntos: [
+        'Aritmética, álgebra, geometría y lenguaje',
+        'Resultado por grado escolar, de 6.º de primaria a bachillerato',
+        'Identifica rezago real aunque las calificaciones no lo muestren',
+        'Base para cursos de regularización y propedéuticos',
+        'Protección contra copiar: si el alumno sale de la prueba para buscar o preguntar a una IA recibe un aviso, y a la segunda vez la sección se cierra',
+      ],
+      accion: 'Aplicar en mi grupo',
+      destino: 'psicometrics' as const,
+      url: 'https://www.psicometrics.app/pruebas-de-razonamiento',
     },
   ],
 
@@ -480,29 +414,6 @@ export const titulacion = {
 /* Familias — la ruta más comercial                                    */
 /* ------------------------------------------------------------------ */
 
-/**
- * CONSULTA DIRECTA CON UN PSICÓLOGO
- * ---------------------------------
- * Sección compartida por la portada y /familias. Resuelve la pregunta que
- * una familia se hace después de leer un resultado: «¿y ahora con quién
- * hablo?». Mandarla a un formulario de contacto en ese momento es perderla;
- * el directorio le deja ver a la persona y reservar en el acto.
- */
-export const directorio = {
-  etiqueta: 'Consulta directa',
-  titulo: 'Agenda una consulta con un psicólogo verificado.',
-  entrada:
-    'Un directorio público de psicólogos con cédula profesional verificada. Quien tiene agenda en línea muestra el botón de agendar, y reservas directo: sin llamadas y sin esperar respuesta.',
-  puntos: [
-    'Cédula profesional verificada, visible en el perfil',
-    'Agenda en línea con horarios reales disponibles',
-    'Reservas en el momento, sin llamadas ni mensajes de ida y vuelta',
-    'Atención en línea o presencial, según el especialista',
-  ],
-  accion: 'Ver el directorio',
-  url: 'https://psicometrics.app/directorio',
-};
-
 export const familias = {
   portada: {
     etiqueta: 'Para familias',
@@ -567,7 +478,8 @@ export const familias = {
   productos: [
     {
       id: 'valoracion-psicopedagogica',
-      nombre: 'Valoración psicopedagógica',
+      nombre: 'Evaluación psicopedagógica',
+      resuelve: 'Sabe cómo aprende y qué le cuesta.',
       edades: 'De 3 a 18 años',
       resumen:
         'La responde mamá, papá o tutor en unos veinte minutos. Te dice cómo aprende tu hija o hijo, qué se le facilita y qué le cuesta.',
@@ -578,15 +490,16 @@ export const familias = {
         'Señala si conviene una valoración más a fondo y con quién',
       ],
       accion: 'Hacerla gratis',
-      url: 'https://psicometrics.app/tamizaje-familiar',
+      url: 'https://www.psicometrics.app/tamizaje-familiar',
       destacado: true,
     },
     {
       id: 'orientacion-vocacional',
       nombre: 'Orientación vocacional',
+      resuelve: 'Elige carrera con datos, no con corazonadas.',
       edades: 'Adolescentes y adultos',
       resumen:
-        'Perfil de intereses y aptitudes con el modelo RIASEC, y un mapa de opciones de prepa y universidad acorde al perfil.',
+        'Perfil de intereses y aptitudes con el modelo RIASEC, y un mapa de opciones de prepa y universidad acorde al perfil obtenido.',
       detalle: [
         'Modelo RIASEC de intereses y aptitudes',
         'Mapa de carreras y planteles acorde al perfil obtenido',
@@ -594,23 +507,7 @@ export const familias = {
         'También para adultos que estén replanteando su rumbo',
       ],
       accion: 'Hacerla gratis',
-      url: 'https://psicometrics.app/orientacion-vocacional',
-      destacado: false,
-    },
-    {
-      id: 'bienestar-emocional',
-      nombre: 'Bienestar emocional',
-      edades: 'Adultos y adolescentes',
-      resumen:
-        'Ubica cómo andas de ánimo y de ansiedad con las escalas PHQ-9 y GAD-7, y qué conviene hacer con ese resultado en la mano.',
-      detalle: [
-        'Escala PHQ-9 para el estado de ánimo',
-        'Escala GAD-7 para la ansiedad',
-        'De 12 a 17 años se requiere autorización del tutor',
-        'No es un diagnóstico: orienta sobre si conviene consultar',
-      ],
-      accion: 'Hacerla gratis',
-      url: 'https://psicometrics.app/bienestar',
+      url: 'https://www.psicometrics.app/orientacion-vocacional',
       destacado: false,
     },
   ],

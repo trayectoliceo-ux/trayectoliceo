@@ -5,6 +5,8 @@ import { sitio } from '@/content/sitio';
 export type ServicioFamilia = {
   id: string;
   nombre: string;
+  /** El problema que resuelve, en una frase. Es lo que decide la compra. */
+  resuelve: string;
   edades: string;
   resumen: string;
   detalle: string[];
@@ -40,19 +42,15 @@ export function TarjetaServicio({ servicio }: { servicio: ServicioFamilia }) {
           : 'border-linea shadow-tarjeta'
       }`}
     >
-      {/*
-        `hyphens` heredado de la hoja global parte las palabras largas con
-        guión; `text-balance` reparte las líneas para que la última no
-        quede con una sola palabra colgando.
-
-        La altura mínima va en `em`, no en `rem`: así equivale siempre a
-        dos renglones del propio título, que escala con `clamp`. Con una
-        medida fija habría que recalcularla en cada ancho, y es justo ahí
-        donde la alineación entre tarjetas se rompe.
-      */}
-      <h3 className="text-balance text-t3 leading-[1.15] sm:min-h-[2.4em]">
+      <h3 className="titulo-tarjeta font-display font-bold">
         {servicio.nombre}
       </h3>
+
+      {/* Qué resuelve, no qué mide. Es la frase que decide. */}
+      <p className="frase-resuelve mt-2 font-semibold text-tinta">
+        {servicio.resuelve}
+      </p>
+
       <p className="mt-2 text-menudo text-gris">{servicio.edades}</p>
 
       <p className="mt-4 font-display text-[clamp(1.75rem,4.2vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-menta">
