@@ -77,13 +77,14 @@ export default function PaginaEscuelas() {
       {/* Los tres servicios. Lo primero que se lee es que aplicar no cuesta. */}
       <Seccion>
         <Revelar className="text-center">
-          <p className="etiqueta">Cinco servicios</p>
+          <p className="etiqueta">Todo lo que se puede medir</p>
           <h2 className="mx-auto mt-3 max-w-[24ch] text-t1">
             Aplicar es gratis. Siempre.
           </h2>
           <p className="justificado-limpio mx-auto mt-5 max-w-[44rem] text-cuerpo-lg leading-[1.6] text-tinta-suave">
-            Cada alumno ve su resultado al terminar, sin pagar nada. La institución
-            solo cotiza si quiere el informe por grupo con folio.
+            Elige el nivel y verás solo lo que aplica. Cada alumno ve su resultado
+            al terminar, sin pagar nada: la institución solo cotiza el informe por
+            grupo con folio.
           </p>
         </Revelar>
 
@@ -95,6 +96,26 @@ export default function PaginaEscuelas() {
           <p className="mx-auto mt-8 max-w-lectura text-center text-menudo leading-[1.7] text-gris">
             {escuelas.usos}
           </p>
+        </Revelar>
+
+        {/* La plataforma, mencionada y enlazada. Sin precios: los suyos
+            cambian a su ritmo y publicarlos aquí garantiza contradecirse. */}
+        <Revelar
+          retraso={0.09}
+          className="mx-auto mt-10 max-w-3xl rounded-lg border border-linea bg-papel-puro p-6 text-center shadow-tarjeta sm:p-8"
+        >
+          <h3 className="text-balance text-t3">{escuelas.herramienta.titulo}</h3>
+          <p className="justificado mx-auto mt-3 max-w-lectura text-menudo leading-[1.75] text-tinta-suave">
+            {escuelas.herramienta.texto}
+          </p>
+          <a
+            href={escuelas.herramienta.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex min-h-[52px] items-center justify-center rounded border border-institucional/40 px-7 text-cuerpo font-semibold text-institucional transition-colors duration-200 hover:border-institucional hover:bg-institucional hover:text-papel"
+          >
+            {escuelas.herramienta.accion}
+          </a>
         </Revelar>
 
         {/* El alcance real, a la vista y no en letra chica al pie. */}

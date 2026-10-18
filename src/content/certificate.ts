@@ -57,11 +57,10 @@ export type Programa = {
   nombreCertificacion?: string;
   /**
    * Cómo se accede:
-   *  `membresia` → incluido al estar activo en PsicoMetrics (plan anual)
-   *  `docente`   → capacitación de acceso de pago único ($590)
+   *  `docente`   → capacitación de pago único ($590)
    *  `centro`    → se cotiza por número de participantes
    */
-  acceso: 'membresia' | 'docente' | 'centro';
+  acceso: 'docente' | 'centro';
   /** `pago` cobra en línea y da acceso; `escuela` deriva a WhatsApp. */
   destino: 'pago' | 'escuela';
   /** Si al terminar puede presentarse el examen de validez oficial. */
@@ -74,16 +73,18 @@ export type Programa = {
  * La formación no se vende suelta: va incluida en el plan. Solo se
  * cobra el examen que otorga validez oficial.
  */
+/**
+ * Los dos únicos precios del sitio.
+ *
+ * Los planes de PsicoMetrics NO se publican aquí: esa plataforma tiene su
+ * propia estructura de precios y cambia a su ritmo. Publicarla en dos
+ * sitios garantiza que un día digan cosas distintas, y el que queda mal es
+ * el que el cliente leyó primero. Desde aquí solo se enlaza.
+ */
 export const precios = {
-  /**
-   * Plan anual de PsicoMetrics. Único plan para psicólogos y
-   * psicopedagogos: el plan mensual ya no existe. Las capacitaciones van
-   * incluidas en este pago.
-   */
-  membresia: 899,
   /** Capacitación docente. Es el único cobro para el perfil docente. */
   capacitacionDocente: 590,
-  /** Examen y estudio de caso con validez SEP. Lo único que se cobra aparte. */
+  /** Examen y estudio de caso con validez SEP. Se cobra aparte. */
   certificado: 990,
 };
 
@@ -269,7 +270,7 @@ export const certificado = {
     'Cuando estés listo, presentas un examen de conocimientos y un estudio de caso evaluado en sesión de Zoom por un especialista. Al aprobar, obtienes el documento con validez oficial.',
   precio: precios.certificado,
   requisito:
-    'Es lo único que se cobra aparte: las capacitaciones ya van incluidas en tu plan anual.',
+    'Se agenda cuando termines la capacitación. El examen y el estudio de caso son el único cobro adicional.',
   accion: 'Agendar mi examen',
 };
 

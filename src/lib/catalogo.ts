@@ -14,8 +14,8 @@ import { certificado, precios, programas } from '@/content/certificate';
  *
  * Deliberadamente NO entran:
  *
- *   · Los programas incluidos en el plan anual de PsicoMetrics, porque
- *     cobrarlos sería cobrar dos veces lo mismo.
+ *   · Lo que se contrata en PsicoMetrics: esa plataforma tiene su propia
+ *     estructura de precios y su propio cobro.
  *   · El tamizaje escolar, que es gratuito.
  *   · La valoración psicopedagógica y la orientación vocacional, que se
  *     pagan en psicometrics.app, no aquí.

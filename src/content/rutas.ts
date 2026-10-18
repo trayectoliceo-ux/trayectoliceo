@@ -88,6 +88,32 @@ export const escuelas = {
    * aquí servicios de ámbito laboral ni enlazarlos.
    */
   /**
+   * NIVELES ESCOLARES
+   *
+   * El menú se divide por grado porque así es como piensa quien decide:
+   * un director de primaria no quiere leer sobre consumo de alcohol en
+   * universitarios, y un coordinador de prepa pierde el interés si lo
+   * primero que ve es un cribado de preescolar.
+   */
+  niveles: [
+    {
+      id: 'primaria' as const,
+      titulo: 'Primaria',
+      pie: 'De 1.º a 6.º de primaria',
+    },
+    {
+      id: 'secundaria' as const,
+      titulo: 'Secundaria',
+      pie: 'De 1.º a 3.º de secundaria',
+    },
+    {
+      id: 'superior' as const,
+      titulo: 'Prepa y universidad',
+      pie: 'Media superior y superior',
+    },
+  ],
+
+  /**
    * LOS SERVICIOS QUE SE APLICAN EN UN CENTRO ESCOLAR
    *
    * Todo lo que se puede medir a nivel escolar, en un solo lugar y con la
@@ -104,6 +130,7 @@ export const escuelas = {
   servicios: [
     {
       id: 'tamizaje-escolar',
+      niveles: ['primaria', 'secundaria', 'superior'] as const,
       etiqueta: 'Primaria, secundaria y media superior',
       nombre: 'Tamizaje escolar',
       resuelve: 'Sabe a quién mirar primero.',
@@ -111,19 +138,60 @@ export const escuelas = {
       precioNota: 'Ni la escuela ni las familias pagan',
       resumen:
         'Un cribado breve que las familias contestan desde un enlace, con un semáforo por aula para la escuela y la canalización de cada caso a cargo de un psicólogo.',
+      pruebas: [
+        {
+          nombre: 'Cribado de aprendizaje y desarrollo',
+          que: 'Atención, memoria de trabajo, lectura, escritura y cálculo, más indicadores de conducta en el aula.',
+        },
+        {
+          nombre: 'Semáforo por grupo',
+          que: 'Verde sin indicadores, ámbar alerta de aprendizaje, azul indicador de alta capacidad.',
+        },
+      ],
       puntos: [
         'Las familias autorizan y responden desde su propio enlace',
-        'Semáforo por aula: verde, ámbar y azul',
         'La escuela nunca ve el resultado individual',
         'No se guarda el nombre del menor',
         'Incluye capacitación de un docente por grupo evaluado',
+        'Ruta de derivación para los casos que lo requieran',
       ],
       accion: 'Solicitar propuesta',
       destino: 'formulario' as const,
       destacado: true,
     },
     {
+      id: 'violencia-bullying',
+      niveles: ['secundaria', 'superior'] as const,
+      etiqueta: 'Secundaria, prepa y universidad',
+      nombre: 'Violencia y bullying',
+      resuelve: 'Saca a la luz lo que nadie reporta.',
+      precio: 'Aplicación gratuita',
+      precioNota: 'Anónimo o confidencial, lo decide el centro',
+      resumen:
+        'Diagnóstico masivo de acoso escolar, ciberacoso y violencia de género. El alumno contesta sin exponerse y el centro recibe el mapa del problema con un plan de acción.',
+      pruebas: [
+        {
+          nombre: 'Acoso escolar y ciberacoso',
+          que: 'Frecuencia, tipo y lugar de los episodios, y si hay testigos que no reportan.',
+        },
+        {
+          nombre: 'Violencia de género',
+          que: 'Situaciones de violencia psicológica, digital, física o sexual entre pares.',
+        },
+      ],
+      puntos: [
+        'Aplicación anónima o confidencial, según decida el centro',
+        'Mapa por grupo y por grado, no señalamientos individuales',
+        'Plan de acción con prioridades y responsables',
+        'Los casos de riesgo se canalizan a un psicólogo con cédula',
+        'Un diagnóstico no sustituye el protocolo de actuación del centro',
+      ],
+      accion: 'Solicitar propuesta',
+      destino: 'formulario' as const,
+    },
+    {
       id: 'salud-psicologica',
+      niveles: ['superior'] as const,
       etiqueta: 'Preparatorias y universidades',
       nombre: 'Salud psicológica',
       resuelve: 'Conoce cómo están tus estudiantes y actúa a tiempo.',
@@ -131,8 +199,13 @@ export const escuelas = {
       precioNota: 'Cada alumno ve su resultado al instante',
       resumen:
         'Un estudio en línea para grupos completos: ánimo, ansiedad, estrés y consumo de alcohol. Cada alumno contesta desde su celular y ve su resultado al instante.',
+      pruebas: [
+        { nombre: 'PHQ-9', que: 'Estado de ánimo y síntomas depresivos en las últimas dos semanas.' },
+        { nombre: 'GAD-7', que: 'Ansiedad generalizada: preocupación, inquietud e irritabilidad.' },
+        { nombre: 'DASS-21', que: 'Niveles de estrés, además de ansiedad y ánimo, en una sola escala.' },
+        { nombre: 'AUDIT', que: 'Patrón de consumo de alcohol y señales de consumo de riesgo.' },
+      ],
       puntos: [
-        'Ánimo (PHQ-9), ansiedad (GAD-7), estrés (DASS-21) y alcohol (AUDIT)',
         'Un enlace o código QR por grupo, que se comparte por WhatsApp o correo',
         'Quien marca riesgo recibe contacto del psicólogo en menos de 24 horas',
         'La institución recibe resultados por grupo, desde 10 respuestas, nunca nombres',
@@ -143,6 +216,7 @@ export const escuelas = {
     },
     {
       id: 'razonamiento',
+      niveles: ['secundaria', 'superior'] as const,
       etiqueta: 'Secundaria, prepa y universidad',
       nombre: 'Razonamiento',
       resuelve: 'Mide con qué base real entra cada alumno.',
@@ -150,11 +224,16 @@ export const escuelas = {
       precioNota: 'Resultado inmediato para el alumno',
       resumen:
         'Razonamiento verbal, numérico y abstracto. Sirve para el diagnóstico de ingreso y para armar los cursos propedéuticos con datos y no con suposiciones.',
+      pruebas: [
+        { nombre: 'Verbal', que: 'Comprensión de lectura, vocabulario y relaciones entre ideas.' },
+        { nombre: 'Numérico', que: 'Operaciones, proporciones y resolución de problemas con datos.' },
+        { nombre: 'Abstracto', que: 'Series, patrones y lógica sin depender de contenidos escolares.' },
+      ],
       puntos: [
-        'Razonamiento verbal, numérico y abstracto',
         'Resultado inmediato para el alumno al terminar',
         'Informe por grupo para la institución, cotizado por alumno',
         'Tiempo por sección controlado',
+        'Útil para diagnóstico de ingreso y cursos propedéuticos',
         'No es una prueba de coeficiente intelectual',
       ],
       accion: 'Aplicar en mi grupo',
@@ -163,6 +242,7 @@ export const escuelas = {
     },
     {
       id: 'ingles',
+      niveles: ['secundaria', 'superior'] as const,
       etiqueta: 'Secundaria, prepa y universidad',
       nombre: 'Inglés',
       resuelve: 'Arma los grupos por nivel en una sola sesión.',
@@ -170,11 +250,14 @@ export const escuelas = {
       precioNota: 'Nivel del Marco Común Europeo',
       resumen:
         'Ubica a cada alumno de A1 a C1, con equivalencia orientativa a Cambridge, TOEFL iBT e IELTS. Deja de formar grupos por grado y fórmalos por nivel real.',
+      pruebas: [
+        { nombre: 'Nivel MCER', que: 'Ubica al alumno de A1 a C1 según el Marco Común Europeo de Referencia.' },
+        { nombre: 'Equivalencias', que: 'Referencia orientativa frente a Cambridge, TOEFL iBT e IELTS.' },
+      ],
       puntos: [
-        'Nivel del Marco Común Europeo, de A1 a C1',
-        'Equivalencia orientativa con Cambridge, TOEFL iBT e IELTS',
-        'Útil para formar grupos por nivel al inicio del ciclo',
         'Resultado inmediato para el alumno',
+        'Útil para formar grupos por nivel al inicio del ciclo',
+        'Informe por grupo para la institución, cotizado por alumno',
         'No es un certificado oficial ni sustituye a esos exámenes',
       ],
       accion: 'Aplicar en mi grupo',
@@ -183,6 +266,7 @@ export const escuelas = {
     },
     {
       id: 'matematicas',
+      niveles: ['primaria', 'secundaria', 'superior'] as const,
       etiqueta: 'De 6.º de primaria a bachillerato',
       nombre: 'Matemáticas y lenguaje',
       resuelve: 'Dice hasta qué grado domina de verdad cada alumno.',
@@ -190,8 +274,13 @@ export const escuelas = {
       precioNota: 'Por grado escolar, no por edad',
       resumen:
         'Aritmética, álgebra, geometría y lenguaje, evaluados por grado escolar. Encuentra el rezago donde está de verdad, aunque el alumno vaya aprobando.',
+      pruebas: [
+        { nombre: 'Aritmética', que: 'Operaciones, fracciones, decimales, porcentajes y proporciones.' },
+        { nombre: 'Álgebra', que: 'Lenguaje algebraico, ecuaciones y sistemas según el grado.' },
+        { nombre: 'Geometría', que: 'Figuras, perímetro, área, volumen y razonamiento espacial.' },
+        { nombre: 'Lenguaje', que: 'Comprensión lectora, redacción y uso de la lengua por grado.' },
+      ],
       puntos: [
-        'Aritmética, álgebra, geometría y lenguaje',
         'Resultado por grado escolar, de 6.º de primaria a bachillerato',
         'Identifica rezago real aunque las calificaciones no lo muestren',
         'Base para cursos de regularización y propedéuticos',
@@ -217,6 +306,22 @@ export const escuelas = {
       'Las pruebas de habilidades no son pruebas de coeficiente intelectual.',
       'El nivel de inglés ubica al alumno en el Marco Común Europeo con una equivalencia orientativa. No es un certificado oficial ni sustituye a Cambridge, TOEFL iBT o IELTS.',
     ],
+  },
+
+  /**
+   * Mención de la plataforma, sin precios ni planes.
+   *
+   * PsicoMetrics cambia su estructura de precios a su propio ritmo. Si se
+   * publicara aquí, un día dirían cosas distintas y el que queda mal es el
+   * que el cliente leyó primero. Por eso desde este sitio solo se enlaza:
+   * se dice con qué se aplica y se manda a la plataforma.
+   */
+  herramienta: {
+    titulo: 'Se aplica con PsicoMetrics.',
+    texto:
+      'Todas estas evaluaciones corren sobre PsicoMetrics, la plataforma de evaluación psicométrica que desarrollamos: instrumentos con baremos propios, informes con folio verificable y resultados que el alumno ve al instante.',
+    accion: 'Conocer PsicoMetrics',
+    url: 'https://www.psicometrics.app',
   },
 
   /** Para qué las usa un centro en la práctica. Vende mejor que la lista. */
@@ -508,6 +613,23 @@ export const familias = {
       ],
       accion: 'Hacerla gratis',
       url: 'https://www.psicometrics.app/orientacion-vocacional',
+      destacado: false,
+    },
+    {
+      id: 'bullying',
+      nombre: '¿Hay bullying?',
+      resuelve: 'Reconoce las señales antes de que escale.',
+      edades: 'Para familias y estudiantes',
+      resumen:
+        'Un cuestionario breve sobre señales de acoso escolar y ciberacoso. Te dice si lo que estás viendo encaja con un patrón de acoso y qué hacer a partir de ahí.',
+      detalle: [
+        'La puede contestar la familia o el propio estudiante',
+        'Cubre acoso presencial y ciberacoso',
+        'Señales en conducta, ánimo, sueño y rechazo a ir a la escuela',
+        'Orientación concreta sobre los siguientes pasos y a quién acudir',
+      ],
+      accion: 'Hacerlo gratis',
+      url: 'https://www.psicometrics.app/bullying',
       destacado: false,
     },
   ],

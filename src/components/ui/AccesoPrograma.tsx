@@ -22,37 +22,6 @@ const pesos = (importe: number) => `$${importe.toLocaleString('es-MX')} MXN`;
 export function AccesoPrograma({ programa }: { programa: Programa }) {
   return (
     <div className="space-y-4">
-      {programa.acceso === 'membresia' ? (
-        <div className="rounded-lg border border-institucional bg-papel-puro p-7 text-center shadow-elevada">
-          <p className="etiqueta">Incluido en tu plan</p>
-          <p className="mt-1 text-menudo font-medium uppercase tracking-[0.08em] text-gris">
-            Desde
-          </p>
-          <p className="mt-1 whitespace-nowrap font-display text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.1] tracking-[-0.03em] text-institucional">
-            ${precios.membresia} MXN
-          </p>
-          <p className="mt-1 text-menudo text-gris">al año</p>
-
-          <p className="justificado mt-4 text-menudo text-tinta-suave">
-            No pagas el curso aparte: las capacitaciones van incluidas en el pago
-            anual, sin límite de tiempo para avanzar.
-          </p>
-
-          <a
-            href="https://psicometrics.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 flex min-h-[56px] w-full items-center justify-center rounded bg-institucional px-5 text-center text-cuerpo font-semibold text-papel transition-colors duration-200 hover:bg-institucional-hondo"
-          >
-            Activar mi plan y empezar
-          </a>
-
-          <p className="mt-3 text-menudo text-gris">
-            Continúas en psicometrics.app para dar de alta tu cuenta.
-          </p>
-        </div>
-      ) : null}
-
       {programa.acceso === 'docente' ? (
         <>
           <FormularioCompra

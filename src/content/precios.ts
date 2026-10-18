@@ -5,7 +5,7 @@
  * como referencia de productos anteriores (diplomado, tamizaje de aula de
  * pago, talleres de admisión). Los precios en uso viven en:
  *
- *   · `content/certificate.ts` → plan anual, capacitación docente, certificado
+ *   · `content/certificate.ts` → capacitación docente y certificado SEP
  *   · `content/rutas.ts`       → familias, escuelas, psicólogos
  *   · `lib/catalogo.ts`        → lo único que Mercado Pago acepta cobrar
  *

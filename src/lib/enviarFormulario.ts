@@ -104,15 +104,39 @@ export function resumenParaWhatsApp(datos: DatosContacto): string {
 const RETRASO_SIMULADO = 900;
 
 /**
- * Abre WhatsApp con la solicitud ya redactada.
+ * Registra el prospecto en el automatizador y abre WhatsApp.
  *
- * No hay servidor de por medio: el mensaje viaja por WhatsApp, que es donde
- * se atiende. Si más adelante quieres guardar además una copia en base de
- * datos o en un CRM, se añade aquí una llamada a `/api/contacto` antes de
- * abrir el enlace, sin tocar ningún componente.
+ * El orden importa y no es intercambiable. Primero se registra, después se
+ * abre la conversación: quien llena el formulario y no llega a mandar el
+ * mensaje de WhatsApp —porque se arrepiente, porque el navegador bloquea la
+ * ventana, porque se le va el dato— ya quedó capturado y se le puede
+ * llamar. Al revés, ese prospecto se pierde entero.
+ *
+ * El registro nunca interrumpe el flujo: `registrarLead` no lanza
+ * excepción, así que un fallo del automatizador no impide la conversación.
+ * Perder el dato es malo; perder el contacto es peor.
  */
 export async function enviarFormulario(datos: DatosContacto): Promise<ResultadoEnvio> {
   const { enlaceWhatsApp } = await import('@/content/sitio');
+  const { registrarLead } = await import('@/lib/leads');
+
+  await registrarLead({
+    nombre: datos.nombre,
+    correo: datos.correo,
+    telefono: datos.telefono,
+    producto: datos.motivos?.join(' · ') || 'Solicitud desde el sitio',
+    perfil: datos.perfil,
+    origen: datos.origen,
+    extra: limpiar({
+      institucion: datos.institucion,
+      cargo: datos.cargo,
+      numeroAlumnos: datos.numeroAlumnos,
+      numeroEspecialistas: datos.numeroEspecialistas,
+      edadMenor: datos.edadMenor,
+      gradoEscolar: datos.gradoEscolar,
+      mensaje: datos.mensaje.trim(),
+    }),
+  });
 
   try {
     window.open(enlaceWhatsApp(resumenParaWhatsApp(datos)), '_blank', 'noopener');
@@ -121,6 +145,13 @@ export async function enviarFormulario(datos: DatosContacto): Promise<ResultadoE
   } catch {
     return { ok: false, motivo: 'no_se_pudo_abrir_whatsapp' };
   }
+}
+
+/** Quita los campos vacíos: una hoja llena de celdas en blanco no se lee. */
+function limpiar(campos: Record<string, string | undefined>): Record<string, string> {
+  return Object.fromEntries(
+    Object.entries(campos).filter(([, valor]) => Boolean(valor)),
+  ) as Record<string, string>;
 }
 
 /**
