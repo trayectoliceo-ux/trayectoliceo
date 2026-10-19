@@ -16,8 +16,12 @@ export const sitio = {
    * orientación: una familia con un hijo que va rezagado también tiene que
    * reconocerse en esta línea.
    */
-  descriptor:
-    'Evaluación y acompañamiento del aprendizaje, de los 3 años a la universidad',
+  /**
+   * El eslogan. Va debajo del nombre, en pequeño: acompaña a la marca, no
+   * compite con ella. Tres palabras que dicen a qué nos dedicamos sin
+   * enumerar servicios, que es lo que hacía la versión anterior.
+   */
+  descriptor: 'Transformamos cómo aprenden',
   /** Versión corta, para espacios estrechos. */
   descriptorCorto: 'Aprendizaje infantil',
   operadora: 'Gebenz Consultoría y Negocios, S.A. de C.V.',
@@ -87,7 +91,7 @@ export const sitio = {
     { titulo: 'Familias', corto: 'Familias', href: '/familias', destacado: true },
     { titulo: 'Escuelas', corto: 'Escuelas', href: '/escuelas' },
     { titulo: 'Docentes', corto: 'Docentes', href: '/certificate' },
-    { titulo: 'Talleres STEAM', corto: 'STEAM', href: '/talleres' },
+    { titulo: 'Universidades', corto: 'Universidades', href: '/escuelas#universidades' },
   ],
 
   navegacionPie: [

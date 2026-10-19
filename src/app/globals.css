@@ -40,26 +40,43 @@
     @apply font-display font-bold text-balance;
 
     /*
-      Una palabra larga en una caja estrecha —«psicopedagógica» dentro de
-      una tarjeta— se parte sí o sí. La cuestión es cómo.
+      Los títulos NO se parten con guión.
 
-      Con partición silábica se corta por donde corresponde y con guión,
-      que es lo que el lector espera. `overflow-wrap: break-word` por sí
-      solo la cortaba en seco y sin guión, dejando una letra huérfana en el
-      renglón siguiente.
+      En un cuerpo grande, «conversa-ción» o «Acompaña-miento» se leen mal:
+      el guión pesa tanto como una palabra y rompe el ritmo de un titular
+      que está pensado para leerse de un golpe. En el texto corrido sí se
+      parte, porque ahí el guión pasa desapercibido y evita huecos.
 
-      El orden importa: el navegador intenta primero la partición, y solo
-      recurre a `break-word` si ni partiendo cabe la palabra. Por eso se
-      conservan las dos reglas, no es redundancia.
-
-      `hyphenate-limit-chars: 8 4 4` reserva la partición a palabras de
-      ocho letras o más, dejando al menos cuatro a cada lado: en un título
-      grande, cortar palabras cortas se nota y afea.
+      Lo que impide el desbordamiento no es la partición, es el tamaño: los
+      titulares de columna usan `.titulo-columna`, que escala con el ancho
+      de su propia caja. `overflow-wrap` queda de última red, para una
+      palabra que no quepa ni en el tamaño mínimo.
     */
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphenate-limit-chars: 8 4 4;
+    hyphens: none;
+    -webkit-hyphens: none;
     overflow-wrap: break-word;
+  }
+
+  /*
+    TITULAR QUE SE AJUSTA A SU COLUMNA, no a la pantalla.
+
+    Un `clamp` con `vw` mide la ventana, y la ventana no sabe que este
+    título vive en media columna: a 1440 px pide 72 px de cuerpo aunque su
+    caja mida 430, y ahí es donde una palabra larga se partía.
+
+    `cqi` mide el ancho del contenedor, así que el titular encoge solo
+    cuando su columna es estrecha y conserva su tamaño cuando no lo es.
+    Requiere `container-type: inline-size` en el padre, que es lo que hace
+    `.columna-titulo`.
+  */
+  .columna-titulo {
+    container-type: inline-size;
+  }
+
+  .titulo-columna {
+    font-size: clamp(1.875rem, 11cqi, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
 
   p {

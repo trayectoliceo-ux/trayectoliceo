@@ -174,9 +174,9 @@ export default function PaginaCertificate() {
       {/* Lo que habilita certificarse siendo docente */}
       <Seccion>
         <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-12">
-          <Revelar>
+          <Revelar className="columna-titulo">
             <p className="etiqueta">{docenteCertificado.etiqueta}</p>
-            <h2 className="mt-3 max-w-[20ch] text-t1">{docenteCertificado.titulo}</h2>
+            <h2 className="titulo-columna mt-3">{docenteCertificado.titulo}</h2>
             <p className="justificado-limpio mt-5 max-w-[42rem] text-cuerpo-lg leading-[1.6] text-tinta-suave">
               {docenteCertificado.texto}
             </p>

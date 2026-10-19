@@ -98,8 +98,8 @@ export const escuelas = {
   niveles: [
     {
       id: 'primaria' as const,
-      titulo: 'Primaria',
-      pie: 'De 1.º a 6.º de primaria',
+      titulo: 'Kínder y primaria',
+      pie: 'De preescolar a 6.º de primaria',
     },
     {
       id: 'secundaria' as const,
@@ -110,6 +110,8 @@ export const escuelas = {
       id: 'superior' as const,
       titulo: 'Prepa y universidad',
       pie: 'Media superior y superior',
+      /** Ancla de la navegación: el menú lleva «Universidades» aquí. */
+      ancla: 'universidades',
     },
   ],
 
@@ -161,25 +163,30 @@ export const escuelas = {
     },
     {
       id: 'violencia-bullying',
-      niveles: ['secundaria', 'superior'] as const,
-      etiqueta: 'Secundaria, prepa y universidad',
+      niveles: ['primaria', 'secundaria', 'superior'] as const,
+      etiqueta: 'De primaria a universidad',
       nombre: 'Violencia y bullying',
       resuelve: 'Saca a la luz lo que nadie reporta.',
       precio: 'Aplicación gratuita',
       precioNota: 'Anónimo o confidencial, lo decide el centro',
       resumen:
-        'Diagnóstico masivo de acoso escolar, ciberacoso y violencia de género. El alumno contesta sin exponerse y el centro recibe el mapa del problema con un plan de acción.',
+        'Diagnóstico masivo de acoso escolar y ciberacoso. El alumno contesta sin exponerse y el centro recibe el mapa del problema con un plan de acción.',
       pruebas: [
         {
           nombre: 'Acoso escolar y ciberacoso',
           que: 'Frecuencia, tipo y lugar de los episodios, y si hay testigos que no reportan.',
         },
         {
-          nombre: 'Violencia de género',
-          que: 'Situaciones de violencia psicológica, digital, física o sexual entre pares.',
+          nombre: 'Clima de convivencia',
+          que: 'Qué tan seguro se siente el alumno en el aula, el recreo y los pasillos.',
+        },
+        {
+          nombre: 'Violencia entre pares',
+          que: 'Desde secundaria: situaciones de violencia psicológica, digital o física.',
         },
       ],
       puntos: [
+        'Versión adaptada por nivel: en primaria el lenguaje es más simple',
         'Aplicación anónima o confidencial, según decida el centro',
         'Mapa por grupo y por grado, no señalamientos individuales',
         'Plan de acción con prioridades y responsables',
@@ -213,6 +220,37 @@ export const escuelas = {
       ],
       accion: 'Solicitar propuesta',
       destino: 'formulario' as const,
+    },
+    {
+      id: 'orientacion-vocacional-escolar',
+      niveles: ['superior'] as const,
+      etiqueta: 'Preparatorias y universidades',
+      nombre: 'Orientación vocacional',
+      resuelve: 'Que elijan carrera con datos, no a ciegas.',
+      precio: 'Aplicación gratuita',
+      precioNota: 'Cada alumno ve su perfil al instante',
+      resumen:
+        'Perfil de intereses y aptitudes para el grupo completo, con el mapa de opciones de cada alumno. La institución ve hacia dónde se inclina su generación.',
+      pruebas: [
+        {
+          nombre: 'Perfil RIASEC',
+          que: 'Intereses y aptitudes en las seis áreas del modelo de Holland.',
+        },
+        {
+          nombre: 'Mapa de opciones',
+          que: 'Carreras y planteles acordes al perfil que obtuvo cada alumno.',
+        },
+      ],
+      puntos: [
+        'Un enlace o código QR por grupo',
+        'Cada alumno recibe su perfil y su mapa de opciones al terminar',
+        'La institución ve la distribución de intereses de la generación',
+        'Útil antes del cambio de nivel y para orientar la oferta educativa',
+        'Informe por grupo para la institución, cotizado por alumno',
+      ],
+      accion: 'Aplicar en mi grupo',
+      destino: 'psicometrics' as const,
+      url: 'https://www.psicometrics.app/orientacion-vocacional',
     },
     {
       id: 'razonamiento',
@@ -395,11 +433,16 @@ export const escuelas = {
     },
   ],
 
+  /**
+   * Los talleres siguen siendo parte de la oferta escolar aunque no estén
+   * en el menú principal: son la continuación natural del tamizaje, y el
+   * centro que acaba de ver su semáforo es quien más los necesita.
+   */
   extra: {
     titulo: 'Talleres STEAM después del tamizaje',
     texto:
-      'Opcional. Enriquecimiento por proyectos para los grupos donde el tamizaje detecte alta capacidad.',
-    accion: 'Ver talleres',
+      'Enriquecimiento por proyectos para los grupos donde el tamizaje detecte alta capacidad. Tres días intensivos, grupos de hasta diez alumnos, y los alumnos adicionales se agendan en un grupo aparte.',
+    accion: 'Ver los talleres',
     href: '/talleres',
   },
 };

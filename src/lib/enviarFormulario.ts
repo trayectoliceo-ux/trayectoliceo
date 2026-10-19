@@ -23,7 +23,7 @@
  * └──────────────────────────────────────────────────────────────────────┘
  */
 
-export type Perfil = 'familia' | 'colegio' | 'profesional';
+export type Perfil = 'familia' | 'estudiante' | 'colegio' | 'profesional';
 
 export type DatosContacto = {
   perfil: Perfil;
@@ -62,6 +62,7 @@ export function resumenParaWhatsApp(datos: DatosContacto): string {
 
   const perfiles: Record<Perfil, string> = {
     familia: 'Familia',
+    estudiante: 'Estudiante mayor de edad',
     colegio: 'Institución',
     profesional: 'Profesional',
   };

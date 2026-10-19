@@ -46,7 +46,7 @@ export function validarCampo(
       return undefined;
 
     case 'gradoEscolar':
-      if (perfil !== 'familia') return undefined;
+      if (perfil !== 'familia' && perfil !== 'estudiante') return undefined;
       if (!texto) return 'Indica el grado escolar que cursa.';
       return undefined;
 
@@ -102,6 +102,12 @@ export function camposDelPerfil(perfil: Perfil): (keyof DatosContacto)[] {
   const comunes: (keyof DatosContacto)[] = ['nombre', 'correo', 'telefono'];
 
   if (perfil === 'familia') return [...comunes, 'edadMenor', 'gradoEscolar'];
+  /*
+    El estudiante mayor de edad escribe por sí mismo: no hay menor del que
+    informar, así que solo se le pide su grado o semestre. Pedirle «edad
+    del menor» sería un formulario que no entiende a quién tiene enfrente.
+  */
+  if (perfil === 'estudiante') return [...comunes, 'gradoEscolar'];
   if (perfil === 'colegio')
     return [...comunes, 'cargo', 'institucion', 'numeroAlumnos', 'numeroEspecialistas'];
   return [...comunes, 'cedula', 'cargo'];

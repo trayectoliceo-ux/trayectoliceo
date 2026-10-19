@@ -2,7 +2,11 @@ import Link from 'next/link';
 import { Portada } from '@/components/inicio/Portada';
 import { FormularioInteligente } from '@/components/contacto/FormularioInteligente';
 import { EncabezadoSeccion, Seccion } from '@/components/ui/Piezas';
-import { ElementoRevelar, GrupoRevelar, Revelar } from '@/components/ui/Revelar';
+import {
+  ElementoRevelar,
+  GrupoRevelar,
+  Revelar,
+} from '@/components/ui/Revelar';
 
 import { PreguntasFrecuentes } from '@/components/inicio/PreguntasFrecuentes';
 import { preguntas } from '@/content/inicio';
@@ -10,7 +14,12 @@ import { ServiciosInstitucion } from '@/components/ui/ServiciosInstitucion';
 import { TarjetaServicio } from '@/components/ui/TarjetaServicio';
 import { familias, rutas } from '@/content/rutas';
 import { metadatos } from '@/lib/metadatos';
-import { DatosEstructurados, organizacion, preguntasFrecuentes, sitioWeb } from '@/lib/schema';
+import {
+  DatosEstructurados,
+  organizacion,
+  preguntasFrecuentes,
+  sitioWeb,
+} from '@/lib/schema';
 
 export const metadata = metadatos({
   titulo: 'Evaluación psicopedagógica para niños y adolescentes',
@@ -47,7 +56,6 @@ export default function PaginaInicio() {
         </GrupoRevelar>
       </Seccion>
 
-
       {/* Instituciones: lo mismo, con el énfasis en que aplicar no cuesta. */}
       <Seccion>
         <EncabezadoSeccion
@@ -82,7 +90,9 @@ export default function PaginaInicio() {
                 }`}
               >
                 <p className="etiqueta">{ruta.etiqueta}</p>
-                <h3 className="mt-4 text-balance text-t3 leading-[1.2]">{ruta.titulo}</h3>
+                <h3 className="mt-4 text-balance text-t3 leading-[1.2]">
+                  {ruta.titulo}
+                </h3>
                 <p className="justificado mt-4 flex-1 text-menudo leading-[1.75] text-tinta-suave">
                   {ruta.gancho}
                 </p>
@@ -101,7 +111,6 @@ export default function PaginaInicio() {
         </GrupoRevelar>
       </Seccion>
 
-
       {/* Cierre: contacto */}
       {/*
         Las preguntas van antes del contacto: resuelven las objeciones que
@@ -114,12 +123,30 @@ export default function PaginaInicio() {
 
       <Seccion id="contacto">
         <div className="grid items-stretch gap-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
-          <div>
-            <EncabezadoSeccion
-              etiqueta="Contacto"
-              titulo="Empecemos por una conversación."
-              entrada="Cuéntanos la situación y te decimos con franqueza si podemos ayudar y cómo. Si no somos el servicio adecuado, también lo decimos."
-            />
+          {/*
+            `columna-titulo` hace que el titular mida su propia caja y no la
+            ventana: en esta columna estrecha, un cuerpo calculado sobre el
+            ancho de pantalla obligaba a partir «conversación» por la mitad.
+          */}
+          <div className="columna-titulo">
+            <Revelar as="header">
+              <p className="etiqueta">Contacto</p>
+              {/*
+                Las tres líneas van declaradas, no libradas al azar del
+                salto automático: así «conversación» siempre cae entera en
+                su propio renglón, en cualquier ancho.
+              */}
+              <h2 className="titulo-columna mt-5">
+                <span className="block">Empecemos</span>
+                <span className="block">por una</span>
+                <span className="block">conversación.</span>
+              </h2>
+              <p className="justificado mt-6 max-w-lectura text-cuerpo-lg leading-[1.6] text-tinta-suave">
+                Cuéntanos la situación y te decimos con franqueza si podemos
+                ayudar y cómo. Si no somos el servicio adecuado, también lo
+                decimos.
+              </p>
+            </Revelar>
             <Revelar retraso={0.08} className="mt-8">
               <p className="text-menudo text-gris">
                 ¿Prefieres ver antes los programas?{' '}

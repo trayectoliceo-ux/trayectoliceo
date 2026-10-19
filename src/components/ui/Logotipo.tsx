@@ -56,7 +56,7 @@ export function Logotipo({
         </span>
         {conDescriptor ? (
           <span
-            className={`mt-1 hidden max-w-[30ch] text-balance font-sans text-[0.75rem] leading-[1.35] tracking-[0.005em] sm:block ${colorDescriptor}`}
+            className={`mt-0.5 hidden whitespace-nowrap font-sans text-[0.6875rem] font-medium uppercase leading-[1.3] tracking-[0.06em] sm:block ${colorDescriptor}`}
           >
             {sitio.descriptor}
           </span>

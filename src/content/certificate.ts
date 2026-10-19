@@ -247,8 +247,8 @@ export const grupos = {
  * ⚠️ Redactado como acompañamiento, nunca como terapia ni como tratamiento.
  */
 export const docenteCertificado = {
-  etiqueta: 'Para docentes certificados',
-  titulo: 'Acompañamiento socioemocional para ti.',
+  etiqueta: 'Acompañamiento socioemocional · docentes certificados',
+  titulo: 'Un espacio para ti.',
   texto:
     'No es un curso ni es para tus alumnos: es para ti. Al certificarte te damos tres sesiones de 40 minutos, sin costo, para aprender a canalizar tus propias emociones en un trabajo que desgasta más de lo que se reconoce.',
   puntos: [

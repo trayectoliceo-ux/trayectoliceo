@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { CompartirTarjeta } from '@/components/ui/CompartirTarjeta';
@@ -28,6 +28,26 @@ export function ServiciosInstitucion() {
   const reducido = useReducedMotion();
   const [nivel, setNivel] = useState<(typeof escuelas.niveles)[number]['id']>('primaria');
 
+  /*
+    El menú principal lleva «Universidades» a /escuelas#universidades. Sin
+    esto la persona aterriza en la pestaña de primaria y tiene que buscar
+    la suya: justo el trabajo que el menú prometía ahorrarle.
+
+    Se lee en un efecto y no durante el render porque el servidor no tiene
+    `location`, y renderizar algo distinto en servidor y cliente rompe la
+    hidratación.
+  */
+  useEffect(() => {
+    const ancla = window.location.hash.replace('#', '');
+    if (!ancla) return;
+
+    const destino = escuelas.niveles.find(
+      (opcion) => 'ancla' in opcion && opcion.ancla === ancla,
+    );
+
+    if (destino) setNivel(destino.id);
+  }, []);
+
   const visibles = escuelas.servicios.filter((servicio) =>
     (servicio.niveles as readonly string[]).includes(nivel),
   );
@@ -36,9 +56,10 @@ export function ServiciosInstitucion() {
     <div>
       {/* Selector de nivel */}
       <div
+        id="universidades"
         role="tablist"
         aria-label="Nivel escolar"
-        className="mx-auto flex max-w-3xl flex-wrap items-stretch justify-center gap-2"
+        className="mx-auto flex max-w-3xl scroll-mt-28 flex-wrap items-stretch justify-center gap-2"
       >
         {escuelas.niveles.map((opcion) => {
           const activa = opcion.id === nivel;

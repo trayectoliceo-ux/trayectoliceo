@@ -47,12 +47,27 @@ const perfiles: {
     accion: 'Solicitar diagnóstico familiar',
   },
   {
+    valor: 'estudiante',
+    titulo: 'Soy estudiante mayor de edad',
+    pie: 'Busco orientación para mí',
+    icono: '◇',
+    accion: 'Solicitar orientación',
+  },
+  {
     valor: 'colegio',
     titulo: 'Soy una institución',
     pie: 'Escuela, preparatoria o universidad',
     icono: '▤',
     accion: 'Solicitar propuesta',
   },
+];
+
+/** Lo que busca un estudiante que escribe por su cuenta, no por un hijo. */
+const motivosEstudiante = [
+  'No sé qué carrera elegir',
+  'Quiero saber mi nivel de inglés o de razonamiento',
+  'Me cuesta concentrarme o estudiar',
+  'Quiero hablar con un psicólogo',
 ];
 
 /** Motivos de consulta. Es el dato que más ordena la agenda del equipo. */
@@ -241,8 +256,16 @@ export function FormularioInteligente({
                 >
                   {opcion.icono}
                 </span>
-                <span className="relative mt-2 block text-balance text-menudo font-semibold text-tinta">
+                {/*
+                  Altura reservada para tres renglones de título: «Soy
+                  estudiante mayor de edad» ocupa uno más que los otros dos
+                  y sin la reserva las tres tarjetas quedan descuadradas.
+                */}
+                <span className="relative mt-2 block min-h-[3.9em] text-balance text-menudo font-semibold leading-[1.3] text-tinta">
                   {opcion.titulo}
+                </span>
+                <span className="relative block text-balance text-[0.8125rem] leading-[1.35] text-gris">
+                  {opcion.pie}
                 </span>
               </button>
             );
@@ -265,7 +288,9 @@ export function FormularioInteligente({
                 etiqueta={
                   datos.perfil === 'familia'
                     ? 'Nombre del tutor'
-                    : 'Nombre del contacto'
+                    : datos.perfil === 'estudiante'
+                      ? 'Tu nombre'
+                      : 'Nombre del contacto'
                 }
                 autoComplete="name"
                 valor={datos.nombre}
@@ -276,7 +301,7 @@ export function FormularioInteligente({
               <Campo
                 id={`${idBase}-correo`}
                 etiqueta={
-                  datos.perfil === 'familia'
+                  datos.perfil === 'familia' || datos.perfil === 'estudiante'
                     ? 'Correo electrónico'
                     : 'Correo institucional'
                 }
@@ -290,7 +315,7 @@ export function FormularioInteligente({
               />
               <Campo
                 id={`${idBase}-telefono`}
-                etiqueta={datos.perfil === 'familia' ? 'WhatsApp' : 'Teléfono'}
+                etiqueta={datos.perfil === 'colegio' ? 'Teléfono' : 'WhatsApp'}
                 tipo="tel"
                 inputMode="tel"
                 autoComplete="tel"
@@ -299,7 +324,7 @@ export function FormularioInteligente({
                 error={errores.telefono}
                 onChange={(v) => actualizar('telefono', v)}
                 onBlur={() => alSalir('telefono')}
-                className={datos.perfil === 'familia' ? '' : 'sm:col-span-1'}
+                className={datos.perfil === 'colegio' ? 'sm:col-span-1' : ''}
               />
 
               {/* Campos que dependen del perfil */}
@@ -353,6 +378,53 @@ export function FormularioInteligente({
                         </p>
                         <div className="mt-3 grid items-stretch gap-2">
                           {motivos.map((motivo) => {
+                            const marcado = (datos.motivos ?? []).includes(
+                              motivo,
+                            );
+                            return (
+                              <label
+                                key={motivo}
+                                className={`flex min-h-[44px] cursor-pointer items-center gap-3 rounded border px-4 py-3 text-menudo transition-colors duration-150 ${
+                                  marcado
+                                    ? 'border-institucional bg-institucional/[0.05] text-tinta'
+                                    : 'border-linea text-tinta-suave hover:border-institucional/40'
+                                }`}
+                              >
+                                <input
+                                  type="checkbox"
+                                  checked={marcado}
+                                  onChange={() => alternarMotivo(motivo)}
+                                  className="h-4 w-4 shrink-0 accent-institucional"
+                                />
+                                <span>{motivo}</span>
+                              </label>
+                            );
+                          })}
+                        </div>
+                      </fieldset>
+                    </>
+                  ) : datos.perfil === 'estudiante' ? (
+                    <>
+                      <Campo
+                        id={`${idBase}-grado-estudiante`}
+                        etiqueta="Grado o semestre actual"
+                        ayuda="Por ejemplo: 5.º semestre de prepa"
+                        valor={datos.gradoEscolar ?? ''}
+                        error={errores.gradoEscolar}
+                        onChange={(v) => actualizar('gradoEscolar', v)}
+                        onBlur={() => alSalir('gradoEscolar')}
+                        className="sm:col-span-2"
+                      />
+
+                      <fieldset className="sm:col-span-2">
+                        <legend className="text-menudo font-semibold text-tinta">
+                          ¿Qué te trae aquí?
+                        </legend>
+                        <p className="mt-1 text-menudo text-gris">
+                          Puedes marcar más de una opción.
+                        </p>
+                        <div className="mt-3 grid items-stretch gap-2">
+                          {motivosEstudiante.map((motivo) => {
                             const marcado = (datos.motivos ?? []).includes(
                               motivo,
                             );
